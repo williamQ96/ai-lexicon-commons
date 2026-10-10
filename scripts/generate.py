@@ -40,8 +40,20 @@ def validate(book):
         assert set(t["sources"]) <= set(book["sources"]), "Unknown source"
         if t["status"] == "adopted":
             assert t["adoption"]["date"] and t["adoption"]["url"], "Adoption needs decision"
+            assert t["adoption"]["url"].startswith("https://"), "Decision link must be public HTTPS"
     for source in book["sources"].values():
         assert source["url"].startswith("https://"), "Public sources must use HTTPS"
+
+def status_text(term):
+    return "Proposed; pending team confirmation." if term["status"] == "proposed" else "Adopted within the stated scope; see the recorded team decision."
+
+def adoption_record(term):
+    return "none recorded." if term["status"] == "proposed" else term["adoption"]["date"] + "; " + term["adoption"]["url"]
+
+def adoption_html(term):
+    if term["status"] == "proposed":
+        return "none recorded."
+    return '<a href="' + esc(term["adoption"]["url"]) + '">' + esc(term["adoption"]["date"]) + '</a>'
 
 def paragraph_list(items):
     return "".join("<p>" + esc(item) + "</p>" for item in items)
@@ -85,7 +97,7 @@ def generate(book, digest):
             section += ('<article class="term-row" data-search="' + esc(search.casefold()) + '">'
                         '<div><a class="term-name" href="terms/' + t["slug"] + '.html">' + esc(t["title"]) +
                         '</a><p class="full-name">' + esc(t["full_name"]) + '</p></div><p>' + esc(t["definition"]) +
-                        '</p><span class="status">Proposed</span></article>')
+                        '</p><span class="status">' + esc(t["status"].capitalize()) + '</span></article>')
         rows.append(section + '</div></section>')
     index = ('<section class="intro"><p class="eyebrow">A SHARED LANGUAGE FOR RESEARCH &amp; ENGINEERING</p>'
              '<h1>A living glossary.</h1><p class="lead">' + esc(book["introduction"][0]) + '</p>'
@@ -116,7 +128,7 @@ def generate(book, digest):
         body = ('<a class="back" href="../index.html">Back to alphabetical index</a>'
                 '<div class="term-layout"><article><p class="eyebrow">WORKING DEFINITION</p><h1 class="term-title">' +
                 esc(t["title"]) + '</h1><p class="subtitle">' + esc(t["full_name"]) + '</p><p class="lead">' +
-                esc(t["definition"]) + '</p><p class="notice">Proposed; pending team confirmation.</p>'
+                esc(t["definition"]) + '</p><p class="notice">' + esc(status_text(t)) + '</p>'
                 '<section><h2>Scope</h2><p>' + esc(t["scope"]) + '</p></section>'
                 '<div class="boundaries"><section><h2>Includes</h2>' + bullet_list(t["includes"]) +
                 '</section><section><h2>Excludes</h2>' + bullet_list(t["excludes"]) + '</section></div>'
@@ -126,7 +138,7 @@ def generate(book, digest):
                 '<section class="sources"><h2>Versioned sources</h2><ol>' + sources + '</ol></section></article>'
                 '<aside><h2>Related terms</h2><nav aria-label="Related terms">' + related + '</nav><h2>Entry record</h2>'
                 '<p>Version ' + esc(t["entry_version"]) + '<br>Updated ' + esc(t["updated"]) +
-                '<br>Status: ' + esc(t["status"]) + '<br>Adoption decision: none recorded.</p>'
+                '<br>Status: ' + esc(t["status"]) + '<br>Adoption decision: ' + adoption_html(t) + '</p>'
                 '<a href="' + REPO + '/blob/main/data/handbook.json">View source content</a></aside></div>')
         outputs["docs/terms/" + t["slug"] + ".html"] = page(book, t["title"], body, digest, "../")
     outputs["docs/.nojekyll"] = ""
@@ -160,7 +172,7 @@ def generate(book, digest):
                       r"\section*{\Huge " + tex(t["title"]) + "}",
                       tex(t["full_name"]) + r"\par" if t["full_name"] else "",
                       r"\textbf{" + tex(t["definition"]) + "}",
-                      r"\par\textit{Proposed; pending team confirmation.}",
+                      r"\par\textit{" + tex(status_text(t)) + "}",
                       r"\field{Scope}{" + tex(t["scope"]) + "}"])
         for key, heading in [("includes","Includes"),("excludes","Excludes"),("ambiguities","Ambiguities and boundaries")]:
             latex.extend([r"\textbf{" + heading + "}", r"\begin{itemize}",
@@ -172,7 +184,7 @@ def generate(book, digest):
         else:
             latex.append(r"\field{Sources}{Original project proposal; no external authority claimed.}")
         latex.append(r"\field{Entry record}{Version " + tex(t["entry_version"]) + "; updated " +
-                     tex(t["updated"]) + "; status: " + tex(t["status"]) + "; adoption decision: none recorded.}")
+                     tex(t["updated"]) + "; status: " + tex(t["status"]) + "; adoption decision: " + tex(adoption_record(t)) + "}")
         latex.append(r"\field{Related terms}{" + "; ".join(
             r"\hyperlink{term-" + s + "}{" + tex(by_slug[s]["title"]) + "}" for s in t["related"]) + "}")
     latex.extend([r"\newpage\bibliographystyle{plain}", r"\bibliography{references}", r"\end{document}"])

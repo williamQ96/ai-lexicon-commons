@@ -6,128 +6,281 @@
 \usepackage{microtype}
 \usepackage{xcolor}
 \usepackage{hyperref}
-\hypersetup{
-  colorlinks=true,
-  linkcolor=blue,
-  urlcolor=blue,
-  citecolor=blue,
-  pdftitle={Plale Lab Shared Glossary and Operational Definitions},
-  pdfauthor={},
-  pdfsubject={Working proposal for team review; not lab-approved}
-}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\Urlmuskip=0mu plus 1mu
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{0.5em}
-\newcommand{\entryfield}[2]{\par\textbf{#1.} #2\par}
-\title{Plale Lab Shared Glossary\\and Operational Definitions}
-\author{Working proposal for team review}
-\date{Starter version 0.1 --- 10 October 2026}
-
+\setlength{\parskip}{0.45em}
+\newcommand{\field}[2]{\par\textbf{#1.} #2\par}
+% Generated from data/handbook.json. Edit the JSON, not this file.
 \begin{document}
-\maketitle
-\begin{center}
-\fbox{\parbox{0.9\linewidth}{\textbf{Status: proposed; not lab-approved.}
-This starter offers a format and illustrative definitions for discussion.
-It does not claim team consensus or establish lab policy.}}
-\end{center}
+\section*{Plale Lab Shared Glossary and Operational Definitions}
+\textbf{Living glossary --- Version 0.2 --- 2026-10-10}
+\par\textbf{Working proposal; pending team confirmation.}
+This is a living glossary developed for clearer communication and productivity within Plale Lab and the wider community. It is a public collaborative project, updated over time.
 
-\section{Purpose and use}
-A shared glossary can make the intended meaning and boundaries of a term
-visible. An operational definition adds the observations or decision rules
-needed to apply that meaning in a specified setting. Neither a concise
-definition nor a successful document build establishes scientific validity.
+AI research and especially rapidly evolving AI engineering terminology can have blurred boundaries, competing meanings, and meanings that change across time or communities. Those differences can create avoidable communication costs.
 
-The entries below are starter proposals. Project-specific definitions,
-thresholds, and examples should be added through review, with public sources
-and a stated scope. Where evidence or a decision is missing, record that gap
-explicitly rather than treating it as settled.
+Readers are assumed to have academic and engineering experience. The aim is to clarify ambiguity and make working meanings explicit, rather than provide comprehensive introductory instruction.
 
-\section{Proposed entry and review convention}
-Each entry records the term, working definition, scope, inclusions,
-exclusions, operational criteria where applicable, source and source version,
-entry version, and status. An entry may also record a synthetic example,
-counterexample, related terms, and open questions.
+\subsection*{Source policy}
+Prefer applicable standards, disciplinary consensus, and authoritative definitions. Then consider peer-reviewed literature, while recognizing that peer review alone does not establish consensus.
 
-New entries start as \textbf{proposed}. An \textbf{adopted} entry requires an
-explicit team decision with a date and public reference. Adoption is limited
-to the entry's stated scope. A merged pull request or a passing PDF build is
-not, on its own, a decision to adopt a definition. This review convention is
-itself a proposal for team consideration.
+For newer terms, use clearly attributed preprints, first-party technical documentation, and established engineering practices when stronger sources are not available or do not resolve the intended usage.
 
-Copy \texttt{templates/definition-entry.tex} into the appropriate part of
-this document, replace the placeholders, and cite public sources through
-\texttt{references.bib}. Keep private material outside this public repository.
+Where sources or communities disagree, preserve attribution and state the working definition chosen for this project. Source authority and project adoption are separate questions. Every initial entry remains proposed and pending team confirmation.
 
-\newpage
-\section{Illustrative proposed entries}
-\subsection{Working definition}
-\label{term:working-definition}
-\entryfield{Working definition}{An explicit, revisable statement of the
-meaning intended for a term within a stated context.}
-\entryfield{Scope}{Terminology entries in this glossary.}
-\entryfield{Includes}{The intended referent, relevant context, and boundaries
-needed to interpret use of the term.}
-\entryfield{Excludes}{Claims that the meaning is universal, settled across
-disciplines, or already adopted by the lab.}
-\entryfield{Operational criteria}{For this glossary, a candidate entry states
-its meaning and scope and identifies inclusions and exclusions. If a term
-will be used to measure or classify observations, the entry also supplies
-the operational criteria or explicitly marks them as pending. This is a
-proposed editorial check, not a scientific measurement rule.}
-\entryfield{Source and version}{Original starter proposal in this repository,
-version 0.1, 10 October 2026; no external authority is claimed.}
-\entryfield{Entry version}{0.1.}
-\entryfield{Status}{Proposed. Adoption decision: none recorded.}
+Record the source version or date, a precise locator where useful, and this project's interpretation or adaptation. Revisit meanings when evidence, standards, or usage change.
 
-\subsection{Operational definition}
-\label{term:operational-definition}
-\entryfield{Working definition}{A specification of how a concept will be
-observed, measured, or classified in a stated setting, including the rule
-used to interpret the observations.}
-\entryfield{Scope}{Definitions used to support a repeatable measurement or
-classification procedure.}
-\entryfield{Includes}{The observation unit, inputs, procedure, decision rule,
-and treatment of ambiguous or missing information, where relevant.}
-\entryfield{Excludes}{A broad description of a concept without a procedure;
-a claim that a procedure alone establishes the concept's validity.}
-\entryfield{Operational criteria}{A proposed procedure identifies the unit
-and inputs, states executable steps, specifies thresholds and units when
-used, and explains ambiguous and missing cases. It includes a synthetic
-example and counterexample when useful. Any unsettled rule is marked pending.}
-\entryfield{Source and version}{Original starter proposal in this repository,
-version 0.1, 10 October 2026; no external authority is claimed.}
-\entryfield{Entry version}{0.1.}
-\entryfield{Status}{Proposed. Adoption decision: none recorded.}
-
-\newpage
-\subsection{Provenance}
-\label{term:provenance}
-\entryfield{Working definition}{Information about the origin and production
-history of an entity, including relevant activities and responsible agents.}
-\entryfield{Scope}{Describing the derivation of a public document, definition,
-or other research object. This entry is a proposed local interpretation
-informed by the W3C PROV-O Recommendation \cite{w3c-provo}; it is not a
-claim of conformance to the full standard.}
-\entryfield{Includes}{Source identifiers and versions, derivation steps, and
-attribution where publicly shareable.}
-\entryfield{Excludes}{An unsupported origin claim; a guarantee of accuracy
-or trustworthiness; disclosure of restricted source material.}
-\entryfield{Operational criteria}{For a glossary entry, record a public source
-or identify an original proposal; record the source version or date; and
-describe how the proposed definition was adapted. Use a source locator
-such as a section, DOI, or stable URL where available. Mark gaps as unknown.}
-\entryfield{Source and version}{W3C, \emph{PROV-O: The PROV Ontology},
-Recommendation of 30 April 2013, Sections 1--3 \cite{w3c-provo};
-entry adaptation version 0.1, 10 October 2026.}
-\entryfield{Entry version}{0.1.}
-\entryfield{Status}{Proposed. Adoption decision: none recorded.}
-
-\section{Questions for team review}
+\subsection*{Team review}
+A working definition is selected for use in this draft, not ratified by the lab. Change an entry to adopted only after an explicit team decision is recorded with its date and a public link. A merged pull request or passing build alone does not establish adoption.
+\subsection*{Licensing}
+Copyright 2026 William Qiu. Original prose: \href{https://creativecommons.org/licenses/by/4.0/}{CC BY 4.0}. Build scripts and site code: MIT. Third-party sources retain their own rights.
+\newpage\section*{Alphabetical index}
+Select a term to navigate within this PDF. The website also offers search.
 \begin{itemize}
-\item Which terms are most useful to define first, and for which projects?
-\item What decision process should establish adoption and later revision?
-\item Which entries need measurable operational criteria or boundary examples?
+\item \hyperlink{term-ai}{AI} --- Artificial intelligence
+\item \hyperlink{term-ai-engineering}{AI engineering}
+\item \hyperlink{term-foundation-model}{Foundation model}
+\item \hyperlink{term-generative-ai}{Generative AI}
+\item \hyperlink{term-llm}{LLM} --- Large language model
+\item \hyperlink{term-ml}{ML} --- Machine learning
+\item \hyperlink{term-operational-definition}{Operational definition}
+\item \hyperlink{term-provenance}{Provenance}
+\item \hyperlink{term-working-definition}{Working definition}
 \end{itemize}
+\newpage\hypertarget{term-ai}{}
+{\small PLALE LAB LIVING GLOSSARY}\par
+\section*{\Huge AI}
+Artificial intelligence\par
+\textbf{AI refers here to the research and engineering of machine-based systems that infer from inputs how to produce outputs toward explicit or implicit objectives.}
+\par\textit{Proposed; pending team confirmation.}
+\field{Scope}{For an implementation, use AI system. The system sense follows the OECD framing: outputs may be predictions, content, recommendations, or decisions, and autonomy and adaptation vary.}
+\textbf{Includes}
+\begin{itemize}
+\item Machine-learning and knowledge-based approaches within the stated system context.
+\end{itemize}
+\textbf{Excludes}
+\begin{itemize}
+\item An assumption that AI means only generative AI or only language models.
+\item Claims about consciousness, human equivalence, or a legal classification.
+\end{itemize}
+\textbf{Ambiguities and boundaries}
+\begin{itemize}
+\item AI can name a field, a capability, a model, or an entire system. Specify which sense is intended.
+\item The OECD definition serves its recommendation's purpose. This glossary uses it as a conceptual reference; it does not resolve every boundary with ordinary software.
+\end{itemize}
+\field{Operational criteria}{When describing an AI system, identify its inputs, objectives, output types, system boundary, and degree of human involvement. Record borderline classifications and their rationale.}
+\field{Chosen working meaning}{Project choice: use AI as the umbrella term; use AI system for a concrete implementation. This is a paraphrase and scoped interpretation of the OECD definition, pending team confirmation.}
+\field{Sources}{\cite{oecd-ai}. See versioned reference records below.}
+\field{Entry record}{Version 0.1; updated 2026-10-10; status: proposed; adoption decision: none recorded.}
+\field{Related terms}{\hyperlink{term-ml}{ML}; \hyperlink{term-generative-ai}{Generative AI}; \hyperlink{term-ai-engineering}{AI engineering}}
+\newpage\hypertarget{term-ai-engineering}{}
+{\small PLALE LAB LIVING GLOSSARY}\par
+\section*{\Huge AI engineering}
 
-\bibliographystyle{plain}
+\textbf{The engineering practice of designing, integrating, evaluating, deploying, and maintaining AI systems so they serve stated needs in their operating context.}
+\par\textit{Proposed; pending team confirmation.}
+\field{Scope}{System delivery and operation across the lifecycle, including software, data, models, infrastructure, and people.}
+\textbf{Includes}
+\begin{itemize}
+\item Work on reliability, scalability, security, human interaction, and operational evaluation.
+\end{itemize}
+\textbf{Excludes}
+\begin{itemize}
+\item A synonym limited to training a new model or writing prompts.
+\item A claim that one organization's framework is a universal standard.
+\end{itemize}
+\textbf{Ambiguities and boundaries}
+\begin{itemize}
+\item Some communities use AI engineering for application development around existing models; CMU SEI describes a broader lifecycle discipline.
+\item State whether a discussion concerns model development, application integration, or the complete operational system.
+\end{itemize}
+\field{Operational criteria}{Identify the system's intended users and outcomes, evaluation criteria, deployment context, monitoring, and maintenance responsibilities. Model performance alone is not the whole acceptance criterion.}
+\field{Chosen working meaning}{Project choice: retain the broader lifecycle meaning informed by CMU SEI. Narrower application-development usage remains relevant when explicitly qualified; team confirmation is pending.}
+\field{Sources}{\cite{sei-engineering}. See versioned reference records below.}
+\field{Entry record}{Version 0.1; updated 2026-10-10; status: proposed; adoption decision: none recorded.}
+\field{Related terms}{\hyperlink{term-ai}{AI}; \hyperlink{term-operational-definition}{Operational definition}; \hyperlink{term-provenance}{Provenance}}
+\newpage\hypertarget{term-foundation-model}{}
+{\small PLALE LAB LIVING GLOSSARY}\par
+\section*{\Huge Foundation model}
+
+\textbf{A model trained on broad data and intended to support adaptation to a range of downstream tasks.}
+\par\textit{Proposed; pending team confirmation.}
+\field{Scope}{A model's training breadth and reuse across tasks, following the terminology introduced by Bommasani and colleagues.}
+\textbf{Includes}
+\begin{itemize}
+\item Adaptation by fine-tuning or other task-specific use of broadly trained models.
+\end{itemize}
+\textbf{Excludes}
+\begin{itemize}
+\item A synonym for every pretrained model, every large model, or every language model.
+\item A guarantee of generality, reliability, or fitness for a particular task.
+\end{itemize}
+\textbf{Ambiguities and boundaries}
+\begin{itemize}
+\item Breadth and adaptability are contextual; this draft sets no universal size or task-count threshold.
+\item The introducing report is a research report/preprint. Its terminology is attributed, rather than presented as disciplinary consensus.
+\end{itemize}
+\field{Operational criteria}{Document the training scope available from public sources and the downstream tasks or adaptation settings that motivate the label. Mark unknown training details as unknown.}
+\field{Chosen working meaning}{Project choice: keep broad training and downstream adaptability as the core meaning; omit a fixed parameter threshold. Pending team confirmation.}
+\field{Sources}{\cite{foundation-report}. See versioned reference records below.}
+\field{Entry record}{Version 0.1; updated 2026-10-10; status: proposed; adoption decision: none recorded.}
+\field{Related terms}{\hyperlink{term-llm}{LLM}; \hyperlink{term-ml}{ML}; \hyperlink{term-generative-ai}{Generative AI}}
+\newpage\hypertarget{term-generative-ai}{}
+{\small PLALE LAB LIVING GLOSSARY}\par
+\section*{\Huge Generative AI}
+
+\textbf{AI used to produce content such as text, images, audio, or code, commonly in response to prompts or other conditioning inputs.}
+\par\textit{Proposed; pending team confirmation.}
+\field{Scope}{The content-generation capability or use of an AI system, informed by the OECD policy paper.}
+\textbf{Includes}
+\begin{itemize}
+\item Systems generating one or several content modalities.
+\end{itemize}
+\textbf{Excludes}
+\begin{itemize}
+\item A synonym for all AI, all machine learning, or every predictive system.
+\item A claim that generated content is original, correct, or grounded in evidence.
+\end{itemize}
+\textbf{Ambiguities and boundaries}
+\begin{itemize}
+\item Generative AI describes a capability or use, while foundation model describes training and adaptability; the labels answer different questions.
+\item A system may combine generation with retrieval, classification, and other functions.
+\end{itemize}
+\field{Operational criteria}{Describe the generated output, conditioning inputs, and how generation is used in the system. Evaluate quality or correctness separately from the label.}
+\field{Chosen working meaning}{Project choice: classify the relevant capability or use as generative, rather than treating the label as a complete description of an application. Pending team confirmation.}
+\field{Sources}{\cite{oecd-generative}. See versioned reference records below.}
+\field{Entry record}{Version 0.1; updated 2026-10-10; status: proposed; adoption decision: none recorded.}
+\field{Related terms}{\hyperlink{term-ai}{AI}; \hyperlink{term-foundation-model}{Foundation model}; \hyperlink{term-llm}{LLM}}
+\newpage\hypertarget{term-llm}{}
+{\small PLALE LAB LIVING GLOSSARY}\par
+\section*{\Huge LLM}
+Large language model\par
+\textbf{A language model trained at substantial scale to model patterns in token sequences and support language tasks.}
+\par\textit{Proposed; pending team confirmation.}
+\field{Scope}{The language-model component, rather than a complete chatbot or application.}
+\textbf{Includes}
+\begin{itemize}
+\item Language models used for token prediction, generation, or language representations, with the specific use stated.
+\end{itemize}
+\textbf{Excludes}
+\begin{itemize}
+\item A synonym for the interface, retrieval system, tools, or orchestration around a model.
+\item A universal numerical boundary for large.
+\end{itemize}
+\textbf{Ambiguities and boundaries}
+\begin{itemize}
+\item Large is relative to the model family and period; parameter count alone does not settle the label.
+\item Some current models accept multiple modalities. Specify the model's input and output modalities rather than relying on LLM as the whole description.
+\end{itemize}
+\field{Operational criteria}{Record a public model identifier and version, the language-modeling function, and known scale and modalities. Leave unavailable details unknown; do not invent a parameter cutoff.}
+\field{Chosen working meaning}{Project choice: use LLM for the language-model component and qualify scale and modalities when material. Google's technical explanation informs the language-model sense; team confirmation is pending.}
+\field{Sources}{\cite{google-llm}. See versioned reference records below.}
+\field{Entry record}{Version 0.1; updated 2026-10-10; status: proposed; adoption decision: none recorded.}
+\field{Related terms}{\hyperlink{term-foundation-model}{Foundation model}; \hyperlink{term-generative-ai}{Generative AI}; \hyperlink{term-ml}{ML}}
+\newpage\hypertarget{term-ml}{}
+{\small PLALE LAB LIVING GLOSSARY}\par
+\section*{\Huge ML}
+Machine learning\par
+\textbf{Methods that fit a model or policy from data or experience to perform a specified task.}
+\par\textit{Proposed; pending team confirmation.}
+\field{Scope}{The learning process and resulting model or policy, rather than the whole surrounding software system.}
+\textbf{Includes}
+\begin{itemize}
+\item Supervised, unsupervised, and reinforcement learning; learning used for prediction or generation.
+\end{itemize}
+\textbf{Excludes}
+\begin{itemize}
+\item A synonym for all AI or an assurance that a model generalizes successfully.
+\item A requirement that every change to software be learned from data.
+\end{itemize}
+\textbf{Ambiguities and boundaries}
+\begin{itemize}
+\item Training and using a trained model are different activities, even when both are described informally as ML.
+\item Generative describes an output capability; supervised and unsupervised describe learning arrangements. These labels are not a single exclusive taxonomy.
+\end{itemize}
+\field{Operational criteria}{Identify what is learned, the data or experience used, the task or objective, and the evaluation setting. Distinguish training from later use.}
+\field{Chosen working meaning}{Project choice: use a broad learning-method sense, informed by Google's technical introduction, while keeping learning arrangement separate from output capability. Pending team confirmation.}
+\field{Sources}{\cite{google-ml}. See versioned reference records below.}
+\field{Entry record}{Version 0.1; updated 2026-10-10; status: proposed; adoption decision: none recorded.}
+\field{Related terms}{\hyperlink{term-ai}{AI}; \hyperlink{term-foundation-model}{Foundation model}; \hyperlink{term-operational-definition}{Operational definition}}
+\newpage\hypertarget{term-operational-definition}{}
+{\small PLALE LAB LIVING GLOSSARY}\par
+\section*{\Huge Operational definition}
+
+\textbf{A specification of how a concept is observed, measured, or classified in a stated setting, including the rule for interpreting observations.}
+\par\textit{Proposed; pending team confirmation.}
+\field{Scope}{Procedures intended to support repeatable measurement or classification.}
+\textbf{Includes}
+\begin{itemize}
+\item Observation units, inputs, procedure, decision rules, and treatment of missing or ambiguous cases.
+\end{itemize}
+\textbf{Excludes}
+\begin{itemize}
+\item A concept description without a procedure.
+\item A claim that specifying a procedure alone establishes scientific validity.
+\end{itemize}
+\textbf{Ambiguities and boundaries}
+\begin{itemize}
+\item Different procedures can operationalize the same concept differently. State the setting and limits instead of treating the procedure as universal.
+\end{itemize}
+\field{Operational criteria}{Identify units and inputs, give executable steps, state thresholds and units where used, and explain missing and ambiguous cases. Add synthetic boundary examples when useful; mark unsettled rules pending.}
+\field{Chosen working meaning}{Original editorial proposal for this glossary, version 0.1. No external authoritative or consensus definition is claimed. Pending team confirmation.}
+\field{Sources}{Original project proposal; no external authority claimed.}
+\field{Entry record}{Version 0.1; updated 2026-10-10; status: proposed; adoption decision: none recorded.}
+\field{Related terms}{\hyperlink{term-working-definition}{Working definition}; \hyperlink{term-ai-engineering}{AI engineering}; \hyperlink{term-ml}{ML}}
+\newpage\hypertarget{term-provenance}{}
+{\small PLALE LAB LIVING GLOSSARY}\par
+\section*{\Huge Provenance}
+
+\textbf{Information about an entity's origin and production history, including relevant activities and responsible agents.}
+\par\textit{Proposed; pending team confirmation.}
+\field{Scope}{Tracing the derivation of a public definition, document, or research object, informed by W3C PROV-O.}
+\textbf{Includes}
+\begin{itemize}
+\item Public source identifiers and versions, derivation steps, and attribution.
+\end{itemize}
+\textbf{Excludes}
+\begin{itemize}
+\item An unsupported origin claim or a guarantee of accuracy.
+\item Disclosure of restricted source material.
+\end{itemize}
+\textbf{Ambiguities and boundaries}
+\begin{itemize}
+\item A source citation is part of provenance, but may omit transformations or decisions between the source and the resulting object.
+\item Recording provenance does not by itself verify a claim or imply conformance to the full PROV standard.
+\end{itemize}
+\field{Operational criteria}{Record a public source or identify an original proposal, the source version/date, a locator where available, and the adaptation. Mark provenance gaps unknown.}
+\field{Chosen working meaning}{Project choice: use a lightweight origin-and-derivation meaning informed by the 2013 W3C Recommendation; no full-standard conformance is claimed. Pending team confirmation.}
+\field{Sources}{\cite{w3c-provo}. See versioned reference records below.}
+\field{Entry record}{Version 0.2; updated 2026-10-10; status: proposed; adoption decision: none recorded.}
+\field{Related terms}{\hyperlink{term-working-definition}{Working definition}; \hyperlink{term-operational-definition}{Operational definition}}
+\newpage\hypertarget{term-working-definition}{}
+{\small PLALE LAB LIVING GLOSSARY}\par
+\section*{\Huge Working definition}
+
+\textbf{An explicit, revisable statement of the meaning chosen for a term within a stated context.}
+\par\textit{Proposed; pending team confirmation.}
+\field{Scope}{The meanings used in this glossary and in discussions that explicitly reference an entry.}
+\textbf{Includes}
+\begin{itemize}
+\item The intended referent, context, and boundaries needed to interpret the term.
+\end{itemize}
+\textbf{Excludes}
+\begin{itemize}
+\item A claim of universal agreement, disciplinary consensus, or lab ratification.
+\end{itemize}
+\textbf{Ambiguities and boundaries}
+\begin{itemize}
+\item Chosen for use in this draft and adopted by the team are different statuses. A draft can state a concrete meaning while confirmation remains pending.
+\end{itemize}
+\field{Operational criteria}{State the intended meaning and scope; identify inclusions and exclusions. Add operational criteria where measurement or classification is intended, or explain why they do not apply.}
+\field{Chosen working meaning}{Original editorial proposal for this glossary, version 0.2. No external authority is claimed. Pending team confirmation.}
+\field{Sources}{Original project proposal; no external authority claimed.}
+\field{Entry record}{Version 0.2; updated 2026-10-10; status: proposed; adoption decision: none recorded.}
+\field{Related terms}{\hyperlink{term-operational-definition}{Operational definition}; \hyperlink{term-provenance}{Provenance}}
+\newpage\bibliographystyle{plain}
 \bibliography{references}
 \end{document}

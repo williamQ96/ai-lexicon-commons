@@ -19,8 +19,8 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Generate handbook from shared content
-        run: python3 scripts/generate.py
+      - name: Validate generated content and PDF snapshot
+        run: python3 scripts/generate.py --check
 
       - name: Install TeX from Ubuntu package registry
         run: |
@@ -57,5 +57,3 @@ jobs:
           if-no-files-found: error
           retention-days: 30
 
-      - name: Export public bootstrap content
-        run: python3 scripts/generate.py --export

@@ -1,0 +1,7 @@
+{
+  "source_sha256": "563c251d6b581e16cdf05270013aa84d11c30523a5bf28d6c4d247e4f84ade86",
+  "content_version": "0.2",
+  "pdf_sha256": "7071b0001c2e3f01ba56c357bbc6a1038a28932483c2539360a6110e7c8559dd",
+  "source_commit": "3e8e5de2a8912f230f3f4ba64262ea180d33fbb3",
+  "build_run": "https://github.com/williamQ96/plale-lab-glossary/actions/runs/38028280978"
+}
