@@ -1,0 +1,22 @@
+# LaTeX build outputs
+/build/
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.lof
+*.lot
+/main.pdf
+
+# Editor and operating-system files
+*~
+*.swp
+.DS_Store
+Thumbs.db

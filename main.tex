@@ -1,0 +1,133 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue,
+  citecolor=blue,
+  pdftitle={Plale Lab Shared Glossary and Operational Definitions},
+  pdfauthor={},
+  pdfsubject={Working proposal for team review; not lab-approved}
+}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+\newcommand{\entryfield}[2]{\par\textbf{#1.} #2\par}
+\title{Plale Lab Shared Glossary\\and Operational Definitions}
+\author{Working proposal for team review}
+\date{Starter version 0.1 --- 10 October 2026}
+
+\begin{document}
+\maketitle
+\begin{center}
+\fbox{\parbox{0.9\linewidth}{\textbf{Status: proposed; not lab-approved.}
+This starter offers a format and illustrative definitions for discussion.
+It does not claim team consensus or establish lab policy.}}
+\end{center}
+
+\section{Purpose and use}
+A shared glossary can make the intended meaning and boundaries of a term
+visible. An operational definition adds the observations or decision rules
+needed to apply that meaning in a specified setting. Neither a concise
+definition nor a successful document build establishes scientific validity.
+
+The entries below are starter proposals. Project-specific definitions,
+thresholds, and examples should be added through review, with public sources
+and a stated scope. Where evidence or a decision is missing, record that gap
+explicitly rather than treating it as settled.
+
+\section{Proposed entry and review convention}
+Each entry records the term, working definition, scope, inclusions,
+exclusions, operational criteria where applicable, source and source version,
+entry version, and status. An entry may also record a synthetic example,
+counterexample, related terms, and open questions.
+
+New entries start as \textbf{proposed}. An \textbf{adopted} entry requires an
+explicit team decision with a date and public reference. Adoption is limited
+to the entry's stated scope. A merged pull request or a passing PDF build is
+not, on its own, a decision to adopt a definition. This review convention is
+itself a proposal for team consideration.
+
+Copy \texttt{templates/definition-entry.tex} into the appropriate part of
+this document, replace the placeholders, and cite public sources through
+\texttt{references.bib}. Keep private material outside this public repository.
+
+\newpage
+\section{Illustrative proposed entries}
+\subsection{Working definition}
+\label{term:working-definition}
+\entryfield{Working definition}{An explicit, revisable statement of the
+meaning intended for a term within a stated context.}
+\entryfield{Scope}{Terminology entries in this glossary.}
+\entryfield{Includes}{The intended referent, relevant context, and boundaries
+needed to interpret use of the term.}
+\entryfield{Excludes}{Claims that the meaning is universal, settled across
+disciplines, or already adopted by the lab.}
+\entryfield{Operational criteria}{For this glossary, a candidate entry states
+its meaning and scope and identifies inclusions and exclusions. If a term
+will be used to measure or classify observations, the entry also supplies
+the operational criteria or explicitly marks them as pending. This is a
+proposed editorial check, not a scientific measurement rule.}
+\entryfield{Source and version}{Original starter proposal in this repository,
+version 0.1, 10 October 2026; no external authority is claimed.}
+\entryfield{Entry version}{0.1.}
+\entryfield{Status}{Proposed. Adoption decision: none recorded.}
+
+\subsection{Operational definition}
+\label{term:operational-definition}
+\entryfield{Working definition}{A specification of how a concept will be
+observed, measured, or classified in a stated setting, including the rule
+used to interpret the observations.}
+\entryfield{Scope}{Definitions used to support a repeatable measurement or
+classification procedure.}
+\entryfield{Includes}{The observation unit, inputs, procedure, decision rule,
+and treatment of ambiguous or missing information, where relevant.}
+\entryfield{Excludes}{A broad description of a concept without a procedure;
+a claim that a procedure alone establishes the concept's validity.}
+\entryfield{Operational criteria}{A proposed procedure identifies the unit
+and inputs, states executable steps, specifies thresholds and units when
+used, and explains ambiguous and missing cases. It includes a synthetic
+example and counterexample when useful. Any unsettled rule is marked pending.}
+\entryfield{Source and version}{Original starter proposal in this repository,
+version 0.1, 10 October 2026; no external authority is claimed.}
+\entryfield{Entry version}{0.1.}
+\entryfield{Status}{Proposed. Adoption decision: none recorded.}
+
+\newpage
+\subsection{Provenance}
+\label{term:provenance}
+\entryfield{Working definition}{Information about the origin and production
+history of an entity, including relevant activities and responsible agents.}
+\entryfield{Scope}{Describing the derivation of a public document, definition,
+or other research object. This entry is a proposed local interpretation
+informed by the W3C PROV-O Recommendation \cite{w3c-provo}; it is not a
+claim of conformance to the full standard.}
+\entryfield{Includes}{Source identifiers and versions, derivation steps, and
+attribution where publicly shareable.}
+\entryfield{Excludes}{An unsupported origin claim; a guarantee of accuracy
+or trustworthiness; disclosure of restricted source material.}
+\entryfield{Operational criteria}{For a glossary entry, record a public source
+or identify an original proposal; record the source version or date; and
+describe how the proposed definition was adapted. Use a source locator
+such as a section, DOI, or stable URL where available. Mark gaps as unknown.}
+\entryfield{Source and version}{W3C, \emph{PROV-O: The PROV Ontology},
+Recommendation of 30 April 2013, Sections 1--3 \cite{w3c-provo};
+entry adaptation version 0.1, 10 October 2026.}
+\entryfield{Entry version}{0.1.}
+\entryfield{Status}{Proposed. Adoption decision: none recorded.}
+
+\section{Questions for team review}
+\begin{itemize}
+\item Which terms are most useful to define first, and for which projects?
+\item What decision process should establish adoption and later revision?
+\item Which entries need measurable operational criteria or boundary examples?
+\end{itemize}
+
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}
