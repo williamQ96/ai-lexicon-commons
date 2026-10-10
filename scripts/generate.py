@@ -78,7 +78,7 @@ def page(book, title, content, digest, prefix="", source_commit="", run_url=""):
             'site code <a href="' + REPO + '/blob/main/LICENSES/MIT.txt">MIT</a>. Third-party sources retain their own rights. '
             '<a href="' + REPO + '/blob/main/LICENSE.md">License scope</a></p>' +
             ('<p>Build <a href="' + REPO + '/commit/' + esc(source_commit) + '">' + esc(source_commit[:12]) + '</a> / '
-             '<a href="' + prefix + 'PDF-SNAPSHOT.json">PDF build record</a></p>' if source_commit else '') +
+             '<a href="' + prefix + 'build-record.html">PDF build record</a></p>' if source_commit else '') +
             '</footer></body></html>\n')
 
 def generate(book, digest, source_commit="", run_url=""):
@@ -229,6 +229,23 @@ def snapshot(book, digest, source_commit, run_url):
               "checks their content hash and PDF checksum, and publishes the fresh site artifact after a successful build. "
               "Pull-request builds provide review artifacts and do not publish. Checked-in starter previews are historical snapshots.\n")
     (ROOT / "docs/PDF-SNAPSHOT.md").write_text(prose, encoding="utf-8")
+    commit_link = ('<a href="' + REPO + '/commit/' + esc(source_commit) + '">' + esc(source_commit) + '</a>') if source_commit else 'Local preview; no commit recorded.'
+    run_link = ('<a href="' + esc(run_url) + '">Successful build run</a>') if run_url else 'Local preview; no run recorded.'
+    body = ('<section class="intro"><p class="eyebrow">BUILD PROVENANCE</p><h1>PDF build record.</h1>'
+            '<p class="lead">The website and PDF are generated together from the same content source.</p></section>'
+            '<section class="policy"><h2>Published edition</h2><dl>'
+            '<dt>Content version</dt><dd>' + esc(book["version"]) + '</dd>'
+            '<dt>Source commit</dt><dd>' + commit_link + '</dd>'
+            '<dt>Build run</dt><dd>' + run_link + '</dd>'
+            '<dt>Shared-source SHA-256</dt><dd><code>' + digest + '</code></dd>'
+            '<dt>PDF SHA-256</dt><dd><code>' + record["pdf_sha256"] + '</code></dd></dl>'
+            '<p><a href="glossary.pdf">Read the compiled PDF</a> / <a href="index.html">Return to the index</a></p>'
+            '<p>The PDF also prints its source commit and build run. Publication follows successful main-branch builds; '
+            'pull-request builds provide review artifacts.</p>'
+            '<p><a href="PDF-SNAPSHOT.json">Machine-readable JSON record</a></p></section>')
+    (ROOT / "docs/build-record.html").write_text(page(book, "Build record", body, digest,
+        source_commit=source_commit, run_url=run_url), encoding="utf-8")
+
 
 def emit_export(outputs):
     export = dict(outputs)

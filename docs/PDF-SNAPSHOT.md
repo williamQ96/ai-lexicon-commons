@@ -8,6 +8,6 @@ This checked-in PDF is the starter edition generated from the source identified 
 - Source commit: [3e8e5de2a8912f230f3f4ba64262ea180d33fbb3](https://github.com/williamQ96/plale-lab-glossary/commit/3e8e5de2a8912f230f3f4ba64262ea180d33fbb3)
 - Successful build: [GitHub Actions](https://github.com/williamQ96/plale-lab-glossary/actions/runs/38028280978)
 
-[Read the current handbook](https://williamq96.github.io/plale-lab-glossary/) · [Current PDF](https://williamq96.github.io/plale-lab-glossary/glossary.pdf) · [Current build record](https://williamq96.github.io/plale-lab-glossary/PDF-SNAPSHOT.json)
+[Read the current handbook](https://williamq96.github.io/plale-lab-glossary/) · [Current PDF](https://williamq96.github.io/plale-lab-glossary/glossary.pdf) · [Current build record](https://williamq96.github.io/plale-lab-glossary/build-record.html)
 
 The checked-in starter snapshot is retained for GitHub's PDF preview. It is not the live publication source. Content-only JSON changes generate a fresh website and PDF automatically after a successful main-branch build; generated files are not written back to the repository.

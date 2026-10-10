@@ -11,7 +11,7 @@ AI research and especially rapidly evolving AI engineering terminology can have 
 ## Read
 
 - [Searchable handbook and alphabetical index](https://williamq96.github.io/plale-lab-glossary/)
-- [Current compiled PDF](https://williamq96.github.io/plale-lab-glossary/glossary.pdf) and [current build record](https://williamq96.github.io/plale-lab-glossary/PDF-SNAPSHOT.json)
+- [Current compiled PDF](https://williamq96.github.io/plale-lab-glossary/glossary.pdf) and [current build record](https://williamq96.github.io/plale-lab-glossary/build-record.html)
 - [Archived starter PDF preview](docs/glossary.pdf) and [its snapshot provenance](docs/PDF-SNAPSHOT.md)
 - [Shared content source](data/handbook.json)
 - [Contribution guide](CONTRIBUTING.md) and [definition-entry template](templates/definition-entry.json)
@@ -57,7 +57,7 @@ A separate job runs only for this repository's `main` branch, after the build su
 
 For a build artifact, open **Actions → Build handbook → a successful run → Artifacts**, download `handbook-<commit>`, and open `glossary.pdf`. Sign-in and repository read access are required; review artifacts are retained for 30 days. A pull-request run normally compiles the proposed merge commit.
 
-The live site's footer links its source commit and PDF build record. The record includes the full commit, run URL, shared-content hash, and PDF checksum; the compiled PDF also records its commit and run. See [hosting details](docs/PAGES.md).
+The live site's footer links its source commit and readable PDF build record. The HTML record and its machine-readable JSON companion includes the full commit, run URL, shared-content hash, and PDF checksum; the compiled PDF also records its commit and run. See [hosting details](docs/PAGES.md).
 
 ## Contribute and reuse
 
