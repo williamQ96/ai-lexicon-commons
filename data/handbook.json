@@ -1,7 +1,7 @@
 {
   "title": "Plale Lab Shared Glossary and Operational Definitions",
   "short_title": "Plale Lab Glossary",
-  "version": "0.2",
+  "version": "0.3",
   "updated": "2026-10-10",
   "status": "Working proposal; pending team confirmation",
   "introduction": [
@@ -372,7 +372,7 @@
         "A source citation is part of provenance, but may omit transformations or decisions between the source and the resulting object.",
         "Recording provenance does not by itself verify a claim or imply conformance to the full PROV standard."
       ],
-      "operational": "Record a public source or identify an original proposal, the source version/date, a locator where available, and the adaptation. Mark provenance gaps unknown.",
+      "operational": "Record a public source or identify an original proposal, the source version/date, a locator where available, and the adaptation. Mark provenance gaps unknown. For generated handbook files, record the source commit and build run alongside the content hash.",
       "adaptation": "Project choice: use a lightweight origin-and-derivation meaning informed by the 2013 W3C Recommendation; no full-standard conformance is claimed. Pending team confirmation.",
       "sources": [
         "w3c-provo"
@@ -382,7 +382,7 @@
         "operational-definition"
       ],
       "status": "proposed",
-      "entry_version": "0.2",
+      "entry_version": "0.3",
       "updated": "2026-10-10",
       "adoption": {
         "date": null,
