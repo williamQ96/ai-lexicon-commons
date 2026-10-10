@@ -61,7 +61,7 @@ def paragraph_list(items):
 def bullet_list(items):
     return "<ul>" + "".join("<li>" + esc(item) + "</li>" for item in items) + "</ul>"
 
-def page(book, title, content, digest, prefix=""):
+def page(book, title, content, digest, prefix="", source_commit="", run_url=""):
     return ('<!doctype html>\n<html lang="en"><head><meta charset="utf-8">'
             '<meta name="viewport" content="width=device-width,initial-scale=1">'
             '<meta name="description" content="A living glossary for clear research and engineering communication.">'
@@ -76,9 +76,12 @@ def page(book, title, content, digest, prefix=""):
             ' / Content ' + digest[:12] + '</p><p>Working proposal; pending team confirmation.</p>'
             '<p>Copyright 2026 William Qiu. Original prose <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; '
             'site code <a href="' + REPO + '/blob/main/LICENSES/MIT.txt">MIT</a>. Third-party sources retain their own rights. '
-            '<a href="' + REPO + '/blob/main/LICENSE.md">License scope</a></p></footer></body></html>\n')
+            '<a href="' + REPO + '/blob/main/LICENSE.md">License scope</a></p>' +
+            ('<p>Build <a href="' + REPO + '/commit/' + esc(source_commit) + '">' + esc(source_commit[:12]) + '</a> / '
+             '<a href="' + prefix + 'PDF-SNAPSHOT.json">PDF build record</a></p>' if source_commit else '') +
+            '</footer></body></html>\n')
 
-def generate(book, digest):
+def generate(book, digest, source_commit="", run_url=""):
     outputs = {}
     terms = sorted(book["terms"], key=lambda t: t["title"].casefold())
     by_slug = {t["slug"]: t for t in terms}
@@ -114,7 +117,7 @@ def generate(book, digest):
              '</p><p><a href="' + REPO + '/blob/main/CONTRIBUTING.md">Propose a definition or revision</a></p></section>'
              '<noscript><p>Search requires JavaScript. All terms and alphabetical links remain available above.</p></noscript>'
              '<script src="assets/search.js" defer></script>')
-    outputs["docs/index.html"] = page(book, "Index", index, digest)
+    outputs["docs/index.html"] = page(book, "Index", index, digest, source_commit=source_commit, run_url=run_url)
     for t in terms:
         related = "".join('<a href="' + s + '.html">' + esc(by_slug[s]["title"]) + '</a>' for s in t["related"])
         sources = ""
@@ -140,10 +143,11 @@ def generate(book, digest):
                 '<p>Version ' + esc(t["entry_version"]) + '<br>Updated ' + esc(t["updated"]) +
                 '<br>Status: ' + esc(t["status"]) + '<br>Adoption decision: ' + adoption_html(t) + '</p>'
                 '<a href="' + REPO + '/blob/main/data/handbook.json">View source content</a></aside></div>')
-        outputs["docs/terms/" + t["slug"] + ".html"] = page(book, t["title"], body, digest, "../")
+        outputs["docs/terms/" + t["slug"] + ".html"] = page(book, t["title"], body, digest, "../", source_commit, run_url)
     outputs["docs/.nojekyll"] = ""
     outputs["docs/BUILD-INFO.json"] = json.dumps({"content_version":book["version"], "updated":book["updated"],
-        "source":"data/handbook.json", "source_sha256":digest, "terms":len(terms)}, indent=2) + "\n"
+        "source":"data/handbook.json", "source_sha256":digest, "terms":len(terms),
+        "source_commit":source_commit or None, "build_run":run_url or None}, indent=2) + "\n"
     latex = [r"\documentclass[11pt,letterpaper]{article}", r"\usepackage[T1]{fontenc}",
              r"\usepackage[utf8]{inputenc}", r"\usepackage{lmodern}", r"\usepackage[margin=1in]{geometry}",
              r"\usepackage{microtype}", r"\usepackage{xcolor}", r"\usepackage{hyperref}",
@@ -187,7 +191,13 @@ def generate(book, digest):
                      tex(t["updated"]) + "; status: " + tex(t["status"]) + "; adoption decision: " + tex(adoption_record(t)) + "}")
         latex.append(r"\field{Related terms}{" + "; ".join(
             r"\hyperlink{term-" + s + "}{" + tex(by_slug[s]["title"]) + "}" for s in t["related"]) + "}")
-    latex.extend([r"\newpage\bibliographystyle{plain}", r"\bibliography{references}", r"\end{document}"])
+    latex.extend([r"\newpage\section*{Build provenance}",
+                  r"Source content SHA-256: \nolinkurl{" + digest + "}."])
+    if source_commit:
+        latex.append(r"\par Source commit: \href{" + REPO + "/commit/" + source_commit + r"}{\nolinkurl{" + source_commit + "}}.")
+    if run_url:
+        latex.append(r"\par Build run: \url{" + run_url + "}.")
+    latex.extend([r"\bibliographystyle{plain}", r"\bibliography{references}", r"\end{document}"])
     outputs["main.tex"] = "\n".join(latex) + "\n"
     bib = []
     for sid, s in book["sources"].items():
@@ -215,8 +225,9 @@ def snapshot(book, digest, source_commit, run_url):
         prose += "- Source commit: [" + source_commit + "](" + REPO + "/commit/" + source_commit + ")\n"
     if run_url:
         prose += "- Successful build: [GitHub Actions](" + run_url + ")\n"
-    prose += ("\nLater Actions builds provide a fresh PDF artifact. The website serves this checked-in snapshot. "
-              "Contributors update the site, TeX, and compiled snapshot together; CI checks the source content hash to detect stale snapshots.\n")
+    prose += ("\nThe main-branch Actions workflow generates the website and this PDF from the same source, "
+              "checks their content hash and PDF checksum, and publishes the fresh site artifact after a successful build. "
+              "Pull-request builds provide review artifacts and do not publish. Checked-in starter previews are historical snapshots.\n")
     (ROOT / "docs/PDF-SNAPSHOT.md").write_text(prose, encoding="utf-8")
 
 def emit_export(outputs):
@@ -245,19 +256,30 @@ def main():
     book = json.loads(raw)
     validate(book)
     digest = hashlib.sha256(raw).hexdigest()
-    outputs = generate(book, digest)
+    outputs = generate(book, digest, args.source_commit, args.run_url)
     if args.check:
         stale = [p for p, content in outputs.items()
                  if not (ROOT / p).exists() or (ROOT / p).read_text(encoding="utf-8") != content]
         record_path = ROOT / "docs/PDF-SNAPSHOT.json"
-        if not record_path.exists() or json.loads(record_path.read_text())["source_sha256"] != digest:
+        record = json.loads(record_path.read_text(encoding="utf-8")) if record_path.exists() else {}
+        pdf_path = ROOT / "docs/glossary.pdf"
+        if record.get("source_sha256") != digest:
             stale.append("docs/glossary.pdf snapshot content")
-        elif hashlib.sha256((ROOT / "docs/glossary.pdf").read_bytes()).hexdigest() != json.loads(record_path.read_text())["pdf_sha256"]:
+        elif not pdf_path.exists() or hashlib.sha256(pdf_path.read_bytes()).hexdigest() != record.get("pdf_sha256"):
             stale.append("docs/glossary.pdf snapshot checksum")
+        if args.source_commit and record.get("source_commit") != args.source_commit:
+            stale.append("PDF snapshot source commit")
+        if args.run_url and record.get("build_run") != args.run_url:
+            stale.append("PDF snapshot build run")
         if stale:
             raise SystemExit("Generated content is stale: " + ", ".join(stale))
         print("Generated pages, TeX, bibliography, and snapshot content hash match the shared source.")
     else:
+        terms_dir = ROOT / "docs/terms"
+        if terms_dir.exists():
+            for previous in terms_dir.glob("*.html"):
+                if previous.relative_to(ROOT).as_posix() not in outputs:
+                    previous.unlink()
         for relative, content in outputs.items():
             target = ROOT / relative
             target.parent.mkdir(parents=True, exist_ok=True)

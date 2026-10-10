@@ -11,7 +11,8 @@ AI research and especially rapidly evolving AI engineering terminology can have 
 ## Read
 
 - [Searchable handbook and alphabetical index](https://williamq96.github.io/plale-lab-glossary/)
-- [Compiled PDF preview](docs/glossary.pdf) and [snapshot provenance](docs/PDF-SNAPSHOT.md)
+- [Current compiled PDF](https://williamq96.github.io/plale-lab-glossary/glossary.pdf) and [current build record](https://williamq96.github.io/plale-lab-glossary/PDF-SNAPSHOT.json)
+- [Archived starter PDF preview](docs/glossary.pdf) and [its snapshot provenance](docs/PDF-SNAPSHOT.md)
 - [Shared content source](data/handbook.json)
 - [Contribution guide](CONTRIBUTING.md) and [definition-entry template](templates/definition-entry.json)
 
@@ -25,9 +26,17 @@ Where sources or communities disagree, retain attribution and state this project
 
 ## One content source, two reading formats
 
-`data/handbook.json` holds the front matter, source policy, source records, and terms. The standard-library Python generator produces `main.tex`, `references.bib`, the index, and all term pages. Do not hand-edit generated prose. CI checks these outputs and the PDF snapshot's source hash to detect drift.
+`data/handbook.json` is the single source of truth for the front matter, source policy, references, and term entries. The standard-library Python generator produces the linked website, `main.tex`, and `references.bib` from that JSON.
 
-To regenerate, install Python 3, TeX Live, BibTeX, and latexmk:
+To edit in GitHub or locally:
+
+1. Edit only `data/handbook.json` for prose, sources, or definitions. Set the content/entry versions and revision dates as appropriate.
+2. Commit the JSON to a branch and open a pull request. Actions regenerates the pages and TeX, compiles the PDF, validates shared-source hashes and PDF provenance, and uploads a review artifact.
+3. Review the artifact's HTML and PDF. After merge to `main`, a successful build publishes the fresh website and PDF together at the links above. Direct pushes to `main` follow the same build-and-publish flow.
+
+No local TeX installation or generated-file commits are required. Do not hand-edit generated prose. The checked-in HTML, TeX, bibliography, and PDF are starter snapshots for repository browsing; live Pages and run artifacts are the current generated editions. A failed build leaves the previous successful publication available, so check Actions and the site's build record when verifying an update.
+
+For an optional local preview, install Python 3, TeX Live, BibTeX, and latexmk:
 
 ```sh
 python3 scripts/generate.py
@@ -36,15 +45,19 @@ python3 scripts/generate.py --snapshot
 python3 scripts/generate.py --check
 ```
 
-On Ubuntu, the TeX packages are `latexmk texlive-latex-base texlive-latex-recommended texlive-fonts-recommended lmodern`. The snapshot command copies the compiled PDF into `docs/` and records its content and PDF hashes. Review the website and PDF, then commit the JSON and generated outputs together.
+On Ubuntu, the TeX packages are `latexmk texlive-latex-base texlive-latex-recommended texlive-fonts-recommended lmodern`. Open `docs/index.html` and `docs/glossary.pdf` locally to review; commit the JSON source change rather than local build output.
 
-## GitHub and TeX
+## GitHub, TeX, and automatic publication
 
-GitHub displays TeX source and can preview a committed PDF; it does not provide Overleaf's live TeX editor. Actions validates and compiles on pushes and pull requests using SHA-pinned official actions, Ubuntu registry-installed TeX, disabled shell escape, and only `contents: read` permission.
+GitHub displays TeX source and can preview a committed PDF; it does not provide Overleaf's live TeX editor. This project's Actions workflow provides automatic compilation and publication after commits.
 
-For a fresh build, open **Actions → Build handbook → a successful run → Artifacts**, download `handbook-<commit>`, and open `glossary.pdf`. Sign-in and repository read access are required; artifacts are retained for 30 days. A pull-request run normally compiles the proposed merge commit.
+The build job runs on pushes, pull requests, and manual runs with only `contents: read`. It uses SHA-pinned official actions, Ubuntu registry-installed TeX, and disabled shell escape. Pull-request builds have no deployment or write permissions and do not publish.
 
-The public site serves the checked-in `docs/` tree. PDF/site updates are included in source commits; the compilation workflow has no deployment or repository-write permissions.
+A separate job runs only for this repository's `main` branch, after the build succeeds. It has only `pages: write` and `id-token: write` and publishes the validated Pages artifact. It checks out no repository code, uses no stored credentials, and cannot write commits. Pages uses the **GitHub Actions** source, rather than branch-folder publishing.
+
+For a build artifact, open **Actions → Build handbook → a successful run → Artifacts**, download `handbook-<commit>`, and open `glossary.pdf`. Sign-in and repository read access are required; review artifacts are retained for 30 days. A pull-request run normally compiles the proposed merge commit.
+
+The live site's footer links its source commit and PDF build record. The record includes the full commit, run URL, shared-content hash, and PDF checksum; the compiled PDF also records its commit and run. See [hosting details](docs/PAGES.md).
 
 ## Contribute and reuse
 

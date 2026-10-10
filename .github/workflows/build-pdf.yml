@@ -8,24 +8,34 @@ on:
 permissions:
   contents: read
 
+# Serialize each branch so an older build cannot publish after a newer build.
+concurrency:
+  group: handbook-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   build:
     name: Validate and compile handbook
     runs-on: ubuntu-24.04
     timeout-minutes: 15
+    permissions:
+      contents: read
     steps:
       - name: Check out source
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           persist-credentials: false
 
-      - name: Validate generated content and PDF snapshot
-        run: python3 scripts/generate.py --check
+      - name: Generate fresh pages, TeX, and bibliography
+        env:
+          SOURCE_COMMIT: ${{ github.sha }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: python3 scripts/generate.py --source-commit "$SOURCE_COMMIT" --run-url "$RUN_URL"
 
       - name: Install TeX from Ubuntu package registry
         run: |
           sudo apt-get update
-          sudo apt-get install -y --no-install-recommends latexmk texlive-latex-base texlive-latex-recommended texlive-fonts-recommended lmodern
+          sudo apt-get install -y --no-install-recommends latexmk texlive-latex-base texlive-latex-recommended texlive-fonts-recommended lmodern poppler-utils
 
       - name: Compile PDF
         run: |
@@ -39,7 +49,20 @@ jobs:
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
           python3 scripts/generate.py --snapshot --source-commit "$SOURCE_COMMIT" --run-url "$RUN_URL"
-          python3 scripts/generate.py --check
+          python3 scripts/generate.py --check --source-commit "$SOURCE_COMMIT" --run-url "$RUN_URL"
+
+      - name: Verify PDF provenance
+        env:
+          SOURCE_COMMIT: ${{ github.sha }}
+        run: |
+          pdftotext build/main.pdf build/main.txt
+          python3 -c 'import os,pathlib; text="".join(pathlib.Path("build/main.txt").read_text().split()); assert os.environ["SOURCE_COMMIT"] in text, "PDF source commit missing"'
+
+      - name: Prepare public site
+        run: |
+          mkdir -p build/site
+          cp docs/index.html docs/glossary.pdf docs/PDF-SNAPSHOT.json docs/BUILD-INFO.json docs/.nojekyll build/site/
+          cp -r docs/terms docs/assets build/site/
 
       - name: Upload handbook
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
@@ -57,3 +80,25 @@ jobs:
           if-no-files-found: error
           retention-days: 30
 
+      - name: Upload Pages site
+        if: github.repository == 'williamQ96/plale-lab-glossary' && github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: build/site
+
+  deploy:
+    name: Publish handbook
+    if: github.repository == 'williamQ96/plale-lab-glossary' && github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy the validated site artifact
+        id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
