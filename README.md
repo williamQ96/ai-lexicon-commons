@@ -6,6 +6,7 @@
 
 ## Read and edit
 
+- [Initial PDF preview](docs/glossary.pdf) is a checked-in snapshot; [build provenance](docs/PDF-SNAPSHOT.md) identifies its source commit.
 - [TeX source](main.tex) contains the glossary and three illustrative proposed entries.
 - [Definition template](templates/definition-entry.tex) provides a copyable entry.
 - [Contribution guide](CONTRIBUTING.md) explains how to propose and review changes.
@@ -15,7 +16,7 @@
 
 GitHub displays TeX as source; it does not provide Overleaf's live TeX editor and compilation preview. GitHub can preview a committed PDF. This repository compiles the source with GitHub Actions on pushes and pull requests.
 
-For a fresh PDF, open **Actions → Build glossary PDF → a successful run → Artifacts → glossary-pdf-<commit>**, download the archive, and open `main.pdf`. GitHub sign-in and repository read access are required for artifact downloads. Artifacts are retained for 30 days. Match the run's commit to the source you want to read; a pull-request run normally compiles GitHub's proposed merge commit.
+For a fresh PDF, open **Actions → Build glossary PDF → a successful run → Artifacts**, select `glossary-pdf-<commit>`, download the archive, and open `main.pdf`. GitHub sign-in and repository read access are required for artifact downloads. Artifacts are retained for 30 days. The checked-in PDF is an initial snapshot and is not automatically refreshed. Match the run's commit to the source you want to read; a pull-request run normally compiles GitHub's proposed merge commit.
 
 ## Build locally
 

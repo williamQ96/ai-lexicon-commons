@@ -38,8 +38,3 @@ jobs:
           if-no-files-found: error
           retention-days: 30
 
-      - name: Export public bootstrap PDF snapshot
-        run: |
-          printf 'BOOTSTRAP_PDF_BASE64_BEGIN\n'
-          base64 build/main.pdf
-          printf 'BOOTSTRAP_PDF_BASE64_END\n'
