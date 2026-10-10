@@ -1,19 +1,14 @@
-# Contributing
+# Contributing to the living glossary
 
-This is a working proposal for team review. The contribution process below is also proposed.
+Edit `data/handbook.json`, the shared source for the website and PDF. Readers are assumed to have academic and engineering experience; prioritize a useful boundary or ambiguity over introductory instruction.
 
-1. Copy [the TeX entry template](templates/definition-entry.tex) into `main.tex`, or revise one existing entry.
-2. State the meaning, scope, inclusions and exclusions. Add operational criteria for measurement or classification; explain "not applicable" or mark unfinished criteria "pending".
-3. Record a public source and version/date, or identify an original proposal. Add BibTeX references to `references.bib`.
-4. Give the entry a version and revision date. New entries remain **proposed**. Include a synthetic example or counterexample if useful.
-5. Open a pull request explaining the term, the ambiguity it addresses, and remaining questions. Review the PDF artifact before merging.
+1. Copy [the definition-entry template](templates/definition-entry.json) into the terms array. Use one core term per entry and a unique stable slug.
+2. State the chosen working definition and scope, inclusions/exclusions, ambiguities, and operational criteria where applicable. Explain not applicable, or mark unresolved criteria pending.
+3. Add public sources to the sources object and reference their IDs from the term. Prefer applicable standards, disciplinary consensus, and authoritative definitions; then peer-reviewed literature. Peer review alone does not establish consensus. Attribute preprints, first-party documentation, and engineering practices when used for newer terms.
+4. Preserve differing meanings and source attribution. Explain this project's chosen interpretation instead of presenting an adaptation as the source's exact definition.
+5. Set entry version and revision date, add valid related-term slugs, and keep new entries proposed. Adopted status requires an explicit team decision date and public link.
+6. Regenerate, compile, and update the snapshot using the commands in [README](README.md). Review the PDF and website; commit the content and generated outputs together. CI checks generated text, related links, required fields, and snapshot hashes, then compiles the exact commit.
 
-Mark an entry **adopted** only when an explicit team decision is recorded with a date and public link. A merge, review approval, or successful build alone does not establish lab adoption.
+Use public material and synthetic examples. Keep private chats, unpublished results, datasets, credentials, internal notes, and personal paths out of this public project.
 
-Use public material only. Do not include private chats, unpublished results, datasets, credentials, internal notes, or personal file paths. Use fictional examples where needed.
-
-Compile with the command in [README.md](README.md). GitHub Actions must compile successfully; also read the PDF to check formatting and meaning. Build success verifies compilation, not semantic agreement.
-
-Keep generated TeX files in `build/`. If a PDF snapshot is committed, record its source commit and update it only after a successful build.
-
-No license has been assigned. Discuss licensing with the repository owner before adding a license file.
+Original prose is CC BY 4.0 and code is MIT, as described in [license scope](LICENSE.md). Preserve third-party rights and attribution. Do not add another person's material unless it may be shared under the relevant terms.

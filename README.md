@@ -1,51 +1,55 @@
 # Plale Lab Shared Glossary and Operational Definitions
 
-**Working proposal for team review — not lab-approved.** This starter offers a format and illustrative definitions for discussion. It does not claim team consensus or establish lab policy.
+This is a living glossary developed for clearer communication and productivity within Plale Lab and the wider community. It is a public collaborative project, updated over time.
 
-[![Build glossary PDF](https://github.com/williamQ96/plale-lab-glossary/actions/workflows/build-pdf.yml/badge.svg)](https://github.com/williamQ96/plale-lab-glossary/actions/workflows/build-pdf.yml)
+AI research and especially rapidly evolving AI engineering terminology can have blurred boundaries, competing meanings, and meanings that change across time or communities. Those differences can create avoidable communication costs. Readers are assumed to have academic and engineering experience; the aim is to clarify ambiguity rather than provide comprehensive introductory instruction.
 
-## Read and edit
+**Working proposal; pending team confirmation.** This draft chooses explicit working meanings without claiming lab ratification. A merged pull request or passing build alone does not establish adoption.
 
-- [Initial PDF preview](docs/glossary.pdf) is a checked-in snapshot; [build provenance](docs/PDF-SNAPSHOT.md) identifies its source commit.
-- [TeX source](main.tex) contains the glossary and three illustrative proposed entries.
-- [Definition template](templates/definition-entry.tex) provides a copyable entry.
-- [Contribution guide](CONTRIBUTING.md) explains how to propose and review changes.
-- [Public references](references.bib) records sources and versions.
-- [Builds and PDFs](https://github.com/williamQ96/plale-lab-glossary/actions/workflows/build-pdf.yml) lists compilation runs.
-- [Optional Pages approach](docs/PAGES.md) describes a future public reading page.
+[![Build handbook](https://github.com/williamQ96/plale-lab-glossary/actions/workflows/build-pdf.yml/badge.svg)](https://github.com/williamQ96/plale-lab-glossary/actions/workflows/build-pdf.yml)
 
-GitHub displays TeX as source; it does not provide Overleaf's live TeX editor and compilation preview. GitHub can preview a committed PDF. This repository compiles the source with GitHub Actions on pushes and pull requests.
+## Read
 
-For a fresh PDF, open **Actions → Build glossary PDF → a successful run → Artifacts**, select `glossary-pdf-<commit>`, download the archive, and open `main.pdf`. GitHub sign-in and repository read access are required for artifact downloads. Artifacts are retained for 30 days. The checked-in PDF is an initial snapshot and is not automatically refreshed. Match the run's commit to the source you want to read; a pull-request run normally compiles GitHub's proposed merge commit.
+- [Searchable handbook and alphabetical index](https://williamq96.github.io/plale-lab-glossary/)
+- [Compiled PDF preview](docs/glossary.pdf) and [snapshot provenance](docs/PDF-SNAPSHOT.md)
+- [Shared content source](data/handbook.json)
+- [Contribution guide](CONTRIBUTING.md) and [definition-entry template](templates/definition-entry.json)
 
-## Build locally
+Each term has its own linked page with a concise definition, scope, inclusions/exclusions, ambiguities, operational criteria, versioned sources, and related terms. The index searches titles, aliases, definitions, boundaries, and sources. Search runs in the browser and sends no queries to a server.
 
-Install TeX Live (or an equivalent distribution), BibTeX, and latexmk. Run from the repository root:
+## Source policy
+
+Prefer applicable standards, disciplinary consensus, and authoritative definitions; then peer-reviewed literature, recognizing that peer review alone does not establish consensus. Newer terms may use attributed preprints, first-party technical documentation, and established engineering practices.
+
+Where sources or communities disagree, retain attribution and state this project's chosen working definition. All initial entries remain proposed and pending team confirmation. Source records identify versions or dates and relevant locators.
+
+## One content source, two reading formats
+
+`data/handbook.json` holds the front matter, source policy, source records, and terms. The standard-library Python generator produces `main.tex`, `references.bib`, the index, and all term pages. Do not hand-edit generated prose. CI checks these outputs and the PDF snapshot's source hash to detect drift.
+
+To regenerate, install Python 3, TeX Live, BibTeX, and latexmk:
 
 ```sh
+python3 scripts/generate.py
 latexmk -pdf -interaction=nonstopmode -halt-on-error -file-line-error -outdir=build -pdflatex="pdflatex -no-shell-escape %O %S" main.tex
+python3 scripts/generate.py --snapshot
+python3 scripts/generate.py --check
 ```
 
-The output is `build/main.pdf`. On Ubuntu, the CI dependencies can be installed from the distribution's package registry:
+On Ubuntu, the TeX packages are `latexmk texlive-latex-base texlive-latex-recommended texlive-fonts-recommended lmodern`. The snapshot command copies the compiled PDF into `docs/` and records its content and PDF hashes. Review the website and PDF, then commit the JSON and generated outputs together.
 
-```sh
-sudo apt-get update
-sudo apt-get install --no-install-recommends latexmk texlive-latex-base texlive-latex-recommended texlive-fonts-recommended lmodern
-```
+## GitHub and TeX
 
-The workflow pins official GitHub actions to commit SHAs, installs TeX through Ubuntu's package registry, disables TeX shell escape, and requests only `contents: read`. It does not deploy a site or write back to the repository.
+GitHub displays TeX source and can preview a committed PDF; it does not provide Overleaf's live TeX editor. Actions validates and compiles on pushes and pull requests using SHA-pinned official actions, Ubuntu registry-installed TeX, disabled shell escape, and only `contents: read` permission.
 
-## Propose a definition
+For a fresh build, open **Actions → Build handbook → a successful run → Artifacts**, download `handbook-<commit>`, and open `glossary.pdf`. Sign-in and repository read access are required; artifacts are retained for 30 days. A pull-request run normally compiles the proposed merge commit.
 
-Use one entry per term. Include a working definition, scope, inclusions, exclusions, operational criteria where applicable, source and version, entry version, and proposed/adopted status. New entries start as **proposed**. Mark an entry **adopted** only with a public, explicit team decision and its date/link; merging a pull request alone is not evidence of adoption.
+The public site serves the checked-in `docs/` tree. PDF/site updates are included in source commits; the compilation workflow has no deployment or repository-write permissions.
 
-Use public sources and synthetic examples. Do not submit private conversations, unpublished results, datasets, credentials, or internal notes.
+## Contribute and reuse
 
-## Licensing
+Submit public sources and synthetic examples. Do not include private chats, unpublished results, datasets, credentials, internal notes, or personal paths. New entries are proposed; adopted status requires an explicit team decision date and public link.
 
-No license has been selected. Public visibility does not itself grant a reuse license. The repository owner and team can decide the appropriate license later.
+Original handbook prose uses **CC BY 4.0**; build scripts and site code use **MIT**. Third-party sources retain their own rights. See [license scope](LICENSE.md).
 
-## GitHub reading and build documentation
-
-- [PDF rendering on GitHub](https://docs.github.com/en/repositories/working-with-files/using-files/working-with-non-code-files#rendering-pdf-documents)
-- [Downloading workflow artifacts](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/download-workflow-artifacts)
+[GitHub PDF rendering documentation](https://docs.github.com/en/repositories/working-with-files/using-files/working-with-non-code-files#rendering-pdf-documents) · [Artifact downloads](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/download-workflow-artifacts)

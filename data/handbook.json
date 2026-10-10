@@ -1,0 +1,424 @@
+{
+  "title": "Plale Lab Shared Glossary and Operational Definitions",
+  "short_title": "Plale Lab Glossary",
+  "version": "0.2",
+  "updated": "2026-10-10",
+  "status": "Working proposal; pending team confirmation",
+  "introduction": [
+    "This is a living glossary developed for clearer communication and productivity within Plale Lab and the wider community. It is a public collaborative project, updated over time.",
+    "AI research and especially rapidly evolving AI engineering terminology can have blurred boundaries, competing meanings, and meanings that change across time or communities. Those differences can create avoidable communication costs.",
+    "Readers are assumed to have academic and engineering experience. The aim is to clarify ambiguity and make working meanings explicit, rather than provide comprehensive introductory instruction."
+  ],
+  "source_policy": [
+    "Prefer applicable standards, disciplinary consensus, and authoritative definitions. Then consider peer-reviewed literature, while recognizing that peer review alone does not establish consensus.",
+    "For newer terms, use clearly attributed preprints, first-party technical documentation, and established engineering practices when stronger sources are not available or do not resolve the intended usage.",
+    "Where sources or communities disagree, preserve attribution and state the working definition chosen for this project. Source authority and project adoption are separate questions. Every initial entry remains proposed and pending team confirmation.",
+    "Record the source version or date, a precise locator where useful, and this project's interpretation or adaptation. Revisit meanings when evidence, standards, or usage change."
+  ],
+  "adoption_policy": "A working definition is selected for use in this draft, not ratified by the lab. Change an entry to adopted only after an explicit team decision is recorded with its date and a public link. A merged pull request or passing build alone does not establish adoption.",
+  "license": "Original handbook prose: CC BY 4.0. Build scripts and site code: MIT. Third-party sources retain their own rights.",
+  "sources": {
+    "oecd-ai": {
+      "title": "Explanatory memorandum on the updated OECD definition of an AI system",
+      "author": "OECD",
+      "year": "2024",
+      "kind": "Authoritative policy definition and explanatory memorandum",
+      "version": "5 March 2024; OECD Artificial Intelligence Papers No. 8",
+      "locator": "Definition on page 4; interpretation on pages 6-9",
+      "url": "https://doi.org/10.1787/623da898-en",
+      "accessed": "2026-10-10"
+    },
+    "google-ml": {
+      "title": "What is Machine Learning?",
+      "author": "Google for Developers",
+      "year": "2026",
+      "kind": "First-party technical documentation",
+      "version": "Last updated 27 January 2026",
+      "locator": "What is Machine Learning? and Types of ML Systems",
+      "url": "https://developers.google.com/machine-learning/intro-to-ml/what-is-ml",
+      "accessed": "2026-10-10"
+    },
+    "google-llm": {
+      "title": "Introduction to Large Language Models",
+      "author": "Google for Developers",
+      "year": "2026",
+      "kind": "First-party technical documentation",
+      "version": "Last updated 9 January 2026",
+      "locator": "What is a language model?; linked LLM module",
+      "url": "https://developers.google.com/machine-learning/crash-course/llm",
+      "accessed": "2026-10-10"
+    },
+    "foundation-report": {
+      "title": "On the Opportunities and Risks of Foundation Models",
+      "author": "Rishi Bommasani and others",
+      "year": "2022",
+      "kind": "Research report / arXiv preprint; no consensus claim",
+      "version": "arXiv:2108.07258v3, 12 July 2022",
+      "locator": "Abstract and introduction",
+      "url": "https://arxiv.org/abs/2108.07258v3",
+      "accessed": "2026-10-10"
+    },
+    "oecd-generative": {
+      "title": "Initial policy considerations for generative artificial intelligence",
+      "author": "Philippe Lorenz and Karine Perset and Jamie Berryhill",
+      "year": "2023",
+      "kind": "Authoritative policy paper",
+      "version": "18 September 2023; OECD Artificial Intelligence Papers No. 1",
+      "locator": "Abstract and introduction",
+      "url": "https://doi.org/10.1787/fae2d1e6-en",
+      "accessed": "2026-10-10"
+    },
+    "sei-engineering": {
+      "title": "Artificial Intelligence Engineering Body of Knowledge",
+      "author": "Carnegie Mellon University Software Engineering Institute",
+      "year": "2022",
+      "kind": "First-party disciplinary initiative and engineering practice",
+      "version": "Page created October 2022; live page accessed 10 October 2026",
+      "locator": "Opening description and Developing the AIEBoK",
+      "url": "https://www.sei.cmu.edu/projects/artificial-intelligence-engineering-body-of-knowledge/",
+      "accessed": "2026-10-10"
+    },
+    "w3c-provo": {
+      "title": "PROV-O: The PROV Ontology",
+      "author": "World Wide Web Consortium",
+      "year": "2013",
+      "kind": "W3C Recommendation",
+      "version": "30 April 2013 Recommendation",
+      "locator": "Sections 1-3",
+      "url": "https://www.w3.org/TR/2013/REC-prov-o-20130430/",
+      "accessed": "2026-10-10"
+    }
+  },
+  "terms": [
+    {
+      "slug": "ai",
+      "title": "AI",
+      "full_name": "Artificial intelligence",
+      "aliases": [
+        "artificial intelligence",
+        "AI system"
+      ],
+      "definition": "AI refers here to the research and engineering of machine-based systems that infer from inputs how to produce outputs toward explicit or implicit objectives.",
+      "scope": "For an implementation, use AI system. The system sense follows the OECD framing: outputs may be predictions, content, recommendations, or decisions, and autonomy and adaptation vary.",
+      "includes": [
+        "Machine-learning and knowledge-based approaches within the stated system context."
+      ],
+      "excludes": [
+        "An assumption that AI means only generative AI or only language models.",
+        "Claims about consciousness, human equivalence, or a legal classification."
+      ],
+      "ambiguities": [
+        "AI can name a field, a capability, a model, or an entire system. Specify which sense is intended.",
+        "The OECD definition serves its recommendation's purpose. This glossary uses it as a conceptual reference; it does not resolve every boundary with ordinary software."
+      ],
+      "operational": "When describing an AI system, identify its inputs, objectives, output types, system boundary, and degree of human involvement. Record borderline classifications and their rationale.",
+      "adaptation": "Project choice: use AI as the umbrella term; use AI system for a concrete implementation. This is a paraphrase and scoped interpretation of the OECD definition, pending team confirmation.",
+      "sources": [
+        "oecd-ai"
+      ],
+      "related": [
+        "ml",
+        "generative-ai",
+        "ai-engineering"
+      ],
+      "status": "proposed",
+      "entry_version": "0.1",
+      "updated": "2026-10-10",
+      "adoption": {
+        "date": null,
+        "url": null
+      }
+    },
+    {
+      "slug": "ai-engineering",
+      "title": "AI engineering",
+      "full_name": "",
+      "aliases": [
+        "artificial intelligence engineering"
+      ],
+      "definition": "The engineering practice of designing, integrating, evaluating, deploying, and maintaining AI systems so they serve stated needs in their operating context.",
+      "scope": "System delivery and operation across the lifecycle, including software, data, models, infrastructure, and people.",
+      "includes": [
+        "Work on reliability, scalability, security, human interaction, and operational evaluation."
+      ],
+      "excludes": [
+        "A synonym limited to training a new model or writing prompts.",
+        "A claim that one organization's framework is a universal standard."
+      ],
+      "ambiguities": [
+        "Some communities use AI engineering for application development around existing models; CMU SEI describes a broader lifecycle discipline.",
+        "State whether a discussion concerns model development, application integration, or the complete operational system."
+      ],
+      "operational": "Identify the system's intended users and outcomes, evaluation criteria, deployment context, monitoring, and maintenance responsibilities. Model performance alone is not the whole acceptance criterion.",
+      "adaptation": "Project choice: retain the broader lifecycle meaning informed by CMU SEI. Narrower application-development usage remains relevant when explicitly qualified; team confirmation is pending.",
+      "sources": [
+        "sei-engineering"
+      ],
+      "related": [
+        "ai",
+        "operational-definition",
+        "provenance"
+      ],
+      "status": "proposed",
+      "entry_version": "0.1",
+      "updated": "2026-10-10",
+      "adoption": {
+        "date": null,
+        "url": null
+      }
+    },
+    {
+      "slug": "foundation-model",
+      "title": "Foundation model",
+      "full_name": "",
+      "aliases": [
+        "foundation models"
+      ],
+      "definition": "A model trained on broad data and intended to support adaptation to a range of downstream tasks.",
+      "scope": "A model's training breadth and reuse across tasks, following the terminology introduced by Bommasani and colleagues.",
+      "includes": [
+        "Adaptation by fine-tuning or other task-specific use of broadly trained models."
+      ],
+      "excludes": [
+        "A synonym for every pretrained model, every large model, or every language model.",
+        "A guarantee of generality, reliability, or fitness for a particular task."
+      ],
+      "ambiguities": [
+        "Breadth and adaptability are contextual; this draft sets no universal size or task-count threshold.",
+        "The introducing report is a research report/preprint. Its terminology is attributed, rather than presented as disciplinary consensus."
+      ],
+      "operational": "Document the training scope available from public sources and the downstream tasks or adaptation settings that motivate the label. Mark unknown training details as unknown.",
+      "adaptation": "Project choice: keep broad training and downstream adaptability as the core meaning; omit a fixed parameter threshold. Pending team confirmation.",
+      "sources": [
+        "foundation-report"
+      ],
+      "related": [
+        "llm",
+        "ml",
+        "generative-ai"
+      ],
+      "status": "proposed",
+      "entry_version": "0.1",
+      "updated": "2026-10-10",
+      "adoption": {
+        "date": null,
+        "url": null
+      }
+    },
+    {
+      "slug": "generative-ai",
+      "title": "Generative AI",
+      "full_name": "",
+      "aliases": [
+        "GenAI",
+        "generative artificial intelligence"
+      ],
+      "definition": "AI used to produce content such as text, images, audio, or code, commonly in response to prompts or other conditioning inputs.",
+      "scope": "The content-generation capability or use of an AI system, informed by the OECD policy paper.",
+      "includes": [
+        "Systems generating one or several content modalities."
+      ],
+      "excludes": [
+        "A synonym for all AI, all machine learning, or every predictive system.",
+        "A claim that generated content is original, correct, or grounded in evidence."
+      ],
+      "ambiguities": [
+        "Generative AI describes a capability or use, while foundation model describes training and adaptability; the labels answer different questions.",
+        "A system may combine generation with retrieval, classification, and other functions."
+      ],
+      "operational": "Describe the generated output, conditioning inputs, and how generation is used in the system. Evaluate quality or correctness separately from the label.",
+      "adaptation": "Project choice: classify the relevant capability or use as generative, rather than treating the label as a complete description of an application. Pending team confirmation.",
+      "sources": [
+        "oecd-generative"
+      ],
+      "related": [
+        "ai",
+        "foundation-model",
+        "llm"
+      ],
+      "status": "proposed",
+      "entry_version": "0.1",
+      "updated": "2026-10-10",
+      "adoption": {
+        "date": null,
+        "url": null
+      }
+    },
+    {
+      "slug": "llm",
+      "title": "LLM",
+      "full_name": "Large language model",
+      "aliases": [
+        "large language model",
+        "large language models"
+      ],
+      "definition": "A language model trained at substantial scale to model patterns in token sequences and support language tasks.",
+      "scope": "The language-model component, rather than a complete chatbot or application.",
+      "includes": [
+        "Language models used for token prediction, generation, or language representations, with the specific use stated."
+      ],
+      "excludes": [
+        "A synonym for the interface, retrieval system, tools, or orchestration around a model.",
+        "A universal numerical boundary for large."
+      ],
+      "ambiguities": [
+        "Large is relative to the model family and period; parameter count alone does not settle the label.",
+        "Some current models accept multiple modalities. Specify the model's input and output modalities rather than relying on LLM as the whole description."
+      ],
+      "operational": "Record a public model identifier and version, the language-modeling function, and known scale and modalities. Leave unavailable details unknown; do not invent a parameter cutoff.",
+      "adaptation": "Project choice: use LLM for the language-model component and qualify scale and modalities when material. Google's technical explanation informs the language-model sense; team confirmation is pending.",
+      "sources": [
+        "google-llm"
+      ],
+      "related": [
+        "foundation-model",
+        "generative-ai",
+        "ml"
+      ],
+      "status": "proposed",
+      "entry_version": "0.1",
+      "updated": "2026-10-10",
+      "adoption": {
+        "date": null,
+        "url": null
+      }
+    },
+    {
+      "slug": "ml",
+      "title": "ML",
+      "full_name": "Machine learning",
+      "aliases": [
+        "machine learning"
+      ],
+      "definition": "Methods that fit a model or policy from data or experience to perform a specified task.",
+      "scope": "The learning process and resulting model or policy, rather than the whole surrounding software system.",
+      "includes": [
+        "Supervised, unsupervised, and reinforcement learning; learning used for prediction or generation."
+      ],
+      "excludes": [
+        "A synonym for all AI or an assurance that a model generalizes successfully.",
+        "A requirement that every change to software be learned from data."
+      ],
+      "ambiguities": [
+        "Training and using a trained model are different activities, even when both are described informally as ML.",
+        "Generative describes an output capability; supervised and unsupervised describe learning arrangements. These labels are not a single exclusive taxonomy."
+      ],
+      "operational": "Identify what is learned, the data or experience used, the task or objective, and the evaluation setting. Distinguish training from later use.",
+      "adaptation": "Project choice: use a broad learning-method sense, informed by Google's technical introduction, while keeping learning arrangement separate from output capability. Pending team confirmation.",
+      "sources": [
+        "google-ml"
+      ],
+      "related": [
+        "ai",
+        "foundation-model",
+        "operational-definition"
+      ],
+      "status": "proposed",
+      "entry_version": "0.1",
+      "updated": "2026-10-10",
+      "adoption": {
+        "date": null,
+        "url": null
+      }
+    },
+    {
+      "slug": "operational-definition",
+      "title": "Operational definition",
+      "full_name": "",
+      "aliases": [],
+      "definition": "A specification of how a concept is observed, measured, or classified in a stated setting, including the rule for interpreting observations.",
+      "scope": "Procedures intended to support repeatable measurement or classification.",
+      "includes": [
+        "Observation units, inputs, procedure, decision rules, and treatment of missing or ambiguous cases."
+      ],
+      "excludes": [
+        "A concept description without a procedure.",
+        "A claim that specifying a procedure alone establishes scientific validity."
+      ],
+      "ambiguities": [
+        "Different procedures can operationalize the same concept differently. State the setting and limits instead of treating the procedure as universal."
+      ],
+      "operational": "Identify units and inputs, give executable steps, state thresholds and units where used, and explain missing and ambiguous cases. Add synthetic boundary examples when useful; mark unsettled rules pending.",
+      "adaptation": "Original editorial proposal for this glossary, version 0.1. No external authoritative or consensus definition is claimed. Pending team confirmation.",
+      "sources": [],
+      "related": [
+        "working-definition",
+        "ai-engineering",
+        "ml"
+      ],
+      "status": "proposed",
+      "entry_version": "0.1",
+      "updated": "2026-10-10",
+      "adoption": {
+        "date": null,
+        "url": null
+      }
+    },
+    {
+      "slug": "provenance",
+      "title": "Provenance",
+      "full_name": "",
+      "aliases": [],
+      "definition": "Information about an entity's origin and production history, including relevant activities and responsible agents.",
+      "scope": "Tracing the derivation of a public definition, document, or research object, informed by W3C PROV-O.",
+      "includes": [
+        "Public source identifiers and versions, derivation steps, and attribution."
+      ],
+      "excludes": [
+        "An unsupported origin claim or a guarantee of accuracy.",
+        "Disclosure of restricted source material."
+      ],
+      "ambiguities": [
+        "A source citation is part of provenance, but may omit transformations or decisions between the source and the resulting object.",
+        "Recording provenance does not by itself verify a claim or imply conformance to the full PROV standard."
+      ],
+      "operational": "Record a public source or identify an original proposal, the source version/date, a locator where available, and the adaptation. Mark provenance gaps unknown.",
+      "adaptation": "Project choice: use a lightweight origin-and-derivation meaning informed by the 2013 W3C Recommendation; no full-standard conformance is claimed. Pending team confirmation.",
+      "sources": [
+        "w3c-provo"
+      ],
+      "related": [
+        "working-definition",
+        "operational-definition"
+      ],
+      "status": "proposed",
+      "entry_version": "0.2",
+      "updated": "2026-10-10",
+      "adoption": {
+        "date": null,
+        "url": null
+      }
+    },
+    {
+      "slug": "working-definition",
+      "title": "Working definition",
+      "full_name": "",
+      "aliases": [],
+      "definition": "An explicit, revisable statement of the meaning chosen for a term within a stated context.",
+      "scope": "The meanings used in this glossary and in discussions that explicitly reference an entry.",
+      "includes": [
+        "The intended referent, context, and boundaries needed to interpret the term."
+      ],
+      "excludes": [
+        "A claim of universal agreement, disciplinary consensus, or lab ratification."
+      ],
+      "ambiguities": [
+        "Chosen for use in this draft and adopted by the team are different statuses. A draft can state a concrete meaning while confirmation remains pending."
+      ],
+      "operational": "State the intended meaning and scope; identify inclusions and exclusions. Add operational criteria where measurement or classification is intended, or explain why they do not apply.",
+      "adaptation": "Original editorial proposal for this glossary, version 0.2. No external authority is claimed. Pending team confirmation.",
+      "sources": [],
+      "related": [
+        "operational-definition",
+        "provenance"
+      ],
+      "status": "proposed",
+      "entry_version": "0.2",
+      "updated": "2026-10-10",
+      "adoption": {
+        "date": null,
+        "url": null
+      }
+    }
+  ]
+}

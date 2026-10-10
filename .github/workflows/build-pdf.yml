@@ -1,4 +1,4 @@
-name: Build glossary PDF
+name: Build handbook
 
 on:
   push:
@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   build:
-    name: Compile glossary
+    name: Validate and compile handbook
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
@@ -18,6 +18,9 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           persist-credentials: false
+
+      - name: Generate handbook from shared content
+        run: python3 scripts/generate.py
 
       - name: Install TeX from Ubuntu package registry
         run: |
@@ -30,11 +33,29 @@ jobs:
           test -s build/main.pdf
           sha256sum build/main.pdf
 
-      - name: Upload PDF
+      - name: Record public PDF snapshot
+        env:
+          SOURCE_COMMIT: ${{ github.sha }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          python3 scripts/generate.py --snapshot --source-commit "$SOURCE_COMMIT" --run-url "$RUN_URL"
+          python3 scripts/generate.py --check
+
+      - name: Upload handbook
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
-          name: glossary-pdf-${{ github.sha }}
-          path: build/main.pdf
+          name: handbook-${{ github.sha }}
+          path: |
+            docs/*.html
+            docs/glossary.pdf
+            docs/PDF-SNAPSHOT.*
+            docs/BUILD-INFO.json
+            docs/terms/
+            docs/assets/
+            main.tex
+            references.bib
           if-no-files-found: error
           retention-days: 30
 
+      - name: Export public bootstrap content
+        run: python3 scripts/generate.py --export

@@ -1,0 +1,28 @@
+{
+  "slug": "replace-with-term-slug",
+  "title": "Term",
+  "full_name": "",
+  "aliases": [],
+  "definition": "Concise chosen working meaning.",
+  "scope": "Where the definition applies.",
+  "includes": [
+    "Included case."
+  ],
+  "excludes": [
+    "Excluded case."
+  ],
+  "ambiguities": [
+    "Different usages and unresolved boundaries."
+  ],
+  "operational": "Procedure and decision rule where applicable; otherwise explain not applicable or pending.",
+  "adaptation": "Explain how the project interprets or adapts attributed sources.",
+  "sources": [],
+  "related": [],
+  "status": "proposed",
+  "entry_version": "0.1",
+  "updated": "YYYY-MM-DD",
+  "adoption": {
+    "date": null,
+    "url": null
+  }
+}
