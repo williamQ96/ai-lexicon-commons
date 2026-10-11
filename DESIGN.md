@@ -1,147 +1,153 @@
 ---
 name: Plale Lab Glossary
-description: A searchable research reference on warm paper with green ink and editorial reading typography.
+description: A searchable research reference on warm paper with green ink and editorial
+  reading typography.
 colors:
-  paper: "#f8f7f1"
-  ink: "#213b33"
-  muted: "#5e6c63"
-  accent: "#225b44"
-  wash: "#ecefe6"
-  line: "#d5dad0"
-  paper-dark: "#18241f"
-  ink-dark: "#eef2ea"
-  muted-dark: "#b4c4b8"
-  accent-dark: "#aed6b5"
-  wash-dark: "#24362b"
-  line-dark: "#415449"
-  proposed-ink: "#6b4b00"
-  proposed-paper: "#fff0bc"
-  adopted-ink: "#175634"
-  adopted-paper: "#e5f1e9"
-  proposed-ink-dark: "#f3d685"
-  proposed-paper-dark: "#433719"
-  adopted-ink-dark: "#c4eccf"
-  adopted-paper-dark: "#1c3b29"
+  paper: '#f8f7f1'
+  ink: '#213b33'
+  muted: '#5e6c63'
+  accent: '#225b44'
+  wash: '#ecefe6'
+  line: '#d5dad0'
+  paper-dark: '#18241f'
+  ink-dark: '#eef2ea'
+  muted-dark: '#b4c4b8'
+  accent-dark: '#aed6b5'
+  wash-dark: '#24362b'
+  line-dark: '#415449'
+  proposed-ink: '#6b4b00'
+  proposed-paper: '#fff0bc'
+  adopted-ink: '#175634'
+  adopted-paper: '#e5f1e9'
+  proposed-ink-dark: '#f3d685'
+  proposed-paper-dark: '#433719'
+  adopted-ink-dark: '#c4eccf'
+  adopted-paper-dark: '#1c3b29'
 typography:
   display:
-    fontFamily: "Newsreader, Georgia, serif"
-    fontSize: "clamp(44px, 4.8vw, 64px)"
+    fontFamily: Newsreader, Georgia, serif
+    fontSize: clamp(44px, 4.8vw, 64px)
     fontWeight: 500
     lineHeight: 1.07
-    letterSpacing: "-.025em"
+    letterSpacing: -.025em
   definition:
-    fontFamily: "Newsreader, Georgia, serif"
-    fontSize: "28px"
+    fontFamily: Newsreader, Georgia, serif
+    fontSize: 28px
     fontWeight: 400
     lineHeight: 1.6
   term-title:
-    fontFamily: "Newsreader, Georgia, serif"
-    fontSize: "29px"
+    fontFamily: Newsreader, Georgia, serif
+    fontSize: 29px
     fontWeight: 500
     lineHeight: 1.2
   headline:
-    fontFamily: "Manrope, system-ui, sans-serif"
-    fontSize: "16px"
+    fontFamily: Manrope, system-ui, sans-serif
+    fontSize: 16px
     fontWeight: 650
     lineHeight: 1.4
   body:
-    fontFamily: "Manrope, system-ui, sans-serif"
-    fontSize: "15px"
+    fontFamily: Manrope, system-ui, sans-serif
+    fontSize: 15px
     fontWeight: 400
     lineHeight: 1.9
   navigation:
-    fontFamily: "Manrope, system-ui, sans-serif"
-    fontSize: "13px"
+    fontFamily: Manrope, system-ui, sans-serif
+    fontSize: 15px
     fontWeight: 400
     lineHeight: 1.7
   label:
-    fontFamily: "Manrope, system-ui, sans-serif"
-    fontSize: "11px"
+    fontFamily: Manrope, system-ui, sans-serif
+    fontSize: 13px
     fontWeight: 400
     lineHeight: 1.8
   annotation:
-    fontFamily: "Manrope, system-ui, sans-serif"
-    fontSize: "12px"
+    fontFamily: Manrope, system-ui, sans-serif
+    fontSize: 13px
     fontWeight: 400
     lineHeight: 1.9
   summary:
-    fontFamily: "Manrope, system-ui, sans-serif"
-    fontSize: "14px"
+    fontFamily: Manrope, system-ui, sans-serif
+    fontSize: 14px
     fontWeight: 400
     lineHeight: 1.85
   relation-label:
-    fontFamily: "Manrope, system-ui, sans-serif"
-    fontSize: "11px"
+    fontFamily: Manrope, system-ui, sans-serif
+    fontSize: 13px
     fontWeight: 500
     lineHeight: 1.7
   adoption-label:
-    fontFamily: "Manrope, system-ui, sans-serif"
-    fontSize: "11px"
+    fontFamily: Manrope, system-ui, sans-serif
+    fontSize: 13px
     fontWeight: 600
     lineHeight: 1.7
+  page-directory:
+    fontFamily: Manrope, system-ui, sans-serif
+    fontSize: 14px
+    fontWeight: 400
+    lineHeight: 1.8
 rounded:
-  control: "2px"
+  control: 2px
 spacing:
-  paragraph: "14px"
-  compact-gutter: "20px"
-  mobile-gutter: "21px"
-  group: "24px"
-  tablet-gutter: "32px"
-  article-section: "38px"
-  desktop-gutter: "48px"
+  paragraph: 14px
+  compact-gutter: 20px
+  mobile-gutter: 21px
+  group: 24px
+  tablet-gutter: 32px
+  article-section: 38px
+  desktop-gutter: 48px
 components:
   appearance-button:
-    backgroundColor: "transparent"
-    textColor: "{colors.ink}"
-    rounded: "{rounded.control}"
-    padding: "7px 12px"
+    backgroundColor: transparent
+    textColor: '{colors.ink}'
+    rounded: '{rounded.control}'
+    padding: 7px 12px
   search-field:
-    backgroundColor: "{colors.paper}"
-    textColor: "{colors.ink}"
-    rounded: "{rounded.control}"
-    padding: "8px 10px"
+    backgroundColor: '{colors.paper}'
+    textColor: '{colors.ink}'
+    rounded: '{rounded.control}'
+    padding: 8px 10px
   navigation-item:
-    backgroundColor: "transparent"
-    textColor: "{colors.ink}"
-    rounded: "{rounded.control}"
-    padding: "11px 10px"
-    typography: "{typography.navigation}"
+    backgroundColor: transparent
+    textColor: '{colors.ink}'
+    rounded: '{rounded.control}'
+    padding: 11px 10px
+    typography: '{typography.navigation}'
   navigation-item-hover:
-    backgroundColor: "{colors.wash}"
-    textColor: "{colors.ink}"
-    rounded: "{rounded.control}"
-    padding: "11px 10px"
-    typography: "{typography.navigation}"
+    backgroundColor: '{colors.wash}'
+    textColor: '{colors.ink}'
+    rounded: '{rounded.control}'
+    padding: 11px 10px
+    typography: '{typography.navigation}'
   navigation-item-current:
-    backgroundColor: "{colors.wash}"
-    textColor: "{colors.accent}"
-    rounded: "{rounded.control}"
-    padding: "11px 10px"
+    backgroundColor: '{colors.wash}'
+    textColor: '{colors.accent}'
+    rounded: '{rounded.control}'
+    padding: 11px 10px
   comparison-row:
-    backgroundColor: "transparent"
-    textColor: "{colors.ink}"
-    padding: "18px 0 5px"
+    backgroundColor: transparent
+    textColor: '{colors.ink}'
+    padding: 18px 0 5px
   relation-row:
-    backgroundColor: "transparent"
-    textColor: "{colors.ink}"
-    padding: "16px 0 1px"
+    backgroundColor: transparent
+    textColor: '{colors.ink}'
+    padding: 16px 0 1px
   page-directory:
-    backgroundColor: "transparent"
-    textColor: "{colors.ink}"
-    padding: "12px 0"
-    typography: "{typography.annotation}"
+    backgroundColor: transparent
+    textColor: '{colors.ink}'
+    padding: 12px 0
+    typography: '{typography.annotation}'
   adoption-proposed:
-    backgroundColor: "{colors.proposed-paper}"
-    textColor: "{colors.proposed-ink}"
-    rounded: "{rounded.control}"
-    padding: "4px 8px"
-    typography: "{typography.adoption-label}"
+    backgroundColor: '{colors.proposed-paper}'
+    textColor: '{colors.proposed-ink}'
+    rounded: '{rounded.control}'
+    padding: 4px 8px
+    typography: '{typography.adoption-label}'
   adoption-adopted:
-    backgroundColor: "{colors.adopted-paper}"
-    textColor: "{colors.adopted-ink}"
-    rounded: "{rounded.control}"
-    padding: "4px 8px"
-    typography: "{typography.adoption-label}"
+    backgroundColor: '{colors.adopted-paper}'
+    textColor: '{colors.adopted-ink}'
+    rounded: '{rounded.control}'
+    padding: 4px 8px
+    typography: '{typography.adoption-label}'
 ---
 
 # Design System: Plale Lab Glossary
@@ -186,6 +192,8 @@ The frontmatter records the stylesheet's exact light and dark palette. Source na
 
 ## Typography
 
+**The Peripheral Legibility Rule.** Use 14px for the header and page directory, 15px for catalog terms, and at least 13px for search labels, subtitles, evidence annotations and metadata. Phone header controls may use 13px; keep its search input at 16px. Preserve the larger serif definition and title hierarchy instead of scaling the whole page.
+
 **Display Font:** Newsreader, with Georgia and serif fallbacks.
 
 **Body Font:** Manrope, with system-ui and sans-serif fallbacks.
@@ -197,20 +205,20 @@ Both variable fonts are self-hosted as TrueType files with OFL licenses, `font-d
 - **Display:** homepage and term headings use the frontmatter display role. At widths up to 1150px they use (53px); at widths up to 767px they use (43px). Long headings wrap anywhere when necessary.
 - **Definition:** core term meaning uses the definition role; mobile uses (25px, line-height 1.65). Full names use Newsreader (23px, weight 500, line-height 1.4), reducing to (19px) on mobile.
 - **Term title:** curated summary links use the term-title role, reducing to (27px) on mobile. They follow Workflow, Harness, Model, LLM, Agent, Schema in both the index and the reading rows.
-- **Headline:** section headings use the headline role. Subheadings use Manrope (13px, line-height 1.5).
+- **Headline:** section headings use the headline role. Definition comparison subheadings use Manrope (15px, line-height 1.5).
 - **Body:** article text uses the body role, reducing to (14px) on mobile with the same line-height. Paragraphs and lists stay within (70ch). Homepage summaries use (14px, line-height 1.85), reducing to (13px), within rows capped at (75ch).
-- **Navigation and labels:** index links use the navigation role, increasing to (14px) on mobile. Current links use weight (650). Labels and source metadata are subordinate sans-serif text. Mobile search input uses (16px).
+- **Navigation and labels:** index links use the navigation role at (15px), including mobile. Current links use weight (650). Labels and source metadata use (13px). The header and desktop page directory use (14px); mobile header controls use (13px). Mobile search input uses (16px).
 - **Annotation and semantic labels:** source contexts, research notes, source records, revision records and the expandable page directory reuse the annotation size. Citations and relationship labels use the relation-label role; adoption tags use the stronger adoption-label role. These remain subordinate to definitions and their comparison headings.
 
 **The Two Reading Speeds Rule.** Use the serif for term names and core meanings; use the sans-serif for retrieval, comparison labels, section labels, ordinary prose and evidence records.
 
 ## Layout
 
-The header sits above a centered workspace capped at (1536px), containing the textual Plale Lab / Glossary identity, Index & search, PDF, Contribute on GitHub and the appearance action. Desktop uses an index (248px) and flexible main region. The index is sticky (20px from the viewport top), independently scrollable and capped at viewport height minus (40px). Reading is capped at (1150px), with padding (48px 48px 0).
+The header sits above a centered workspace capped at (1536px), containing the textual Plale Lab / Glossary identity, Index & search, PDF, Contribute on GitHub and the appearance action. Desktop uses an index (264px) and flexible main region. The index is sticky (20px from the viewport top), independently scrollable and capped at viewport height minus (40px). Reading is capped at (1150px), with padding (48px 48px 0).
 
 The homepage introduction has a flexible text column and editorial note (192px), separated by (48px). The curated index presents Workflow, Harness, Model, LLM, Agent, Schema in that order, as open summary rows capped at (75ch) with structural top rules and padding (26px 0 6px). The first introduction paragraph remains above the index; later paragraphs and source/adoption policies follow it.
 
-Term detail uses a flexible article and marginal record (154px), separated by (42px). Reading starts with title, optional full name and cited definition, then definition comparison, scope, includes, excludes and counterexamples, different usages and open boundaries, operational criteria, typed concept relationships, Lab working definition, sources and research gaps, and revision record. Includes and excludes are separate successive sections. The margin holds page contents, related terms and entry record.
+Term detail uses a flexible article and marginal record (174px), separated by (32px). Reading starts with title, optional full name and cited definition, then definition comparison, scope, includes, excludes and counterexamples, different usages and open boundaries, operational criteria, typed concept relationships, Lab working definition, sources and research gaps, and revision record. Includes and excludes are separate successive sections. The margin holds page contents, related terms and entry record.
 
 At widths up to (1150px), the index narrows to (228px), reading padding becomes (38px 32px 0), and introduction and article become single columns. The marginal record follows the article; its page contents are replaced by a native expandable page directory between the definition and comparison section. The editorial note sits below the homepage introduction.
 
@@ -231,6 +239,8 @@ There are no shadows, gradients or lifted cards. Depth comes from paper, ink, to
 Controls, navigation states and adoption tags have nearly square corners using the frontmatter control radius. Search, appearance control and selected index link have thin borders (1px). Summaries, comparison views and relationship rows remain unboxed, separated by thin rules. Strict subtype lists use a neutral vertical rule to expose nesting. The homepage reading notice retains the selected prototype's neutral left border (2px); this contextual treatment is not a general border-width scale.
 
 ## Components
+
+**The Canonical Comparison Rule.** Keep Harness vs Workflow in a stable Harness section and link to it from Workflow. Cited comparison tables use neutral separators and independently attributed cells; on phones, each dimension becomes a stacked pair with visible term labels.
 
 ### Appearance action
 

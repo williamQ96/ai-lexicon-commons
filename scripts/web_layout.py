@@ -15,6 +15,9 @@ def search_text(book, term):
     return " ".join([term["title"], term["full_name"], *term["aliases"],
         *[statement_text(s) for s in statements(term)],
         *[v["label"] + " " + v["context"] for v in term["definition_views"]],
+        *[s["title"] for s in term["sections"]],
+        *[row["label"] for s in term["sections"] for row in s.get("comparison", {}).get("rows", [])],
+        *[link["label"] for link in term.get("reading_links", [])],
         *[r["type"] + " " + titles[r["target"]] + " " + r["condition"] for r in term["relations"]],
         *[owner["title"] + " " + r["type"] + " " + r["condition"] for owner, r in incoming],
         *term["source_gaps"], *[book["sources"][sid]["title"] for sid in term["sources"]]]).casefold()

@@ -16,7 +16,7 @@ AI research and especially rapidly evolving AI engineering terminology can have 
 - [Shared content source](data/handbook.json)
 - [Contribution guide](CONTRIBUTING.md) and [definition-entry template](templates/definition-entry.json)
 
-Edition 0.5 has six active terms in reading order: Workflow, Harness, Model, LLM, Agent, Schema. Each independent page compares definitions, explains boundaries and operational criteria, shows typed relationships and a cited Lab proposal, and records source gaps and revisions. Search includes aliases, definition comparisons and relationship conditions. Search runs in the browser and sends no queries to a server.
+Edition 0.6 has six active terms in reading order: Workflow, Harness, Model, LLM, Agent, Schema. Each independent page compares definitions, explains boundaries and operational criteria, shows typed relationships and a cited Lab proposal, and records source gaps and revisions. Search includes aliases, definition comparisons and relationship conditions. Search runs in the browser and sends no queries to a server.
 
 ## Source policy
 
@@ -42,7 +42,7 @@ For a local website preview, Python 3 alone is sufficient:
 python scripts/preview.py
 ```
 
-Open `http://127.0.0.1:8766/`. This generates fresh static pages under the ignored `build/preview/` directory and serves them locally without changing the checked-in starter snapshots. After editing source files, run `python scripts/preview.py --build-only` and refresh the browser. Stop the server with Ctrl+C. The PDF link identifies and opens the locally preserved snapshot by its actual version. The v0.5 HTML/TeX and historical v0.2 PDF remain different editions until a matching fresh PDF snapshot is generated. Use `--port 8767` to choose another port or `--build-only` to generate without starting a server.
+Open `http://127.0.0.1:8766/`. This generates fresh static pages under the ignored `build/preview/` directory and serves them locally without changing the checked-in starter snapshots. After editing source files, run `python scripts/preview.py --build-only` and refresh the browser. Stop the server with Ctrl+C. The PDF link identifies and opens the locally preserved snapshot by its actual version. The v0.6 HTML/TeX and historical v0.2 PDF remain different editions until a matching fresh PDF snapshot is generated. Use `--port 8767` to choose another port or `--build-only` to generate without starting a server.
 
 The website uses a persistent searchable index and a spacious reading column. On mobile, the index folds into a native expandable catalog. Queries and appearance choices persist only in the current browser tab. Fonts are served locally; their licenses are included under `docs/assets/fonts/`.
 
@@ -86,3 +86,5 @@ Use [.agents/skills/plalelab-glossry-edit/SKILL.md](.agents/skills/plalelab-glos
 The internal proposal is stored in JSON and generated as `lab-guide.html`; it contains no chat transcript. Strict is-a nesting currently connects LLM to Model. Agent uses LLM in the LLM-based scope; Harness supports/orchestrates Workflow and Agent. Old terms have left the active source and generated routes; their earlier editions remain in Git history and historical PDF provenance.
 
 Publishing to `main` runs the validation, fresh PDF compilation and Pages deployment together. Verify the deployed edition and source commit in the live build record; a failed run leaves the previous successful edition available.
+
+Harness contains the canonical [Harness vs Workflow comparison](https://williamq96.github.io/plale-lab-glossary/terms/harness.html#harness-vs-workflow), including an illustrative schema-extraction experiment and limits of reproducibility. Workflow links to that section; no duplicate comparison entry is maintained.

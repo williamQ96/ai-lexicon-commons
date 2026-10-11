@@ -20,11 +20,13 @@ One JSON source generates independently addressable static HTML pages and a PDF.
 
 ## Evidence on Hand
 
-The existing repository, `data/handbook.json` (version 0.5, six active terms, versioned source records and an internal proposal), and the user-approved fusion prototype: B's persistent navigation with A's reading typography and paper/green palette. Self-hosted Manrope and Newsreader with their OFL licenses. No institutional logo or endorsement is supplied.
+The existing repository, `data/handbook.json` (version 0.6, six active terms, versioned source records and an internal proposal), and the user-approved fusion prototype: B's persistent navigation with A's reading typography and paper/green palette. Self-hosted Manrope and Newsreader with their OFL licenses. No institutional logo or endorsement is supplied.
 
 ## Scope
 
 Retain the selected fusion while rewriting Workflow, Harness, Model, LLM, Agent and Schema in that order, with source comparisons, uncertainty, citations and typed relationships. Create and install plalelab-glossry-edit. Provide local preview, generated HTML/TeX and semantic validation. All Lab definitions remain unratified. The user authorized pushing and cloud deployment on 2026-10-11. Publish through the existing main-branch GitHub Pages workflow after validation and fresh PDF compilation; preserve the historical checked-in PDF provenance.
+
+The 0.6 update adds the cited Harness/Workflow comparison and enlarges peripheral UI text while retaining the approved reading composition.
 
 ## Open Decisions
 

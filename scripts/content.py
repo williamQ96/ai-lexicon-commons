@@ -38,6 +38,9 @@ def ordered_terms(book):
     return [by_slug[slug] for slug in book["display_order"]]
 
 
+PAGE_SECTIONS = {"scope", "includes", "excludes", "ambiguities", "definitions", "operational", "relations", "adaptation", "sources", "revisions"}
+
+
 def statements(value):
     """Yield each cited statement exactly once, including relation conditions."""
     if isinstance(value, dict):
@@ -108,6 +111,12 @@ def validate(book):
             require(nonempty(view.get("label")) and nonempty(view.get("context")) and isinstance(view.get("statement"), dict) and "source_ids" in view["statement"], slug + ": invalid definition comparison")
         require(t.get("source_gaps") and all(nonempty(x) for x in t["source_gaps"]), slug + ": source audit/gaps required")
         require(set(t["related"]) <= set(by_slug) and slug not in t["related"], slug + ": unknown related term")
+        for link in t.get("reading_links", []):
+            require(isinstance(link, dict), slug + ": invalid reading link")
+            target = by_slug.get(link.get("target"))
+            require(target is not None and nonempty(link.get("label")), slug + ": invalid reading link")
+            targets = PAGE_SECTIONS | {s["id"] for s in target["sections"]}
+            require(link.get("section") in targets, slug + ": unknown reading-link section")
         used = set()
         for statement in statements(t):
             require(nonempty(statement_text(statement)), slug + ": empty statement")
@@ -129,9 +138,15 @@ def validate(book):
                 graph[slug].append(r["target"])
         ids = set()
         for section in t["sections"]:
-            require(nonempty(section.get("id")) and section["id"] not in ids and section["id"] not in {"scope", "boundaries", "ambiguities", "definitions", "operational", "relations", "adaptation", "sources", "revisions"}, slug + ": duplicate/reserved section ID")
+            require(nonempty(section.get("id")) and section["id"] not in ids and section["id"] not in PAGE_SECTIONS, slug + ": duplicate/reserved section ID")
             require(bool(re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", section["id"])) and nonempty(section.get("title")), slug + ": invalid section")
             require(section.get("paragraphs") and all(isinstance(p, dict) and "source_ids" in p and "text" in p for p in section["paragraphs"]), slug + ": missing section citations")
+            if "comparison" in section:
+                comparison = section["comparison"]
+                require(isinstance(comparison, dict) and all(nonempty(comparison.get(k)) for k in ("left_title", "right_title")), slug + ": invalid paired comparison")
+                require(isinstance(comparison.get("rows"), list) and comparison["rows"], slug + ": empty paired comparison")
+                for row in comparison["rows"]:
+                    require(isinstance(row, dict) and nonempty(row.get("label")) and all(isinstance(row.get(k), dict) and "text" in row[k] and "source_ids" in row[k] for k in ("left", "right")), slug + ": comparison cells need citations")
             ids.add(section["id"])
         require(t.get("revisions"), slug + ": revision record required")
         for r in t["revisions"]:

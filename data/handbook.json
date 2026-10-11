@@ -1,8 +1,8 @@
 {
   "title": "Plale Lab Shared Glossary and Operational Definitions",
   "short_title": "Plale Lab Glossary",
-  "version": "0.5",
-  "updated": "2026-10-10",
+  "version": "0.6",
+  "updated": "2026-10-11",
   "status": "Five working definitions; all Lab proposals remain unratified",
   "introduction": [
     "A shared reference for research and engineering: compare meanings, inspect their boundaries, and follow the evidence.",
@@ -193,12 +193,12 @@
       "year": "2026",
       "tier": 4,
       "kind": "Lab internal proposal; not ratified",
-      "version": "Version 1.1, 10 October 2026; initial 1.0 proposal sections retained",
+      "version": "Internal proposal 1.2 / not ratified",
       "locator": "Term-specific proposal sections and editorial policy",
       "url": "lab-guide.html",
       "context": "Internal proposals and editorial interpretations, not external consensus.",
-      "accessed": "2026-10-10",
-      "verification": "Version 1.1 adds an explicitly unratified Schema editorial extension; all prior 1.0 sections are retained. No adoption decision claimed.",
+      "accessed": "2026-10-11",
+      "verification": "Versions 1.1 and 1.2 add the Schema proposal and the flow/governance experimental example while preserving prior proposal sections. All remain unratified; no adoption decision claimed.",
       "guide_id": "lab-guide-v1"
     },
     "swe-agent": {
@@ -265,6 +265,32 @@
       "context": "The JSON Schema dialect and instance data model; assertions and annotations have different roles.",
       "accessed": "2026-10-10",
       "verification": "Dated Core text and definitions checked. The document identifies itself as an Internet-Draft with intended Informational status; it is not relabeled a final IETF standard."
+    },
+    "nist-test-harness": {
+      "title": "High-Level Requirements: Health IT Test Infrastructure",
+      "author": "NIST Information Technology Laboratory",
+      "year": "2016",
+      "tier": 1,
+      "kind": "Institutional engineering description",
+      "version": "Created July 14, 2016; updated April 8, 2026",
+      "locator": "High-Level Requirements; Test Infrastructure System Components, Test Harness Component",
+      "url": "https://www.nist.gov/itl/high-level-requirements",
+      "context": "Healthcare interoperability and conformance testing, not a universal definition of every harness. Demonstrates a non-LLM execution and orchestration harness.",
+      "accessed": "2026-10-11",
+      "verification": "Read the original NIST page, including the test-harness/workflow-management descriptions and creation/update dates."
+    },
+    "openai-reproducibility": {
+      "title": "How to make your completions outputs consistent with the new seed parameter",
+      "author": "Shyamal Anadkat / OpenAI",
+      "year": "2023",
+      "tier": 3,
+      "kind": "Archived first-party engineering recipe",
+      "version": "November 6, 2023; archived recipe",
+      "locator": "Implementing consistent outputs; seed and system_fingerprint",
+      "url": "https://developers.openai.com/cookbook/examples/reproducible_outputs_with_the_seed_parameter",
+      "context": "Historical Chat Completions example for 2023 model versions; not a current feature-support promise for all APIs or a statement about every LLM.",
+      "accessed": "2026-10-11",
+      "verification": "Read the original recipe, its archived warning, date and explicit statement that matching seed, parameters and fingerprint does not guarantee identical outputs."
     }
   },
   "terms": [
@@ -417,21 +443,43 @@
         "Institutional scope gap: the historical WfMC definition concerns business automation. The broader Python example and our minimum operational test are explicit Lab proposals.",
         "Retrieval limitation: indexed original excerpts verified the WfMC cover, glossary version and relevant definitions; direct retrieval of the two WfMC PDFs failed."
       ],
-      "sections": [],
+      "sections": [
+        {
+          "id": "workflow-and-governance",
+          "title": "Workflow and execution governance",
+          "paragraphs": [
+            {
+              "text": "Sequence, dependencies, branches and loops describe the process. Validation and retry can also be workflow steps; a harness may enforce shared execution policies around them. This overlap does not make Harness a Workflow subtype. See the paired comparison in Harness for the schema-extraction example.",
+              "source_ids": [
+                "workflow-patterns",
+                "nist-test-harness",
+                "lab-guide-v1"
+              ],
+              "inference": true
+            }
+          ]
+        }
+      ],
       "status": "proposed",
       "adoption": null,
-      "entry_version": "1.0",
-      "updated": "2026-10-10",
+      "entry_version": "1.1",
+      "updated": "2026-10-11",
       "revisions": [
         {
           "version": "1.0",
           "date": "2026-10-10",
           "text": "Researched and rewritten with attributed definitions, typed relations and an unratified Lab proposal."
+        },
+        {
+          "version": "1.1",
+          "date": "2026-10-11",
+          "text": "Add the cited flow/governance comparison, overlap boundaries and illustrative experiment; Lab meaning remains proposed."
         }
       ],
       "sources": [
         "wfmc-1998",
         "wfmc-glossary",
+        "nist-test-harness",
         "workflow-patterns",
         "anthropic-agents",
         "lab-guide-v1"
@@ -441,7 +489,14 @@
         "llm",
         "agent"
       ],
-      "concept_kind": "process"
+      "concept_kind": "process",
+      "reading_links": [
+        {
+          "target": "harness",
+          "section": "harness-vs-workflow",
+          "label": "Harness vs Workflow"
+        }
+      ]
     },
     {
       "slug": "harness",
@@ -570,10 +625,11 @@
         "inference": true
       },
       "adaptation": {
-        "text": "Use agent harness for the model-surrounding execution layer that mediates context, tools, feedback and control policy. Treat “a specialized workflow” as the initial proposal to discuss, not the adopted subtype taxonomy.",
+        "text": "Use agent harness for the model-surrounding execution layer that mediates context, tools, feedback and execution policy. For the proposed experiment, Workflow emphasizes flow and dependencies; Harness emphasizes controls and boundaries. Specify the policies and guarantees actually implemented.",
         "source_ids": [
           "lab-guide-v1"
-        ]
+        ],
+        "inference": false
       },
       "relations": [
         {
@@ -607,25 +663,221 @@
         }
       ],
       "source_gaps": [
-        "Peer-reviewed definition gap: this review did not establish a directly applicable peer-reviewed consensus definition of agent harness. The conceptual paper is a June 2026 preprint, not promoted to tier 2."
+        "Peer-reviewed definition gap: this review did not establish a directly applicable peer-reviewed consensus definition of agent harness. The conceptual paper is a June 2026 preprint, not promoted to tier 2.",
+        "The NIST testing description establishes an additional, non-LLM usage; it does not supply a universal Harness definition. The flow/governance table and experimental example are editorial synthesis and an unratified internal proposal. The OpenAI reproducibility recipe is explicitly archived."
       ],
-      "sections": [],
+      "sections": [
+        {
+          "id": "harness-vs-workflow",
+          "title": "Harness vs Workflow",
+          "paragraphs": [
+            {
+              "text": "Workflow describes how work proceeds; Harness describes how execution is governed. This is an editorial distinction between responsibilities, not an official two-term taxonomy. A workflow can run within a harness, and one harness can realize several workflows.",
+              "source_ids": [
+                "workflow-patterns",
+                "nist-test-harness",
+                "lab-guide-v1"
+              ],
+              "inference": true
+            },
+            {
+              "text": "The unqualified word harness is not exclusive to language models: NIST describes a healthcare test harness that executes and orchestrates testing services. Keep that usage separate from ASD's specifically agentic-AI scope.",
+              "source_ids": [
+                "nist-test-harness",
+                "asd-harness"
+              ],
+              "inference": true
+            }
+          ],
+          "comparison": {
+            "left_title": "Workflow",
+            "right_title": "Harness",
+            "rows": [
+              {
+                "label": "Main question",
+                "left": {
+                  "text": "What activities run, with which dependencies and control flow?",
+                  "source_ids": [
+                    "workflow-patterns"
+                  ],
+                  "inference": true
+                },
+                "right": {
+                  "text": "Which interfaces, permissions, execution policies and checks govern those activities?",
+                  "source_ids": [
+                    "asd-harness"
+                  ],
+                  "inference": true
+                }
+              },
+              {
+                "label": "LLM required?",
+                "left": {
+                  "text": "No. Steps can involve people, deterministic code, LLM calls or agents.",
+                  "source_ids": [
+                    "lab-guide-v1"
+                  ],
+                  "inference": true
+                },
+                "right": {
+                  "text": "No for the broader term. An agentic AI harness surrounds an LLM/agent; NIST's testing usage has another scope.",
+                  "source_ids": [
+                    "nist-test-harness",
+                    "asd-harness"
+                  ],
+                  "inference": true
+                }
+              },
+              {
+                "label": "Order and loops",
+                "left": {
+                  "text": "Sequence, branching, concurrency and iteration describe the process; a workflow need not be a simple linear chain.",
+                  "source_ids": [
+                    "workflow-patterns"
+                  ],
+                  "inference": true
+                },
+                "right": {
+                  "text": "May implement a loop or realize workflows; governance does not prescribe one universal step order.",
+                  "source_ids": [
+                    "nist-test-harness",
+                    "anthropic-harness"
+                  ],
+                  "inference": true
+                }
+              },
+              {
+                "label": "Checks and recovery",
+                "left": {
+                  "text": "Validation and retry branches may be steps in the process.",
+                  "source_ids": [
+                    "anthropic-agents",
+                    "lab-guide-v1"
+                  ],
+                  "inference": true
+                },
+                "right": {
+                  "text": "May enforce validation and retry budgets across calls, hold state and record failures. Exact capabilities must be specified.",
+                  "source_ids": [
+                    "asd-harness",
+                    "lab-guide-v1"
+                  ],
+                  "inference": true
+                }
+              },
+              {
+                "label": "Typical design concern",
+                "left": {
+                  "text": "Missing dependencies, unsuitable branches or an incorrect task decomposition.",
+                  "source_ids": [
+                    "workflow-patterns"
+                  ],
+                  "inference": true
+                },
+                "right": {
+                  "text": "Excessive permissions, unbounded execution, lost state or inadequate failure records.",
+                  "source_ids": [
+                    "asd-harness",
+                    "anthropic-harness"
+                  ],
+                  "inference": true
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "schema-extraction-example",
+          "title": "Schema extraction: an illustrative experiment",
+          "paragraphs": [
+            {
+              "text": "For a paper and dataset, a proposed workflow is candidate discovery -> evidence retrieval -> attribute extraction -> deterministic schema assembly -> validation. Model calls and code can occupy different stages; this describes the task logic.",
+              "source_ids": [
+                "lab-guide-v1"
+              ],
+              "inference": true
+            },
+            {
+              "text": "The proposed harness fixes the input snapshot and adapters, checks outputs against the declared JSON Schema dialect, and tracks field-to-evidence support separately. A structurally valid JSON object does not by itself prove that a field exists in the source or that an inferred attribute is true.",
+              "source_ids": [
+                "json-schema-2020-12",
+                "lab-guide-v1"
+              ],
+              "inference": true
+            },
+            {
+              "text": "Example policies include a three-attempt limit, explicit token/time budgets, checkpointing, timeout and truncation handling, and recording model/configuration versions, prompts, outputs and failure reasons. Allow unknown only where the output contract permits it. These are proposed experiment controls, not mandatory properties of every harness.",
+              "source_ids": [
+                "lab-guide-v1"
+              ],
+              "inference": true
+            },
+            {
+              "text": "For this experiment, an orchestrator schedules model/replicate/device assignments and task dependencies; the harness supplies the configured runtime and controls. They can overlap: NIST's test harness itself includes orchestration. This is a responsibility split, not three mutually exclusive software boxes.",
+              "source_ids": [
+                "nist-test-harness",
+                "lab-guide-v1"
+              ],
+              "inference": true
+            }
+          ]
+        },
+        {
+          "id": "overlap-and-reliability",
+          "title": "Overlap, reliability and reproducibility",
+          "paragraphs": [
+            {
+              "text": "The same extract -> validate -> retry code can play both roles. Describing its branch and loop structure is a workflow view; enforcing a shared attempt budget, validation contract and failure record is a harness view. The distinction follows responsibility, not Python syntax.",
+              "source_ids": [
+                "lab-guide-v1"
+              ],
+              "inference": true
+            },
+            {
+              "text": "The harness metaphor suggests bounded, observable and recoverable execution. It does not establish that the model becomes deterministic or always correct, or that every harness actually enforces its advertised policies. An implementation must test those policies and state the limits of its guarantees.",
+              "source_ids": [
+                "asd-harness",
+                "lab-guide-v1"
+              ],
+              "inference": true
+            },
+            {
+              "text": "Recording inputs, configuration, model versions and seeds supports an auditable experiment setup. It is not a universal promise of identical outputs: OpenAI's archived 2023 example explicitly allows differing responses even when seed, request parameters and system fingerprint match. That provider-specific example is not current API guidance for every model.",
+              "source_ids": [
+                "openai-reproducibility",
+                "lab-guide-v1"
+              ],
+              "inference": true
+            }
+          ]
+        }
+      ],
       "status": "proposed",
       "adoption": null,
-      "entry_version": "1.0",
-      "updated": "2026-10-10",
+      "entry_version": "1.1",
+      "updated": "2026-10-11",
       "revisions": [
         {
           "version": "1.0",
           "date": "2026-10-10",
           "text": "Researched and rewritten with attributed definitions, typed relations and an unratified Lab proposal."
+        },
+        {
+          "version": "1.1",
+          "date": "2026-10-11",
+          "text": "Add the cited flow/governance comparison, overlap boundaries and illustrative experiment; Lab meaning remains proposed."
         }
       ],
       "sources": [
         "asd-harness",
+        "nist-test-harness",
+        "workflow-patterns",
         "swe-agent",
         "anthropic-harness",
         "harness-preprint",
+        "anthropic-agents",
+        "json-schema-2020-12",
+        "openai-reproducibility",
         "lab-guide-v1"
       ],
       "related": [
@@ -1334,8 +1586,8 @@
   "lab_guide": {
     "id": "lab-guide-v1",
     "title": "Plale Lab terminology guide",
-    "version": "1.1",
-    "updated": "2026-10-10",
+    "version": "1.2",
+    "updated": "2026-10-11",
     "status": "proposed",
     "adoption": null,
     "sections": [
@@ -1378,6 +1630,16 @@
           "Proposed extension: use schema for an explicit, versioned description of data structure, field meanings and stated constraints. Keep the data instance, the description and the validator separate; the same document can occupy different roles under a meta-schema.",
           "Schema extraction is a process that recovers declarations or infers a description from evidence. Record the input population, source-to-field evidence, dialect/version, observed versus declared or inferred constraints, and unresolved coverage. A sample is not proof of every permitted record or intended semantic rule."
         ]
+      },
+      {
+        "id": "execution-governance",
+        "title": "Workflow and Harness: flow and governance proposal",
+        "paragraphs": [
+          "Proposed distinction: Workflow describes how work proceeds, including sequence, dependencies, branches and loops. Harness describes how execution is governed through interfaces, policies, validation, state, recovery and observability. These are overlapping responsibilities, not mutually exclusive categories or a universal subtype taxonomy.",
+          "Illustrative schema-extraction workflow: candidate discovery, evidence retrieval, attribute extraction, deterministic schema assembly and validation. This is a proposed teaching example, not a report of an implemented or evaluated Lab system.",
+          "Proposed experimental harness policies: standardize input snapshots and model adapters, bound attempts and resource consumption, permit an explicit unknown value only where the declared schema allows it, distinguish evidence support from structural validation, checkpoint progress and record inputs, model/configuration versions, prompts, outputs and failure reasons.",
+          "For this example, orchestration assigns models, replicates, devices and dependencies. An experimental harness supplies the configured execution and recording environment. These roles may live in the same implementation. Recording experimental conditions helps audit and repeat a setup; it does not establish that every output will be identical or correct."
+        ]
       }
     ],
     "revisions": [
@@ -1390,6 +1652,11 @@
         "date": "2026-10-10",
         "version": "1.1",
         "text": "Add the Schema editorial proposal while preserving every 1.0 proposal section. No consensus decision recorded."
+      },
+      {
+        "version": "1.2",
+        "date": "2026-10-11",
+        "text": "Add the flow/governance comparison and illustrative schema-extraction experiment. Preserve prior proposal sections; no consensus decision recorded."
       }
     ]
   }

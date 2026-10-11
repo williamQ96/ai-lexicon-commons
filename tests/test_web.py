@@ -111,6 +111,7 @@ class WebsiteTests(unittest.TestCase):
                 self.assertIn(rel["type"].casefold(), text)
             for alias in term["aliases"]:
                 self.assertIn(alias.casefold(), text)
+
             for owner in self.book["terms"]:
                 for rel in owner["relations"]:
                     if rel["target"] == term["slug"]:
@@ -118,6 +119,35 @@ class WebsiteTests(unittest.TestCase):
                         self.assertIn(rel["condition"].casefold(), text)
         for query in ["artificial intelligence engineering", "foundation model", "machine learning system"]:
             self.assertFalse(any(query in search_text(self.book, t) for t in self.book["terms"]), query)
+
+    def test_paired_comparison_and_canonical_reading_link(self):
+        harness = self.outputs['docs/terms/harness.html']
+        workflow = self.outputs['docs/terms/workflow.html']
+        self.assertIn('class="paired-comparison"', harness)
+        self.assertIn('harness.html#harness-vs-workflow', workflow)
+        self.assertNotIn('docs/terms/harness-vs-workflow.html', self.outputs)
+        self.assertIn('\\hypertarget{term-harness-harness-vs-workflow}', self.outputs['main.tex'])
+        self.assertIn('\\hyperlink{term-harness-harness-vs-workflow}', self.outputs['main.tex'])
+        b = copy.deepcopy(self.book)
+        h = next(t for t in b['terms'] if t['slug'] == 'harness')
+        h['sections'][0]['comparison']['rows'][0]['left']['text'] = '<script>alert(1)</script> & $'
+        h['sections'][0]['title'] = '<img src=x> comparison'
+        out = generate(b, self.digest)
+        self.assertNotIn('<script>alert(1)', out['docs/terms/harness.html'])
+        self.assertNotIn('<img src=x>', out['docs/terms/harness.html'])
+        self.assertIn('&lt;script&gt;', out['docs/terms/harness.html'])
+
+    def test_comparison_cells_and_reading_targets_require_evidence(self):
+        b = copy.deepcopy(self.book)
+        h = next(t for t in b['terms'] if t['slug'] == 'harness')
+        del h['sections'][0]['comparison']['rows'][0]['left']['source_ids']
+        with self.assertRaisesRegex(ValueError, 'cells need citations'):
+            validate(b)
+        b = copy.deepcopy(self.book)
+        w = next(t for t in b['terms'] if t['slug'] == 'workflow')
+        w['reading_links'][0]['section'] = 'missing-section'
+        with self.assertRaisesRegex(ValueError, 'reading-link section'):
+            validate(b)
 
     def test_escaping_and_evidenced_adoption(self):
         b = copy.deepcopy(self.book)

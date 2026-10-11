@@ -52,14 +52,20 @@ def render_book(book, digest, page, source_commit="", run_url=""):
     numbers = {sid: i + 1 for i, sid in enumerate(book["sources"])}
     def citations(s, base=""):
         return '<span class="citations">' + ' '.join('<a href="' + base + '#source-' + sid + '" aria-label="Source ' + str(numbers[sid]) + ': ' + esc(book["sources"][sid]["title"]) + '">[' + str(numbers[sid]) + ']</a>' for sid in s["source_ids"]) + '</span>'
-    def statement(s, base=""):
-        return esc(s["text"]) + ' ' + citations(s, base) + (' <span class="inference">Editorial interpretation</span>' if s.get("inference") else '')
+    def statement(s, base="", show_inference=True):
+        return esc(s["text"]) + ' ' + citations(s, base) + (' <span class="inference">Editorial interpretation</span>' if s.get("inference") and show_inference else '')
     def prose(items):
         return ''.join('<p>' + esc(x) + '</p>' for x in items)
     def revisions(value):
         return ''.join('<li><strong>' + esc(r["version"]) + '</strong> / ' + esc(r["date"]) + '<p>' + esc(r["text"]) + '</p></li>' for r in value["revisions"])
     def comparison(t):
         return '<div class="definition-comparison">' + ''.join('<div class="definition-view"><h3>' + esc(v["label"]) + '</h3><p class="source-context">' + esc(v["context"]) + '</p><p>' + statement(v["statement"]) + '</p></div>' for v in t["definition_views"]) + '</div>'
+    def paired_comparison(c):
+        left, right = esc(c['left_title']), esc(c['right_title'])
+        editorial = all(row[side].get('inference') for row in c['rows'] for side in ('left', 'right'))
+        rows = ''.join('<tr><th scope="row">' + esc(row['label']) + '</th><td><span class="comparison-cell-label" aria-hidden="true">' + left + '</span>' + statement(row['left'], show_inference=not editorial) + '</td><td><span class="comparison-cell-label" aria-hidden="true">' + right + '</span>' + statement(row['right'], show_inference=not editorial) + '</td></tr>' for row in c['rows'])
+        note = ' / Editorial interpretation; each cell cites its basis.' if editorial else ''
+        return '<table class="paired-comparison"><caption>' + left + ' and ' + right + ' compared' + note + '</caption><thead><tr><th scope="col">Dimension</th><th scope="col">' + left + '</th><th scope="col">' + right + '</th></tr></thead><tbody>' + rows + '</tbody></table>'
     all_relations = [(t, r) for t in terms for r in t["relations"]]
     def related_relations(t):
         return [(owner, r) for owner, r in all_relations if owner["slug"] == t["slug"] or r["target"] == t["slug"]]
@@ -93,38 +99,46 @@ def render_book(book, digest, page, source_commit="", run_url=""):
     outputs = {"docs/index.html": page(book, "Index", index, digest, source_commit=source_commit, run_url=run_url, sidebar=navigation(book))}
     for t in terms:
         sections = []
+        custom = {s['id']: s for s in t['sections']}
         for sid, heading, items, listed in blocks(t):
             inner = '<ul>' + ''.join('<li>' + statement(s) + '</li>' for s in items) + '</ul>' if listed else ''.join('<p>' + statement(s) + '</p>' for s in items)
+            if 'comparison' in custom.get(sid, {}):
+                inner += paired_comparison(custom[sid]['comparison'])
+            if custom and sid == t['sections'][-1]['id']:
+                inner += '<p class="reading-links">' + ' / '.join('<a href="' + link['target'] + '.html#' + link['section'] + '">' + esc(link['label']) + '</a>' for link in t.get('reading_links', [])) + '</p>' if t.get('reading_links') else ''
             if sid == "adaptation":
                 inner = '<p>' + tag(t) + '</p>' + inner + '<p class="section-note">' + adoption_record(t) + '</p>'
-            sections.append('<section id="' + sid + '"><h2>' + heading + '</h2>' + inner + '</section>')
+            sections.append('<section id="' + sid + '"><h2>' + esc(heading) + '</h2>' + inner + '</section>')
         # Comparisons follow the definition; typed relations precede the internal proposal.
         sections.insert(0, '<section id="definitions"><h2>Definition comparison</h2>' + comparison(t) + '</section>')
         sections.insert(-1, '<section id="relations"><h2>Concept relationships</h2>' + relationships(t) + '</section>')
         contents = [("definitions", "Definition comparison")] + [(sid, heading) for sid, heading, _, _ in blocks(t) if sid != "adaptation"] + [("relations", "Concept relationships"), ("adaptation", "Lab working definition"), ("sources", "Sources & gaps"), ("revisions", "Revision record")]
         related = ''.join('<a href="' + slug + '.html">' + esc(by_slug[slug]["title"]) + '</a>' for slug in t["related"])
-        mobile_toc = '<details class="mobile-contents"><summary>On this page</summary><nav aria-label="Mobile page contents">' + ''.join('<a href="#' + sid + '">' + heading + '</a>' for sid, heading in contents) + '</nav></details>'
-        body = '<a class="back" href="../index.html">Back to glossary</a><div class="term-layout"><article><h1 class="term-title">' + esc(t["title"]) + '</h1><p class="subtitle">' + esc(t["full_name"]) + '</p><p class="lead">' + statement(t["definition"]) + '</p>' + mobile_toc + ''.join(sections) + '<section class="sources" id="sources"><h2>Sources and research gaps</h2><div class="source-gaps"><h3>Research notes</h3>' + prose(t["source_gaps"]) + '</div>' + sources(t) + '</section><section id="revisions"><h2>Revision record</h2><ol class="revision-list">' + revisions(t) + '</ol></section></article><aside class="entry-record"><nav class="contents" aria-label="On this page"><h2>On this page</h2>' + ''.join('<a href="#' + sid + '">' + heading + '</a>' for sid, heading in contents) + '</nav><h2>Related terms</h2><nav aria-label="Related terms">' + related + '</nav><h2>Entry record</h2><p>Version ' + esc(t["entry_version"]) + '<br>Updated ' + esc(t["updated"]) + '</p><p>Lab definition: ' + esc(t["status"]) + '</p><a href="../lab-guide.html">Internal proposal</a></aside></div>'
+        related += ''.join('<a href="' + link['target'] + '.html#' + link['section'] + '">' + esc(link['label']) + '</a>' for link in t.get('reading_links', []))
+        mobile_toc = '<details class="mobile-contents"><summary>On this page</summary><nav aria-label="Mobile page contents">' + ''.join('<a href="#' + sid + '">' + esc(heading) + '</a>' for sid, heading in contents) + '</nav></details>'
+        body = '<a class="back" href="../index.html">Back to glossary</a><div class="term-layout"><article><h1 class="term-title">' + esc(t["title"]) + '</h1><p class="subtitle">' + esc(t["full_name"]) + '</p><p class="lead">' + statement(t["definition"]) + '</p>' + mobile_toc + ''.join(sections) + '<section class="sources" id="sources"><h2>Sources and research gaps</h2><div class="source-gaps"><h3>Research notes</h3>' + prose(t["source_gaps"]) + '</div>' + sources(t) + '</section><section id="revisions"><h2>Revision record</h2><ol class="revision-list">' + revisions(t) + '</ol></section></article><aside class="entry-record"><nav class="contents" aria-label="On this page"><h2>On this page</h2>' + ''.join('<a href="#' + sid + '">' + esc(heading) + '</a>' for sid, heading in contents) + '</nav><h2>Related terms</h2><nav aria-label="Related terms">' + related + '</nav><h2>Entry record</h2><p>Version ' + esc(t["entry_version"]) + '<br>Updated ' + esc(t["updated"]) + '</p><p>Lab definition: ' + esc(t["status"]) + '</p><a href="../lab-guide.html">Internal proposal</a></aside></div>'
         outputs['docs/terms/' + t["slug"] + '.html'] = page(book, t["title"], body, digest, '../', source_commit, run_url, sidebar=navigation(book, '../', t["slug"]))
     guide = book["lab_guide"]
     body = '<a class="back" href="index.html">Back to glossary</a><article class="lab-guide"><h1>' + esc(guide["title"]) + '</h1><p class="lead">A versioned internal proposal, open for discussion.</p><p>' + tag(guide) + '</p><p>Version ' + esc(guide["version"]) + ' / Updated ' + esc(guide["updated"]) + '</p><p>' + adoption_record(guide) + '</p>' + ''.join('<section id="' + section["id"] + '"><h2>' + esc(section["title"]) + '</h2>' + prose(section["paragraphs"]) + '</section>' for section in guide["sections"]) + '<section id="revisions"><h2>Revision record</h2><ol>' + revisions(guide) + '</ol></section></article>'
     outputs['docs/lab-guide.html'] = page(book, 'Lab guide', body, digest, source_commit=source_commit, run_url=run_url, sidebar=navigation(book))
     outputs['docs/.nojekyll'] = ''
     outputs['docs/BUILD-INFO.json'] = json.dumps(dict(content_version=book['version'], updated=book['updated'], source='data/handbook.json', source_sha256=digest, terms=len(terms), display_order=book['display_order'], source_commit=source_commit or None, build_run=run_url or None), indent=2) + '\n'
-    latex = [r'\documentclass[11pt,letterpaper]{article}', r'\usepackage[T1]{fontenc}', r'\usepackage[utf8]{inputenc}', r'\usepackage{lmodern}', r'\usepackage[margin=1in]{geometry}', r'\usepackage{microtype}', r'\usepackage{xcolor}', r'\usepackage{hyperref}', r'\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}', r'\pdfinfoomitdate=1', r'\pdftrailerid{}', r'\Urlmuskip=0mu plus 1mu', r'\setlength{\parindent}{0pt}', r'\setlength{\parskip}{0.45em}', r'\definecolor{proposal}{HTML}{765400}', r'\definecolor{adopted}{HTML}{145D32}', '% Generated from data/handbook.json; do not edit.', r'\begin{document}', r'\section*{' + tex(book['title']) + '}', tex('Version ' + book['version'] + ' / ' + book['updated']), *[tex(x) + '\n' for x in book['introduction']], r'\subsection*{Source policy}', *[tex(x) + '\n' for x in book['source_policy']], r'\subsection*{Lab adoption}', tex(book['adoption_policy']), r'\subsection*{Licensing}', tex(book['license']), r'\newpage\section*{Reading index}', r'\begin{itemize}']
+    latex = [r'\documentclass[11pt,letterpaper]{article}', r'\usepackage[T1]{fontenc}', r'\usepackage[utf8]{inputenc}', r'\usepackage{lmodern}', r'\usepackage[margin=1in]{geometry}', r'\usepackage{microtype}', r'\usepackage{longtable}', r'\usepackage{xcolor}', r'\usepackage{hyperref}', r'\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}', r'\pdfinfoomitdate=1', r'\pdftrailerid{}', r'\Urlmuskip=0mu plus 1mu', r'\setlength{\parindent}{0pt}', r'\setlength{\parskip}{0.45em}', r'\definecolor{proposal}{HTML}{765400}', r'\definecolor{adopted}{HTML}{145D32}', '% Generated from data/handbook.json; do not edit.', r'\begin{document}', r'\section*{' + tex(book['title']) + '}', tex('Version ' + book['version'] + ' / ' + book['updated']), *[tex(x) + '\n' for x in book['introduction']], r'\subsection*{Source policy}', *[tex(x) + '\n' for x in book['source_policy']], r'\subsection*{Lab adoption}', tex(book['adoption_policy']), r'\subsection*{Licensing}', tex(book['license']), r'\newpage\section*{Reading index}', r'\begin{itemize}']
     latex += [r'\item \hyperlink{term-' + t['slug'] + '}{' + tex(t['title']) + '}' for t in terms] + [r'\end{itemize}']
-    def cited(s):
-        return tex(s.get('text', s.get('condition'))) + r' \cite{' + ','.join(s['source_ids']) + '}' + (r' \textit{Editorial interpretation.}' if s.get('inference') else '')
+    def cited(s, show_inference=True):
+        return tex(s.get('text', s.get('condition'))) + r' \cite{' + ','.join(s['source_ids']) + '}' + (r' \textit{Editorial interpretation.}' if s.get('inference') and show_inference else '')
     for t in terms:
-        latex += [r'\newpage\hypertarget{term-' + t['slug'] + '}{}', r'\section*{' + tex(t['title']) + '}', tex(t['full_name']), cited(t['definition']), r'\subsection*{Definition comparison}']
+        latex += [r'\newpage\hypertarget{term-' + t['slug'] + '}{}', r'\section*{' + tex(t['title']) + '}', tex(t['full_name']), cited(t['definition']), r'\hypertarget{term-' + t['slug'] + '-definitions}{}', r'\subsection*{Definition comparison}']
         for v in t['definition_views']:
             latex += [r'\subsubsection*{' + tex(v['label']) + '}', tex(v['context']), cited(v['statement'])]
+        custom = {s['id']: s for s in t['sections']}
         for sid, heading, items, listed in blocks(t):
             if sid == 'adaptation':
+                latex.append(r'\hypertarget{term-' + t['slug'] + '-relations}{}')
                 latex += [r'\subsection*{Concept relationships}', tex('Only is-a means a strict subtype. Uses and supports/orchestrates describe composition and control.')]
                 for owner, r in related_relations(t):
                     latex += [tex(owner['title'] + ' ' + r['type'] + ' ' + by_slug[r['target']]['title']) + r'\par ' + cited(r)]
-            latex.append(r'\subsection*{' + tex(heading) + '}')
+            latex += [r'\hypertarget{term-' + t['slug'] + '-' + sid + '}{}', r'\subsection*{' + tex(heading) + '}']
             if sid == 'adaptation':
                 latex.append(r'\textcolor{' + ('proposal' if t['status'] == 'proposed' else 'adopted') + '}{' + tex(status_label(t)) + '}')
                 if t['status'] == 'adopted':
@@ -135,11 +149,21 @@ def render_book(book, digest, page, source_commit="", run_url=""):
                 latex += [r'\begin{itemize}', *[r'\item ' + cited(s) for s in items], r'\end{itemize}']
             else:
                 latex += [cited(s) + '\n' for s in items]
-        latex += [r'\subsection*{Sources and research gaps}', *[tex(x) + '\n' for x in t['source_gaps']]]
+            if 'comparison' in custom.get(sid, {}):
+                c = custom[sid]['comparison']
+                editorial = all(row[side].get('inference') for row in c['rows'] for side in ('left', 'right'))
+                if editorial:
+                    latex.append(r'\textit{Editorial comparison; each cell cites its basis.}')
+                latex += [r'\begin{longtable}{@{}p{0.19\linewidth}p{0.35\linewidth}p{0.35\linewidth}@{}}', tex('Dimension') + ' & ' + tex(c['left_title']) + ' & ' + tex(c['right_title']) + r' \\ \hline', r'\endhead']
+                for row in c['rows']:
+                    latex.append(tex(row['label']) + ' & ' + cited(row['left'], show_inference=not editorial) + ' & ' + cited(row['right'], show_inference=not editorial) + r' \\ \hline')
+                latex.append(r'\end{longtable}')
+        latex += [r'\hyperlink{term-' + link['target'] + '-' + link['section'] + '}{' + tex(link['label']) + '}' for link in t.get('reading_links', [])]
+        latex += [r'\hypertarget{term-' + t['slug'] + '-sources}{}', r'\subsection*{Sources and research gaps}', *[tex(x) + '\n' for x in t['source_gaps']]]
         for sid in t['sources']:
             s = book['sources'][sid]
             latex += [r'\cite{' + sid + '} ' + tex('Tier ' + str(s['tier']) + ' / ' + s['kind'] + '. Context: ' + s['context'] + ' Verification: ' + s['verification'])]
-        latex += [r'\subsection*{Revision record}', tex('Version ' + t['entry_version'] + ' / Updated ' + t['updated']), *[tex(r['version'] + ' / ' + r['date'] + ': ' + r['text']) for r in t['revisions']], r'\subsection*{Related terms}', '; '.join(r'\hyperlink{term-' + slug + '}{' + tex(by_slug[slug]['title']) + '}' for slug in t['related'])]
+        latex += [r'\hypertarget{term-' + t['slug'] + '-revisions}{}', r'\subsection*{Revision record}', tex('Version ' + t['entry_version'] + ' / Updated ' + t['updated']), *[tex(r['version'] + ' / ' + r['date'] + ': ' + r['text']) for r in t['revisions']], r'\subsection*{Related terms}', '; '.join(r'\hyperlink{term-' + slug + '}{' + tex(by_slug[slug]['title']) + '}' for slug in t['related'])]
     latex += [r'\newpage\hypertarget{lab-guide}{}', r'\section*{' + tex(guide['title']) + '}', tex('Version ' + guide['version'] + ' / ' + guide['updated']), r'\textcolor{' + ('proposal' if guide['status'] == 'proposed' else 'adopted') + '}{' + tex(status_label(guide)) + '}']
     if guide['status'] == 'adopted':
         latex += [tex(guide['adoption']['date'] + ' / ' + guide['adoption']['evidence']), r'\url{' + guide['adoption']['url'] + '}']

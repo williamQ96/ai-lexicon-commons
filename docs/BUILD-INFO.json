@@ -1,8 +1,8 @@
 {
-  "content_version": "0.5",
-  "updated": "2026-10-10",
+  "content_version": "0.6",
+  "updated": "2026-10-11",
   "source": "data/handbook.json",
-  "source_sha256": "20adfd6e09735ba91ccf0aa524579e5a48d729fc032a7a2fc2c02226eb30c528",
+  "source_sha256": "52bc6db014ed1b420a0b726a8b1ed7d15684ab869089b628e90ab35308cf65c0",
   "terms": 6,
   "display_order": [
     "workflow",

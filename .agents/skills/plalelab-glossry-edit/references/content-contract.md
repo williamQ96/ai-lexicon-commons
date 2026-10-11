@@ -2,7 +2,7 @@
 
 The canonical book is `data/handbook.json`; validation lives in `scripts/content.py`. HTML and TeX traverse `scripts/render.py`'s shared blocks. The JSON schema describes shapes; the Python validator additionally checks cross-references, semantic kinds, is-a cycles and source coverage. Both are required references when altering the schema.
 
-- `display_order`: each active slug exactly once. Current sequence: workflow, harness, model, llm, agent. New terms need an intentional placement; do not silently alphabetize the collection.
+- `display_order`: each active slug exactly once. Current sequence: workflow, harness, model, llm, agent, schema. New terms need an intentional placement; do not silently alphabetize the collection.
 - `concept_kind`: process, runtime, model or system. An is-a edge stays within a compatible kind; do not reclassify a system as a model merely to pass validation.
 - Cited statement: `{ "text": "Original paraphrase or explicitly attributed meaning", "source_ids": ["source-id"], "inference": true }`. The inference flag is optional on prose (default false), mandatory on relations. Internal criteria may cite the internal proposal; externally claimed definitions cannot be supported solely by it.
 - `definition_views`: label, scope/context, cited statement. `definition`, `scope`, `operational`, `adaptation` are cited statements; `includes`, `excludes`, `ambiguities` are nonempty cited-statement lists. Optional `sections` have stable nonreserved IDs, title and cited paragraphs.
@@ -14,3 +14,5 @@ The canonical book is `data/handbook.json`; validation lives in `scripts/content
 - `revisions`: version, ISO date, description. Bump entry version for meaning changes and book version for a changed edition.
 
 Acceptance scenarios: add a sixth entry and update order/links/cites; preserve an institutional-source gap without claiming nonexistent consensus; reject Harness is-a Workflow and Agent is-a LLM as semantic-kind errors; retain yellow when a request for green supplies no consensus decision. Run automated regression tests covering these scenarios.
+
+Optional paired comparison: a section may contain `comparison: {left_title, right_title, rows: [{label, left: cited_statement, right: cited_statement}]}`. Every cell uses its own sources and inference flag; never cite a whole table with one blanket reference. It renders as a neutral table on desktop, stacked rows on mobile and a table in TeX. `reading_links: [{target, section, label}]` links to a validated page section in HTML and TeX; use it to maintain one canonical comparison instead of duplicate essays.
