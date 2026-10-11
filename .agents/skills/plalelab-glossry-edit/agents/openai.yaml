@@ -1,0 +1,4 @@
+interface:
+  display_name: "Plale Lab Glossary Editor"
+  short_description: "Research and edit cited Plale Lab glossary entries"
+  default_prompt: "Use $plalelab-glossry-edit to research and revise a glossary entry with cited boundaries and explicit adoption status."

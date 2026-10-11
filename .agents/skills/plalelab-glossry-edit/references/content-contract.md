@@ -1,0 +1,16 @@
+# Content contract (schema version 2)
+
+The canonical book is `data/handbook.json`; validation lives in `scripts/content.py`. HTML and TeX traverse `scripts/render.py`'s shared blocks. The JSON schema describes shapes; the Python validator additionally checks cross-references, semantic kinds, is-a cycles and source coverage. Both are required references when altering the schema.
+
+- `display_order`: each active slug exactly once. Current sequence: workflow, harness, model, llm, agent. New terms need an intentional placement; do not silently alphabetize the collection.
+- `concept_kind`: process, runtime, model or system. An is-a edge stays within a compatible kind; do not reclassify a system as a model merely to pass validation.
+- Cited statement: `{ "text": "Original paraphrase or explicitly attributed meaning", "source_ids": ["source-id"], "inference": true }`. The inference flag is optional on prose (default false), mandatory on relations. Internal criteria may cite the internal proposal; externally claimed definitions cannot be supported solely by it.
+- `definition_views`: label, scope/context, cited statement. `definition`, `scope`, `operational`, `adaptation` are cited statements; `includes`, `excludes`, `ambiguities` are nonempty cited-statement lists. Optional `sections` have stable nonreserved IDs, title and cited paragraphs.
+- Relation: `{ "target": "model", "type": "is-a", "condition": "Within learned-model usage ...", "source_ids": ["eu-us-ai"], "inference": true }`. Conditions must explain when a relation holds. No unsupported arrows. `related` remains navigational association.
+- `sources`: exactly the IDs used by the entry's statements and outgoing relations, ordered by research tier. Sources carry title, author, year, tier 1–4, kind, version, locator, HTTPS URL, context, accessed ISO date and verification. A tier-4 source instead uses `url: "lab-guide.html"` and `guide_id` matching the current guide. Keep version strings synchronized.
+- `source_gaps`: plain editorial audit notes about searched evidence and retrieval limitations; distinguish “not established in this review” from “does not exist”. These notes must not smuggle uncited substantive claims.
+- `lab_guide`: ID, title, version, updated date, status/adoption, sections (ID/title/proposal paragraphs), revisions. A versioned proposal is original internal prose, not a transcript. Preserve a new version explicitly when revising; Git history records previous editions.
+- Proposed: adoption null. Adopted: `{ "date": "YYYY-MM-DD", "url": "https://.../decision", "consensus": "unanimous", "evidence": "Specific unanimous decision and scope in the linked record" }`. Validation checks structure; the editor must verify accessibility and actual evidence. Never fabricate that evidence.
+- `revisions`: version, ISO date, description. Bump entry version for meaning changes and book version for a changed edition.
+
+Acceptance scenarios: add a sixth entry and update order/links/cites; preserve an institutional-source gap without claiming nonexistent consensus; reject Harness is-a Workflow and Agent is-a LLM as semantic-kind errors; retain yellow when a request for green supplies no consensus decision. Run automated regression tests covering these scenarios.

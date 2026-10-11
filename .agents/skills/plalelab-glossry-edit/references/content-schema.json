@@ -1,0 +1,555 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Plale Lab handbook v2",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "title",
+    "version",
+    "updated",
+    "status",
+    "introduction",
+    "source_policy",
+    "adoption_policy",
+    "license",
+    "display_order",
+    "sources",
+    "terms",
+    "lab_guide"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 2
+    },
+    "display_order": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "terms": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/term"
+      }
+    },
+    "sources": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/source"
+      }
+    },
+    "lab_guide": {
+      "$ref": "#/$defs/guide"
+    }
+  },
+  "$defs": {
+    "cited": {
+      "type": "object",
+      "required": [
+        "text",
+        "source_ids"
+      ],
+      "properties": {
+        "text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "inference": {
+          "type": "boolean"
+        }
+      }
+    },
+    "adoption": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "url": {
+          "type": "string",
+          "pattern": "^https://"
+        },
+        "consensus": {
+          "const": "unanimous"
+        },
+        "evidence": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "date",
+        "url",
+        "consensus",
+        "evidence"
+      ]
+    },
+    "revision": {
+      "type": "object",
+      "required": [
+        "date",
+        "version",
+        "text"
+      ],
+      "properties": {
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "term": {
+      "type": "object",
+      "required": [
+        "slug",
+        "title",
+        "full_name",
+        "aliases",
+        "concept_kind",
+        "entry_version",
+        "updated",
+        "status",
+        "adoption",
+        "sources",
+        "related",
+        "revisions",
+        "source_gaps",
+        "definition_views",
+        "relations",
+        "sections",
+        "definition",
+        "scope",
+        "operational",
+        "adaptation",
+        "includes",
+        "excludes",
+        "ambiguities"
+      ],
+      "properties": {
+        "slug": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "full_name": {
+          "type": "string"
+        },
+        "aliases": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "concept_kind": {
+          "enum": [
+            "process",
+            "runtime",
+            "model",
+            "system"
+          ]
+        },
+        "entry_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "updated": {
+          "type": "string",
+          "format": "date"
+        },
+        "status": {
+          "enum": [
+            "proposed",
+            "adopted"
+          ]
+        },
+        "adoption": {
+          "$ref": "#/$defs/adoption"
+        },
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "related": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "revisions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/revision"
+          }
+        },
+        "source_gaps": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "definition_views": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "label",
+              "context",
+              "statement"
+            ],
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "context": {
+                "type": "string",
+                "minLength": 1
+              },
+              "statement": {
+                "$ref": "#/$defs/cited"
+              }
+            }
+          }
+        },
+        "relations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "target",
+              "type",
+              "condition",
+              "source_ids",
+              "inference"
+            ],
+            "properties": {
+              "target": {
+                "type": "string",
+                "minLength": 1
+              },
+              "type": {
+                "enum": [
+                  "is-a",
+                  "uses",
+                  "supports/orchestrates"
+                ]
+              },
+              "condition": {
+                "type": "string",
+                "minLength": 1
+              },
+              "source_ids": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "inference": {
+                "type": "boolean"
+              }
+            }
+          }
+        },
+        "sections": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "title",
+              "paragraphs"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1
+              },
+              "paragraphs": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "$ref": "#/$defs/cited"
+                }
+              }
+            }
+          }
+        },
+        "definition": {
+          "$ref": "#/$defs/cited"
+        },
+        "scope": {
+          "$ref": "#/$defs/cited"
+        },
+        "operational": {
+          "$ref": "#/$defs/cited"
+        },
+        "adaptation": {
+          "$ref": "#/$defs/cited"
+        },
+        "includes": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/cited"
+          }
+        },
+        "excludes": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/cited"
+          }
+        },
+        "ambiguities": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/cited"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "adopted"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "adoption": {
+                "type": "object"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "adoption": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "title",
+        "author",
+        "year",
+        "kind",
+        "version",
+        "locator",
+        "url",
+        "context",
+        "accessed",
+        "verification",
+        "tier"
+      ],
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "author": {
+          "type": "string",
+          "minLength": 1
+        },
+        "year": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "locator": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "minLength": 1
+        },
+        "context": {
+          "type": "string",
+          "minLength": 1
+        },
+        "accessed": {
+          "type": "string",
+          "minLength": 1
+        },
+        "verification": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tier": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4
+        },
+        "guide_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "guide": {
+      "type": "object",
+      "required": [
+        "id",
+        "title",
+        "version",
+        "updated",
+        "status",
+        "adoption",
+        "sections",
+        "revisions"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "updated": {
+          "type": "string",
+          "format": "date"
+        },
+        "status": {
+          "enum": [
+            "proposed",
+            "adopted"
+          ]
+        },
+        "adoption": {
+          "$ref": "#/$defs/adoption"
+        },
+        "sections": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "title",
+              "paragraphs"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1
+              },
+              "paragraphs": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          }
+        },
+        "revisions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/revision"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "adopted"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "adoption": {
+                "type": "object"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "adoption": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

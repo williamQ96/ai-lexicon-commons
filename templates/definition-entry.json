@@ -1,28 +1,96 @@
 {
-  "slug": "replace-with-term-slug",
-  "title": "Term",
+  "slug": "new-term",
+  "title": "New term",
   "full_name": "",
   "aliases": [],
-  "definition": "Concise chosen working meaning.",
-  "scope": "Where the definition applies.",
+  "definition": {
+    "text": "Write a source-supported definition.",
+    "source_ids": [
+      "SOURCE-ID"
+    ],
+    "inference": true
+  },
+  "scope": {
+    "text": "State the applicable context and limits.",
+    "source_ids": [
+      "SOURCE-ID"
+    ],
+    "inference": true
+  },
+  "definition_views": [
+    {
+      "label": "Attributed usage",
+      "context": "Source type and intended scope",
+      "statement": {
+        "text": "Compare the original definition.",
+        "source_ids": [
+          "SOURCE-ID"
+        ],
+        "inference": true
+      }
+    }
+  ],
   "includes": [
-    "Included case."
+    {
+      "text": "Replace with a substantive includes statement.",
+      "source_ids": [
+        "SOURCE-ID"
+      ],
+      "inference": true
+    }
   ],
   "excludes": [
-    "Excluded case."
+    {
+      "text": "Replace with a substantive excludes statement.",
+      "source_ids": [
+        "SOURCE-ID"
+      ],
+      "inference": true
+    }
   ],
   "ambiguities": [
-    "Different usages and unresolved boundaries."
+    {
+      "text": "Replace with a substantive ambiguities statement.",
+      "source_ids": [
+        "SOURCE-ID"
+      ],
+      "inference": true
+    }
   ],
-  "operational": "Procedure and decision rule where applicable; otherwise explain not applicable or pending.",
-  "adaptation": "Explain how the project interprets or adapts attributed sources.",
-  "sources": [],
-  "related": [],
+  "operational": {
+    "text": "Specify a testable Lab criterion.",
+    "source_ids": [
+      "lab-guide-v1"
+    ],
+    "inference": true
+  },
+  "adaptation": {
+    "text": "Propose a working definition without claiming adoption.",
+    "source_ids": [
+      "lab-guide-v1"
+    ],
+    "inference": true
+  },
+  "relations": [],
+  "source_gaps": [
+    "Record institutional and peer-review findings, gaps and retrieval limits."
+  ],
+  "sections": [],
   "status": "proposed",
-  "entry_version": "0.1",
-  "updated": "YYYY-MM-DD",
-  "adoption": {
-    "date": null,
-    "url": null
-  }
+  "adoption": null,
+  "entry_version": "1.0",
+  "updated": "2026-10-10",
+  "revisions": [
+    {
+      "version": "1.0",
+      "date": "2026-10-10",
+      "text": "Initial cited proposal."
+    }
+  ],
+  "sources": [
+    "SOURCE-ID",
+    "lab-guide-v1"
+  ],
+  "related": [],
+  "concept_kind": "process"
 }

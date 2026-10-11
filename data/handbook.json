@@ -1,248 +1,790 @@
 {
   "title": "Plale Lab Shared Glossary and Operational Definitions",
   "short_title": "Plale Lab Glossary",
-  "version": "0.3",
+  "version": "0.5",
   "updated": "2026-10-10",
-  "status": "Working proposal; pending team confirmation",
+  "status": "Five working definitions; all Lab proposals remain unratified",
   "introduction": [
-    "This is a living glossary developed for clearer communication and productivity within Plale Lab and the wider community. It is a public collaborative project, updated over time.",
-    "AI research and especially rapidly evolving AI engineering terminology can have blurred boundaries, competing meanings, and meanings that change across time or communities. Those differences can create avoidable communication costs.",
-    "Readers are assumed to have academic and engineering experience. The aim is to clarify ambiguity and make working meanings explicit, rather than provide comprehensive introductory instruction."
+    "A shared reference for research and engineering: compare meanings, inspect their boundaries, and follow the evidence.",
+    "Read in the order Workflow, Harness, Model, LLM, Agent, Schema. The sequence is a reading path, not a claim that all six form a single subtype hierarchy.",
+    "External evidence and internal adoption are separate. Each working definition remains a proposal until the lab records consensus."
   ],
   "source_policy": [
-    "Prefer applicable standards, disciplinary consensus, and authoritative definitions. Then consider peer-reviewed literature, while recognizing that peer review alone does not establish consensus.",
-    "For newer terms, use clearly attributed preprints, first-party technical documentation, and established engineering practices when stronger sources are not available or do not resolve the intended usage.",
-    "Where sources or communities disagree, preserve attribution and state the working definition chosen for this project. Source authority and project adoption are separate questions. Every initial entry remains proposed and pending team confirmation.",
-    "Record the source version or date, a precise locator where useful, and this project's interpretation or adaptation. Revisit meanings when evidence, standards, or usage change."
+    "Research applicable formal institutional definitions first, then peer-reviewed papers, then industry standards, first-party documentation, preprints and academic materials, and finally Lab internal proposals.",
+    "Verify the original text, edition, publication status and context. A corporate engineering blog belongs to tier 3. Hosting a paper at a university does not change its publication type.",
+    "Prefer relevance over an unrelated authority. Preserve attributed disagreements, record source gaps, and do not turn a single paper into a consensus statement.",
+    "Citations accompany definitions, boundaries and typed relations. An editorial inference is marked explicitly; a source citation identifies its basis, not an endorsement of our inference."
   ],
-  "adoption_policy": "A working definition is selected for use in this draft, not ratified by the lab. Change an entry to adopted only after an explicit team decision is recorded with its date and a public link. A merged pull request or passing build alone does not establish adoption.",
+  "adoption_policy": "Yellow means Plale Lab · Proposed / not ratified. Green means Plale Lab · Adopted by consensus and requires an explicit unanimous decision, date, accessible decision link and evidence record. A merge, publication or authoritative external source does not establish Lab adoption.",
   "license": "Original handbook prose: CC BY 4.0. Build scripts and site code: MIT. Third-party sources retain their own rights.",
   "sources": {
-    "oecd-ai": {
-      "title": "Explanatory memorandum on the updated OECD definition of an AI system",
-      "author": "OECD",
+    "wfmc-1998": {
+      "title": "Workflow and Internet: Catalysts for Radical Change",
+      "author": "Workflow Management Coalition",
+      "year": "1998",
+      "tier": 1,
+      "kind": "Institutional white paper",
+      "version": "June 1998",
+      "locator": "Page 8, Workflow Assists Business Processes",
+      "url": "https://wfmc.org/wp-content/uploads/2022/09/Workflow_Internet_catalysts_for_change.pdf",
+      "context": "Business-process automation; quotes the WfMC glossary.",
+      "accessed": "2026-10-10",
+      "verification": "Cover and page 8 verified through indexed excerpts of the original PDF and the official publication catalogue. Direct PDF retrieval failed; no claim of full-document review."
+    },
+    "wfmc-glossary": {
+      "title": "Terminology & Glossary",
+      "author": "Workflow Management Coalition",
+      "year": "1999",
+      "tier": 1,
+      "kind": "Institutional terminology specification",
+      "version": "WfMC-TC-1011, Issue 3.0, February 1999",
+      "locator": "Page 8, Workflow; process definition and enactment usage",
+      "url": "https://wfmc.org/wp-content/uploads/2022/09/TC-1011_term_glossary_v3.pdf",
+      "context": "Production and ad-hoc business workflow.",
+      "accessed": "2026-10-10",
+      "verification": "Version and page 8 verified in indexed original excerpts and the official publication catalogue. Direct PDF retrieval failed."
+    },
+    "workflow-patterns": {
+      "title": "Workflow Patterns",
+      "author": "Wil M. P. van der Aalst, Arthur H. M. ter Hofstede, Bartek Kiepuszewski and Alistair P. Barros",
+      "year": "2003",
+      "tier": 2,
+      "kind": "Peer-reviewed journal article",
+      "version": "Distributed and Parallel Databases 14(1), 5-51; DOI 10.1023/A:1022883727209",
+      "locator": "Section 2, printed page 9; static-control-flow scope on page 8",
+      "url": "https://pure.tue.nl/ws/files/2053121/613310.pdf",
+      "context": "Business workflow control-flow patterns; not an exhaustive theory of every process.",
+      "accessed": "2026-10-10",
+      "verification": "Final published PDF read; peer-review status, journal and DOI checked against the TU/e publication record."
+    },
+    "asd-harness": {
+      "title": "Agentic AI harnesses",
+      "author": "Australian Signals Directorate",
+      "year": "2026",
+      "tier": 1,
+      "kind": "Institutional security advisory",
+      "version": "Published and reviewed 11 September 2026",
+      "locator": "What is a harness; Model vs harness",
+      "url": "https://www.cyber.gov.au/advisory/agentic-ai-harnesses",
+      "context": "Organizational security and governance of agentic AI; not a universal taxonomy.",
+      "accessed": "2026-10-10",
+      "verification": "Original text and publication record checked 2026-10-10."
+    },
+    "anthropic-harness": {
+      "title": "Scaling Managed Agents: Decoupling the brain from the hands",
+      "author": "Anthropic",
+      "year": "2026",
+      "tier": 3,
+      "kind": "First-party engineering blog",
+      "version": "8 April 2026",
+      "locator": "Session, harness and sandbox architecture",
+      "url": "https://www.anthropic.com/engineering/managed-agents",
+      "context": "Architecture of a specific hosted agent product.",
+      "accessed": "2026-10-10",
+      "verification": "Original text and publication record checked 2026-10-10."
+    },
+    "harness-preprint": {
+      "title": "What makes a harness a harness: necessary and sufficient conditions for an agent harness",
+      "author": "Sanderson Oliveira de Macedo",
+      "year": "2026",
+      "tier": 3,
+      "kind": "Preprint; peer review not established",
+      "version": "arXiv:2606.10106v1, 8 June 2026",
+      "locator": "Abstract; conceptual boundaries and inclusion/exclusion test",
+      "url": "https://arxiv.org/abs/2606.10106v1",
+      "context": "A proposed operational definition in coding-agent engineering; no consensus claim.",
+      "accessed": "2026-10-10",
+      "verification": "Original text and publication record checked 2026-10-10."
+    },
+    "nasa-model": {
+      "title": "Standard for Models and Simulations",
+      "author": "NASA",
       "year": "2024",
-      "kind": "Authoritative policy definition and explanatory memorandum",
-      "version": "5 March 2024; OECD Artificial Intelligence Papers No. 8",
-      "locator": "Definition on page 4; interpretation on pages 6-9",
-      "url": "https://doi.org/10.1787/623da898-en",
-      "accessed": "2026-10-10"
+      "tier": 1,
+      "kind": "Institutional technical standard",
+      "version": "NASA-STD-7009B, 5 March 2024",
+      "locator": "Section 3.2, Model on printed page 15; Computational Model and Conceptual Model on page 12",
+      "url": "https://standards.nasa.gov/sites/default/files/standards/NASA/B/1/NASA-STD-7009B-Final-3-5-2024.pdf",
+      "context": "Models and simulations supporting NASA activities.",
+      "accessed": "2026-10-10",
+      "verification": "Final B PDF checked. Portal historical Change Date is inconsistent with its B document date; this record follows the PDF cover, not that legacy field."
     },
-    "google-ml": {
-      "title": "What is Machine Learning?",
-      "author": "Google for Developers",
-      "year": "2026",
-      "kind": "First-party technical documentation",
-      "version": "Last updated 27 January 2026",
-      "locator": "What is Machine Learning? and Types of ML Systems",
-      "url": "https://developers.google.com/machine-learning/intro-to-ml/what-is-ml",
-      "accessed": "2026-10-10"
+    "eu-us-ai": {
+      "title": "EU-U.S. Terminology and Taxonomy for Artificial Intelligence, Second Edition",
+      "author": "EU-U.S. Trade and Technology Council, Working Group 1",
+      "year": "2024",
+      "tier": 1,
+      "kind": "Institutional terminology document",
+      "version": "Second edition, prepared for the sixth TTC ministerial in 2024",
+      "locator": "Printed page 12, Model and Large language model; page 8, Machine Learning",
+      "url": "https://www.nist.gov/document/eu-us-terminology-and-taxonomy-artificial-intelligence-second-edition",
+      "context": "AI-system terminology for transatlantic risk-management and standards cooperation.",
+      "accessed": "2026-10-10",
+      "verification": "Original text and publication record checked 2026-10-10."
     },
-    "google-llm": {
-      "title": "Introduction to Large Language Models",
-      "author": "Google for Developers",
-      "year": "2026",
-      "kind": "First-party technical documentation",
-      "version": "Last updated 9 January 2026",
-      "locator": "What is a language model?; linked LLM module",
-      "url": "https://developers.google.com/machine-learning/crash-course/llm",
-      "accessed": "2026-10-10"
+    "gpt3": {
+      "title": "Language Models are Few-Shot Learners",
+      "author": "Tom B. Brown and others",
+      "year": "2020",
+      "tier": 2,
+      "kind": "Peer-reviewed conference paper",
+      "version": "Advances in Neural Information Processing Systems 33, 2020",
+      "locator": "Abstract; sections 2.1-2.2, model sizes and training datasets",
+      "url": "https://papers.nips.cc/paper/2020/file/1457c0d6bfcb4967418bfb8ac142f64a-Paper.pdf",
+      "context": "GPT-3 experiments and corpus; a concrete example, not a universal LLM definition.",
+      "accessed": "2026-10-10",
+      "verification": "Original text and publication record checked 2026-10-10."
     },
-    "foundation-report": {
-      "title": "On the Opportunities and Risks of Foundation Models",
-      "author": "Rishi Bommasani and others",
-      "year": "2022",
-      "kind": "Research report / arXiv preprint; no consensus claim",
-      "version": "arXiv:2108.07258v3, 12 July 2022",
-      "locator": "Abstract and introduction",
-      "url": "https://arxiv.org/abs/2108.07258v3",
-      "accessed": "2026-10-10"
+    "wooldridge-agent": {
+      "title": "Intelligent Agents: Theory and Practice",
+      "author": "Michael Wooldridge and Nicholas R. Jennings",
+      "year": "1995",
+      "tier": 2,
+      "kind": "Peer-reviewed journal article; author-hosted text",
+      "version": "The Knowledge Engineering Review 10(2), June 1995, 115-152; DOI 10.1017/S0269888900008122",
+      "locator": "What is an agent? A Weak Notion of Agency; stronger notions and other attributes",
+      "url": "https://www.cs.ox.ac.uk/people/michael.wooldridge/pubs/ker95/ker95-html.html",
+      "context": "General software/hardware agency, predating LLM engineering.",
+      "accessed": "2026-10-10",
+      "verification": "Author HTML checked; its 1994 conversion timestamp is not the publication year. Journal issue and DOI verified at Cambridge."
     },
-    "oecd-generative": {
-      "title": "Initial policy considerations for generative artificial intelligence",
-      "author": "Philippe Lorenz and Karine Perset and Jamie Berryhill",
+    "react": {
+      "title": "ReAct: Synergizing Reasoning and Acting in Language Models",
+      "author": "Shunyu Yao and others",
       "year": "2023",
-      "kind": "Authoritative policy paper",
-      "version": "18 September 2023; OECD Artificial Intelligence Papers No. 1",
-      "locator": "Abstract and introduction",
-      "url": "https://doi.org/10.1787/fae2d1e6-en",
-      "accessed": "2026-10-10"
+      "tier": 2,
+      "kind": "Peer-reviewed conference paper; author manuscript",
+      "version": "ICLR 2023 camera-ready manuscript; arXiv:2210.03629v3, 10 March 2023",
+      "locator": "Abstract and section 2; ICLR 2023 publication header",
+      "url": "https://arxiv.org/pdf/2210.03629v3",
+      "context": "An LLM reasoning/action architecture; not a definition of every possible agent.",
+      "accessed": "2026-10-10",
+      "verification": "ICLR publication header and arXiv v3 camera-ready record checked 2026-10-10."
     },
-    "sei-engineering": {
-      "title": "Artificial Intelligence Engineering Body of Knowledge",
-      "author": "Carnegie Mellon University Software Engineering Institute",
+    "nist-agent-draft": {
+      "title": "Accelerating the Adoption of Software and AI Agent Identity and Authorization",
+      "author": "Harold Booth, Bill Fisher, Ryan Galluzzo and Joshua Roberts; NIST NCCoE",
+      "year": "2026",
+      "tier": 3,
+      "kind": "Institutional draft concept paper",
+      "version": "DRAFT, February 2026; public comment 5 February-2 April 2026",
+      "locator": "Challenge Overview, printed page 5, lines 54-58",
+      "url": "https://www.nccoe.nist.gov/sites/default/files/2026-02/accelerating-the-adoption-of-software-and-ai-agent-identity-and-authorization-concept-paper.pdf",
+      "context": "Identity and authorization project scoping. Official draft, not a final general-agent definition.",
+      "accessed": "2026-10-10",
+      "verification": "Original text and publication record checked 2026-10-10."
+    },
+    "anthropic-agents": {
+      "title": "Building effective agents",
+      "author": "Anthropic",
+      "year": "2024",
+      "tier": 3,
+      "kind": "First-party engineering blog",
+      "version": "19 December 2024; live page includes subsequent tooling updates",
+      "locator": "What are agents?; Building blocks, workflows, and agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents",
+      "context": "Company-specific distinction between predefined LLM workflows and dynamic agents.",
+      "accessed": "2026-10-10",
+      "verification": "Original text and publication record checked 2026-10-10."
+    },
+    "lab-guide-v1": {
+      "title": "Plale Lab terminology guide",
+      "author": "Plale Lab internal proposal",
+      "year": "2026",
+      "tier": 4,
+      "kind": "Lab internal proposal; not ratified",
+      "version": "Version 1.1, 10 October 2026; initial 1.0 proposal sections retained",
+      "locator": "Term-specific proposal sections and editorial policy",
+      "url": "lab-guide.html",
+      "context": "Internal proposals and editorial interpretations, not external consensus.",
+      "accessed": "2026-10-10",
+      "verification": "Version 1.1 adds an explicitly unratified Schema editorial extension; all prior 1.0 sections are retained. No adoption decision claimed.",
+      "guide_id": "lab-guide-v1"
+    },
+    "swe-agent": {
+      "title": "SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering",
+      "author": "John Yang, Carlos E. Jimenez, Alexander Wettig, Kilian Lieret, Shunyu Yao, Karthik Narasimhan and Ofir Press",
+      "year": "2024",
+      "tier": 2,
+      "kind": "Peer-reviewed conference paper",
+      "version": "Advances in Neural Information Processing Systems 37, NeurIPS 2024; DOI 10.52202/079017-1601",
+      "locator": "Abstract and agent-computer interface architecture",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2024/file/5a7c947568c1b1328ccc5230172e1e7c-Paper-Conference.pdf",
+      "context": "Software-engineering agent architecture; relevant runtime evidence, not a universal harness definition.",
+      "accessed": "2026-10-10",
+      "verification": "Published NeurIPS proceedings PDF and conference record checked 2026-10-10."
+    },
+    "cnssi-schema": {
+      "title": "CNSSI 4009-2022: schema (as reproduced by NIST CSRC)",
+      "author": "Committee on National Security Systems; NIST CSRC glossary reproduction",
       "year": "2022",
-      "kind": "First-party disciplinary initiative and engineering practice",
-      "version": "Page created October 2022; live page accessed 10 October 2026",
-      "locator": "Opening description and Developing the AIEBoK",
-      "url": "https://www.sei.cmu.edu/projects/artificial-intelligence-engineering-body-of-knowledge/",
-      "accessed": "2026-10-10"
+      "tier": 1,
+      "kind": "Institutional terminology; source-attributed glossary reproduction",
+      "version": "CNSSI 4009-2022, NIST term record accessed 10 October 2026",
+      "locator": "NIST CSRC schema entry, attributed definition and source link",
+      "url": "https://csrc.nist.gov/glossary/term/schema",
+      "context": "Object organization, field syntax, semantics and metadata in information-security terminology.",
+      "accessed": "2026-10-10",
+      "verification": "NIST reproduction and its CNSSI attribution checked. The linked CNSS original could not be retrieved; no claim of direct review or a universal NIST-preferred definition."
     },
-    "w3c-provo": {
-      "title": "PROV-O: The PROV Ontology",
-      "author": "World Wide Web Consortium",
-      "year": "2013",
+    "dataguides-1997": {
+      "title": "DataGuides: Enabling Query Formulation and Optimization in Semistructured Databases",
+      "author": "Roy Goldman and Jennifer Widom",
+      "year": "1997",
+      "tier": 2,
+      "kind": "Peer-reviewed conference paper",
+      "version": "Proceedings of the 23rd VLDB Conference, 1997, pp. 436-445",
+      "locator": "Abstract and section 1, printed p. 436; section 2, DataGuide definitions",
+      "url": "https://www.vldb.org/conf/1997/P436.PDF",
+      "context": "Data-derived structural summaries for the Lore semistructured database; one method, not a universal definition of extraction.",
+      "accessed": "2026-10-10",
+      "verification": "Conference PDF abstract/introduction and proceedings publication record checked. The search engine crawl date is not the publication date."
+    },
+    "xsd-1-1": {
+      "title": "W3C XML Schema Definition Language (XSD) 1.1 Part 1: Structures",
+      "author": "W3C; Shudi Gao, C. M. Sperberg-McQueen and Henry S. Thompson (editors)",
+      "year": "2012",
+      "tier": 3,
       "kind": "W3C Recommendation",
-      "version": "30 April 2013 Recommendation",
-      "locator": "Sections 1-3",
-      "url": "https://www.w3.org/TR/2013/REC-prov-o-20130430/",
-      "accessed": "2026-10-10"
+      "version": "W3C Recommendation, 5 April 2012",
+      "locator": "Sections 2.2, 2.4, 2.5 and 2.7: components, validators, validity and XML representations",
+      "url": "https://www.w3.org/TR/2012/REC-xmlschema11-1-20120405/",
+      "context": "Schemas and schema-validity assessment for XML; not a definition of all research metadata.",
+      "accessed": "2026-10-10",
+      "verification": "Dated Recommendation and cited sections checked, rather than an earlier Working Draft."
+    },
+    "json-schema-2020-12": {
+      "title": "JSON Schema: A Media Type for Describing JSON Documents",
+      "author": "Austin Wright, Henry Andrews, Ben Hutton and Greg Dennis",
+      "year": "2022",
+      "tier": 3,
+      "kind": "First-party specification; IETF Internet-Draft, not an RFC",
+      "version": "Draft 2020-12 Core, draft-bhutton-json-schema-01, 16 June 2022",
+      "locator": "Sections 4.2, 4.3, 4.3.1 and 4.3.4: instance, schema, keywords and meta-schema",
+      "url": "https://json-schema.org/draft/2020-12/json-schema-core",
+      "context": "The JSON Schema dialect and instance data model; assertions and annotations have different roles.",
+      "accessed": "2026-10-10",
+      "verification": "Dated Core text and definitions checked. The document identifies itself as an Internet-Draft with intended Informational status; it is not relabeled a final IETF standard."
     }
   },
   "terms": [
     {
-      "slug": "ai",
-      "title": "AI",
-      "full_name": "Artificial intelligence",
+      "slug": "workflow",
+      "title": "Workflow",
+      "full_name": "Process, description, execution",
       "aliases": [
-        "artificial intelligence",
-        "AI system"
+        "workflow definition",
+        "workflow instance",
+        "deterministic pipeline"
       ],
-      "definition": "AI refers here to the research and engineering of machine-based systems that infer from inputs how to produce outputs toward explicit or implicit objectives.",
-      "scope": "For an implementation, use AI system. The system sense follows the OECD framing: outputs may be predictions, content, recommendations, or decisions, and autonomy and adaptation vary.",
+      "definition": {
+        "text": "An arrangement of activities and control rules for carrying out a process. Distinguish the process, its description, and the system that executes it.",
+        "source_ids": [
+          "workflow-patterns",
+          "wfmc-1998"
+        ],
+        "inference": true
+      },
+      "scope": {
+        "text": "This entry uses Workflow broadly for research and engineering. WfMC places it in business-process automation; its narrower historical definition does not itself define every scientific or Python workflow.",
+        "source_ids": [
+          "wfmc-1998",
+          "lab-guide-v1"
+        ],
+        "inference": true
+      },
+      "definition_views": [
+        {
+          "label": "WfMC terminology",
+          "context": "Institutional; business automation",
+          "statement": {
+            "text": "WfMC describes partial or complete business-process automation, with work or information passed between participants under procedural rules.",
+            "source_ids": [
+              "wfmc-1998",
+              "wfmc-glossary"
+            ]
+          }
+        },
+        {
+          "label": "Workflow Patterns",
+          "context": "Peer-reviewed; control flow",
+          "statement": {
+            "text": "A process definition specifies activities and routing; an instance enacts that definition for a particular case. The paper evaluates static control-flow patterns.",
+            "source_ids": [
+              "workflow-patterns"
+            ]
+          }
+        },
+        {
+          "label": "LLM engineering",
+          "context": "First-party; narrower architecture",
+          "statement": {
+            "text": "Anthropic calls predefined code paths coordinating LLMs and tools workflows, and contrasts them with model-directed agents. This is an architectural convention within LLM applications.",
+            "source_ids": [
+              "anthropic-agents"
+            ]
+          }
+        }
+      ],
       "includes": [
-        "Machine-learning and knowledge-based approaches within the stated system context."
+        {
+          "text": "Editorial example: a deterministic Python load → validate → transform → save pipeline has activities, dependencies and a completion condition. An LLM is unnecessary for our broader working usage.",
+          "source_ids": [
+            "lab-guide-v1"
+          ],
+          "inference": true
+        },
+        {
+          "text": "Editorial example: a fixed retrieve → summarize → verify LLM pipeline is a workflow even when individual model outputs vary. Fixed control flow does not imply deterministic outputs.",
+          "source_ids": [
+            "anthropic-agents"
+          ],
+          "inference": true
+        }
       ],
       "excludes": [
-        "An assumption that AI means only generative AI or only language models.",
-        "Claims about consciousness, human equivalence, or a legal classification."
+        {
+          "text": "A scheduler or execution engine is an implementation that runs work, not the process description itself.",
+          "source_ids": [
+            "wfmc-1998",
+            "workflow-patterns"
+          ],
+          "inference": true
+        },
+        {
+          "text": "A list of unrelated functions with no stated dependencies or process purpose fails our operational test.",
+          "source_ids": [
+            "lab-guide-v1"
+          ],
+          "inference": true
+        }
       ],
       "ambiguities": [
-        "AI can name a field, a capability, a model, or an entire system. Specify which sense is intended.",
-        "The OECD definition serves its recommendation's purpose. This glossary uses it as a conceptual reference; it does not resolve every boundary with ordinary software."
+        {
+          "text": "Workflow may name a process arrangement, a stored definition, or a run in casual usage. State which object is meant before comparing implementations.",
+          "source_ids": [
+            "workflow-patterns"
+          ],
+          "inference": true
+        },
+        {
+          "text": "Predefined paths are not a universal requirement: WfMC distinguishes production workflows from ad-hoc workflows whose procedural rules can change during execution.",
+          "source_ids": [
+            "wfmc-glossary"
+          ]
+        },
+        {
+          "text": "The 2003 patterns cover static control flow, not all resource allocation, exceptions or transaction semantics. Do not treat their scope as a universal exclusion rule.",
+          "source_ids": [
+            "workflow-patterns"
+          ]
+        }
       ],
-      "operational": "When describing an AI system, identify its inputs, objectives, output types, system boundary, and degree of human involvement. Record borderline classifications and their rationale.",
-      "adaptation": "Project choice: use AI as the umbrella term; use AI system for a concrete implementation. This is a paraphrase and scoped interpretation of the OECD definition, pending team confirmation.",
+      "operational": {
+        "text": "Lab test: identify a purpose, activities, dependencies or transition rules, and a completion or termination condition. Label the artifact as description, execution instance or executor. These are editorial criteria, not a quoted standard.",
+        "source_ids": [
+          "lab-guide-v1"
+        ],
+        "inference": true
+      },
+      "adaptation": {
+        "text": "Use Workflow for an organized process with explicit coordination rules, independent of whether its tasks are manual, deterministic code or model calls. Keep the executor separate from the process it realizes.",
+        "source_ids": [
+          "lab-guide-v1"
+        ]
+      },
+      "relations": [
+        {
+          "target": "llm",
+          "type": "uses",
+          "condition": "An LLM workflow uses an LLM for one or more tasks; many workflows use no language model.",
+          "source_ids": [
+            "anthropic-agents"
+          ],
+          "inference": true
+        },
+        {
+          "target": "agent",
+          "type": "uses",
+          "condition": "A designed workflow may delegate an activity to an agent; this is composition, not a claim that every workflow is agentic.",
+          "source_ids": [
+            "lab-guide-v1"
+          ],
+          "inference": true
+        }
+      ],
+      "source_gaps": [
+        "Institutional scope gap: the historical WfMC definition concerns business automation. The broader Python example and our minimum operational test are explicit Lab proposals.",
+        "Retrieval limitation: indexed original excerpts verified the WfMC cover, glossary version and relevant definitions; direct retrieval of the two WfMC PDFs failed."
+      ],
+      "sections": [],
+      "status": "proposed",
+      "adoption": null,
+      "entry_version": "1.0",
+      "updated": "2026-10-10",
+      "revisions": [
+        {
+          "version": "1.0",
+          "date": "2026-10-10",
+          "text": "Researched and rewritten with attributed definitions, typed relations and an unratified Lab proposal."
+        }
+      ],
       "sources": [
-        "oecd-ai"
+        "wfmc-1998",
+        "wfmc-glossary",
+        "workflow-patterns",
+        "anthropic-agents",
+        "lab-guide-v1"
       ],
       "related": [
-        "ml",
-        "generative-ai",
-        "ai-engineering"
+        "harness",
+        "llm",
+        "agent"
       ],
-      "status": "proposed",
-      "entry_version": "0.1",
-      "updated": "2026-10-10",
-      "adoption": {
-        "date": null,
-        "url": null
-      }
+      "concept_kind": "process"
     },
     {
-      "slug": "ai-engineering",
-      "title": "AI engineering",
-      "full_name": "",
+      "slug": "harness",
+      "title": "Harness",
+      "full_name": "The execution layer around a model",
       "aliases": [
-        "artificial intelligence engineering"
+        "agent harness",
+        "runtime",
+        "evaluation harness",
+        "SDK",
+        "framework"
       ],
-      "definition": "The engineering practice of designing, integrating, evaluating, deploying, and maintaining AI systems so they serve stated needs in their operating context.",
-      "scope": "System delivery and operation across the lifecycle, including software, data, models, infrastructure, and people.",
+      "definition": {
+        "text": "In agentic AI, a harness is software around a model that connects it to context and tools and controls execution. Sources differ on whether this means the control loop or the wider non-model runtime.",
+        "source_ids": [
+          "asd-harness",
+          "anthropic-harness"
+        ],
+        "inference": true
+      },
+      "scope": {
+        "text": "Focus here is an agent runtime harness. An evaluation harness instead runs tasks and measures results; a framework or SDK supplies construction abstractions and may include a runtime. Shared naming does not make these identical objects.",
+        "source_ids": [
+          "harness-preprint"
+        ],
+        "inference": true
+      },
+      "definition_views": [
+        {
+          "label": "ASD advisory",
+          "context": "Institutional; security and governance",
+          "statement": {
+            "text": "ASD uses harness for the non-LLM components of an agentic system, including connections to tools, data, memory and planning workflows, privileges and the control loop.",
+            "source_ids": [
+              "asd-harness"
+            ]
+          }
+        },
+        {
+          "label": "SWE-agent architecture",
+          "context": "Peer-reviewed; agent-computer interface",
+          "statement": {
+            "text": "SWE-agent supplies a task-oriented interface for a language-model agent to navigate repositories, edit files and execute tests. This informs the runtime boundary; the paper is not treated as a general definition of Harness.",
+            "source_ids": [
+              "swe-agent"
+            ],
+            "inference": true
+          }
+        },
+        {
+          "label": "Managed Agents architecture",
+          "context": "First-party; product boundary",
+          "statement": {
+            "text": "Anthropic separates session, harness and sandbox. Its harness drives the loop and routes model-requested tool calls; the sandbox executes them.",
+            "source_ids": [
+              "anthropic-harness"
+            ]
+          }
+        },
+        {
+          "label": "Conceptual proposal",
+          "context": "Preprint; not established consensus",
+          "statement": {
+            "text": "Macedo proposes an operational boundary against SDKs, frameworks, IDE plugins, evaluation scaffolds and orchestrators. This is one author’s definition proposal.",
+            "source_ids": [
+              "harness-preprint"
+            ]
+          }
+        }
+      ],
       "includes": [
-        "Work on reliability, scalability, security, human interaction, and operational evaluation."
+        {
+          "text": "Lab example: a running loop that assembles context, dispatches tools, records outcomes and applies stop or permission rules qualifies under our working definition.",
+          "source_ids": [
+            "lab-guide-v1"
+          ],
+          "inference": true
+        },
+        {
+          "text": "A harness can realize fixed workflows as well as dynamic agent loops. Describe its actual control responsibilities rather than inferring them from a product name.",
+          "source_ids": [
+            "asd-harness",
+            "anthropic-harness"
+          ],
+          "inference": true
+        }
       ],
       "excludes": [
-        "A synonym limited to training a new model or writing prompts.",
-        "A claim that one organization's framework is a universal standard."
+        {
+          "text": "Model weights alone do not supply the surrounding runtime.",
+          "source_ids": [
+            "asd-harness"
+          ],
+          "inference": true
+        },
+        {
+          "text": "An SDK import or workflow diagram alone does not demonstrate a running harness. An evaluation runner is labeled evaluation harness unless it also has the claimed agent-runtime responsibilities.",
+          "source_ids": [
+            "harness-preprint"
+          ],
+          "inference": true
+        }
       ],
       "ambiguities": [
-        "Some communities use AI engineering for application development around existing models; CMU SEI describes a broader lifecycle discipline.",
-        "State whether a discussion concerns model development, application integration, or the complete operational system."
+        {
+          "text": "ASD’s broad organizational boundary and Anthropic’s separated runtime components answer different questions. Neither establishes that a harness is a kind of process.",
+          "source_ids": [
+            "asd-harness",
+            "anthropic-harness"
+          ],
+          "inference": true
+        },
+        {
+          "text": "A runtime may be delivered inside an SDK or framework; packaging and execution responsibility are separate axes.",
+          "source_ids": [
+            "harness-preprint"
+          ],
+          "inference": true
+        }
       ],
-      "operational": "Identify the system's intended users and outcomes, evaluation criteria, deployment context, monitoring, and maintenance responsibilities. Model performance alone is not the whole acceptance criterion.",
-      "adaptation": "Project choice: retain the broader lifecycle meaning informed by CMU SEI. Narrower application-development usage remains relevant when explicitly qualified; team confirmation is pending.",
+      "operational": {
+        "text": "Lab test: locate the running component responsible for model invocation, context/tool mediation, execution feedback and termination or privilege policy. State where session storage and tool execution live. If the software only constructs that component, label it a framework or SDK.",
+        "source_ids": [
+          "lab-guide-v1"
+        ],
+        "inference": true
+      },
+      "adaptation": {
+        "text": "Use agent harness for the model-surrounding execution layer that mediates context, tools, feedback and control policy. Treat “a specialized workflow” as the initial proposal to discuss, not the adopted subtype taxonomy.",
+        "source_ids": [
+          "lab-guide-v1"
+        ]
+      },
+      "relations": [
+        {
+          "target": "workflow",
+          "type": "supports/orchestrates",
+          "condition": "A harness realizes or coordinates workflows; runtime-to-process is not strict subtype nesting.",
+          "source_ids": [
+            "asd-harness",
+            "anthropic-harness"
+          ],
+          "inference": true
+        },
+        {
+          "target": "agent",
+          "type": "supports/orchestrates",
+          "condition": "When it supplies the running loop, tools and execution policy for an agent.",
+          "source_ids": [
+            "asd-harness"
+          ],
+          "inference": true
+        },
+        {
+          "target": "llm",
+          "type": "uses",
+          "condition": "In an LLM-based agent runtime; evaluation harnesses and other harness usages have different scopes.",
+          "source_ids": [
+            "asd-harness",
+            "harness-preprint"
+          ],
+          "inference": true
+        }
+      ],
+      "source_gaps": [
+        "Peer-reviewed definition gap: this review did not establish a directly applicable peer-reviewed consensus definition of agent harness. The conceptual paper is a June 2026 preprint, not promoted to tier 2."
+      ],
+      "sections": [],
+      "status": "proposed",
+      "adoption": null,
+      "entry_version": "1.0",
+      "updated": "2026-10-10",
+      "revisions": [
+        {
+          "version": "1.0",
+          "date": "2026-10-10",
+          "text": "Researched and rewritten with attributed definitions, typed relations and an unratified Lab proposal."
+        }
+      ],
       "sources": [
-        "sei-engineering"
+        "asd-harness",
+        "swe-agent",
+        "anthropic-harness",
+        "harness-preprint",
+        "lab-guide-v1"
       ],
       "related": [
-        "ai",
-        "operational-definition",
-        "provenance"
+        "workflow",
+        "llm",
+        "agent"
       ],
-      "status": "proposed",
-      "entry_version": "0.1",
-      "updated": "2026-10-10",
-      "adoption": {
-        "date": null,
-        "url": null
-      }
+      "concept_kind": "runtime"
     },
     {
-      "slug": "foundation-model",
-      "title": "Foundation model",
-      "full_name": "",
+      "slug": "model",
+      "title": "Model",
+      "full_name": "Representation and inference component",
       "aliases": [
-        "foundation models"
+        "computational model",
+        "learned model",
+        "input to output"
       ],
-      "definition": "A model trained on broad data and intended to support adaptation to a range of downstream tasks.",
-      "scope": "A model's training breadth and reuse across tasks, following the terminology introduced by Bommasani and colleagues.",
+      "definition": {
+        "text": "Model has several scopes: a representation of a subject; an executable representation; or, in AI, the inference component transforming inputs into outputs. State the scope before using the term.",
+        "source_ids": [
+          "nasa-model",
+          "eu-us-ai"
+        ],
+        "inference": true
+      },
+      "scope": {
+        "text": "A model need not be learned. NASA’s modeling-and-simulation sense includes conceptual representations, while the AI terminology concerns an inference component within a system.",
+        "source_ids": [
+          "nasa-model",
+          "eu-us-ai"
+        ],
+        "inference": true
+      },
+      "definition_views": [
+        {
+          "label": "General representation",
+          "context": "Institutional; NASA modeling and simulation",
+          "statement": {
+            "text": "NASA defines a model as a description or representation of a system, entity, phenomenon or process. It separately defines conceptual and computational models.",
+            "source_ids": [
+              "nasa-model"
+            ]
+          }
+        },
+        {
+          "label": "Computational representation",
+          "context": "Institutional; NASA terminology",
+          "statement": {
+            "text": "A computational model is a usable implementation of a conceptual model, including mathematical, numerical, logical or qualitative representations. Executability alone does not specify what is represented.",
+            "source_ids": [
+              "nasa-model"
+            ],
+            "inference": true
+          }
+        },
+        {
+          "label": "AI inference component",
+          "context": "Institutional; AI-system context",
+          "statement": {
+            "text": "The EU-U.S. terminology identifies a model as a core AI-system component that infers outputs from inputs. This context is narrower than every possible software function.",
+            "source_ids": [
+              "eu-us-ai"
+            ],
+            "inference": true
+          }
+        }
+      ],
       "includes": [
-        "Adaptation by fine-tuning or other task-specific use of broadly trained models."
+        {
+          "text": "Editorial examples: a conceptual climate description and its numerical simulation fit representation-oriented usage; a trained classifier fits learned inference usage. These are distinct cases under a broad term.",
+          "source_ids": [
+            "nasa-model",
+            "lab-guide-v1"
+          ],
+          "inference": true
+        },
+        {
+          "text": "An LLM is one specialized learned model, rather than a synonym for all models.",
+          "source_ids": [
+            "eu-us-ai"
+          ],
+          "inference": true
+        }
       ],
       "excludes": [
-        "A synonym for every pretrained model, every large model, or every language model.",
-        "A guarantee of generality, reliability, or fitness for a particular task."
+        {
+          "text": "“Any input → output” is insufficient as a universal definition: it omits what the artifact represents and collapses ordinary utilities into model terminology. We retain it only as an internal proposal.",
+          "source_ids": [
+            "nasa-model",
+            "lab-guide-v1"
+          ],
+          "inference": true
+        },
+        {
+          "text": "An application containing a model, orchestration and tools is a system; the model name should identify its inference component.",
+          "source_ids": [
+            "eu-us-ai",
+            "lab-guide-v1"
+          ],
+          "inference": true
+        }
       ],
       "ambiguities": [
-        "Breadth and adaptability are contextual; this draft sets no universal size or task-count threshold.",
-        "The introducing report is a research report/preprint. Its terminology is attributed, rather than presented as disciplinary consensus."
+        {
+          "text": "In learned-model usage, identify the fitted parameters and inference rule; in conceptual-model usage, identify the referent and assumptions. Do not silently require training for all models.",
+          "source_ids": [
+            "nasa-model",
+            "lab-guide-v1"
+          ],
+          "inference": true
+        },
+        {
+          "text": "A fixed formula may be a model when it represents a stated phenomenon. Being deterministic neither establishes nor prevents that role.",
+          "source_ids": [
+            "nasa-model"
+          ],
+          "inference": true
+        }
       ],
-      "operational": "Document the training scope available from public sources and the downstream tasks or adaptation settings that motivate the label. Mark unknown training details as unknown.",
-      "adaptation": "Project choice: keep broad training and downstream adaptability as the core meaning; omit a fixed parameter threshold. Pending team confirmation.",
+      "operational": {
+        "text": "Lab test: record the intended sense, represented subject or inference task, assumptions, inputs and outputs if executable, and whether parameters were learned. For learned models, distinguish the checkpoint from deployment and orchestration.",
+        "source_ids": [
+          "lab-guide-v1"
+        ],
+        "inference": true
+      },
+      "adaptation": {
+        "text": "Default to a representation or inference component with an explicit subject or task. Use “learned model” when training matters. The broader “any input-to-output mapping” guide remains a pending alternative, not our universal definition.",
+        "source_ids": [
+          "lab-guide-v1"
+        ]
+      },
+      "relations": [],
+      "source_gaps": [
+        "Scope gap: NASA’s general representation terminology applies to modeling and simulation; it does not settle every AI use. The EU-U.S. AI meaning and the internal mapping proposal are shown separately."
+      ],
+      "sections": [],
+      "status": "proposed",
+      "adoption": null,
+      "entry_version": "1.0",
+      "updated": "2026-10-10",
+      "revisions": [
+        {
+          "version": "1.0",
+          "date": "2026-10-10",
+          "text": "Researched and rewritten with attributed definitions, typed relations and an unratified Lab proposal."
+        }
+      ],
       "sources": [
-        "foundation-report"
+        "nasa-model",
+        "eu-us-ai",
+        "lab-guide-v1"
       ],
       "related": [
         "llm",
-        "ml",
-        "generative-ai"
+        "agent"
       ],
-      "status": "proposed",
-      "entry_version": "0.1",
-      "updated": "2026-10-10",
-      "adoption": {
-        "date": null,
-        "url": null
-      }
-    },
-    {
-      "slug": "generative-ai",
-      "title": "Generative AI",
-      "full_name": "",
-      "aliases": [
-        "GenAI",
-        "generative artificial intelligence"
-      ],
-      "definition": "AI used to produce content such as text, images, audio, or code, commonly in response to prompts or other conditioning inputs.",
-      "scope": "The content-generation capability or use of an AI system, informed by the OECD policy paper.",
-      "includes": [
-        "Systems generating one or several content modalities."
-      ],
-      "excludes": [
-        "A synonym for all AI, all machine learning, or every predictive system.",
-        "A claim that generated content is original, correct, or grounded in evidence."
-      ],
-      "ambiguities": [
-        "Generative AI describes a capability or use, while foundation model describes training and adaptability; the labels answer different questions.",
-        "A system may combine generation with retrieval, classification, and other functions."
-      ],
-      "operational": "Describe the generated output, conditioning inputs, and how generation is used in the system. Evaluate quality or correctness separately from the label.",
-      "adaptation": "Project choice: classify the relevant capability or use as generative, rather than treating the label as a complete description of an application. Pending team confirmation.",
-      "sources": [
-        "oecd-generative"
-      ],
-      "related": [
-        "ai",
-        "foundation-model",
-        "llm"
-      ],
-      "status": "proposed",
-      "entry_version": "0.1",
-      "updated": "2026-10-10",
-      "adoption": {
-        "date": null,
-        "url": null
-      }
+      "concept_kind": "model"
     },
     {
       "slug": "llm",
@@ -250,175 +792,605 @@
       "full_name": "Large language model",
       "aliases": [
         "large language model",
-        "large language models"
+        "language corpus",
+        "parameter scale"
       ],
-      "definition": "A language model trained at substantial scale to model patterns in token sequences and support language tasks.",
-      "scope": "The language-model component, rather than a complete chatbot or application.",
+      "definition": {
+        "text": "A large language model is a deep learning language model trained on very large textual datasets. It is a kind of Model; its complete application or agent runtime is a separate system.",
+        "source_ids": [
+          "eu-us-ai",
+          "lab-guide-v1"
+        ],
+        "inference": true
+      },
+      "scope": {
+        "text": "This page concerns learned language models, including text generation and representation uses. The word “large” needs a stated scale and comparison context.",
+        "source_ids": [
+          "eu-us-ai",
+          "gpt3"
+        ],
+        "inference": true
+      },
+      "definition_views": [
+        {
+          "label": "EU-U.S. terminology",
+          "context": "Institutional; language models",
+          "statement": {
+            "text": "The second edition emphasizes deep learning and extremely large text datasets, and includes models that generate text or form representations useful for downstream tasks.",
+            "source_ids": [
+              "eu-us-ai"
+            ]
+          }
+        },
+        {
+          "label": "GPT-3 study",
+          "context": "Peer-reviewed; a specific experimental scale",
+          "statement": {
+            "text": "Brown and colleagues study an autoregressive model with 175 billion parameters alongside smaller models. Its training corpus mixes web sources, books and Wikipedia; that recipe is an example, not a definition.",
+            "source_ids": [
+              "gpt3"
+            ]
+          }
+        }
+      ],
       "includes": [
-        "Language models used for token prediction, generation, or language representations, with the specific use stated."
+        {
+          "text": "A trained text-generation checkpoint is a model artifact; adding retrieval, tools and execution control creates a larger application around it.",
+          "source_ids": [
+            "anthropic-agents",
+            "lab-guide-v1"
+          ],
+          "inference": true
+        },
+        {
+          "text": "Representation-producing language models are within the cited institutional usage; generation is not its only permitted behavior.",
+          "source_ids": [
+            "eu-us-ai"
+          ]
+        }
       ],
       "excludes": [
-        "A synonym for the interface, retrieval system, tools, or orchestration around a model.",
-        "A universal numerical boundary for large."
+        {
+          "text": "A corpus alone is training material, not a trained model. A tool-connected assistant is not identical to the language model inside it.",
+          "source_ids": [
+            "lab-guide-v1"
+          ],
+          "inference": true
+        },
+        {
+          "text": "No universal parameter cutoff is established by the sources used here. Report parameters, training tokens and the relevant comparison rather than inventing a threshold.",
+          "source_ids": [
+            "gpt3",
+            "lab-guide-v1"
+          ],
+          "inference": true
+        }
       ],
       "ambiguities": [
-        "Large is relative to the model family and period; parameter count alone does not settle the label.",
-        "Some current models accept multiple modalities. Specify the model's input and output modalities rather than relying on LLM as the whole description."
+        {
+          "text": "The institutional definition foregrounds textual training. For a multimodal product, specify its language-model component and additional modalities instead of assuming the same definition covers the whole system.",
+          "source_ids": [
+            "eu-us-ai",
+            "lab-guide-v1"
+          ],
+          "inference": true
+        },
+        {
+          "text": "Training a model and conditioning an inference call are different operations: the GPT-3 few-shot experiments add examples in context without gradient updates.",
+          "source_ids": [
+            "gpt3"
+          ]
+        }
       ],
-      "operational": "Record a public model identifier and version, the language-modeling function, and known scale and modalities. Leave unavailable details unknown; do not invent a parameter cutoff.",
-      "adaptation": "Project choice: use LLM for the language-model component and qualify scale and modalities when material. Google's technical explanation informs the language-model sense; team confirmation is pending.",
+      "operational": {
+        "text": "Lab test: identify the learned model artifact, language task and objective, available training-material evidence, and reported scale. Record unknown proprietary details as unknown. Separately identify any tokenizer, serving system, tools and controller.",
+        "source_ids": [
+          "lab-guide-v1"
+        ],
+        "inference": true
+      },
+      "adaptation": {
+        "text": "Use LLM for a learned language-model component at a documented large scale. Avoid reducing the term to corpus size alone or using it as the name for a tool-using system. No minimum parameter count is ratified by the lab.",
+        "source_ids": [
+          "lab-guide-v1"
+        ]
+      },
+      "relations": [
+        {
+          "target": "model",
+          "type": "is-a",
+          "condition": "Within learned AI-model usage: an LLM is a specialized language model, hence a Model.",
+          "source_ids": [
+            "eu-us-ai"
+          ],
+          "inference": true
+        }
+      ],
+      "source_gaps": [
+        "Scale gap: the institutional definition supplies qualitative scale, not a universal threshold; a concrete GPT-3 size cannot settle the category for all architectures."
+      ],
+      "sections": [],
+      "status": "proposed",
+      "adoption": null,
+      "entry_version": "1.0",
+      "updated": "2026-10-10",
+      "revisions": [
+        {
+          "version": "1.0",
+          "date": "2026-10-10",
+          "text": "Researched and rewritten with attributed definitions, typed relations and an unratified Lab proposal."
+        }
+      ],
       "sources": [
-        "google-llm"
+        "eu-us-ai",
+        "gpt3",
+        "anthropic-agents",
+        "lab-guide-v1"
       ],
       "related": [
-        "foundation-model",
-        "generative-ai",
-        "ml"
+        "harness",
+        "model",
+        "agent"
       ],
-      "status": "proposed",
-      "entry_version": "0.1",
-      "updated": "2026-10-10",
-      "adoption": {
-        "date": null,
-        "url": null
-      }
+      "concept_kind": "model"
     },
     {
-      "slug": "ml",
-      "title": "ML",
-      "full_name": "Machine learning",
+      "slug": "agent",
+      "title": "Agent",
+      "full_name": "Goal-directed action with feedback",
       "aliases": [
-        "machine learning"
+        "LLM-based agent",
+        "autonomy",
+        "reactivity",
+        "proactiveness",
+        "tool use"
       ],
-      "definition": "Methods that fit a model or policy from data or experience to perform a specified task.",
-      "scope": "The learning process and resulting model or policy, rather than the whole surrounding software system.",
+      "definition": {
+        "text": "In general computing, an agent is a situated system with some control over its actions, responsiveness to its environment and goal-directed behavior. LLM-based agents are one implementation, not the whole category.",
+        "source_ids": [
+          "wooldridge-agent",
+          "lab-guide-v1"
+        ],
+        "inference": true
+      },
+      "scope": {
+        "text": "Begin with general software or hardware agency. For LLM engineering, explicitly identify the model, action interface and feedback loop; access to a tool alone does not settle agency.",
+        "source_ids": [
+          "wooldridge-agent",
+          "anthropic-agents"
+        ],
+        "inference": true
+      },
+      "definition_views": [
+        {
+          "label": "Classical weak agency",
+          "context": "Peer-reviewed; general computing",
+          "statement": {
+            "text": "Wooldridge and Jennings characterize a weak notion through autonomy, social ability, reactivity and pro-activeness. This influential characterization is attributed, not presented as the only universal test.",
+            "source_ids": [
+              "wooldridge-agent"
+            ]
+          }
+        },
+        {
+          "label": "Institutional project scoping",
+          "context": "NIST draft; identity and authorization",
+          "statement": {
+            "text": "The NCCoE concept paper describes autonomous decisions and actions under limited human supervision toward goals. It is a draft project-scoping document, not a final general-agent standard.",
+            "source_ids": [
+              "nist-agent-draft"
+            ]
+          }
+        },
+        {
+          "label": "LLM engineering",
+          "context": "First-party; architectural distinction",
+          "statement": {
+            "text": "Anthropic distinguishes predefined workflows from agents whose LLM dynamically directs the process and tool use. Its usage is narrower than general agent theory.",
+            "source_ids": [
+              "anthropic-agents"
+            ]
+          }
+        }
+      ],
       "includes": [
-        "Supervised, unsupervised, and reinforcement learning; learning used for prediction or generation."
+        {
+          "text": "Editorial example: a goal-directed robot controller can be an agent without an LLM. A software agent can act through commands in a virtual environment.",
+          "source_ids": [
+            "wooldridge-agent",
+            "lab-guide-v1"
+          ],
+          "inference": true
+        },
+        {
+          "text": "Bounded autonomy can coexist with approval gates. Record which decisions the system controls and which require a person.",
+          "source_ids": [
+            "nist-agent-draft",
+            "lab-guide-v1"
+          ],
+          "inference": true
+        }
       ],
       "excludes": [
-        "A synonym for all AI or an assurance that a model generalizes successfully.",
-        "A requirement that every change to software be learned from data."
+        {
+          "text": "A bare text-completion call does not, by itself, show goal-directed interaction with an environment under our test.",
+          "source_ids": [
+            "lab-guide-v1"
+          ],
+          "inference": true
+        },
+        {
+          "text": "A fixed tool pipeline is not automatically an agent in the dynamic-control engineering sense, even if it contains an LLM and an API.",
+          "source_ids": [
+            "anthropic-agents"
+          ],
+          "inference": true
+        }
       ],
       "ambiguities": [
-        "Training and using a trained model are different activities, even when both are described informally as ML.",
-        "Generative describes an output capability; supervised and unsupervised describe learning arrangements. These labels are not a single exclusive taxonomy."
+        {
+          "text": "Planning, long-term memory and self-learning are not universal prerequisites in our working definition. Capability claims should be tested separately from the name Agent.",
+          "source_ids": [
+            "wooldridge-agent",
+            "lab-guide-v1"
+          ],
+          "inference": true
+        },
+        {
+          "text": "We retain autonomy, goal direction, environment feedback and action as Lab criteria. Social ability is explicit in the classical weak notion, but is not a mandatory gate in our narrower operational proposal.",
+          "source_ids": [
+            "wooldridge-agent",
+            "lab-guide-v1"
+          ],
+          "inference": true
+        }
       ],
-      "operational": "Identify what is learned, the data or experience used, the task or objective, and the evaluation setting. Distinguish training from later use.",
-      "adaptation": "Project choice: use a broad learning-method sense, informed by Google's technical introduction, while keeping learning arrangement separate from output capability. Pending team confirmation.",
+      "operational": {
+        "text": "Lab test: identify a goal, observations, an action interface, the decisions controlled by the system, and how outcomes affect later actions. For an LLM-based agent, trace a model-selected action, its execution and returned feedback. State stopping and approval conditions.",
+        "source_ids": [
+          "lab-guide-v1"
+        ],
+        "inference": true
+      },
+      "adaptation": {
+        "text": "Use Agent for a system with bounded autonomy, a goal, environment feedback and an ability to act. Use LLM-based agent when an LLM participates in selecting actions. The agent uses a model; it is not classified as an LLM subtype.",
+        "source_ids": [
+          "lab-guide-v1"
+        ]
+      },
+      "relations": [
+        {
+          "target": "llm",
+          "type": "uses",
+          "condition": "For LLM-based agents only; general agents need not use a language model.",
+          "source_ids": [
+            "react",
+            "anthropic-agents"
+          ],
+          "inference": true
+        },
+        {
+          "target": "model",
+          "type": "uses",
+          "condition": "When a computational model supplies inference or action selection; this is a component relation.",
+          "source_ids": [
+            "react",
+            "lab-guide-v1"
+          ],
+          "inference": true
+        }
+      ],
+      "source_gaps": [
+        "Institutional definition gap: the NIST material checked is a draft identity/authorization concept paper. No final, general-agent institutional definition was established in this review; the classical peer-reviewed account remains central."
+      ],
+      "sections": [
+        {
+          "id": "llm-based-agents",
+          "title": "LLM-based agents",
+          "paragraphs": [
+            {
+              "text": "An LLM-based agent places a language model within an action-and-observation system. ReAct interleaves reasoning with actions that obtain external information, allowing later reasoning to respond to outcomes. It is one architecture, not a requirement that every agent expose a chain of thought.",
+              "source_ids": [
+                "react"
+              ],
+              "inference": true
+            },
+            {
+              "text": "Distinguish choosing an action, granting permission and executing it. A model’s proposed tool call does not itself execute a tool; the surrounding runtime provides that capability.",
+              "source_ids": [
+                "anthropic-harness",
+                "lab-guide-v1"
+              ],
+              "inference": true
+            }
+          ]
+        }
+      ],
+      "status": "proposed",
+      "adoption": null,
+      "entry_version": "1.0",
+      "updated": "2026-10-10",
+      "revisions": [
+        {
+          "version": "1.0",
+          "date": "2026-10-10",
+          "text": "Researched and rewritten with attributed definitions, typed relations and an unratified Lab proposal."
+        }
+      ],
       "sources": [
-        "google-ml"
+        "wooldridge-agent",
+        "react",
+        "anthropic-harness",
+        "nist-agent-draft",
+        "anthropic-agents",
+        "lab-guide-v1"
       ],
       "related": [
-        "ai",
-        "foundation-model",
-        "operational-definition"
+        "workflow",
+        "harness",
+        "model",
+        "llm"
       ],
-      "status": "proposed",
-      "entry_version": "0.1",
-      "updated": "2026-10-10",
-      "adoption": {
-        "date": null,
-        "url": null
-      }
+      "concept_kind": "system"
     },
     {
-      "slug": "operational-definition",
-      "title": "Operational definition",
-      "full_name": "",
-      "aliases": [],
-      "definition": "A specification of how a concept is observed, measured, or classified in a stated setting, including the rule for interpreting observations.",
-      "scope": "Procedures intended to support repeatable measurement or classification.",
+      "slug": "schema",
+      "title": "Schema",
+      "full_name": "Data schema",
+      "aliases": [
+        "data schema",
+        "structural schema"
+      ],
+      "concept_kind": "model",
+      "definition": {
+        "text": "A schema describes how data is organized and what its fields mean, with structural or value constraints where specified. State the data model and dialect: the exact obligations depend on the schema language.",
+        "source_ids": [
+          "cnssi-schema",
+          "xsd-1-1",
+          "json-schema-2020-12"
+        ],
+        "inference": true
+      },
+      "scope": {
+        "text": "Here, schema means a data-description artifact used for interpretation or validation. Psychological schemata and prediction models are outside this entry.",
+        "source_ids": [
+          "cnssi-schema",
+          "lab-guide-v1"
+        ],
+        "inference": true
+      },
+      "definition_views": [
+        {
+          "label": "Institutional terminology",
+          "context": "CNSSI 4009-2022, reproduced by NIST CSRC; information-security context",
+          "statement": {
+            "text": "CNSSI describes an object through its organization, field syntax, meanings and associated metadata. This is broader than a list of column names.",
+            "source_ids": [
+              "cnssi-schema"
+            ]
+          }
+        },
+        {
+          "label": "XML validation",
+          "context": "XSD 1.1; W3C Recommendation",
+          "statement": {
+            "text": "XSD separates abstract schema components from their XML schema documents; a validator applies a conforming schema to an XML instance.",
+            "source_ids": [
+              "xsd-1-1"
+            ]
+          }
+        },
+        {
+          "label": "JSON description",
+          "context": "Draft 2020-12 Core; first-party Internet-Draft",
+          "statement": {
+            "text": "JSON Schema describes an instance using an object or boolean schema. Assertions constrain instances; annotations supply information for applications.",
+            "source_ids": [
+              "json-schema-2020-12"
+            ]
+          }
+        },
+        {
+          "label": "Data-derived summary",
+          "context": "Goldman and Widom, VLDB 1997; semistructured databases",
+          "statement": {
+            "text": "DataGuides provide structural summaries generated from a database, serving as dynamic schemas for browsing and querying. Their scope is observed structure in that database.",
+            "source_ids": [
+              "dataguides-1997"
+            ]
+          }
+        }
+      ],
       "includes": [
-        "Observation units, inputs, procedure, decision rules, and treatment of missing or ambiguous cases."
+        {
+          "text": "Named fields, types, permitted structure and explicit constraints; meanings or metadata may also be documented. A schema need not specify every aspect of domain interpretation.",
+          "source_ids": [
+            "cnssi-schema",
+            "json-schema-2020-12"
+          ],
+          "inference": true
+        }
       ],
       "excludes": [
-        "A concept description without a procedure.",
-        "A claim that specifying a procedure alone establishes scientific validity."
+        {
+          "text": "A particular record is a data instance, not the rules applied to it. For example, {\"temperature\": 23.5} supplies a value; a schema separately describes the property and its constraints.",
+          "source_ids": [
+            "json-schema-2020-12"
+          ],
+          "inference": true
+        },
+        {
+          "text": "A validator is software that applies a schema. The schema itself is neither that execution nor an entire workflow.",
+          "source_ids": [
+            "xsd-1-1",
+            "lab-guide-v1"
+          ],
+          "inference": true
+        }
       ],
       "ambiguities": [
-        "Different procedures can operationalize the same concept differently. State the setting and limits instead of treating the procedure as universal."
+        {
+          "text": "Schema may mean declared requirements or a summary inferred from existing data. A DataGuide follows the database; a declared contract can reject data that fails its requirements. Label which direction is intended.",
+          "source_ids": [
+            "dataguides-1997",
+            "xsd-1-1"
+          ],
+          "inference": true
+        },
+        {
+          "text": "The schema/instance distinction is a role distinction: a JSON schema is itself an instance when checked against a meta-schema. JSON syntax alone does not identify that role.",
+          "source_ids": [
+            "json-schema-2020-12"
+          ]
+        }
       ],
-      "operational": "Identify units and inputs, give executable steps, state thresholds and units where used, and explain missing and ambiguous cases. Add synthetic boundary examples when useful; mark unsettled rules pending.",
-      "adaptation": "Original editorial proposal for this glossary, version 0.1. No external authoritative or consensus definition is claimed. Pending team confirmation.",
-      "sources": [],
-      "related": [
-        "working-definition",
-        "ai-engineering",
-        "ml"
+      "operational": {
+        "text": "Identify the described population, schema version/dialect, fields and constraints; distinguish declared rules from observed patterns and unknowns. Show how an example instance is interpreted or checked without treating that example as evidence for every possible record.",
+        "source_ids": [
+          "lab-guide-v1"
+        ],
+        "inference": true
+      },
+      "adaptation": {
+        "text": "Proposed Lab meaning: an explicit, versioned description of data structure, field meanings and stated constraints. Record whether it is declared, recovered from a specification, or inferred from observed data, together with evidence and unresolved coverage.",
+        "source_ids": [
+          "lab-guide-v1"
+        ],
+        "inference": true
+      },
+      "relations": [
+        {
+          "target": "workflow",
+          "type": "supports/orchestrates",
+          "condition": "Supports a workflow at data-interpretation or validation boundaries; it supplies a description or contract, not the executing control flow. This is a supporting-artifact relation, not a subtype.",
+          "source_ids": [
+            "xsd-1-1",
+            "lab-guide-v1"
+          ],
+          "inference": true
+        }
+      ],
+      "sections": [
+        {
+          "id": "schema-extraction",
+          "title": "Relation to schema extraction",
+          "paragraphs": [
+            {
+              "text": "Schema extraction is the process; a recovered or inferred schema is its output. DataGuides illustrate inference from instances. Recovering an explicitly declared schema is a different evidence task from generalizing observed records.",
+              "source_ids": [
+                "dataguides-1997",
+                "lab-guide-v1"
+              ],
+              "inference": true
+            },
+            {
+              "text": "For Lab work, retain source-to-field evidence and label observed, declared and inferred constraints. An absent field in a sample does not by itself establish that the field is forbidden; a structural summary alone does not prove complete intended semantics.",
+              "source_ids": [
+                "dataguides-1997",
+                "lab-guide-v1"
+              ],
+              "inference": true
+            }
+          ]
+        }
+      ],
+      "source_gaps": [
+        "The applicable institutional definition was verified through the NIST reproduction; the linked original CNSSI document was not retrievable in this review.",
+        "The peer-reviewed DataGuides example supports one semistructured-data approach. This review does not establish a universal definition of schema extraction across paper, database and metadata workflows."
       ],
       "status": "proposed",
-      "entry_version": "0.1",
+      "adoption": null,
+      "entry_version": "1.0",
       "updated": "2026-10-10",
-      "adoption": {
-        "date": null,
-        "url": null
-      }
-    },
-    {
-      "slug": "provenance",
-      "title": "Provenance",
-      "full_name": "",
-      "aliases": [],
-      "definition": "Information about an entity's origin and production history, including relevant activities and responsible agents.",
-      "scope": "Tracing the derivation of a public definition, document, or research object, informed by W3C PROV-O.",
-      "includes": [
-        "Public source identifiers and versions, derivation steps, and attribution."
+      "revisions": [
+        {
+          "version": "1.0",
+          "date": "2026-10-10",
+          "text": "Initial cited Schema entry; separates data instances, validation and extraction. Lab meaning is an unratified editorial proposal."
+        }
       ],
-      "excludes": [
-        "An unsupported origin claim or a guarantee of accuracy.",
-        "Disclosure of restricted source material."
-      ],
-      "ambiguities": [
-        "A source citation is part of provenance, but may omit transformations or decisions between the source and the resulting object.",
-        "Recording provenance does not by itself verify a claim or imply conformance to the full PROV standard."
-      ],
-      "operational": "Record a public source or identify an original proposal, the source version/date, a locator where available, and the adaptation. Mark provenance gaps unknown. For generated handbook files, record the source commit and build run alongside the content hash.",
-      "adaptation": "Project choice: use a lightweight origin-and-derivation meaning informed by the 2013 W3C Recommendation; no full-standard conformance is claimed. Pending team confirmation.",
       "sources": [
-        "w3c-provo"
+        "cnssi-schema",
+        "dataguides-1997",
+        "xsd-1-1",
+        "json-schema-2020-12",
+        "lab-guide-v1"
       ],
       "related": [
-        "working-definition",
-        "operational-definition"
-      ],
-      "status": "proposed",
-      "entry_version": "0.3",
-      "updated": "2026-10-10",
-      "adoption": {
-        "date": null,
-        "url": null
-      }
-    },
-    {
-      "slug": "working-definition",
-      "title": "Working definition",
-      "full_name": "",
-      "aliases": [],
-      "definition": "An explicit, revisable statement of the meaning chosen for a term within a stated context.",
-      "scope": "The meanings used in this glossary and in discussions that explicitly reference an entry.",
-      "includes": [
-        "The intended referent, context, and boundaries needed to interpret the term."
-      ],
-      "excludes": [
-        "A claim of universal agreement, disciplinary consensus, or lab ratification."
-      ],
-      "ambiguities": [
-        "Chosen for use in this draft and adopted by the team are different statuses. A draft can state a concrete meaning while confirmation remains pending."
-      ],
-      "operational": "State the intended meaning and scope; identify inclusions and exclusions. Add operational criteria where measurement or classification is intended, or explain why they do not apply.",
-      "adaptation": "Original editorial proposal for this glossary, version 0.2. No external authority is claimed. Pending team confirmation.",
-      "sources": [],
-      "related": [
-        "operational-definition",
-        "provenance"
-      ],
-      "status": "proposed",
-      "entry_version": "0.2",
-      "updated": "2026-10-10",
-      "adoption": {
-        "date": null,
-        "url": null
-      }
+        "model",
+        "workflow"
+      ]
     }
-  ]
+  ],
+  "schema_version": 2,
+  "display_order": [
+    "workflow",
+    "harness",
+    "model",
+    "llm",
+    "agent",
+    "schema"
+  ],
+  "lab_guide": {
+    "id": "lab-guide-v1",
+    "title": "Plale Lab terminology guide",
+    "version": "1.1",
+    "updated": "2026-10-10",
+    "status": "proposed",
+    "adoption": null,
+    "sections": [
+      {
+        "id": "workflow",
+        "title": "Workflow and Harness",
+        "paragraphs": [
+          "Initial proposal: Workflow is a general arrangement of work; deterministic Python code as well as LLM-based work can participate in a workflow.",
+          "Initial proposal: a harness is a workflow designed for an LLM or agent. Editorial revision for discussion: distinguish the execution layer from the process it supports. This edition uses supports/orchestrates rather than declaring a Harness is-a Workflow relationship."
+        ]
+      },
+      {
+        "id": "model",
+        "title": "Model and LLM",
+        "paragraphs": [
+          "Initial proposal: any input-to-output mapping may be called a model. This remains an intentionally broad, unratified interpretation, not a universal external definition.",
+          "Working revision: specify whether model means a representation, an executable representation, or a learned inference component. An LLM is a learned language model; its training, scale and scope should be described rather than reduced to an arbitrary parameter threshold."
+        ]
+      },
+      {
+        "id": "agent",
+        "title": "Agent",
+        "paragraphs": [
+          "Initial proposal: an agent builds on an LLM and external tools, with its distinguishing attributes still to be decided.",
+          "Working revision: reserve the general term for systems with bounded autonomy, goal-directed behavior, environmental feedback and an ability to act. Describe an LLM-based agent as one particular implementation using an LLM. Planning, persistent memory and self-learning are optional capabilities, not automatic universal requirements."
+        ]
+      },
+      {
+        "id": "policy",
+        "title": "Editorial and adoption policy",
+        "paragraphs": [
+          "Check external evidence in the fixed order: applicable institutional definitions, peer-reviewed papers, industry standards or first-party documents or preprints or academic materials, then internal proposals. Preserve uncertainty and differing scopes.",
+          "Use cited statements, typed relations and a quiet reading layout. Strict nesting is reserved for supported is-a relations. All proposals in this guide are unratified; only a documented consensus decision may authorize green adoption tags."
+        ]
+      },
+      {
+        "id": "schema",
+        "title": "Schema: an unratified editorial extension",
+        "paragraphs": [
+          "Proposed extension: use schema for an explicit, versioned description of data structure, field meanings and stated constraints. Keep the data instance, the description and the validator separate; the same document can occupy different roles under a meta-schema.",
+          "Schema extraction is a process that recovers declarations or infers a description from evidence. Record the input population, source-to-field evidence, dialect/version, observed versus declared or inferred constraints, and unresolved coverage. A sample is not proof of every permitted record or intended semantic rule."
+        ]
+      }
+    ],
+    "revisions": [
+      {
+        "date": "2026-10-10",
+        "version": "1.0",
+        "text": "Initial internal proposal, summarized for public citation. Editorial revisions are proposals; no consensus decision recorded."
+      },
+      {
+        "date": "2026-10-10",
+        "version": "1.1",
+        "text": "Add the Schema editorial proposal while preserving every 1.0 proposal section. No consensus decision recorded."
+      }
+    ]
+  }
 }

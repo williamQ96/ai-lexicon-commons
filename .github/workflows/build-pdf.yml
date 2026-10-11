@@ -26,6 +26,9 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Check static website content and navigation
+        run: python3 -m unittest discover -s tests -v
+
       - name: Generate fresh pages, TeX, and bibliography
         env:
           SOURCE_COMMIT: ${{ github.sha }}
@@ -61,7 +64,7 @@ jobs:
       - name: Prepare public site
         run: |
           mkdir -p build/site
-          cp docs/index.html docs/build-record.html docs/glossary.pdf docs/PDF-SNAPSHOT.json docs/BUILD-INFO.json docs/.nojekyll build/site/
+          cp docs/index.html docs/lab-guide.html docs/build-record.html docs/glossary.pdf docs/PDF-SNAPSHOT.json docs/BUILD-INFO.json docs/.nojekyll build/site/
           cp -r docs/terms docs/assets build/site/
 
       - name: Upload handbook

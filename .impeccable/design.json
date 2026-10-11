@@ -1,0 +1,474 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-10T23:27:18.244028+00:00",
+  "title": "Design System: Plale Lab Glossary",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Warm paper",
+        "tonalRamp": [
+          "oklch(0.1500 0.0080 98.88)",
+          "oklch(0.2643 0.0080 98.88)",
+          "oklch(0.3786 0.0080 98.88)",
+          "oklch(0.4929 0.0080 98.88)",
+          "oklch(0.6071 0.0080 98.88)",
+          "oklch(0.7214 0.0080 98.88)",
+          "oklch(0.8357 0.0080 98.88)",
+          "oklch(0.9500 0.0080 98.88)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Green ink",
+        "tonalRamp": [
+          "oklch(0.1500 0.0353 172.45)",
+          "oklch(0.2643 0.0353 172.45)",
+          "oklch(0.3786 0.0353 172.45)",
+          "oklch(0.4929 0.0353 172.45)",
+          "oklch(0.6071 0.0353 172.45)",
+          "oklch(0.7214 0.0353 172.45)",
+          "oklch(0.8357 0.0353 172.45)",
+          "oklch(0.9500 0.0353 172.45)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Quiet annotation",
+        "tonalRamp": [
+          "oklch(0.1500 0.0220 157.36)",
+          "oklch(0.2643 0.0220 157.36)",
+          "oklch(0.3786 0.0220 157.36)",
+          "oklch(0.4929 0.0220 157.36)",
+          "oklch(0.6071 0.0220 157.36)",
+          "oklch(0.7214 0.0220 157.36)",
+          "oklch(0.8357 0.0220 157.36)",
+          "oklch(0.9500 0.0220 157.36)"
+        ]
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Reference green",
+        "tonalRamp": [
+          "oklch(0.1500 0.0715 163.81)",
+          "oklch(0.2643 0.0715 163.81)",
+          "oklch(0.3786 0.0715 163.81)",
+          "oklch(0.4929 0.0715 163.81)",
+          "oklch(0.6071 0.0715 163.81)",
+          "oklch(0.7214 0.0715 163.81)",
+          "oklch(0.8357 0.0715 163.81)",
+          "oklch(0.9500 0.0715 163.81)"
+        ]
+      },
+      "wash": {
+        "role": "neutral",
+        "displayName": "Selection wash",
+        "tonalRamp": [
+          "oklch(0.1500 0.0124 121.70)",
+          "oklch(0.2643 0.0124 121.70)",
+          "oklch(0.3786 0.0124 121.70)",
+          "oklch(0.4929 0.0124 121.70)",
+          "oklch(0.6071 0.0124 121.70)",
+          "oklch(0.7214 0.0124 121.70)",
+          "oklch(0.8357 0.0124 121.70)",
+          "oklch(0.9500 0.0124 121.70)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Structural line",
+        "tonalRamp": [
+          "oklch(0.1500 0.0145 128.65)",
+          "oklch(0.2643 0.0145 128.65)",
+          "oklch(0.3786 0.0145 128.65)",
+          "oklch(0.4929 0.0145 128.65)",
+          "oklch(0.6071 0.0145 128.65)",
+          "oklch(0.7214 0.0145 128.65)",
+          "oklch(0.8357 0.0145 128.65)",
+          "oklch(0.9500 0.0145 128.65)"
+        ]
+      },
+      "paper-dark": {
+        "role": "neutral",
+        "displayName": "Warm paper / dark",
+        "tonalRamp": [
+          "oklch(0.1500 0.0193 167.23)",
+          "oklch(0.2643 0.0193 167.23)",
+          "oklch(0.3786 0.0193 167.23)",
+          "oklch(0.4929 0.0193 167.23)",
+          "oklch(0.6071 0.0193 167.23)",
+          "oklch(0.7214 0.0193 167.23)",
+          "oklch(0.8357 0.0193 167.23)",
+          "oklch(0.9500 0.0193 167.23)"
+        ]
+      },
+      "ink-dark": {
+        "role": "neutral",
+        "displayName": "Green ink / dark",
+        "tonalRamp": [
+          "oklch(0.1500 0.0114 128.59)",
+          "oklch(0.2643 0.0114 128.59)",
+          "oklch(0.3786 0.0114 128.59)",
+          "oklch(0.4929 0.0114 128.59)",
+          "oklch(0.6071 0.0114 128.59)",
+          "oklch(0.7214 0.0114 128.59)",
+          "oklch(0.8357 0.0114 128.59)",
+          "oklch(0.9500 0.0114 128.59)"
+        ]
+      },
+      "muted-dark": {
+        "role": "neutral",
+        "displayName": "Quiet annotation / dark",
+        "tonalRamp": [
+          "oklch(0.1500 0.0242 153.36)",
+          "oklch(0.2643 0.0242 153.36)",
+          "oklch(0.3786 0.0242 153.36)",
+          "oklch(0.4929 0.0242 153.36)",
+          "oklch(0.6071 0.0242 153.36)",
+          "oklch(0.7214 0.0242 153.36)",
+          "oklch(0.8357 0.0242 153.36)",
+          "oklch(0.9500 0.0242 153.36)"
+        ]
+      },
+      "accent-dark": {
+        "role": "primary",
+        "displayName": "Reference green / dark",
+        "tonalRamp": [
+          "oklch(0.1500 0.0621 150.02)",
+          "oklch(0.2643 0.0621 150.02)",
+          "oklch(0.3786 0.0621 150.02)",
+          "oklch(0.4929 0.0621 150.02)",
+          "oklch(0.6071 0.0621 150.02)",
+          "oklch(0.7214 0.0621 150.02)",
+          "oklch(0.8357 0.0621 150.02)",
+          "oklch(0.9500 0.0621 150.02)"
+        ]
+      },
+      "wash-dark": {
+        "role": "neutral",
+        "displayName": "Selection wash / dark",
+        "tonalRamp": [
+          "oklch(0.1500 0.0307 157.28)",
+          "oklch(0.2643 0.0307 157.28)",
+          "oklch(0.3786 0.0307 157.28)",
+          "oklch(0.4929 0.0307 157.28)",
+          "oklch(0.6071 0.0307 157.28)",
+          "oklch(0.7214 0.0307 157.28)",
+          "oklch(0.8357 0.0307 157.28)",
+          "oklch(0.9500 0.0307 157.28)"
+        ]
+      },
+      "line-dark": {
+        "role": "neutral",
+        "displayName": "Structural line / dark",
+        "tonalRamp": [
+          "oklch(0.1500 0.0298 159.44)",
+          "oklch(0.2643 0.0298 159.44)",
+          "oklch(0.3786 0.0298 159.44)",
+          "oklch(0.4929 0.0298 159.44)",
+          "oklch(0.6071 0.0298 159.44)",
+          "oklch(0.7214 0.0298 159.44)",
+          "oklch(0.8357 0.0298 159.44)",
+          "oklch(0.9500 0.0298 159.44)"
+        ]
+      },
+      "proposed-ink": {
+        "role": "secondary",
+        "displayName": "Proposed ink",
+        "tonalRamp": [
+          "oklch(0.1500 0.0903 80.46)",
+          "oklch(0.2643 0.0903 80.46)",
+          "oklch(0.3786 0.0903 80.46)",
+          "oklch(0.4929 0.0903 80.46)",
+          "oklch(0.6071 0.0903 80.46)",
+          "oklch(0.7214 0.0903 80.46)",
+          "oklch(0.8357 0.0903 80.46)",
+          "oklch(0.9500 0.0903 80.46)"
+        ]
+      },
+      "proposed-paper": {
+        "role": "secondary",
+        "displayName": "Proposed paper",
+        "tonalRamp": [
+          "oklch(0.1500 0.0686 93.89)",
+          "oklch(0.2643 0.0686 93.89)",
+          "oklch(0.3786 0.0686 93.89)",
+          "oklch(0.4929 0.0686 93.89)",
+          "oklch(0.6071 0.0686 93.89)",
+          "oklch(0.7214 0.0686 93.89)",
+          "oklch(0.8357 0.0686 93.89)",
+          "oklch(0.9500 0.0686 93.89)"
+        ]
+      },
+      "adopted-ink": {
+        "role": "secondary",
+        "displayName": "Adopted ink",
+        "tonalRamp": [
+          "oklch(0.1500 0.0855 155.42)",
+          "oklch(0.2643 0.0855 155.42)",
+          "oklch(0.3786 0.0855 155.42)",
+          "oklch(0.4929 0.0855 155.42)",
+          "oklch(0.6071 0.0855 155.42)",
+          "oklch(0.7214 0.0855 155.42)",
+          "oklch(0.8357 0.0855 155.42)",
+          "oklch(0.9500 0.0855 155.42)"
+        ]
+      },
+      "adopted-paper": {
+        "role": "secondary",
+        "displayName": "Adopted paper",
+        "tonalRamp": [
+          "oklch(0.1500 0.0166 156.91)",
+          "oklch(0.2643 0.0166 156.91)",
+          "oklch(0.3786 0.0166 156.91)",
+          "oklch(0.4929 0.0166 156.91)",
+          "oklch(0.6071 0.0166 156.91)",
+          "oklch(0.7214 0.0166 156.91)",
+          "oklch(0.8357 0.0166 156.91)",
+          "oklch(0.9500 0.0166 156.91)"
+        ]
+      },
+      "proposed-ink-dark": {
+        "role": "secondary",
+        "displayName": "Proposed ink dark",
+        "tonalRamp": [
+          "oklch(0.1500 0.1055 90.42)",
+          "oklch(0.2643 0.1055 90.42)",
+          "oklch(0.3786 0.1055 90.42)",
+          "oklch(0.4929 0.1055 90.42)",
+          "oklch(0.6071 0.1055 90.42)",
+          "oklch(0.7214 0.1055 90.42)",
+          "oklch(0.8357 0.1055 90.42)",
+          "oklch(0.9500 0.1055 90.42)"
+        ]
+      },
+      "proposed-paper-dark": {
+        "role": "secondary",
+        "displayName": "Proposed paper dark",
+        "tonalRamp": [
+          "oklch(0.1500 0.0485 87.94)",
+          "oklch(0.2643 0.0485 87.94)",
+          "oklch(0.3786 0.0485 87.94)",
+          "oklch(0.4929 0.0485 87.94)",
+          "oklch(0.6071 0.0485 87.94)",
+          "oklch(0.7214 0.0485 87.94)",
+          "oklch(0.8357 0.0485 87.94)",
+          "oklch(0.9500 0.0485 87.94)"
+        ]
+      },
+      "adopted-ink-dark": {
+        "role": "secondary",
+        "displayName": "Adopted ink dark",
+        "tonalRamp": [
+          "oklch(0.1500 0.0572 153.66)",
+          "oklch(0.2643 0.0572 153.66)",
+          "oklch(0.3786 0.0572 153.66)",
+          "oklch(0.4929 0.0572 153.66)",
+          "oklch(0.6071 0.0572 153.66)",
+          "oklch(0.7214 0.0572 153.66)",
+          "oklch(0.8357 0.0572 153.66)",
+          "oklch(0.9500 0.0572 153.66)"
+        ]
+      },
+      "adopted-paper-dark": {
+        "role": "secondary",
+        "displayName": "Adopted paper dark",
+        "tonalRamp": [
+          "oklch(0.1500 0.0494 156.70)",
+          "oklch(0.2643 0.0494 156.70)",
+          "oklch(0.3786 0.0494 156.70)",
+          "oklch(0.4929 0.0494 156.70)",
+          "oklch(0.6071 0.0494 156.70)",
+          "oklch(0.7214 0.0494 156.70)",
+          "oklch(0.8357 0.0494 156.70)",
+          "oklch(0.9500 0.0494 156.70)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Reading title",
+        "purpose": "Homepage and term title; 53px at the intermediate breakpoint and 43px on mobile."
+      },
+      "definition": {
+        "displayName": "Core meaning",
+        "purpose": "Serif definition; 25px/1.65 on mobile."
+      },
+      "body": {
+        "displayName": "Article text",
+        "purpose": "Sans-serif prose at 15px/1.9 desktop and 14px/1.9 mobile."
+      },
+      "term-title": {
+        "displayName": "Curated term title",
+        "purpose": "Newsreader summary links, 27px on mobile; index and rows follow Workflow, Harness, Model, LLM, Agent, Schema."
+      },
+      "annotation": {
+        "displayName": "Evidence annotation",
+        "purpose": "Repeated 12px source contexts, research notes, source records, revision records and native page directory."
+      },
+      "summary": {
+        "displayName": "Definition summary",
+        "purpose": "Repeated 14px/1.85 curated summary prose, 13px on mobile."
+      },
+      "relation-label": {
+        "displayName": "Citation and relationship label",
+        "purpose": "Compact 11px/1.7, weight 500 labels for citation links and explicitly typed relationships."
+      },
+      "adoption-label": {
+        "displayName": "Lab adoption label",
+        "purpose": "Compact 11px/1.7, weight 600 status text; proposed and adopted use separate semantic color pairs."
+      }
+    },
+    "shadows": [],
+    "motion": [],
+    "breakpoints": [
+      {
+        "name": "record-after-article",
+        "value": "1150px"
+      },
+      {
+        "name": "native-mobile-catalog",
+        "value": "767px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Appearance action",
+      "kind": "button",
+      "description": "Transparent outlined action; its accessible label and Light/Dark text reflect the next appearance. The site reveals it with JavaScript and stores appearance per tab and index path.",
+      "html": "<button class=\"ds-appearance\" type=\"button\" aria-label=\"Switch to dark appearance\">Dark</button>",
+      "css": ".ds-appearance{font-family:var(--body,Manrope,system-ui,sans-serif);color:var(--ink,#213b33);background:transparent;border:1px solid var(--line,#d5dad0);border-radius:2px;padding:7px 12px;font-size:11px;line-height:1.9;min-height:36px;cursor:pointer}.ds-appearance:focus-visible{outline:3px solid var(--accent,#225b44);outline-offset:4px;}@media(max-width:767px){.ds-appearance{font-size:10px;min-height:32px}}",
+      "refersTo": "appearance-button"
+    },
+    {
+      "name": "Search and result feedback",
+      "kind": "input",
+      "description": "Visible label, native search input and Clear action. Site JavaScript performs AND matching, updates the polite live count, shows empty feedback, and keeps query in sessionStorage; this snippet records its native presentation.",
+      "html": "<div class=\"ds-search\"><label for=\"ds-search-input\">Search the glossary</label><div class=\"ds-search-line\"><input id=\"ds-search-input\" type=\"search\" placeholder=\"Find a term or meaning…\" autocomplete=\"off\" aria-describedby=\"ds-count\"><button class=\"ds-clear\" type=\"button\">Clear</button></div></div><p class=\"ds-count\" id=\"ds-count\" role=\"status\" aria-live=\"polite\">5 terms</p>",
+      "css": ".ds-search{font-family:var(--body,Manrope,system-ui,sans-serif);color:var(--ink,#213b33);background:var(--paper,#f8f7f1);border:1px solid var(--line,#d5dad0);border-radius:2px;padding:8px 10px}.ds-search label{display:block;font-size:11px;font-weight:600;line-height:1.9;color:var(--muted,#5e6c63)}.ds-search-line{display:flex;align-items:center;gap:3px}.ds-search input{font-family:var(--body,Manrope,system-ui,sans-serif);color:var(--ink,#213b33);min-width:0;width:100%;border:0;background:transparent;padding:7px 0;font-size:12px;line-height:1.8;appearance:none;caret-color:var(--accent,#225b44)}.ds-search input::placeholder{color:var(--muted,#5e6c63);font-size:11px}.ds-search input::-webkit-search-cancel-button{display:none}.ds-clear{font-family:var(--body,Manrope,system-ui,sans-serif);color:var(--ink,#213b33);background:transparent;border:0;color:var(--accent,#225b44);font-size:10px;line-height:1.9;min-height:36px;padding:4px;cursor:pointer}.ds-search input:focus-visible,.ds-clear:focus-visible{outline:3px solid var(--accent,#225b44);outline-offset:4px;}.ds-count{font-family:var(--body,Manrope,system-ui,sans-serif);color:var(--ink,#213b33);font-size:11px;color:var(--muted,#5e6c63);padding:9px 0;margin:0 0 9px;line-height:1.9}@media(max-width:767px){.ds-search{padding:8px 12px}.ds-search input{font-size:16px;padding:8px 0}.ds-search input::placeholder{font-size:13px}.ds-count{font-size:10px;padding:9px 0 3px;margin:0}}",
+      "refersTo": "search-field"
+    },
+    {
+      "name": "Term index and native catalog",
+      "kind": "nav",
+      "description": "Static term links with tonal current selection. Site JavaScript closes the catalog on mobile with an empty query, opens it for search, and leaves related links unfiltered. Without JavaScript the generated catalog remains open.",
+      "html": "<details class=\"ds-catalog\" open><summary>Browse all terms</summary><nav aria-label=\"Term index\"><a class=\"ds-index-item\" href=\"../terms/workflow.html\">Workflow<span>Process, description, execution</span></a><a class=\"ds-index-item\" aria-current=\"page\" href=\"../terms/harness.html\">Harness<span>The execution layer around a model</span></a><a class=\"ds-index-item\" href=\"../terms/model.html\">Model<span>Representation and inference component</span></a><a class=\"ds-index-item\" href=\"../terms/llm.html\">LLM<span>Large language model</span></a><a class=\"ds-index-item\" href=\"../terms/agent.html\">Agent<span>Goal-directed action with feedback</span></a><a class=\"ds-index-item\" href=\"../terms/schema.html\">Schema<span>Data schema</span></a></nav></details>",
+      "css": ".ds-catalog{font-family:var(--body,Manrope,system-ui,sans-serif);color:var(--ink,#213b33);}.ds-catalog summary{display:none}.ds-index-item{display:block;border:1px solid transparent;border-radius:2px;padding:11px 10px;margin-bottom:4px;text-decoration:none;color:var(--ink,#213b33);font-size:13px;min-height:44px;line-height:1.7}.ds-index-item span{display:block;font-size:10px;color:var(--muted,#5e6c63);margin-top:2px}.ds-index-item:hover{background:var(--wash,#ecefe6);text-decoration:none}.ds-index-item[aria-current=\"page\"]{background:var(--wash,#ecefe6);color:var(--accent,#225b44);border-color:var(--line,#d5dad0);font-weight:650}.ds-index-item:focus-visible,.ds-catalog summary:focus-visible{outline:3px solid var(--accent,#225b44);outline-offset:4px;}@media(max-width:767px){.ds-catalog summary{display:list-item;cursor:pointer;min-height:44px;padding:10px 0;color:var(--accent,#225b44);font-size:12px}.ds-catalog nav{padding:7px 0 3px}.ds-index-item{padding:12px;font-size:14px;min-height:46px}}",
+      "refersTo": "navigation-item-current"
+    },
+    {
+      "name": "Native page directory",
+      "kind": "nav",
+      "refersTo": "page-directory",
+      "description": "Native details and summary replaces the marginal contents at widths up to 1150px; it sits between the cited definition and comparison section. This sample shows the disclosed mobile treatment.",
+      "html": "<div class=\"ds-sample\"><details class=\"ds-mobile-contents\"><summary>On this page</summary><nav aria-label=\"Mobile page contents\"><a href=\"#definitions\">Definition comparison</a><a href=\"#scope\">Scope</a><a href=\"#includes\">Includes</a><a href=\"#excludes\">Excludes and counterexamples</a><a href=\"#ambiguities\">Different usages and open boundaries</a><a href=\"#operational\">Operational criteria</a><a href=\"#relations\">Concept relationships</a><a href=\"#adaptation\">Lab working definition</a><a href=\"#sources\">Sources & gaps</a><a href=\"#revisions\">Revision record</a></nav></details></div>",
+      "css": ".ds-sample{font:15px/1.9 var(--body,Manrope,system-ui,sans-serif);color:var(--ink,#213b33)}.ds-sample a{color:var(--accent,#225b44);text-underline-offset:.22em}.ds-sample a:hover{text-decoration:underline}.ds-sample a:focus-visible,.ds-sample summary:focus-visible{outline:3px solid var(--accent,#225b44);outline-offset:4px}.ds-mobile-contents{display:block;margin:18px 0 26px;padding:12px 0;border-block:1px solid var(--line,#d5dad0);font-size:12px}.ds-mobile-contents summary{cursor:pointer;min-height:36px;padding:6px 0}.ds-mobile-contents nav{display:grid;gap:10px;padding:10px 0}"
+    },
+    {
+      "name": "Curated definition summary row",
+      "kind": "custom",
+      "description": "Open serif-linked summary with scope subtitle, definition, source citations and editorial interpretation. The live rows follow Workflow, Harness, Model, LLM, Agent, Schema.",
+      "html": "<div class=\"ds-sample ds-curated-index\"><article class=\"ds-term-row\"><h3><a class=\"ds-term-name\" href=\"terms/workflow.html\">Workflow</a></h3><p class=\"ds-full-name\">Process, description, execution</p><p>An arrangement of activities and control rules for carrying out a process. Distinguish the process, its description, and the system that executes it. <span class=\"ds-citations\"><a href=\"terms/workflow.html#source-workflow-patterns\" aria-label=\"Source 3: Workflow Patterns\">[3]</a> <a href=\"terms/workflow.html#source-wfmc-1998\" aria-label=\"Source 1: Workflow and Internet: Catalysts for Radical Change\">[1]</a></span> <span class=\"ds-inference\">Editorial interpretation</span></p></article></div>",
+      "css": ".ds-sample{font:15px/1.9 var(--body,Manrope,system-ui,sans-serif);color:var(--ink,#213b33)}.ds-sample a{color:var(--accent,#225b44);text-underline-offset:.22em}.ds-sample a:hover{text-decoration:underline}.ds-sample a:focus-visible,.ds-sample summary:focus-visible{outline:3px solid var(--accent,#225b44);outline-offset:4px}.ds-curated-index .ds-term-row{border-top:1px solid var(--line);padding:26px 0 6px;max-width:75ch;margin-bottom:18px}.ds-term-row h3{font:500 29px/1.2 var(--display);margin-bottom:7px}.ds-term-name{text-decoration:none}.ds-term-row p{font-size:14px;line-height:1.85;color:var(--muted);margin-bottom:8px}.ds-term-row .ds-full-name{font-size:11px;margin-bottom:7px}.ds-citations{font:500 11px/1.7 var(--body);white-space:nowrap;vertical-align:baseline}.ds-citations a{text-decoration:none}.ds-citations a:hover{text-decoration:underline}.ds-inference{font:400 10px/1.7 var(--body);color:var(--muted);display:inline}.ds-relation-type{font:500 11px/1.7 var(--body);color:var(--muted);margin:0 5px}@media(max-width:767px){.ds-term-row h3{font-size:27px}.ds-term-row p{font-size:13px}}"
+    },
+    {
+      "name": "Core definition",
+      "kind": "custom",
+      "description": "Serif reading title, scope subtitle and cited core meaning. Comparisons follow immediately, with a native page directory inserted at widths up to 1150px.",
+      "html": "<div class=\"ds-definition ds-sample\"><h1 class=\"ds-term-title\">Harness</h1><p class=\"ds-subtitle\">The execution layer around a model</p><p class=\"ds-lead\">In agentic AI, a harness is software around a model that connects it to context and tools and controls execution. Sources differ on whether this means the control loop or the wider non-model runtime. <span class=\"ds-citations\"><a href=\"#source-asd-harness\" aria-label=\"Source 4: Agentic AI harnesses\">[4]</a> <a href=\"#source-anthropic-harness\" aria-label=\"Source 5: Scaling Managed Agents: Decoupling the brain from the hands\">[5]</a></span> <span class=\"ds-inference\">Editorial interpretation</span></p></div>",
+      "css": ".ds-sample{font:15px/1.9 var(--body,Manrope,system-ui,sans-serif);color:var(--ink,#213b33)}.ds-sample a{color:var(--accent,#225b44);text-underline-offset:.22em}.ds-sample a:hover{text-decoration:underline}.ds-sample a:focus-visible,.ds-sample summary:focus-visible{outline:3px solid var(--accent,#225b44);outline-offset:4px}.ds-definition h1{font:500 clamp(44px,4.8vw,64px)/1.07 var(--display,Newsreader,Georgia,serif);letter-spacing:-.025em;overflow-wrap:anywhere;margin:0 0 8px}.ds-subtitle{font:500 23px/1.4 var(--display,Newsreader,Georgia,serif);color:var(--muted,#5e6c63);margin:0 0 24px}.ds-definition>.ds-lead{font:400 28px/1.6 var(--display,Newsreader,Georgia,serif);max-width:70ch;margin:14px 0 20px}.ds-citations{font:500 11px/1.7 var(--body);white-space:nowrap;vertical-align:baseline}.ds-citations a{text-decoration:none}.ds-citations a:hover{text-decoration:underline}.ds-inference{font:400 10px/1.7 var(--body);color:var(--muted);display:inline}.ds-relation-type{font:500 11px/1.7 var(--body);color:var(--muted);margin:0 5px}@media(max-width:1150px){.ds-definition h1{font-size:53px}}@media(max-width:767px){.ds-definition h1{font-size:43px}.ds-subtitle{font-size:19px}.ds-definition>.ds-lead{font-size:25px;line-height:1.65}}"
+    },
+    {
+      "name": "Related terms and entry record",
+      "kind": "custom",
+      "description": "Related Workflow, LLM and Agent links remain outside search filtering. The record shows entry version and unratified Lab status, with a link to the internal proposal.",
+      "html": "<aside class=\"ds-record\"><h2>Related terms</h2><nav aria-label=\"Related terms\"><a href=\"workflow.html\">Workflow</a><a href=\"llm.html\">LLM</a><a href=\"agent.html\">Agent</a></nav><h2>Entry record</h2><p>Version 1.0<br>Updated 2026-10-10</p><p>Lab definition: proposed</p><a href=\"../lab-guide.html\">Internal proposal</a></aside>",
+      "css": ".ds-record{font-family:var(--body,Manrope,system-ui,sans-serif);color:var(--ink,#213b33);padding-top:8px;min-width:0;font-size:11px;line-height:1.8}.ds-record h2{font-size:11px;font-weight:650;line-height:1.4;margin:26px 0 12px}.ds-record nav{display:grid;gap:9px}.ds-record p{color:var(--muted,#5e6c63);margin:0 0 14px}.ds-record a{color:var(--accent,#225b44);overflow-wrap:anywhere;text-underline-offset:.22em}.ds-record a:hover{text-decoration:underline}.ds-record a:focus-visible{outline:3px solid var(--accent,#225b44);outline-offset:4px;}"
+    },
+    {
+      "name": "Definition comparison",
+      "kind": "custom",
+      "refersTo": "comparison-row",
+      "description": "Neutral source-labeled views precede scope and boundaries. Context, attribution and editorial interpretation stay visible without adoption color.",
+      "html": "<div class=\"ds-sample\"><div class=\"ds-definition-comparison\"><div class=\"ds-definition-view\"><h3>ASD advisory</h3><p class=\"ds-source-context\">Institutional; security and governance</p><p>ASD uses harness for the non-LLM components of an agentic system, including connections to tools, data, memory and planning workflows, privileges and the control loop. <span class=\"ds-citations\"><a href=\"#source-asd-harness\" aria-label=\"Source 4: Agentic AI harnesses\">[4]</a></span></p></div><div class=\"ds-definition-view\"><h3>SWE-agent architecture</h3><p class=\"ds-source-context\">Peer-reviewed; agent-computer interface</p><p>SWE-agent supplies a task-oriented interface for a language-model agent to navigate repositories, edit files and execute tests. This informs the runtime boundary; the paper is not treated as a general definition of Harness. <span class=\"ds-citations\"><a href=\"#source-swe-agent\" aria-label=\"Source 15: SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering\">[15]</a></span> <span class=\"ds-inference\">Editorial interpretation</span></p></div><div class=\"ds-definition-view\"><h3>Managed Agents architecture</h3><p class=\"ds-source-context\">First-party; product boundary</p><p>Anthropic separates session, harness and sandbox. Its harness drives the loop and routes model-requested tool calls; the sandbox executes them. <span class=\"ds-citations\"><a href=\"#source-anthropic-harness\" aria-label=\"Source 5: Scaling Managed Agents: Decoupling the brain from the hands\">[5]</a></span></p></div><div class=\"ds-definition-view\"><h3>Conceptual proposal</h3><p class=\"ds-source-context\">Preprint; not established consensus</p><p>Macedo proposes an operational boundary against SDKs, frameworks, IDE plugins, evaluation scaffolds and orchestrators. This is one author’s definition proposal. <span class=\"ds-citations\"><a href=\"#source-harness-preprint\" aria-label=\"Source 6: What makes a harness a harness: necessary and sufficient conditions for an agent harness\">[6]</a></span></p></div></div></div>",
+      "css": ".ds-sample{font:15px/1.9 var(--body,Manrope,system-ui,sans-serif);color:var(--ink,#213b33)}.ds-sample a{color:var(--accent,#225b44);text-underline-offset:.22em}.ds-sample a:hover{text-decoration:underline}.ds-sample a:focus-visible,.ds-sample summary:focus-visible{outline:3px solid var(--accent,#225b44);outline-offset:4px}.ds-definition-view{border-top:1px solid var(--line);padding:18px 0 5px}.ds-definition-view h3{font-size:14px;margin-bottom:4px}.ds-source-context{margin-bottom:9px}.ds-definition-view .ds-source-context{margin-bottom:9px}.ds-citations{font:500 11px/1.7 var(--body);white-space:nowrap;vertical-align:baseline}.ds-citations a{text-decoration:none}.ds-citations a:hover{text-decoration:underline}.ds-inference{font:400 10px/1.7 var(--body);color:var(--muted);display:inline}.ds-relation-type{font:500 11px/1.7 var(--body);color:var(--muted);margin:0 5px}.ds-definition-view p{margin:0 0 14px}.ds-definition-view h3{line-height:1.5;font-weight:700}.ds-source-context{font-size:12px;color:var(--muted,#5e6c63);margin-bottom:9px}"
+    },
+    {
+      "name": "Typed concept relationships",
+      "kind": "custom",
+      "refersTo": "relation-row",
+      "description": "Only strict is-a subtypes use a nested list and neutral vertical rule. Uses and supports/orchestrates stay labeled rows with cited conditions; these examples show both forms.",
+      "html": "<div class=\"ds-sample\"><ul class=\"ds-subtype-tree\"><li><a href=\"model.html\">Model</a><ul><li><a href=\"llm.html\">LLM</a> <span class=\"ds-relation-type\">is-a</span><p>Within learned AI-model usage: an LLM is a specialized language model, hence a Model. <span class=\"ds-citations\"><a href=\"#source-eu-us-ai\" aria-label=\"Source 8: EU-U.S. Terminology and Taxonomy for Artificial Intelligence, Second Edition\">[8]</a></span> <span class=\"ds-inference\">Editorial interpretation</span></p></li></ul></li></ul><div class=\"ds-relation-row\"><p><a href=\"harness.html\">Harness</a> <span class=\"ds-relation-type\">supports/orchestrates</span> <a href=\"workflow.html\">Workflow</a></p><p>A harness realizes or coordinates workflows; runtime-to-process is not strict subtype nesting. <span class=\"ds-citations\"><a href=\"#source-asd-harness\" aria-label=\"Source 4: Agentic AI harnesses\">[4]</a> <a href=\"#source-anthropic-harness\" aria-label=\"Source 5: Scaling Managed Agents: Decoupling the brain from the hands\">[5]</a></span> <span class=\"ds-inference\">Editorial interpretation</span></p></div></div>",
+      "css": ".ds-sample{font:15px/1.9 var(--body,Manrope,system-ui,sans-serif);color:var(--ink,#213b33)}.ds-sample a{color:var(--accent,#225b44);text-underline-offset:.22em}.ds-sample a:hover{text-decoration:underline}.ds-sample a:focus-visible,.ds-sample summary:focus-visible{outline:3px solid var(--accent,#225b44);outline-offset:4px}.ds-relation-row{border-top:1px solid var(--line);padding:16px 0 1px}.ds-relation-row>p:first-child{font-size:14px;font-weight:600;margin-bottom:8px}.ds-subtype-tree{list-style:none;padding:0;margin:18px 0 24px}.ds-subtype-tree ul{list-style:none;margin:10px 0 0 14px;padding:8px 0 0 18px;border-left:1px solid var(--line)}.ds-subtype-tree>li>a{font-weight:600}.ds-subtype-tree p{font-size:13px;margin-top:10px}.ds-citations{font:500 11px/1.7 var(--body);white-space:nowrap;vertical-align:baseline}.ds-citations a{text-decoration:none}.ds-citations a:hover{text-decoration:underline}.ds-inference{font:400 10px/1.7 var(--body);color:var(--muted);display:inline}.ds-relation-type{font:500 11px/1.7 var(--body);color:var(--muted);margin:0 5px}.ds-relation-row p{margin:0 0 14px}.ds-subtype-tree li{margin-bottom:9px}"
+    },
+    {
+      "name": "Lab adoption tags",
+      "kind": "chip",
+      "refersTo": "adoption-proposed",
+      "description": "Yellow is the current unratified Lab proposal. The green variant is an available state requiring a recorded consensus decision; no live entry currently uses it.",
+      "html": "<div class=\"ds-sample\"><span class=\"ds-adoption-tag ds-proposed\">Plale Lab · Proposed / not ratified</span></div>",
+      "css": ".ds-sample{font:15px/1.9 var(--body,Manrope,system-ui,sans-serif);color:var(--ink,#213b33)}.ds-sample a{color:var(--accent,#225b44);text-underline-offset:.22em}.ds-sample a:hover{text-decoration:underline}.ds-sample a:focus-visible,.ds-sample summary:focus-visible{outline:3px solid var(--accent,#225b44);outline-offset:4px}.ds-adoption-tag{display:inline-block;max-width:100%;padding:4px 8px;border-radius:2px;font:600 11px/1.7 var(--body);color:var(--proposed-ink);background:var(--proposed-paper)}.ds-adoption-tag.ds-adopted{color:var(--adopted-ink);background:var(--adopted-paper)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The searchable research reference",
+    "overview": "The approved fusion combines B's persistent searchable navigation with A's editorial reading layout. Warm paper, green ink and generous paragraph rhythm support finding a meaning quickly, then reading its scope, boundaries and sources carefully. This records the built static glossary rather than the comparison prototype's routing or provisional details.\n\nNavigation uses Manrope, a stable index and an explicit current term. Newsreader gives titles, term rows and definitions a publication character. Neutral comparison rows make competing definitions and their evidence visible; compact semantic tags distinguish the Lab proposal from documented adoption. Light and dark appearances share the same hierarchy; no animation or authored transition is applied.",
+    "keyCharacteristics": [
+      "Persistent searchable index paired with a flexible reading column.",
+      "Warm neutral surfaces, dark green ink and restrained green links.",
+      "Newsreader for reading landmarks; Manrope for navigation and ordinary prose.",
+      "Flat surfaces with tonal selection and thin structural dividers.",
+      "Static term addresses and native HTML enhanced by local search."
+    ],
+    "rules": [
+      {
+        "name": "The Semantic Appearance Rule",
+        "body": "Switch all six roles together. Honor the system color preference until the reader chooses Light or Dark; store that choice per tab and site base path.",
+        "section": "colors"
+      },
+      {
+        "name": "The Adoption Evidence Rule",
+        "body": "Reserve yellow and green status fills for internal adoption. Green requires a documented consensus decision; external source rank never inherits adoption color. Switch the status ink/paper pairs with the appearance.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Reading Speeds Rule",
+        "body": "Use the serif for term names and core meanings; use the sans-serif for retrieval, comparison labels, section labels, ordinary prose and evidence records.",
+        "section": "typography"
+      },
+      {
+        "name": "The Reading Space Rule",
+        "body": "Move supporting records after the article before compressing the text into a narrow three-column layout.",
+        "section": "layout"
+      },
+      {
+        "name": "The Flat Reference Rule",
+        "body": "Use structural rules and tonal states to distinguish regions; retain the calm, flat reading surface.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Strict Nesting Rule",
+        "body": "Nest only a documented is-a relationship. Keep composition and control relationships visibly typed, with their conditions and evidence beside them.",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "**Do** preserve the approved persistent navigation and editorial reading pairing.",
+      "**Do** use all six semantic color roles together in light and dark appearance.",
+      "**Do** keep search visible on mobile and related links outside search filtering.",
+      "**Do** preserve native anchors, catalog disclosure, keyboard focus and static fallbacks.",
+      "**Do** retain glossary prose, versioned sources and the distinction between proposal and adoption.",
+      "**Do** keep comparison views, source tiers and editorial interpretations neutral, reserving adoption fills for explicit internal status.",
+      "**Do** use strict subtype nesting only for is-a and retain cited conditions for uses and supports/orchestrates."
+    ],
+    "donts": [
+      "**Don't** replace the self-hosted reading fonts with a system display face.",
+      "**Don't** convert open definition rows into lifted cards or add decorative shadows.",
+      "**Don't** compress the desktop marginal column into the mobile article.",
+      "**Don't** put the query in URLs or send search input to a server.",
+      "**Don't** introduce decorative eyebrows above the homepage, term title or build-record title.",
+      "**Don't** show green adoption status without a recorded consensus decision."
+    ]
+  }
+}

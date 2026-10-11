@@ -10,17 +10,17 @@ AI research and especially rapidly evolving AI engineering terminology can have 
 
 ## Read
 
-- [Searchable handbook and alphabetical index](https://williamq96.github.io/plale-lab-glossary/)
+- [Searchable handbook and reading index](https://williamq96.github.io/plale-lab-glossary/)
 - [Current compiled PDF](https://williamq96.github.io/plale-lab-glossary/glossary.pdf) and [current build record](https://williamq96.github.io/plale-lab-glossary/build-record.html)
 - [Archived starter PDF preview](docs/glossary.pdf) and [its snapshot provenance](docs/PDF-SNAPSHOT.md)
 - [Shared content source](data/handbook.json)
 - [Contribution guide](CONTRIBUTING.md) and [definition-entry template](templates/definition-entry.json)
 
-Each term has its own linked page with a concise definition, scope, inclusions/exclusions, ambiguities, operational criteria, versioned sources, and related terms. The index searches titles, aliases, definitions, boundaries, and sources. Search runs in the browser and sends no queries to a server.
+Edition 0.5 has six active terms in reading order: Workflow, Harness, Model, LLM, Agent, Schema. Each independent page compares definitions, explains boundaries and operational criteria, shows typed relationships and a cited Lab proposal, and records source gaps and revisions. Search includes aliases, definition comparisons and relationship conditions. Search runs in the browser and sends no queries to a server.
 
 ## Source policy
 
-Prefer applicable standards, disciplinary consensus, and authoritative definitions; then peer-reviewed literature, recognizing that peer review alone does not establish consensus. Newer terms may use attributed preprints, first-party technical documentation, and established engineering practices.
+Research applicable formal institutional definitions first, peer-reviewed papers second, industry standards / first-party documentation / preprints / academic materials third, and Lab internal proposals last. Corporate engineering blogs are tier 3. Verify publication status and context; relevance outweighs unrelated authority. Peer review does not alone establish consensus.
 
 Where sources or communities disagree, retain attribution and state this project's chosen working definition. All initial entries remain proposed and pending team confirmation. Source records identify versions or dates and relevant locators.
 
@@ -36,7 +36,19 @@ To edit in GitHub or locally:
 
 No local TeX installation or generated-file commits are required. Do not hand-edit generated prose. The checked-in HTML, TeX, bibliography, and PDF are starter snapshots for repository browsing; live Pages and run artifacts are the current generated editions. A failed build leaves the previous successful publication available, so check Actions and the site's build record when verifying an update.
 
-For an optional local preview, install Python 3, TeX Live, BibTeX, and latexmk:
+For a local website preview, Python 3 alone is sufficient:
+
+```sh
+python scripts/preview.py
+```
+
+Open `http://127.0.0.1:8766/`. This generates fresh static pages under the ignored `build/preview/` directory and serves them locally without changing the checked-in starter snapshots. After editing source files, run `python scripts/preview.py --build-only` and refresh the browser. Stop the server with Ctrl+C. The PDF link identifies and opens the locally preserved snapshot by its actual version. The v0.5 HTML/TeX and historical v0.2 PDF remain different editions until a matching fresh PDF snapshot is generated. Use `--port 8767` to choose another port or `--build-only` to generate without starting a server.
+
+The website uses a persistent searchable index and a spacious reading column. On mobile, the index folds into a native expandable catalog. Queries and appearance choices persist only in the current browser tab. Fonts are served locally; their licenses are included under `docs/assets/fonts/`.
+
+Run the website content and navigation regression checks with `python -m unittest discover -s tests -v`; Actions runs the same checks before generating the handbook.
+
+To preview a newly compiled PDF as well, install Python 3, TeX Live, BibTeX, and latexmk:
 
 ```sh
 python3 scripts/generate.py
@@ -61,8 +73,16 @@ The live site's footer links its source commit and readable PDF build record. Th
 
 ## Contribute and reuse
 
-Submit public sources and synthetic examples. Do not include private chats, unpublished results, datasets, credentials, internal notes, or personal paths. New entries are proposed; adopted status requires an explicit team decision date and public link.
+Submit public sources and synthetic examples. Do not include private chats, unpublished results, datasets, credentials, internal notes, or personal paths. New entries are proposed; adopted status requires explicit unanimous consensus evidence, a decision date and an accessible public link.
 
 Original handbook prose uses **CC BY 4.0**; build scripts and site code use **MIT**. Third-party sources retain their own rights. See [license scope](LICENSE.md).
 
 [GitHub PDF rendering documentation](https://docs.github.com/en/repositories/working-with-files/using-files/working-with-non-code-files#rendering-pdf-documents) · [Artifact downloads](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/download-workflow-artifacts)
+
+## Editorial skill and validation
+
+Use [.agents/skills/plalelab-glossry-edit/SKILL.md](.agents/skills/plalelab-glossry-edit/SKILL.md). Its template, structural JSON schema and content/page contracts define cited statements, source tiers, semantic kinds and relationship conditions. The semantic validator also rejects missing citation IDs, dangling links, incompatible or cyclic is-a relations and false adoption records. Yellow/green tags describe Lab adoption only; all six current working definitions are yellow.
+
+The internal proposal is stored in JSON and generated as `lab-guide.html`; it contains no chat transcript. Strict is-a nesting currently connects LLM to Model. Agent uses LLM in the LLM-based scope; Harness supports/orchestrates Workflow and Agent. Old terms have left the active source and generated routes; their earlier editions remain in Git history and historical PDF provenance.
+
+Publishing to `main` runs the validation, fresh PDF compilation and Pages deployment together. Verify the deployed edition and source commit in the live build record; a failed run leaves the previous successful edition available.

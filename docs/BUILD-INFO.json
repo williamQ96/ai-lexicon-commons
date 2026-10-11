@@ -1,7 +1,17 @@
 {
-  "content_version": "0.2",
+  "content_version": "0.5",
   "updated": "2026-10-10",
   "source": "data/handbook.json",
-  "source_sha256": "563c251d6b581e16cdf05270013aa84d11c30523a5bf28d6c4d247e4f84ade86",
-  "terms": 9
+  "source_sha256": "20adfd6e09735ba91ccf0aa524579e5a48d729fc032a7a2fc2c02226eb30c528",
+  "terms": 6,
+  "display_order": [
+    "workflow",
+    "harness",
+    "model",
+    "llm",
+    "agent",
+    "schema"
+  ],
+  "source_commit": null,
+  "build_run": null
 }

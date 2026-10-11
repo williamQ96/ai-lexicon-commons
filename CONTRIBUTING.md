@@ -1,14 +1,14 @@
 # Contributing to the living glossary
 
-Edit `data/handbook.json`, the shared source for the website and PDF. Readers are assumed to have academic and engineering experience; prioritize a useful boundary or ambiguity over introductory instruction.
+Edit `data/handbook.json`, the single content source for HTML, TeX, the bibliography and the internal guide. For detailed editing rules, use [.agents/skills/plalelab-glossry-edit/SKILL.md](.agents/skills/plalelab-glossry-edit/SKILL.md), its template and schema/content/page references.
 
-1. Copy [the definition-entry template](templates/definition-entry.json) into the terms array. Use one core term per entry and a unique stable slug.
-2. State the chosen working definition and scope, inclusions/exclusions, ambiguities, and operational criteria where applicable. Explain not applicable, or mark unresolved criteria pending.
-3. Add public sources to the sources object and reference their IDs from the term. Prefer applicable standards, disciplinary consensus, and authoritative definitions; then peer-reviewed literature. Peer review alone does not establish consensus. Attribute preprints, first-party documentation, and engineering practices when used for newer terms.
-4. Preserve differing meanings and source attribution. Explain this project's chosen interpretation instead of presenting an adaptation as the source's exact definition.
-5. Set entry version and revision date, add valid related-term slugs, and keep new entries proposed. Adopted status requires an explicit team decision date and public link.
-6. Commit the JSON change and open a pull request; generated files need not be committed. Actions builds fresh pages, TeX, and PDF from the shared source and uploads a review artifact. Review the website and PDF in that artifact. After merge to `main`, a successful build publishes both together. Pull requests do not publish. See the [editing workflow](README.md) for local preview commands and build provenance.
+1. Keep existing slugs stable. For a new entry, copy `templates/definition-entry.json`, replace its scaffold prose and unresolved source ID, and intentionally add its slug to `display_order`.
+2. Research applicable institutional definitions, peer-reviewed papers, industry standards / first-party documents / preprints / academic materials, then Lab proposals, in that order. Verify original versions, status and scope. Record gaps instead of inventing consensus or promoting university-hosted preprints.
+3. Every definition, comparison, boundary, operational criterion and relationship condition has nearby source IDs. Mark editorial interpretations. Compare differing usages explicitly and explain applicability.
+4. Use is-a only for externally supported subtypes of compatible semantic kinds. Uses and supports/orchestrates are component/control relations. Validate targets and source coverage. Related links do not assert taxonomy.
+5. New meanings are proposed with adoption null. Green adopted status requires a real unanimous consensus decision, date, accessible HTTPS record and specific evidence. A merge or publication does not establish adoption. Update versions, dates and revision records.
+6. Run `python -m unittest discover -s tests -v` and `python scripts/preview.py --build-only`; inspect desktop, tablet, phone and dark mode. Validate the editing skill when changing its format. Only compile/snapshot a fresh PDF if TeX is available; identify old PDFs by their real edition.
 
-Use public material and synthetic examples. Keep private chats, unpublished results, datasets, credentials, internal notes, and personal paths out of this public project.
+Keep private chats, unpublished results, credentials and personal paths out of public content. Summarize authorized internal proposals in the versioned guide without publishing transcripts. Original prose is CC BY 4.0 and code is MIT; preserve third-party rights.
 
-Original prose is CC BY 4.0 and code is MIT, as described in [license scope](LICENSE.md). Preserve third-party rights and attribution. Do not add another person's material unless it may be shared under the relevant terms.
+The skill does not authorize commits, pushes, deployment or external messages. When publication is separately authorized, Actions builds review artifacts on branches/PRs and publishes only successful main-branch builds; see README.md.
