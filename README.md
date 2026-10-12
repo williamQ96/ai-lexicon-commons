@@ -1,10 +1,10 @@
-# Plale Lab Shared Glossary and Operational Definitions
+# Open AI Glossary
 
-This is a living glossary developed for clearer communication and productivity within Plale Lab and the wider community. It is a public collaborative project, updated over time.
+This is a living glossary developed for clearer communication and productivity across the research and engineering community. It is a public collaborative project, updated over time.
 
 AI research and especially rapidly evolving AI engineering terminology can have blurred boundaries, competing meanings, and meanings that change across time or communities. Those differences can create avoidable communication costs. Readers are assumed to have academic and engineering experience; the aim is to clarify ambiguity rather than provide comprehensive introductory instruction.
 
-**Working proposal; pending team confirmation.** This draft chooses explicit working meanings without claiming lab ratification. A merged pull request or passing build alone does not establish adoption.
+**Working proposal; pending repository consensus.** This draft chooses explicit working meanings without claiming repository certification. A merged pull request or passing build alone does not establish adoption.
 
 [![Build handbook](https://github.com/williamQ96/plale-lab-glossary/actions/workflows/build-pdf.yml/badge.svg)](https://github.com/williamQ96/plale-lab-glossary/actions/workflows/build-pdf.yml)
 
@@ -16,13 +16,13 @@ AI research and especially rapidly evolving AI engineering terminology can have 
 - [Shared content source](data/handbook.json)
 - [Contribution guide](CONTRIBUTING.md) and [definition-entry template](templates/definition-entry.json)
 
-Edition 0.6 has six active terms in reading order: Workflow, Harness, Model, LLM, Agent, Schema. Each independent page compares definitions, explains boundaries and operational criteria, shows typed relationships and a cited Lab proposal, and records source gaps and revisions. Search includes aliases, definition comparisons and relationship conditions. Search runs in the browser and sends no queries to a server.
+Edition 0.7 has six active terms in reading order: Workflow, Harness, Model, LLM, Agent, Schema. Each independent page compares definitions, explains boundaries and operational criteria, shows typed relationships and a cited Repository proposal, and records source gaps and revisions. Search includes aliases, definition comparisons and relationship conditions. Search runs in the browser and sends no queries to a server.
 
 ## Source policy
 
-Research applicable formal institutional definitions first, peer-reviewed papers second, industry standards / first-party documentation / preprints / academic materials third, and Lab internal proposals last. Corporate engineering blogs are tier 3. Verify publication status and context; relevance outweighs unrelated authority. Peer review does not alone establish consensus.
+Research applicable formal institutional definitions first, peer-reviewed papers second, industry standards / first-party documentation / preprints / academic materials third, and Repository internal proposals last. Corporate engineering blogs are tier 3. Verify publication status and context; relevance outweighs unrelated authority. Peer review does not alone establish consensus.
 
-Where sources or communities disagree, retain attribution and state this project's chosen working definition. All initial entries remain proposed and pending team confirmation. Source records identify versions or dates and relevant locators.
+Where sources or communities disagree, retain attribution and state this project's chosen working definition. All initial entries remain proposed and pending repository consensus. Source records identify versions or dates and relevant locators.
 
 ## One content source, two reading formats
 
@@ -81,7 +81,7 @@ Original handbook prose uses **CC BY 4.0**; build scripts and site code use **MI
 
 ## Editorial skill and validation
 
-Use [.agents/skills/plalelab-glossry-edit/SKILL.md](.agents/skills/plalelab-glossry-edit/SKILL.md). Its template, structural JSON schema and content/page contracts define cited statements, source tiers, semantic kinds and relationship conditions. The semantic validator also rejects missing citation IDs, dangling links, incompatible or cyclic is-a relations and false adoption records. Yellow/green tags describe Lab adoption only; all six current working definitions are yellow.
+Use [.agents/skills/open-ai-glossary-edit/SKILL.md](.agents/skills/open-ai-glossary-edit/SKILL.md). Its template, structural JSON schema and content/page contracts define cited statements, source tiers, semantic kinds and relationship conditions. The semantic validator also rejects missing citation IDs, dangling links, incompatible or cyclic is-a relations and false adoption records. Yellow/green tags describe repository certification only; all six current working definitions are yellow.
 
 The internal proposal is stored in JSON and generated as `lab-guide.html`; it contains no chat transcript. Strict is-a nesting currently connects LLM to Model. Agent uses LLM in the LLM-based scope; Harness supports/orchestrates Workflow and Agent. Old terms have left the active source and generated routes; their earlier editions remain in Git history and historical PDF provenance.
 

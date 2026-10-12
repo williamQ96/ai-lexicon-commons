@@ -5,7 +5,7 @@ import re
 from urllib.parse import urlsplit
 
 TIERS = {1: "Institutional definition", 2: "Peer-reviewed paper",
-         3: "Industry / first-party / preprint / academic", 4: "Lab internal proposal"}
+         3: "Industry / first-party / preprint / academic", 4: "Repository internal proposal"}
 RELATIONS = {"is-a", "uses", "supports/orchestrates"}
 KINDS = {"process", "runtime", "model", "system"}
 
@@ -76,8 +76,8 @@ def validate(book):
     order = book.get("display_order", [])
     require(len(order) == len(set(order)) == len(terms) and set(order) == set(by_slug), "display_order must contain each active slug exactly once")
     guide = book["lab_guide"]
-    adoption(guide, "Lab guide")
-    require(nonempty(guide.get("id")) and nonempty(guide.get("version")) and iso_date(guide.get("updated")), "Lab guide version required")
+    adoption(guide, "Repository guide")
+    require(nonempty(guide.get("id")) and nonempty(guide.get("version")) and iso_date(guide.get("updated")), "Repository guide version required")
     section_ids = set()
     for section in guide["sections"]:
         require(re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", section["id"]) and section["id"] not in section_ids, "Invalid or duplicate guide section")
@@ -128,7 +128,7 @@ def validate(book):
         tiers = [sources[sid]["tier"] for sid in t["sources"]]
         require(tiers == sorted(tiers), slug + ": source list must follow research tier order")
         require(any(sources[sid]["tier"] < 4 for sid in t["definition"]["source_ids"]), slug + ": core definition needs applicable external evidence")
-        require(any(sources[sid]["tier"] == 4 for sid in t["adaptation"]["source_ids"]), slug + ": Lab meaning needs internal proposal citation")
+        require(any(sources[sid]["tier"] == 4 for sid in t["adaptation"]["source_ids"]), slug + ": Repository meaning needs internal proposal citation")
         for r in t["relations"]:
             require(r.get("target") in by_slug and r["target"] != slug and r.get("type") in RELATIONS, slug + ": invalid relation target/type")
             require("source_ids" in r and type(r.get("inference")) is bool and nonempty(r.get("condition")), slug + ": relation needs condition, attribution and inference flag")

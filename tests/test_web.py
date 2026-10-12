@@ -91,8 +91,8 @@ class WebsiteTests(unittest.TestCase):
                 self.assertIn(related + ".html", doc.links)
             active = [a for _, a in doc.elements if a.get("aria-current") == "page"]
             self.assertEqual([a["href"] for a in active], ["../terms/" + term["slug"] + ".html"])
-            self.assertIn("Plale Lab · Proposed / not ratified", text)
-            self.assertNotIn("Plale Lab · Adopted by consensus", text)
+            self.assertIn("Repository · Proposed / not certified", text)
+            self.assertNotIn("Repository · Certified by consensus", text)
             self.assertIn("No consensus decision recorded.", text)
         guide = "".join(Document(self.outputs["docs/lab-guide.html"]).text)
         for section in self.book["lab_guide"]["sections"]:
@@ -162,7 +162,7 @@ class WebsiteTests(unittest.TestCase):
         self.assertNotIn('<script>alert', out["docs/terms/workflow.html"])
         self.assertIn(hostile, "".join(doc.text))
         self.assertIn(t["adoption"]["url"], doc.links)
-        self.assertIn("Plale Lab · Adopted by consensus", "".join(doc.text))
+        self.assertIn("Repository · Certified by consensus", "".join(doc.text))
         self.assertIn('class="adoption-tag adopted"', out["docs/terms/workflow.html"])
         self.assertIn("\\{test\\}", out["main.tex"])
 
@@ -273,7 +273,7 @@ class WebsiteTests(unittest.TestCase):
                 self.assertGreaterEqual((high+0.05)/(low+0.05),4.5,(fg,bg))
 
     def test_skill_template_and_schema_stay_in_sync(self):
-        skill=ROOT / ".agents/skills/plalelab-glossry-edit"
+        skill=ROOT / ".agents/skills/open-ai-glossary-edit"
         self.assertEqual((ROOT / "templates/definition-entry.json").read_bytes(),(skill / "assets/definition-entry.json").read_bytes())
         schema=json.loads((skill / "references/content-schema.json").read_text(encoding="utf-8"))
         self.assertEqual(schema["properties"]["schema_version"]["const"],self.book["schema_version"])

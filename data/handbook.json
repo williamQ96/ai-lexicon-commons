@@ -1,21 +1,21 @@
 {
-  "title": "Plale Lab Shared Glossary and Operational Definitions",
-  "short_title": "Plale Lab Glossary",
-  "version": "0.6",
-  "updated": "2026-10-11",
-  "status": "Five working definitions; all Lab proposals remain unratified",
+  "title": "Open AI Glossary",
+  "short_title": "Open AI Glossary",
+  "version": "0.7",
+  "updated": "2026-10-12",
+  "status": "Six working definitions; all repository proposals remain uncertified",
   "introduction": [
     "A shared reference for research and engineering: compare meanings, inspect their boundaries, and follow the evidence.",
     "Read in the order Workflow, Harness, Model, LLM, Agent, Schema. The sequence is a reading path, not a claim that all six form a single subtype hierarchy.",
-    "External evidence and internal adoption are separate. Each working definition remains a proposal until the lab records consensus."
+    "External evidence and repository certification are separate. Each working definition remains a proposal until a documented repository consensus decision is recorded."
   ],
   "source_policy": [
-    "Research applicable formal institutional definitions first, then peer-reviewed papers, then industry standards, first-party documentation, preprints and academic materials, and finally Lab internal proposals.",
+    "Research applicable formal institutional definitions first, then peer-reviewed papers, then industry standards, first-party documentation, preprints and academic materials, and finally Repository internal proposals.",
     "Verify the original text, edition, publication status and context. A corporate engineering blog belongs to tier 3. Hosting a paper at a university does not change its publication type.",
     "Prefer relevance over an unrelated authority. Preserve attributed disagreements, record source gaps, and do not turn a single paper into a consensus statement.",
     "Citations accompany definitions, boundaries and typed relations. An editorial inference is marked explicitly; a source citation identifies its basis, not an endorsement of our inference."
   ],
-  "adoption_policy": "Yellow means Plale Lab · Proposed / not ratified. Green means Plale Lab · Adopted by consensus and requires an explicit unanimous decision, date, accessible decision link and evidence record. A merge, publication or authoritative external source does not establish Lab adoption.",
+  "adoption_policy": "Yellow means Repository · Proposed / not certified. Green means Repository · Certified by consensus and requires an explicit unanimous repository decision, date, accessible decision link and evidence record. A merge, publication or authoritative external source does not establish repository certification.",
   "license": "Original handbook prose: CC BY 4.0. Build scripts and site code: MIT. Third-party sources retain their own rights.",
   "sources": {
     "wfmc-1998": {
@@ -188,17 +188,17 @@
       "verification": "Original text and publication record checked 2026-10-10."
     },
     "lab-guide-v1": {
-      "title": "Plale Lab terminology guide",
-      "author": "Plale Lab internal proposal",
+      "title": "Repository terminology guide",
+      "author": "Repository internal proposal",
       "year": "2026",
       "tier": 4,
-      "kind": "Lab internal proposal; not ratified",
-      "version": "Internal proposal 1.2 / not ratified",
+      "kind": "Repository internal proposal; not certified",
+      "version": "Repository proposal 1.3 / not certified",
       "locator": "Term-specific proposal sections and editorial policy",
       "url": "lab-guide.html",
       "context": "Internal proposals and editorial interpretations, not external consensus.",
-      "accessed": "2026-10-11",
-      "verification": "Versions 1.1 and 1.2 add the Schema proposal and the flow/governance experimental example while preserving prior proposal sections. All remain unratified; no adoption decision claimed.",
+      "accessed": "2026-10-12",
+      "verification": "Versions 1.1 and 1.2 add the Schema proposal and the flow/governance experimental example while preserving prior proposal sections. All remain unratified; no adoption decision claimed. Version 1.3 changes branding and certification scope only; it does not certify any proposal.",
       "guide_id": "lab-guide-v1"
     },
     "swe-agent": {
@@ -407,7 +407,7 @@
         }
       ],
       "operational": {
-        "text": "Lab test: identify a purpose, activities, dependencies or transition rules, and a completion or termination condition. Label the artifact as description, execution instance or executor. These are editorial criteria, not a quoted standard.",
+        "text": "Repository test: identify a purpose, activities, dependencies or transition rules, and a completion or termination condition. Label the artifact as description, execution instance or executor. These are editorial criteria, not a quoted standard.",
         "source_ids": [
           "lab-guide-v1"
         ],
@@ -440,7 +440,7 @@
         }
       ],
       "source_gaps": [
-        "Institutional scope gap: the historical WfMC definition concerns business automation. The broader Python example and our minimum operational test are explicit Lab proposals.",
+        "Institutional scope gap: the historical WfMC definition concerns business automation. The broader Python example and our minimum operational test are explicit Repository proposals.",
         "Retrieval limitation: indexed original excerpts verified the WfMC cover, glossary version and relevant definitions; direct retrieval of the two WfMC PDFs failed."
       ],
       "sections": [
@@ -462,18 +462,23 @@
       ],
       "status": "proposed",
       "adoption": null,
-      "entry_version": "1.1",
-      "updated": "2026-10-11",
+      "entry_version": "1.2",
+      "updated": "2026-10-12",
       "revisions": [
         {
           "version": "1.0",
           "date": "2026-10-10",
-          "text": "Researched and rewritten with attributed definitions, typed relations and an unratified Lab proposal."
+          "text": "Researched and rewritten with attributed definitions, typed relations and an unratified Repository proposal."
         },
         {
           "version": "1.1",
           "date": "2026-10-11",
-          "text": "Add the cited flow/governance comparison, overlap boundaries and illustrative experiment; Lab meaning remains proposed."
+          "text": "Add the cited flow/governance comparison, overlap boundaries and illustrative experiment; Repository meaning remains proposed."
+        },
+        {
+          "version": "1.2",
+          "date": "2026-10-12",
+          "text": "Scope the working definition and certification labels to this repository under Open AI Glossary. Citations and proposed status remain unchanged."
         }
       ],
       "sources": [
@@ -569,7 +574,7 @@
       ],
       "includes": [
         {
-          "text": "Lab example: a running loop that assembles context, dispatches tools, records outcomes and applies stop or permission rules qualifies under our working definition.",
+          "text": "Repository example: a running loop that assembles context, dispatches tools, records outcomes and applies stop or permission rules qualifies under our working definition.",
           "source_ids": [
             "lab-guide-v1"
           ],
@@ -618,7 +623,7 @@
         }
       ],
       "operational": {
-        "text": "Lab test: locate the running component responsible for model invocation, context/tool mediation, execution feedback and termination or privilege policy. State where session storage and tool execution live. If the software only constructs that component, label it a framework or SDK.",
+        "text": "Repository test: locate the running component responsible for model invocation, context/tool mediation, execution feedback and termination or privilege policy. State where session storage and tool execution live. If the software only constructs that component, label it a framework or SDK.",
         "source_ids": [
           "lab-guide-v1"
         ],
@@ -854,18 +859,23 @@
       ],
       "status": "proposed",
       "adoption": null,
-      "entry_version": "1.1",
-      "updated": "2026-10-11",
+      "entry_version": "1.2",
+      "updated": "2026-10-12",
       "revisions": [
         {
           "version": "1.0",
           "date": "2026-10-10",
-          "text": "Researched and rewritten with attributed definitions, typed relations and an unratified Lab proposal."
+          "text": "Researched and rewritten with attributed definitions, typed relations and an unratified Repository proposal."
         },
         {
           "version": "1.1",
           "date": "2026-10-11",
-          "text": "Add the cited flow/governance comparison, overlap boundaries and illustrative experiment; Lab meaning remains proposed."
+          "text": "Add the cited flow/governance comparison, overlap boundaries and illustrative experiment; Repository meaning remains proposed."
+        },
+        {
+          "version": "1.2",
+          "date": "2026-10-12",
+          "text": "Scope the working definition and certification labels to this repository under Open AI Glossary. Citations and proposed status remain unchanged."
         }
       ],
       "sources": [
@@ -999,7 +1009,7 @@
         }
       ],
       "operational": {
-        "text": "Lab test: record the intended sense, represented subject or inference task, assumptions, inputs and outputs if executable, and whether parameters were learned. For learned models, distinguish the checkpoint from deployment and orchestration.",
+        "text": "Repository test: record the intended sense, represented subject or inference task, assumptions, inputs and outputs if executable, and whether parameters were learned. For learned models, distinguish the checkpoint from deployment and orchestration.",
         "source_ids": [
           "lab-guide-v1"
         ],
@@ -1018,13 +1028,18 @@
       "sections": [],
       "status": "proposed",
       "adoption": null,
-      "entry_version": "1.0",
-      "updated": "2026-10-10",
+      "entry_version": "1.1",
+      "updated": "2026-10-12",
       "revisions": [
         {
           "version": "1.0",
           "date": "2026-10-10",
-          "text": "Researched and rewritten with attributed definitions, typed relations and an unratified Lab proposal."
+          "text": "Researched and rewritten with attributed definitions, typed relations and an unratified Repository proposal."
+        },
+        {
+          "version": "1.1",
+          "date": "2026-10-12",
+          "text": "Scope the working definition and certification labels to this repository under Open AI Glossary. Citations and proposed status remain unchanged."
         }
       ],
       "sources": [
@@ -1135,14 +1150,14 @@
         }
       ],
       "operational": {
-        "text": "Lab test: identify the learned model artifact, language task and objective, available training-material evidence, and reported scale. Record unknown proprietary details as unknown. Separately identify any tokenizer, serving system, tools and controller.",
+        "text": "Repository test: identify the learned model artifact, language task and objective, available training-material evidence, and reported scale. Record unknown proprietary details as unknown. Separately identify any tokenizer, serving system, tools and controller.",
         "source_ids": [
           "lab-guide-v1"
         ],
         "inference": true
       },
       "adaptation": {
-        "text": "Use LLM for a learned language-model component at a documented large scale. Avoid reducing the term to corpus size alone or using it as the name for a tool-using system. No minimum parameter count is ratified by the lab.",
+        "text": "Use LLM for a learned language-model component at a documented large scale. Avoid reducing the term to corpus size alone or using it as the name for a tool-using system. No minimum parameter count is ratified by the repository.",
         "source_ids": [
           "lab-guide-v1"
         ]
@@ -1164,13 +1179,18 @@
       "sections": [],
       "status": "proposed",
       "adoption": null,
-      "entry_version": "1.0",
-      "updated": "2026-10-10",
+      "entry_version": "1.1",
+      "updated": "2026-10-12",
       "revisions": [
         {
           "version": "1.0",
           "date": "2026-10-10",
-          "text": "Researched and rewritten with attributed definitions, typed relations and an unratified Lab proposal."
+          "text": "Researched and rewritten with attributed definitions, typed relations and an unratified Repository proposal."
+        },
+        {
+          "version": "1.1",
+          "date": "2026-10-12",
+          "text": "Scope the working definition and certification labels to this repository under Open AI Glossary. Citations and proposed status remain unchanged."
         }
       ],
       "sources": [
@@ -1289,7 +1309,7 @@
           "inference": true
         },
         {
-          "text": "We retain autonomy, goal direction, environment feedback and action as Lab criteria. Social ability is explicit in the classical weak notion, but is not a mandatory gate in our narrower operational proposal.",
+          "text": "We retain autonomy, goal direction, environment feedback and action as Repository criteria. Social ability is explicit in the classical weak notion, but is not a mandatory gate in our narrower operational proposal.",
           "source_ids": [
             "wooldridge-agent",
             "lab-guide-v1"
@@ -1298,7 +1318,7 @@
         }
       ],
       "operational": {
-        "text": "Lab test: identify a goal, observations, an action interface, the decisions controlled by the system, and how outcomes affect later actions. For an LLM-based agent, trace a model-selected action, its execution and returned feedback. State stopping and approval conditions.",
+        "text": "Repository test: identify a goal, observations, an action interface, the decisions controlled by the system, and how outcomes affect later actions. For an LLM-based agent, trace a model-selected action, its execution and returned feedback. State stopping and approval conditions.",
         "source_ids": [
           "lab-guide-v1"
         ],
@@ -1360,13 +1380,18 @@
       ],
       "status": "proposed",
       "adoption": null,
-      "entry_version": "1.0",
-      "updated": "2026-10-10",
+      "entry_version": "1.1",
+      "updated": "2026-10-12",
       "revisions": [
         {
           "version": "1.0",
           "date": "2026-10-10",
-          "text": "Researched and rewritten with attributed definitions, typed relations and an unratified Lab proposal."
+          "text": "Researched and rewritten with attributed definitions, typed relations and an unratified Repository proposal."
+        },
+        {
+          "version": "1.1",
+          "date": "2026-10-12",
+          "text": "Scope the working definition and certification labels to this repository under Open AI Glossary. Citations and proposed status remain unchanged."
         }
       ],
       "sources": [
@@ -1504,7 +1529,7 @@
         "inference": true
       },
       "adaptation": {
-        "text": "Proposed Lab meaning: an explicit, versioned description of data structure, field meanings and stated constraints. Record whether it is declared, recovered from a specification, or inferred from observed data, together with evidence and unresolved coverage.",
+        "text": "Proposed Repository meaning: an explicit, versioned description of data structure, field meanings and stated constraints. Record whether it is declared, recovered from a specification, or inferred from observed data, together with evidence and unresolved coverage.",
         "source_ids": [
           "lab-guide-v1"
         ],
@@ -1536,7 +1561,7 @@
               "inference": true
             },
             {
-              "text": "For Lab work, retain source-to-field evidence and label observed, declared and inferred constraints. An absent field in a sample does not by itself establish that the field is forbidden; a structural summary alone does not prove complete intended semantics.",
+              "text": "For Repository work, retain source-to-field evidence and label observed, declared and inferred constraints. An absent field in a sample does not by itself establish that the field is forbidden; a structural summary alone does not prove complete intended semantics.",
               "source_ids": [
                 "dataguides-1997",
                 "lab-guide-v1"
@@ -1552,13 +1577,18 @@
       ],
       "status": "proposed",
       "adoption": null,
-      "entry_version": "1.0",
-      "updated": "2026-10-10",
+      "entry_version": "1.1",
+      "updated": "2026-10-12",
       "revisions": [
         {
           "version": "1.0",
           "date": "2026-10-10",
-          "text": "Initial cited Schema entry; separates data instances, validation and extraction. Lab meaning is an unratified editorial proposal."
+          "text": "Initial cited Schema entry; separates data instances, validation and extraction. Repository meaning is an unratified editorial proposal."
+        },
+        {
+          "version": "1.1",
+          "date": "2026-10-12",
+          "text": "Scope the working definition and certification labels to this repository under Open AI Glossary. Citations and proposed status remain unchanged."
         }
       ],
       "sources": [
@@ -1585,9 +1615,9 @@
   ],
   "lab_guide": {
     "id": "lab-guide-v1",
-    "title": "Plale Lab terminology guide",
-    "version": "1.2",
-    "updated": "2026-10-11",
+    "title": "Repository terminology guide",
+    "version": "1.3",
+    "updated": "2026-10-12",
     "status": "proposed",
     "adoption": null,
     "sections": [
@@ -1636,7 +1666,7 @@
         "title": "Workflow and Harness: flow and governance proposal",
         "paragraphs": [
           "Proposed distinction: Workflow describes how work proceeds, including sequence, dependencies, branches and loops. Harness describes how execution is governed through interfaces, policies, validation, state, recovery and observability. These are overlapping responsibilities, not mutually exclusive categories or a universal subtype taxonomy.",
-          "Illustrative schema-extraction workflow: candidate discovery, evidence retrieval, attribute extraction, deterministic schema assembly and validation. This is a proposed teaching example, not a report of an implemented or evaluated Lab system.",
+          "Illustrative schema-extraction workflow: candidate discovery, evidence retrieval, attribute extraction, deterministic schema assembly and validation. This is a proposed teaching example, not a report of an implemented or evaluated Repository system.",
           "Proposed experimental harness policies: standardize input snapshots and model adapters, bound attempts and resource consumption, permit an explicit unknown value only where the declared schema allows it, distinguish evidence support from structural validation, checkpoint progress and record inputs, model/configuration versions, prompts, outputs and failure reasons.",
           "For this example, orchestration assigns models, replicates, devices and dependencies. An experimental harness supplies the configured execution and recording environment. These roles may live in the same implementation. Recording experimental conditions helps audit and repeat a setup; it does not establish that every output will be identical or correct."
         ]
@@ -1657,6 +1687,11 @@
         "version": "1.2",
         "date": "2026-10-11",
         "text": "Add the flow/governance comparison and illustrative schema-extraction experiment. Preserve prior proposal sections; no consensus decision recorded."
+      },
+      {
+        "version": "1.3",
+        "date": "2026-10-12",
+        "text": "Rename the project Open AI Glossary and scope certification to this repository. All working meanings remain proposed; no new consensus decision recorded."
       }
     ]
   }

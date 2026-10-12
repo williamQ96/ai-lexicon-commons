@@ -49,22 +49,22 @@ def bullet_list(items):
 
 def page(book, title, content, digest, prefix="", source_commit="", run_url="", sidebar=""):
     proposed = sum(t['status'] == 'proposed' for t in book['terms'])
-    lab_status = f"Lab definitions: {proposed} proposed / {len(book['terms']) - proposed} adopted by consensus"
+    certification_status = f"Repository definitions: {proposed} proposed / {len(book['terms']) - proposed} certified by consensus"
     return ('<!doctype html>\n<html lang="en"><head><meta charset="utf-8">'
             '<meta name="viewport" content="width=device-width,initial-scale=1">'
             '<meta name="description" content="A living glossary for clear research and engineering communication.">'
-            '<title>' + esc(title) + ' | Plale Lab Glossary</title>'
+            '<title>' + esc(title) + ' | ' + esc(book['short_title']) + '</title>'
             '<link rel="stylesheet" href="' + prefix + 'assets/style.css">'
             '<script src="' + prefix + 'assets/search.js" defer></script></head><body data-index-url="' + prefix + 'index.html">'
             '<a class="skip" href="#main">Skip to content</a>'
-            '<header class="site-header"><a class="brand" href="' + prefix + 'index.html">PLALE LAB <span>GLOSSARY</span></a>'
+            '<header class="site-header"><a class="brand" href="' + prefix + 'index.html">OPEN AI <span>GLOSSARY</span></a>'
             '<nav aria-label="Main navigation"><a href="' + prefix + 'index.html">Index &amp; search</a>'
-            '<a href="' + prefix + 'lab-guide.html">Lab guide</a><a href="' + prefix + 'glossary.pdf">PDF</a><a href="' + REPO + '">Contribute on GitHub</a>'
+            '<a href="' + prefix + 'lab-guide.html">Repository guide</a><a href="' + prefix + 'glossary.pdf">PDF</a><a href="' + REPO + '">Contribute on GitHub</a>'
             '<button id="theme-toggle" type="button" hidden>Dark</button></nav></header>'
             '<div class="workspace' + ('' if sidebar else ' standalone') + '">' + sidebar +
             '<div class="reading-panel"><main id="main" tabindex="-1">' + content + '</main>'
             '<footer><p>Living glossary / Version ' + esc(book["version"]) + ' / Updated ' + esc(book["updated"]) +
-            ' / Content ' + digest[:12] + '</p><p>' + esc(lab_status) + '.</p>'
+            ' / Content ' + digest[:12] + '</p><p>' + esc(certification_status) + '.</p>'
             '<p>Copyright 2026 William Qiu. Original prose <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; '
             'site code <a href="' + REPO + '/blob/main/LICENSES/MIT.txt">MIT</a>. Third-party sources retain their own rights. '
             '<a href="' + REPO + '/blob/main/LICENSE.md">License scope</a></p>' +
@@ -85,7 +85,7 @@ def snapshot(book, digest, source_commit, run_url):
               "source_commit":source_commit or None, "build_run":run_url or None}
     (ROOT / "docs/PDF-SNAPSHOT.json").write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
     prose = ("# Compiled handbook snapshot\n\nThis PDF is generated from data/handbook.json, the same source as the searchable website. "
-             "Lab adoption is recorded separately for each definition.\n\n"
+             "Repository adoption is recorded separately for each definition.\n\n"
              "- Content version: " + book["version"] + "\n- Source content SHA-256: " + digest +
              "\n- PDF SHA-256: " + record["pdf_sha256"] + "\n")
     if source_commit:

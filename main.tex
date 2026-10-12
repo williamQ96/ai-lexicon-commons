@@ -17,16 +17,16 @@
 \definecolor{adopted}{HTML}{145D32}
 % Generated from data/handbook.json; do not edit.
 \begin{document}
-\section*{Plale Lab Shared Glossary and Operational Definitions}
-Version 0.6 / 2026-10-11
+\section*{Open AI Glossary}
+Version 0.7 / 2026-10-12
 A shared reference for research and engineering: compare meanings, inspect their boundaries, and follow the evidence.
 
 Read in the order Workflow, Harness, Model, LLM, Agent, Schema. The sequence is a reading path, not a claim that all six form a single subtype hierarchy.
 
-External evidence and internal adoption are separate. Each working definition remains a proposal until the lab records consensus.
+External evidence and repository certification are separate. Each working definition remains a proposal until a documented repository consensus decision is recorded.
 
 \subsection*{Source policy}
-Research applicable formal institutional definitions first, then peer-reviewed papers, then industry standards, first-party documentation, preprints and academic materials, and finally Lab internal proposals.
+Research applicable formal institutional definitions first, then peer-reviewed papers, then industry standards, first-party documentation, preprints and academic materials, and finally Repository internal proposals.
 
 Verify the original text, edition, publication status and context. A corporate engineering blog belongs to tier 3. Hosting a paper at a university does not change its publication type.
 
@@ -34,8 +34,8 @@ Prefer relevance over an unrelated authority. Preserve attributed disagreements,
 
 Citations accompany definitions, boundaries and typed relations. An editorial inference is marked explicitly; a source citation identifies its basis, not an endorsement of our inference.
 
-\subsection*{Lab adoption}
-Yellow means Plale Lab  /  Proposed / not ratified. Green means Plale Lab  /  Adopted by consensus and requires an explicit unanimous decision, date, accessible decision link and evidence record. A merge, publication or authoritative external source does not establish Lab adoption.
+\subsection*{Repository certification}
+Yellow means Repository  /  Proposed / not certified. Green means Repository  /  Certified by consensus and requires an explicit unanimous repository decision, date, accessible decision link and evidence record. A merge, publication or authoritative external source does not establish repository certification.
 \subsection*{Licensing}
 Original handbook prose: CC BY 4.0. Build scripts and site code: MIT. Third-party sources retain their own rights.
 \newpage\section*{Reading index}
@@ -91,7 +91,7 @@ Sequence, dependencies, branches and loops describe the process. Validation and 
 
 \hypertarget{term-workflow-operational}{}
 \subsection*{Operational criteria}
-Lab test: identify a purpose, activities, dependencies or transition rules, and a completion or termination condition. Label the artifact as description, execution instance or executor. These are editorial criteria, not a quoted standard. \cite{lab-guide-v1} \textit{Editorial interpretation.}
+Repository test: identify a purpose, activities, dependencies or transition rules, and a completion or termination condition. Label the artifact as description, execution instance or executor. These are editorial criteria, not a quoted standard. \cite{lab-guide-v1} \textit{Editorial interpretation.}
 
 \hypertarget{term-workflow-relations}{}
 \subsection*{Concept relationships}
@@ -101,15 +101,15 @@ Workflow uses Agent\par A designed workflow may delegate an activity to an agent
 Harness supports/orchestrates Workflow\par A harness realizes or coordinates workflows; runtime-to-process is not strict subtype nesting. \cite{asd-harness,anthropic-harness} \textit{Editorial interpretation.}
 Schema supports/orchestrates Workflow\par Supports a workflow at data-interpretation or validation boundaries; it supplies a description or contract, not the executing control flow. This is a supporting-artifact relation, not a subtype. \cite{xsd-1-1,lab-guide-v1} \textit{Editorial interpretation.}
 \hypertarget{term-workflow-adaptation}{}
-\subsection*{Lab working definition}
-\textcolor{proposal}{Plale Lab  /  Proposed / not ratified}
+\subsection*{Repository working definition}
+\textcolor{proposal}{Repository  /  Proposed / not certified}
 No consensus decision recorded.
 Use Workflow for an organized process with explicit coordination rules, independent of whether its tasks are manual, deterministic code or model calls. Keep the executor separate from the process it realizes. \cite{lab-guide-v1}
 
 \hyperlink{term-harness-harness-vs-workflow}{Harness vs Workflow}
 \hypertarget{term-workflow-sources}{}
 \subsection*{Sources and research gaps}
-Institutional scope gap: the historical WfMC definition concerns business automation. The broader Python example and our minimum operational test are explicit Lab proposals.
+Institutional scope gap: the historical WfMC definition concerns business automation. The broader Python example and our minimum operational test are explicit Repository proposals.
 
 Retrieval limitation: indexed original excerpts verified the WfMC cover, glossary version and relevant definitions; direct retrieval of the two WfMC PDFs failed.
 
@@ -118,12 +118,13 @@ Retrieval limitation: indexed original excerpts verified the WfMC cover, glossar
 \cite{nist-test-harness} Tier 1 / Institutional engineering description. Context: Healthcare interoperability and conformance testing, not a universal definition of every harness. Demonstrates a non-LLM execution and orchestration harness. Verification: Read the original NIST page, including the test-harness/workflow-management descriptions and creation/update dates.
 \cite{workflow-patterns} Tier 2 / Peer-reviewed journal article. Context: Business workflow control-flow patterns; not an exhaustive theory of every process. Verification: Final published PDF read; peer-review status, journal and DOI checked against the TU/e publication record.
 \cite{anthropic-agents} Tier 3 / First-party engineering blog. Context: Company-specific distinction between predefined LLM workflows and dynamic agents. Verification: Original text and publication record checked 2026-10-10.
-\cite{lab-guide-v1} Tier 4 / Lab internal proposal; not ratified. Context: Internal proposals and editorial interpretations, not external consensus. Verification: Versions 1.1 and 1.2 add the Schema proposal and the flow/governance experimental example while preserving prior proposal sections. All remain unratified; no adoption decision claimed.
+\cite{lab-guide-v1} Tier 4 / Repository internal proposal; not certified. Context: Internal proposals and editorial interpretations, not external consensus. Verification: Versions 1.1 and 1.2 add the Schema proposal and the flow/governance experimental example while preserving prior proposal sections. All remain unratified; no adoption decision claimed. Version 1.3 changes branding and certification scope only; it does not certify any proposal.
 \hypertarget{term-workflow-revisions}{}
 \subsection*{Revision record}
-Version 1.1 / Updated 2026-10-11
-1.0 / 2026-10-10: Researched and rewritten with attributed definitions, typed relations and an unratified Lab proposal.
-1.1 / 2026-10-11: Add the cited flow/governance comparison, overlap boundaries and illustrative experiment; Lab meaning remains proposed.
+Version 1.2 / Updated 2026-10-12
+1.0 / 2026-10-10: Researched and rewritten with attributed definitions, typed relations and an unratified Repository proposal.
+1.1 / 2026-10-11: Add the cited flow/governance comparison, overlap boundaries and illustrative experiment; Repository meaning remains proposed.
+1.2 / 2026-10-12: Scope the working definition and certification labels to this repository under Open AI Glossary. Citations and proposed status remain unchanged.
 \subsection*{Related terms}
 \hyperlink{term-harness}{Harness}; \hyperlink{term-llm}{LLM}; \hyperlink{term-agent}{Agent}
 \newpage\hypertarget{term-harness}{}
@@ -151,7 +152,7 @@ Focus here is an agent runtime harness. An evaluation harness instead runs tasks
 \hypertarget{term-harness-includes}{}
 \subsection*{Includes}
 \begin{itemize}
-\item Lab example: a running loop that assembles context, dispatches tools, records outcomes and applies stop or permission rules qualifies under our working definition. \cite{lab-guide-v1} \textit{Editorial interpretation.}
+\item Repository example: a running loop that assembles context, dispatches tools, records outcomes and applies stop or permission rules qualifies under our working definition. \cite{lab-guide-v1} \textit{Editorial interpretation.}
 \item A harness can realize fixed workflows as well as dynamic agent loops. Describe its actual control responsibilities rather than inferring them from a product name. \cite{asd-harness,anthropic-harness} \textit{Editorial interpretation.}
 \end{itemize}
 \hypertarget{term-harness-excludes}{}
@@ -202,7 +203,7 @@ Recording inputs, configuration, model versions and seeds supports an auditable 
 
 \hypertarget{term-harness-operational}{}
 \subsection*{Operational criteria}
-Lab test: locate the running component responsible for model invocation, context/tool mediation, execution feedback and termination or privilege policy. State where session storage and tool execution live. If the software only constructs that component, label it a framework or SDK. \cite{lab-guide-v1} \textit{Editorial interpretation.}
+Repository test: locate the running component responsible for model invocation, context/tool mediation, execution feedback and termination or privilege policy. State where session storage and tool execution live. If the software only constructs that component, label it a framework or SDK. \cite{lab-guide-v1} \textit{Editorial interpretation.}
 
 \hypertarget{term-harness-relations}{}
 \subsection*{Concept relationships}
@@ -211,8 +212,8 @@ Harness supports/orchestrates Workflow\par A harness realizes or coordinates wor
 Harness supports/orchestrates Agent\par When it supplies the running loop, tools and execution policy for an agent. \cite{asd-harness} \textit{Editorial interpretation.}
 Harness uses LLM\par In an LLM-based agent runtime; evaluation harnesses and other harness usages have different scopes. \cite{asd-harness,harness-preprint} \textit{Editorial interpretation.}
 \hypertarget{term-harness-adaptation}{}
-\subsection*{Lab working definition}
-\textcolor{proposal}{Plale Lab  /  Proposed / not ratified}
+\subsection*{Repository working definition}
+\textcolor{proposal}{Repository  /  Proposed / not certified}
 No consensus decision recorded.
 Use agent harness for the model-surrounding execution layer that mediates context, tools, feedback and execution policy. For the proposed experiment, Workflow emphasizes flow and dependencies; Harness emphasizes controls and boundaries. Specify the policies and guarantees actually implemented. \cite{lab-guide-v1}
 
@@ -231,12 +232,13 @@ The NIST testing description establishes an additional, non-LLM usage; it does n
 \cite{anthropic-agents} Tier 3 / First-party engineering blog. Context: Company-specific distinction between predefined LLM workflows and dynamic agents. Verification: Original text and publication record checked 2026-10-10.
 \cite{json-schema-2020-12} Tier 3 / First-party specification; IETF Internet-Draft, not an RFC. Context: The JSON Schema dialect and instance data model; assertions and annotations have different roles. Verification: Dated Core text and definitions checked. The document identifies itself as an Internet-Draft with intended Informational status; it is not relabeled a final IETF standard.
 \cite{openai-reproducibility} Tier 3 / Archived first-party engineering recipe. Context: Historical Chat Completions example for 2023 model versions; not a current feature-support promise for all APIs or a statement about every LLM. Verification: Read the original recipe, its archived warning, date and explicit statement that matching seed, parameters and fingerprint does not guarantee identical outputs.
-\cite{lab-guide-v1} Tier 4 / Lab internal proposal; not ratified. Context: Internal proposals and editorial interpretations, not external consensus. Verification: Versions 1.1 and 1.2 add the Schema proposal and the flow/governance experimental example while preserving prior proposal sections. All remain unratified; no adoption decision claimed.
+\cite{lab-guide-v1} Tier 4 / Repository internal proposal; not certified. Context: Internal proposals and editorial interpretations, not external consensus. Verification: Versions 1.1 and 1.2 add the Schema proposal and the flow/governance experimental example while preserving prior proposal sections. All remain unratified; no adoption decision claimed. Version 1.3 changes branding and certification scope only; it does not certify any proposal.
 \hypertarget{term-harness-revisions}{}
 \subsection*{Revision record}
-Version 1.1 / Updated 2026-10-11
-1.0 / 2026-10-10: Researched and rewritten with attributed definitions, typed relations and an unratified Lab proposal.
-1.1 / 2026-10-11: Add the cited flow/governance comparison, overlap boundaries and illustrative experiment; Lab meaning remains proposed.
+Version 1.2 / Updated 2026-10-12
+1.0 / 2026-10-10: Researched and rewritten with attributed definitions, typed relations and an unratified Repository proposal.
+1.1 / 2026-10-11: Add the cited flow/governance comparison, overlap boundaries and illustrative experiment; Repository meaning remains proposed.
+1.2 / 2026-10-12: Scope the working definition and certification labels to this repository under Open AI Glossary. Citations and proposed status remain unchanged.
 \subsection*{Related terms}
 \hyperlink{term-workflow}{Workflow}; \hyperlink{term-llm}{LLM}; \hyperlink{term-agent}{Agent}
 \newpage\hypertarget{term-model}{}
@@ -278,7 +280,7 @@ A model need not be learned. NASA's modeling-and-simulation sense includes conce
 \end{itemize}
 \hypertarget{term-model-operational}{}
 \subsection*{Operational criteria}
-Lab test: record the intended sense, represented subject or inference task, assumptions, inputs and outputs if executable, and whether parameters were learned. For learned models, distinguish the checkpoint from deployment and orchestration. \cite{lab-guide-v1} \textit{Editorial interpretation.}
+Repository test: record the intended sense, represented subject or inference task, assumptions, inputs and outputs if executable, and whether parameters were learned. For learned models, distinguish the checkpoint from deployment and orchestration. \cite{lab-guide-v1} \textit{Editorial interpretation.}
 
 \hypertarget{term-model-relations}{}
 \subsection*{Concept relationships}
@@ -286,8 +288,8 @@ Only is-a means a strict subtype. Uses and supports/orchestrates describe compos
 LLM is-a Model\par Within learned AI-model usage: an LLM is a specialized language model, hence a Model. \cite{eu-us-ai} \textit{Editorial interpretation.}
 Agent uses Model\par When a computational model supplies inference or action selection; this is a component relation. \cite{react,lab-guide-v1} \textit{Editorial interpretation.}
 \hypertarget{term-model-adaptation}{}
-\subsection*{Lab working definition}
-\textcolor{proposal}{Plale Lab  /  Proposed / not ratified}
+\subsection*{Repository working definition}
+\textcolor{proposal}{Repository  /  Proposed / not certified}
 No consensus decision recorded.
 Default to a representation or inference component with an explicit subject or task. Use "learned model" when training matters. The broader "any input-to-output mapping" guide remains a pending alternative, not our universal definition. \cite{lab-guide-v1}
 
@@ -297,11 +299,12 @@ Scope gap: NASA's general representation terminology applies to modeling and sim
 
 \cite{nasa-model} Tier 1 / Institutional technical standard. Context: Models and simulations supporting NASA activities. Verification: Final B PDF checked. Portal historical Change Date is inconsistent with its B document date; this record follows the PDF cover, not that legacy field.
 \cite{eu-us-ai} Tier 1 / Institutional terminology document. Context: AI-system terminology for transatlantic risk-management and standards cooperation. Verification: Original text and publication record checked 2026-10-10.
-\cite{lab-guide-v1} Tier 4 / Lab internal proposal; not ratified. Context: Internal proposals and editorial interpretations, not external consensus. Verification: Versions 1.1 and 1.2 add the Schema proposal and the flow/governance experimental example while preserving prior proposal sections. All remain unratified; no adoption decision claimed.
+\cite{lab-guide-v1} Tier 4 / Repository internal proposal; not certified. Context: Internal proposals and editorial interpretations, not external consensus. Verification: Versions 1.1 and 1.2 add the Schema proposal and the flow/governance experimental example while preserving prior proposal sections. All remain unratified; no adoption decision claimed. Version 1.3 changes branding and certification scope only; it does not certify any proposal.
 \hypertarget{term-model-revisions}{}
 \subsection*{Revision record}
-Version 1.0 / Updated 2026-10-10
-1.0 / 2026-10-10: Researched and rewritten with attributed definitions, typed relations and an unratified Lab proposal.
+Version 1.1 / Updated 2026-10-12
+1.0 / 2026-10-10: Researched and rewritten with attributed definitions, typed relations and an unratified Repository proposal.
+1.1 / 2026-10-12: Scope the working definition and certification labels to this repository under Open AI Glossary. Citations and proposed status remain unchanged.
 \subsection*{Related terms}
 \hyperlink{term-llm}{LLM}; \hyperlink{term-agent}{Agent}
 \newpage\hypertarget{term-llm}{}
@@ -340,7 +343,7 @@ This page concerns learned language models, including text generation and repres
 \end{itemize}
 \hypertarget{term-llm-operational}{}
 \subsection*{Operational criteria}
-Lab test: identify the learned model artifact, language task and objective, available training-material evidence, and reported scale. Record unknown proprietary details as unknown. Separately identify any tokenizer, serving system, tools and controller. \cite{lab-guide-v1} \textit{Editorial interpretation.}
+Repository test: identify the learned model artifact, language task and objective, available training-material evidence, and reported scale. Record unknown proprietary details as unknown. Separately identify any tokenizer, serving system, tools and controller. \cite{lab-guide-v1} \textit{Editorial interpretation.}
 
 \hypertarget{term-llm-relations}{}
 \subsection*{Concept relationships}
@@ -350,10 +353,10 @@ Harness uses LLM\par In an LLM-based agent runtime; evaluation harnesses and oth
 LLM is-a Model\par Within learned AI-model usage: an LLM is a specialized language model, hence a Model. \cite{eu-us-ai} \textit{Editorial interpretation.}
 Agent uses LLM\par For LLM-based agents only; general agents need not use a language model. \cite{react,anthropic-agents} \textit{Editorial interpretation.}
 \hypertarget{term-llm-adaptation}{}
-\subsection*{Lab working definition}
-\textcolor{proposal}{Plale Lab  /  Proposed / not ratified}
+\subsection*{Repository working definition}
+\textcolor{proposal}{Repository  /  Proposed / not certified}
 No consensus decision recorded.
-Use LLM for a learned language-model component at a documented large scale. Avoid reducing the term to corpus size alone or using it as the name for a tool-using system. No minimum parameter count is ratified by the lab. \cite{lab-guide-v1}
+Use LLM for a learned language-model component at a documented large scale. Avoid reducing the term to corpus size alone or using it as the name for a tool-using system. No minimum parameter count is ratified by the repository. \cite{lab-guide-v1}
 
 \hypertarget{term-llm-sources}{}
 \subsection*{Sources and research gaps}
@@ -362,11 +365,12 @@ Scale gap: the institutional definition supplies qualitative scale, not a univer
 \cite{eu-us-ai} Tier 1 / Institutional terminology document. Context: AI-system terminology for transatlantic risk-management and standards cooperation. Verification: Original text and publication record checked 2026-10-10.
 \cite{gpt3} Tier 2 / Peer-reviewed conference paper. Context: GPT-3 experiments and corpus; a concrete example, not a universal LLM definition. Verification: Original text and publication record checked 2026-10-10.
 \cite{anthropic-agents} Tier 3 / First-party engineering blog. Context: Company-specific distinction between predefined LLM workflows and dynamic agents. Verification: Original text and publication record checked 2026-10-10.
-\cite{lab-guide-v1} Tier 4 / Lab internal proposal; not ratified. Context: Internal proposals and editorial interpretations, not external consensus. Verification: Versions 1.1 and 1.2 add the Schema proposal and the flow/governance experimental example while preserving prior proposal sections. All remain unratified; no adoption decision claimed.
+\cite{lab-guide-v1} Tier 4 / Repository internal proposal; not certified. Context: Internal proposals and editorial interpretations, not external consensus. Verification: Versions 1.1 and 1.2 add the Schema proposal and the flow/governance experimental example while preserving prior proposal sections. All remain unratified; no adoption decision claimed. Version 1.3 changes branding and certification scope only; it does not certify any proposal.
 \hypertarget{term-llm-revisions}{}
 \subsection*{Revision record}
-Version 1.0 / Updated 2026-10-10
-1.0 / 2026-10-10: Researched and rewritten with attributed definitions, typed relations and an unratified Lab proposal.
+Version 1.1 / Updated 2026-10-12
+1.0 / 2026-10-10: Researched and rewritten with attributed definitions, typed relations and an unratified Repository proposal.
+1.1 / 2026-10-12: Scope the working definition and certification labels to this repository under Open AI Glossary. Citations and proposed status remain unchanged.
 \subsection*{Related terms}
 \hyperlink{term-harness}{Harness}; \hyperlink{term-model}{Model}; \hyperlink{term-agent}{Agent}
 \newpage\hypertarget{term-agent}{}
@@ -404,7 +408,7 @@ Begin with general software or hardware agency. For LLM engineering, explicitly 
 \subsection*{Different usages and open boundaries}
 \begin{itemize}
 \item Planning, long-term memory and self-learning are not universal prerequisites in our working definition. Capability claims should be tested separately from the name Agent. \cite{wooldridge-agent,lab-guide-v1} \textit{Editorial interpretation.}
-\item We retain autonomy, goal direction, environment feedback and action as Lab criteria. Social ability is explicit in the classical weak notion, but is not a mandatory gate in our narrower operational proposal. \cite{wooldridge-agent,lab-guide-v1} \textit{Editorial interpretation.}
+\item We retain autonomy, goal direction, environment feedback and action as Repository criteria. Social ability is explicit in the classical weak notion, but is not a mandatory gate in our narrower operational proposal. \cite{wooldridge-agent,lab-guide-v1} \textit{Editorial interpretation.}
 \end{itemize}
 \hypertarget{term-agent-llm-based-agents}{}
 \subsection*{LLM-based agents}
@@ -414,7 +418,7 @@ Distinguish choosing an action, granting permission and executing it. A model's 
 
 \hypertarget{term-agent-operational}{}
 \subsection*{Operational criteria}
-Lab test: identify a goal, observations, an action interface, the decisions controlled by the system, and how outcomes affect later actions. For an LLM-based agent, trace a model-selected action, its execution and returned feedback. State stopping and approval conditions. \cite{lab-guide-v1} \textit{Editorial interpretation.}
+Repository test: identify a goal, observations, an action interface, the decisions controlled by the system, and how outcomes affect later actions. For an LLM-based agent, trace a model-selected action, its execution and returned feedback. State stopping and approval conditions. \cite{lab-guide-v1} \textit{Editorial interpretation.}
 
 \hypertarget{term-agent-relations}{}
 \subsection*{Concept relationships}
@@ -424,8 +428,8 @@ Harness supports/orchestrates Agent\par When it supplies the running loop, tools
 Agent uses LLM\par For LLM-based agents only; general agents need not use a language model. \cite{react,anthropic-agents} \textit{Editorial interpretation.}
 Agent uses Model\par When a computational model supplies inference or action selection; this is a component relation. \cite{react,lab-guide-v1} \textit{Editorial interpretation.}
 \hypertarget{term-agent-adaptation}{}
-\subsection*{Lab working definition}
-\textcolor{proposal}{Plale Lab  /  Proposed / not ratified}
+\subsection*{Repository working definition}
+\textcolor{proposal}{Repository  /  Proposed / not certified}
 No consensus decision recorded.
 Use Agent for a system with bounded autonomy, a goal, environment feedback and an ability to act. Use LLM-based agent when an LLM participates in selecting actions. The agent uses a model; it is not classified as an LLM subtype. \cite{lab-guide-v1}
 
@@ -438,11 +442,12 @@ Institutional definition gap: the NIST material checked is a draft identity/auth
 \cite{anthropic-harness} Tier 3 / First-party engineering blog. Context: Architecture of a specific hosted agent product. Verification: Original text and publication record checked 2026-10-10.
 \cite{nist-agent-draft} Tier 3 / Institutional draft concept paper. Context: Identity and authorization project scoping. Official draft, not a final general-agent definition. Verification: Original text and publication record checked 2026-10-10.
 \cite{anthropic-agents} Tier 3 / First-party engineering blog. Context: Company-specific distinction between predefined LLM workflows and dynamic agents. Verification: Original text and publication record checked 2026-10-10.
-\cite{lab-guide-v1} Tier 4 / Lab internal proposal; not ratified. Context: Internal proposals and editorial interpretations, not external consensus. Verification: Versions 1.1 and 1.2 add the Schema proposal and the flow/governance experimental example while preserving prior proposal sections. All remain unratified; no adoption decision claimed.
+\cite{lab-guide-v1} Tier 4 / Repository internal proposal; not certified. Context: Internal proposals and editorial interpretations, not external consensus. Verification: Versions 1.1 and 1.2 add the Schema proposal and the flow/governance experimental example while preserving prior proposal sections. All remain unratified; no adoption decision claimed. Version 1.3 changes branding and certification scope only; it does not certify any proposal.
 \hypertarget{term-agent-revisions}{}
 \subsection*{Revision record}
-Version 1.0 / Updated 2026-10-10
-1.0 / 2026-10-10: Researched and rewritten with attributed definitions, typed relations and an unratified Lab proposal.
+Version 1.1 / Updated 2026-10-12
+1.0 / 2026-10-10: Researched and rewritten with attributed definitions, typed relations and an unratified Repository proposal.
+1.1 / 2026-10-12: Scope the working definition and certification labels to this repository under Open AI Glossary. Citations and proposed status remain unchanged.
 \subsection*{Related terms}
 \hyperlink{term-workflow}{Workflow}; \hyperlink{term-harness}{Harness}; \hyperlink{term-model}{Model}; \hyperlink{term-llm}{LLM}
 \newpage\hypertarget{term-schema}{}
@@ -488,7 +493,7 @@ Here, schema means a data-description artifact used for interpretation or valida
 \subsection*{Relation to schema extraction}
 Schema extraction is the process; a recovered or inferred schema is its output. DataGuides illustrate inference from instances. Recovering an explicitly declared schema is a different evidence task from generalizing observed records. \cite{dataguides-1997,lab-guide-v1} \textit{Editorial interpretation.}
 
-For Lab work, retain source-to-field evidence and label observed, declared and inferred constraints. An absent field in a sample does not by itself establish that the field is forbidden; a structural summary alone does not prove complete intended semantics. \cite{dataguides-1997,lab-guide-v1} \textit{Editorial interpretation.}
+For Repository work, retain source-to-field evidence and label observed, declared and inferred constraints. An absent field in a sample does not by itself establish that the field is forbidden; a structural summary alone does not prove complete intended semantics. \cite{dataguides-1997,lab-guide-v1} \textit{Editorial interpretation.}
 
 \hypertarget{term-schema-operational}{}
 \subsection*{Operational criteria}
@@ -499,10 +504,10 @@ Identify the described population, schema version/dialect, fields and constraint
 Only is-a means a strict subtype. Uses and supports/orchestrates describe composition and control.
 Schema supports/orchestrates Workflow\par Supports a workflow at data-interpretation or validation boundaries; it supplies a description or contract, not the executing control flow. This is a supporting-artifact relation, not a subtype. \cite{xsd-1-1,lab-guide-v1} \textit{Editorial interpretation.}
 \hypertarget{term-schema-adaptation}{}
-\subsection*{Lab working definition}
-\textcolor{proposal}{Plale Lab  /  Proposed / not ratified}
+\subsection*{Repository working definition}
+\textcolor{proposal}{Repository  /  Proposed / not certified}
 No consensus decision recorded.
-Proposed Lab meaning: an explicit, versioned description of data structure, field meanings and stated constraints. Record whether it is declared, recovered from a specification, or inferred from observed data, together with evidence and unresolved coverage. \cite{lab-guide-v1} \textit{Editorial interpretation.}
+Proposed Repository meaning: an explicit, versioned description of data structure, field meanings and stated constraints. Record whether it is declared, recovered from a specification, or inferred from observed data, together with evidence and unresolved coverage. \cite{lab-guide-v1} \textit{Editorial interpretation.}
 
 \hypertarget{term-schema-sources}{}
 \subsection*{Sources and research gaps}
@@ -514,17 +519,18 @@ The peer-reviewed DataGuides example supports one semistructured-data approach. 
 \cite{dataguides-1997} Tier 2 / Peer-reviewed conference paper. Context: Data-derived structural summaries for the Lore semistructured database; one method, not a universal definition of extraction. Verification: Conference PDF abstract/introduction and proceedings publication record checked. The search engine crawl date is not the publication date.
 \cite{xsd-1-1} Tier 3 / W3C Recommendation. Context: Schemas and schema-validity assessment for XML; not a definition of all research metadata. Verification: Dated Recommendation and cited sections checked, rather than an earlier Working Draft.
 \cite{json-schema-2020-12} Tier 3 / First-party specification; IETF Internet-Draft, not an RFC. Context: The JSON Schema dialect and instance data model; assertions and annotations have different roles. Verification: Dated Core text and definitions checked. The document identifies itself as an Internet-Draft with intended Informational status; it is not relabeled a final IETF standard.
-\cite{lab-guide-v1} Tier 4 / Lab internal proposal; not ratified. Context: Internal proposals and editorial interpretations, not external consensus. Verification: Versions 1.1 and 1.2 add the Schema proposal and the flow/governance experimental example while preserving prior proposal sections. All remain unratified; no adoption decision claimed.
+\cite{lab-guide-v1} Tier 4 / Repository internal proposal; not certified. Context: Internal proposals and editorial interpretations, not external consensus. Verification: Versions 1.1 and 1.2 add the Schema proposal and the flow/governance experimental example while preserving prior proposal sections. All remain unratified; no adoption decision claimed. Version 1.3 changes branding and certification scope only; it does not certify any proposal.
 \hypertarget{term-schema-revisions}{}
 \subsection*{Revision record}
-Version 1.0 / Updated 2026-10-10
-1.0 / 2026-10-10: Initial cited Schema entry; separates data instances, validation and extraction. Lab meaning is an unratified editorial proposal.
+Version 1.1 / Updated 2026-10-12
+1.0 / 2026-10-10: Initial cited Schema entry; separates data instances, validation and extraction. Repository meaning is an unratified editorial proposal.
+1.1 / 2026-10-12: Scope the working definition and certification labels to this repository under Open AI Glossary. Citations and proposed status remain unchanged.
 \subsection*{Related terms}
 \hyperlink{term-model}{Model}; \hyperlink{term-workflow}{Workflow}
 \newpage\hypertarget{lab-guide}{}
-\section*{Plale Lab terminology guide}
-Version 1.2 / 2026-10-11
-\textcolor{proposal}{Plale Lab  /  Proposed / not ratified}
+\section*{Repository terminology guide}
+Version 1.3 / 2026-10-12
+\textcolor{proposal}{Repository  /  Proposed / not certified}
 No consensus decision recorded.
 \subsection*{Workflow and Harness}
 Initial proposal: Workflow is a general arrangement of work; deterministic Python code as well as LLM-based work can participate in a workflow.
@@ -554,7 +560,7 @@ Schema extraction is a process that recovers declarations or infers a descriptio
 \subsection*{Workflow and Harness: flow and governance proposal}
 Proposed distinction: Workflow describes how work proceeds, including sequence, dependencies, branches and loops. Harness describes how execution is governed through interfaces, policies, validation, state, recovery and observability. These are overlapping responsibilities, not mutually exclusive categories or a universal subtype taxonomy.
 
-Illustrative schema-extraction workflow: candidate discovery, evidence retrieval, attribute extraction, deterministic schema assembly and validation. This is a proposed teaching example, not a report of an implemented or evaluated Lab system.
+Illustrative schema-extraction workflow: candidate discovery, evidence retrieval, attribute extraction, deterministic schema assembly and validation. This is a proposed teaching example, not a report of an implemented or evaluated Repository system.
 
 Proposed experimental harness policies: standardize input snapshots and model adapters, bound attempts and resource consumption, permit an explicit unknown value only where the declared schema allows it, distinguish evidence support from structural validation, checkpoint progress and record inputs, model/configuration versions, prompts, outputs and failure reasons.
 
@@ -564,8 +570,9 @@ For this example, orchestration assigns models, replicates, devices and dependen
 1.0 / 2026-10-10: Initial internal proposal, summarized for public citation. Editorial revisions are proposals; no consensus decision recorded.
 1.1 / 2026-10-10: Add the Schema editorial proposal while preserving every 1.0 proposal section. No consensus decision recorded.
 1.2 / 2026-10-11: Add the flow/governance comparison and illustrative schema-extraction experiment. Preserve prior proposal sections; no consensus decision recorded.
+1.3 / 2026-10-12: Rename the project Open AI Glossary and scope certification to this repository. All working meanings remain proposed; no new consensus decision recorded.
 \newpage\section*{Build provenance}
-Source content SHA-256: \nolinkurl{52bc6db014ed1b420a0b726a8b1ed7d15684ab869089b628e90ab35308cf65c0}.
+Source content SHA-256: \nolinkurl{f347fd7648c57dbcb3d91404c79f14d5cd4523ed4eef3013f9f97cfe3981499d}.
 \bibliographystyle{plain}
 \bibliography{references}
 \end{document}

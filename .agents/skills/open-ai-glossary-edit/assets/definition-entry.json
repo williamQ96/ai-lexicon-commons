@@ -58,7 +58,7 @@
     }
   ],
   "operational": {
-    "text": "Specify a testable Lab criterion.",
+    "text": "Specify a testable Repository criterion.",
     "source_ids": [
       "lab-guide-v1"
     ],

@@ -7,6 +7,6 @@ Copyright 2026 William Qiu for his original work in this repository. No institut
 - **Bundled fonts: SIL Open Font License 1.1.** Manrope and Newsreader in `docs/assets/fonts/` retain their original copyright notices and licenses: [Manrope](docs/assets/fonts/Manrope-OFL.txt) and [Newsreader](docs/assets/fonts/Newsreader-OFL.txt).
 - **Third-party material keeps its own rights.** Source titles, names, factual metadata, quotations if later added, and referenced publications are not relicensed by this project. Citations and paraphrased interpretations do not transfer ownership of their source works. Follow the relevant source's terms.
 
-For attribution to original handbook content, credit **William Qiu, Plale Lab Shared Glossary and Operational Definitions**, link to this repository and CC BY 4.0, and identify changes. These licenses do not imply lab ratification or third-party endorsement.
+For attribution to original handbook content, credit **William Qiu, Open AI Glossary**, link to this repository and CC BY 4.0, and identify changes. These licenses do not imply repository ratification or third-party endorsement.
 
 Standard texts are reproduced from [Creative Commons](https://creativecommons.org/licenses/by/4.0/legalcode.txt) and [Open Source Initiative](https://opensource.org/license/mit), without changing their legal terms.

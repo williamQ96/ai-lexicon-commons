@@ -1,5 +1,5 @@
 ---
-name: Plale Lab Glossary
+name: Open AI Glossary
 description: A searchable research reference on warm paper with green ink and editorial
   reading typography.
 colors:
@@ -150,7 +150,7 @@ components:
     typography: '{typography.adoption-label}'
 ---
 
-# Design System: Plale Lab Glossary
+# Design System: Open AI Glossary
 
 ## Overview
 
@@ -158,7 +158,7 @@ components:
 
 The approved fusion combines B's persistent searchable navigation with A's editorial reading layout. Warm paper, green ink and generous paragraph rhythm support finding a meaning quickly, then reading its scope, boundaries and sources carefully. This records the built static glossary rather than the comparison prototype's routing or provisional details.
 
-Navigation uses Manrope, a stable index and an explicit current term. Newsreader gives titles, term rows and definitions a publication character. Neutral comparison rows make competing definitions and their evidence visible; compact semantic tags distinguish the Lab proposal from documented adoption. Light and dark appearances share the same hierarchy; no animation or authored transition is applied.
+Navigation uses Manrope, a stable index and an explicit current term. Newsreader gives titles, term rows and definitions a publication character. Neutral comparison rows make competing definitions and their evidence visible; compact semantic tags distinguish the Repository proposal from documented adoption. Light and dark appearances share the same hierarchy; no animation or authored transition is applied.
 
 **Key Characteristics:**
 
@@ -170,7 +170,7 @@ Navigation uses Manrope, a stable index and an explicit current term. Newsreader
 
 ## Colors
 
-Internal adoption uses compact text tags with the frontmatter's proposed and adopted ink/paper pairs. Yellow identifies an unratified Lab proposal; green identifies a recorded consensus decision. All current definitions remain proposed. External source tiers and editorial interpretation labels stay neutral.
+Internal adoption uses compact text tags with the frontmatter's proposed and adopted ink/paper pairs. Yellow identifies an unratified Repository proposal; green identifies a recorded consensus decision. All current definitions remain proposed. External source tiers and editorial interpretation labels stay neutral.
 
 The frontmatter records the stylesheet's exact light and dark palette. Source names map directly to CSS custom properties; the dark variants replace the corresponding six roles together. Sidecar tonal ramps are synthesized swatch metadata for the design panel, not additional website colors.
 
@@ -214,11 +214,11 @@ Both variable fonts are self-hosted as TrueType files with OFL licenses, `font-d
 
 ## Layout
 
-The header sits above a centered workspace capped at (1536px), containing the textual Plale Lab / Glossary identity, Index & search, PDF, Contribute on GitHub and the appearance action. Desktop uses an index (264px) and flexible main region. The index is sticky (20px from the viewport top), independently scrollable and capped at viewport height minus (40px). Reading is capped at (1150px), with padding (48px 48px 0).
+The header sits above a centered workspace capped at (1536px), containing the textual Open AI / Glossary identity, Index & search, PDF, Contribute on GitHub and the appearance action. Desktop uses an index (264px) and flexible main region. The index is sticky (20px from the viewport top), independently scrollable and capped at viewport height minus (40px). Reading is capped at (1150px), with padding (48px 48px 0).
 
 The homepage introduction has a flexible text column and editorial note (192px), separated by (48px). The curated index presents Workflow, Harness, Model, LLM, Agent, Schema in that order, as open summary rows capped at (75ch) with structural top rules and padding (26px 0 6px). The first introduction paragraph remains above the index; later paragraphs and source/adoption policies follow it.
 
-Term detail uses a flexible article and marginal record (174px), separated by (32px). Reading starts with title, optional full name and cited definition, then definition comparison, scope, includes, excludes and counterexamples, different usages and open boundaries, operational criteria, typed concept relationships, Lab working definition, sources and research gaps, and revision record. Includes and excludes are separate successive sections. The margin holds page contents, related terms and entry record.
+Term detail uses a flexible article and marginal record (174px), separated by (32px). Reading starts with title, optional full name and cited definition, then definition comparison, scope, includes, excludes and counterexamples, different usages and open boundaries, operational criteria, typed concept relationships, Repository working definition, sources and research gaps, and revision record. Includes and excludes are separate successive sections. The margin holds page contents, related terms and entry record.
 
 At widths up to (1150px), the index narrows to (228px), reading padding becomes (38px 32px 0), and introduction and article become single columns. The marginal record follows the article; its page contents are replaced by a native expandable page directory between the definition and comparison section. The editorial note sits below the homepage introduction.
 
@@ -260,7 +260,7 @@ Mobile uses native `details` and `summary`. JavaScript initially closes the cata
 
 ### Curated term summaries
 
-The reading order is Workflow, Harness, Model, LLM, Agent, Schema. Open serif-linked term rows have thin separators, scope subtitles and cited summaries. Definition comparisons use neutral labeled rows. Colored tags are reserved for the internal Lab adoption status.
+The reading order is Workflow, Harness, Model, LLM, Agent, Schema. Open serif-linked term rows have thin separators, scope subtitles and cited summaries. Definition comparisons use neutral labeled rows. Colored tags are reserved for the internal Repository adoption status.
 
 ### Definition comparisons and typed relationships
 
