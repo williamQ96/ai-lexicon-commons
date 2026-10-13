@@ -1,0 +1,14 @@
+services:
+  glossary:
+    image: williamq/glossary-mirror:2026-10-12-r1
+    build: ./releases/20261012-r1
+    container_name: williamq-glossary-mirror
+    restart: unless-stopped
+    ports: ["127.0.0.1:18195:8000"]
+    user: "1026:100"
+    read_only: true
+    volumes: ["/var/lib/letsencrypt/.well-known/acme-challenge:/acme-challenge:ro"]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    mem_limit: 128m
+    pids_limit: 128

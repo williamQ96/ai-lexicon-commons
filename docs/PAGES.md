@@ -11,3 +11,5 @@ The build job has only `contents: read`. Pull requests build review artifacts an
 Workflow concurrency serializes runs per branch so older main builds finish before newer builds publish. No custom domain or additional account integration is configured.
 
 [Workflow](../.github/workflows/build-pdf.yml) · [GitHub custom Pages workflow documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)
+
+The public alias [glossary.williamq.dev](https://glossary.williamq.dev/) uses a fixed-origin NAS reverse proxy to these published Pages paths. It keeps the alias in the address bar, reads Pages for each request and adds no content copy or synchronization job. PDF and build metadata follow the same route. Operational configuration and scoped rollback are in [hosting/README.md](../hosting/README.md).

@@ -1,0 +1,16 @@
+{
+  "record": {
+    "id": "d5c5ba06d32ca22b354ddff13b91038a",
+    "type": "A",
+    "name": "glossary.williamq.dev",
+    "content": "184.171.61.77",
+    "ttl": 1,
+    "priority": null,
+    "proxied": true,
+    "proxiable": true,
+    "comment": null
+  },
+  "ssl": "strict",
+  "unrelated_records_preserved": true,
+  "preexisting_records": 17
+}

@@ -11,6 +11,7 @@ AI research and especially rapidly evolving AI engineering terminology can have 
 ## Read
 
 - [Searchable handbook and reading index](https://williamq96.github.io/plale-lab-glossary/)
+- [Open AI Glossary live mirror](https://glossary.williamq.dev/): the same published pages at a dedicated domain.
 - [Current compiled PDF](https://williamq96.github.io/plale-lab-glossary/glossary.pdf) and [current build record](https://williamq96.github.io/plale-lab-glossary/build-record.html)
 - [Archived starter PDF preview](docs/glossary.pdf) and [its snapshot provenance](docs/PDF-SNAPSHOT.md)
 - [Shared content source](data/handbook.json)
@@ -88,3 +89,5 @@ The internal proposal is stored in JSON and generated as `lab-guide.html`; it co
 Publishing to `main` runs the validation, fresh PDF compilation and Pages deployment together. Verify the deployed edition and source commit in the live build record; a failed run leaves the previous successful edition available.
 
 Harness contains the canonical [Harness vs Workflow comparison](https://williamq96.github.io/plale-lab-glossary/terms/harness.html#harness-vs-workflow), including an illustrative schema-extraction experiment and limits of reproducibility. Workflow links to that section; no duplicate comparison entry is maintained.
+
+The mirror reads GitHub Pages on each request, preserving its paths, local search and PDF. It stores no second glossary copy and adds no scheduled synchronization interval. Updates become available through both addresses after a successful Pages publication. Mirror responses use `no-store`; GitHub Pages remains the publishing source and its own availability and cache behavior still apply. See [hosting operations](hosting/README.md).

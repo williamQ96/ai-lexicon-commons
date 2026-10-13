@@ -1,0 +1,157 @@
+{
+  "verified_at_utc": "2026-10-13T00:19:38.117026+00:00",
+  "hostname": "glossary.williamq.dev",
+  "source": "https://williamq96.github.io/plale-lab-glossary/",
+  "routing": "temporary current public edge IP with hostname/SNI verification",
+  "content_version": "0.7",
+  "source_commit": "f9c5ec7db4bb9273bff04a9fae75527e3a46f999",
+  "source_sha256": "ad3e8205c5b6afd415421e877f04207ddeb883548c6ffc6eb222f4fc56c72af5",
+  "pdf_sha256": "85bd6edb15bc25664cafb4bd0a14a338c67289d10b45e63bf7251fee6ea39308",
+  "cloudflare_cache": "no-store / dynamic",
+  "resources": {
+    "index.html": {
+      "source_sha256": "dae19c236be258e919bb29e9edf9baf4aed6f15f6020f5ca038620d73d076ec3",
+      "response_sha256": "4130bb0e37b008d5759eefc6c07738b260764d84ced67f8b53d7a7ced85fe1b1",
+      "bytes": 65378,
+      "cf_ray": "a49a2c67e865ef4f-PDX",
+      "byte_equal": false,
+      "glossary_bytes_equal": true,
+      "edge_analytics_excluded": true
+    },
+    "lab-guide.html": {
+      "source_sha256": "33ec1d62bc86eb732c5eea1c6743afaf1a49a63badf0a84af872c40f6a3503c8",
+      "response_sha256": "ceffd00e9394232639ff1bc818541264fefcd184803fedd24550e413210fcad3",
+      "bytes": 36545,
+      "cf_ray": "a49a2c67eb731509-PDX",
+      "byte_equal": false,
+      "glossary_bytes_equal": true,
+      "edge_analytics_excluded": true
+    },
+    "build-record.html": {
+      "source_sha256": "917d9a75424ee99f2efbee464cc3270d66f9acae62f42dca326d7ce49e947584",
+      "response_sha256": "93f63e91e4a803024b7188ccf71b0780fdc27974e0217db2697af97fece0b5ef",
+      "bytes": 3196,
+      "cf_ray": "a49a2c67edf1f3b4-PDX",
+      "byte_equal": false,
+      "glossary_bytes_equal": true,
+      "edge_analytics_excluded": true
+    },
+    "BUILD-INFO.json": {
+      "source_sha256": "05763a94939d41d71532027190c24efad622c1d84a0251723cf913585351b93f",
+      "response_sha256": "05763a94939d41d71532027190c24efad622c1d84a0251723cf913585351b93f",
+      "bytes": 455,
+      "cf_ray": "a49a2c6a5e5b9fe2-AMS",
+      "byte_equal": true,
+      "glossary_bytes_equal": true,
+      "edge_analytics_excluded": false
+    },
+    "PDF-SNAPSHOT.json": {
+      "source_sha256": "7c5d4b922b47ba0183cffad6fe1d24ae8bb11c6720ae0bea7b61a6932c7b9504",
+      "response_sha256": "7c5d4b922b47ba0183cffad6fe1d24ae8bb11c6720ae0bea7b61a6932c7b9504",
+      "bytes": 357,
+      "cf_ray": "a49a2c6b69ec9f84-AMS",
+      "byte_equal": true,
+      "glossary_bytes_equal": true,
+      "edge_analytics_excluded": false
+    },
+    "glossary.pdf": {
+      "source_sha256": "85bd6edb15bc25664cafb4bd0a14a338c67289d10b45e63bf7251fee6ea39308",
+      "response_sha256": "85bd6edb15bc25664cafb4bd0a14a338c67289d10b45e63bf7251fee6ea39308",
+      "bytes": 221704,
+      "cf_ray": "a49a2c6c1b656634-AMS",
+      "byte_equal": true,
+      "glossary_bytes_equal": true,
+      "edge_analytics_excluded": false
+    },
+    "assets/style.css": {
+      "source_sha256": "57a5209c199de8abd5207b972a620646ee05d56cde03171ffa6f46dae8c57ff6",
+      "response_sha256": "57a5209c199de8abd5207b972a620646ee05d56cde03171ffa6f46dae8c57ff6",
+      "bytes": 13608,
+      "cf_ray": "a49a2c6c6ec9666e-AMS",
+      "byte_equal": true,
+      "glossary_bytes_equal": true,
+      "edge_analytics_excluded": false
+    },
+    "assets/search.js": {
+      "source_sha256": "66c15cf547050261edaab5ca48e57af45a66662ec8f3feab98670cbe18609042",
+      "response_sha256": "66c15cf547050261edaab5ca48e57af45a66662ec8f3feab98670cbe18609042",
+      "bytes": 3253,
+      "cf_ray": "a49a2c6ebdcd9bf9-PDX",
+      "byte_equal": true,
+      "glossary_bytes_equal": true,
+      "edge_analytics_excluded": false
+    },
+    "assets/fonts/manrope.ttf": {
+      "source_sha256": "3ae11c49db0455a3cc33e37d380f20fdb8c7f8b41dc07625c177e3d87a9d6ae6",
+      "response_sha256": "3ae11c49db0455a3cc33e37d380f20fdb8c7f8b41dc07625c177e3d87a9d6ae6",
+      "bytes": 164700,
+      "cf_ray": "a49a2c702bd4f8cb-PDX",
+      "byte_equal": true,
+      "glossary_bytes_equal": true,
+      "edge_analytics_excluded": false
+    },
+    "assets/fonts/newsreader.ttf": {
+      "source_sha256": "8a08d13f8a6c0d51be379a60af84f945f65369a67e509ee3c3bdcc421254d7c1",
+      "response_sha256": "8a08d13f8a6c0d51be379a60af84f945f65369a67e509ee3c3bdcc421254d7c1",
+      "bytes": 451664,
+      "cf_ray": "a49a2c704b80e5c0-PDX",
+      "byte_equal": true,
+      "glossary_bytes_equal": true,
+      "edge_analytics_excluded": false
+    },
+    "terms/workflow.html": {
+      "source_sha256": "76190b15bb250fcd562b8dcb767eb855e6444273b6705713246d9be41baf50d0",
+      "response_sha256": "2d7d29d9b637d7a47e549a3ecde8a941ae0328f352228839d78cae20badb6579",
+      "bytes": 47558,
+      "cf_ray": "a49a2c71fcb6dabf-PDX",
+      "byte_equal": false,
+      "glossary_bytes_equal": true,
+      "edge_analytics_excluded": true
+    },
+    "terms/harness.html": {
+      "source_sha256": "310d80608682471ca0b5c0f0f477e53b901a661e07cf55e68d880f3cb625c1e7",
+      "response_sha256": "e60ab015db760872825c876da488095139ccc92a0daa230a6afc97e48cf29009",
+      "bytes": 59340,
+      "cf_ray": "a49a2c74ecf16101-LHR",
+      "byte_equal": false,
+      "glossary_bytes_equal": true,
+      "edge_analytics_excluded": true
+    },
+    "terms/model.html": {
+      "source_sha256": "c18b6438e0bb9928412bfe62f9f673fd307b0b92199bcce8370616c50e6ce14b",
+      "response_sha256": "917e96c3c75180008506f5aa5e6518c979f2c9c4915996b0ab6012d1ade23cd1",
+      "bytes": 43535,
+      "cf_ray": "a49a2c728b35ff0d-PDX",
+      "byte_equal": false,
+      "glossary_bytes_equal": true,
+      "edge_analytics_excluded": true
+    },
+    "terms/llm.html": {
+      "source_sha256": "f4154dadd5d90ee87737c87f93b18015b07cb32fefdb7f7779273ef9bdfbe49d",
+      "response_sha256": "067707267bef01ff0a036527a8a32e57e574f03f8070388e6cbf41259394f3b3",
+      "bytes": 44190,
+      "cf_ray": "a49a2c7568d3ef1d-LHR",
+      "byte_equal": false,
+      "glossary_bytes_equal": true,
+      "edge_analytics_excluded": true
+    },
+    "terms/agent.html": {
+      "source_sha256": "7816afb9e089336a9c68ca43ee6bb7fb72645de7df16a4d9e6621db8c8e256e5",
+      "response_sha256": "353f14e048d0a73713bea103ba5f0a5942842fae95ac2162ecf87e62a7e8a313",
+      "bytes": 47378,
+      "cf_ray": "a49a2c75fd4ccd2d-LHR",
+      "byte_equal": false,
+      "glossary_bytes_equal": true,
+      "edge_analytics_excluded": true
+    },
+    "terms/schema.html": {
+      "source_sha256": "0f8fc69082a09ca722cbb1173e450b8faefe01b771c39457edf200fafca15216",
+      "response_sha256": "3eb6e94627525fe7d09a17951f3e4c991fd409eca4d60977661e603c29aa2e8e",
+      "bytes": 46676,
+      "cf_ray": "a49a2c76ad8f671a-AMS",
+      "byte_equal": false,
+      "glossary_bytes_equal": true,
+      "edge_analytics_excluded": true
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "recorded_at_utc": "2026-10-13T00:14:22.018065+00:00",
+  "release": "20261012-r1",
+  "service_path": "/volume2/docker/williamq-glossary",
+  "image": "williamq/glossary-mirror:2026-10-12-r1",
+  "image_id": "sha256:66082d1e5b714383b5bed9ddd939aadbe36c649f832bb25bdaab80c79e2310ab",
+  "loopback_port": 18195,
+  "source_sha256": {
+    "server.py": "4cafac00d3150d46094b1bd9f92cfebf77b5d07f9b29528d0674ec478174b02c",
+    "Dockerfile": "20050c9e01ec54f68d5e6a848fffb7baf67e74ff076961334bb88e77cc7a580e"
+  },
+  "persistent_state": "none; content fetched from published GitHub Pages",
+  "backup": "first deployment; source bundle and pre-change DNS/proxy records retained"
+}

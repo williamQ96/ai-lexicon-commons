@@ -29,6 +29,9 @@ jobs:
       - name: Check static website content and navigation
         run: python3 -m unittest discover -s tests -v
 
+      - name: Check fixed-origin mirror behavior
+        run: python3 -m unittest discover -s hosting -v
+
       - name: Generate fresh pages, TeX, and bibliography
         env:
           SOURCE_COMMIT: ${{ github.sha }}
