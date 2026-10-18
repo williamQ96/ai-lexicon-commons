@@ -1,0 +1,19 @@
+{
+  "recorded_at_utc": "2026-10-18T20:38:44.308479+00:00",
+  "release": "20261018-r2",
+  "service_path": "/volume2/docker/williamq-glossary",
+  "loopback_port": 18195,
+  "source_sha256": {
+    "server.py": "4c4c5e858d99191311774040bdb579810fe4279eb502023aea85efbf4544b80f",
+    "Dockerfile": "69e18056f0b61a2897aaba703a688ef561330c0e37a3bd206562ca0b14f6bee4"
+  },
+  "previous_image": "williamq/glossary-mirror:2026-10-12-r1",
+  "previous_image_id": "sha256:66082d1e5b714383b5bed9ddd939aadbe36c649f832bb25bdaab80c79e2310ab",
+  "compose_backup": "/volume2/docker/williamq-glossary/compose.pre-20261018-r2.yaml",
+  "persistent_state": "none; content fetched from published GitHub Pages",
+  "origin": "https://williamq96.github.io/open-AI-glossary",
+  "image": "williamq/glossary-mirror:2026-10-18-r2",
+  "image_id": "sha256:acdfcd196fbc661a969e8fea546de9654d9b83e717b045bcff5efbbe6c5f5010",
+  "health": "healthy",
+  "runtime_sha256": "4c4c5e858d99191311774040bdb579810fe4279eb502023aea85efbf4544b80f"
+}
