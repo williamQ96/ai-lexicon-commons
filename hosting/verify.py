@@ -13,7 +13,7 @@ import ssl
 from urllib.request import Request, urlopen
 
 HOST = 'glossary.williamq.dev'
-SOURCE = 'https://williamq96.github.io/plale-lab-glossary/'
+SOURCE = 'https://williamq96.github.io/open-AI-glossary/'
 
 
 def fetch_mirror(path, edge_ip=None):
@@ -49,7 +49,8 @@ def main():
     if args.edge_ip:
         assert ipaddress.ip_address(args.edge_ip).is_global
     paths = ['index.html', 'lab-guide.html', 'build-record.html', 'BUILD-INFO.json', 'PDF-SNAPSHOT.json', 'glossary.pdf', 'assets/style.css', 'assets/search.js', 'assets/fonts/manrope.ttf', 'assets/fonts/newsreader.ttf']
-    paths += ['terms/' + term + '.html' for term in ['workflow', 'harness', 'model', 'llm', 'agent', 'schema']]
+    published = json.loads(fetch_source('BUILD-INFO.json'))
+    paths += ['terms/' + term + '.html' for term in published['display_order']]
     def compare(path):
         mirror, headers = fetch_mirror(path, args.edge_ip)
         source = fetch_source(path)

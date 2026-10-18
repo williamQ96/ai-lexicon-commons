@@ -20,7 +20,8 @@ class MirrorTests(unittest.TestCase):
     def test_redirects_stay_in_glossary(self):
         self.assertEqual(mirror_location(ORIGIN + '/terms/workflow.html'), '/terms/workflow.html')
         self.assertEqual(mirror_location(ORIGIN), '/')
-        for location in ['https://example.org/', 'https://williamq96.github.io/other/', '//example.org/']:
+        for location in ['https://example.org/', 'https://williamq96.github.io/other/',
+                         'https://williamq96.github.io/plale-lab-glossary/', '//example.org/']:
             with self.assertRaises(ValueError):
                 mirror_location(location)
 

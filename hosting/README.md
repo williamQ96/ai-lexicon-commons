@@ -1,6 +1,6 @@
 # Open AI Glossary live mirror
 
-`https://glossary.williamq.dev/` reads `https://williamq96.github.io/plale-lab-glossary/` through a fixed-origin reverse proxy. Paths such as `/terms/harness.html`, `/assets/style.css`, `/glossary.pdf` and `/BUILD-INFO.json` map to the same published paths beneath the GitHub project prefix. Relative links keep the mirror hostname; external citations retain their original destinations.
+`https://glossary.williamq.dev/` reads `https://williamq96.github.io/open-AI-glossary/` through a fixed-origin reverse proxy. Paths such as `/terms/harness.html`, `/assets/style.css`, `/glossary.pdf` and `/BUILD-INFO.json` map to the same published paths beneath the GitHub project prefix. Relative links keep the mirror hostname; external citations retain their original destinations.
 
 GitHub Pages is the single publishing source. No second content repository, scheduled copy or deployment webhook is necessary. After a successful Pages build, mirror requests read the published source. Responses are `Cache-Control: no-store`, upstream requests ask for revalidation, and neither the app nor its Cloudflare edge adds a stored content copy. GitHub's upstream cache behavior and availability remain relevant; this does not publish uncommitted edits or make a failed Pages build live.
 

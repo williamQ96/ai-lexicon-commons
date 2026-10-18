@@ -17,7 +17,7 @@ from web_layout import navigation, search_text
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_PATH = ROOT / "data/handbook.json"
-REPO = "https://github.com/williamQ96/plale-lab-glossary"
+REPO = "https://github.com/williamQ96/open-AI-glossary"
 
 def esc(value):
     return html.escape(str(value), quote=True)

@@ -1,6 +1,6 @@
 # Public handbook hosting
 
-[Read the handbook](https://williamq96.github.io/plale-lab-glossary/) · [Current PDF](https://williamq96.github.io/plale-lab-glossary/glossary.pdf) · [Build record](https://williamq96.github.io/plale-lab-glossary/build-record.html)
+[Read the handbook](https://williamq96.github.io/open-AI-glossary/) · [Current PDF](https://williamq96.github.io/open-AI-glossary/glossary.pdf) · [Build record](https://williamq96.github.io/open-AI-glossary/build-record.html)
 
 GitHub Pages uses **GitHub Actions** as its publishing source. The workflow generates the index, linked term pages, TeX, bibliography, and compiled PDF from `data/handbook.json`, then publishes one fresh site artifact after a successful `main` build. It never publishes the committed starter `docs/` tree directly.
 
