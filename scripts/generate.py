@@ -17,7 +17,7 @@ from web_layout import navigation, search_text
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_PATH = ROOT / "data/handbook.json"
-REPO = "https://github.com/williamQ96/open-AI-glossary"
+REPO = "https://github.com/williamQ96/ai-lexicon-commons"
 
 def esc(value):
     return html.escape(str(value), quote=True)
@@ -50,14 +50,16 @@ def bullet_list(items):
 def page(book, title, content, digest, prefix="", source_commit="", run_url="", sidebar=""):
     proposed = sum(t['status'] == 'proposed' for t in book['terms'])
     certification_status = f"Repository definitions: {proposed} proposed / {len(book['terms']) - proposed} certified by consensus"
+    page_title = (book['short_title'] + ' — ' + book['introduction'][0]
+                  if title == 'Index' else title + ' | ' + book['short_title'])
     return ('<!doctype html>\n<html lang="en"><head><meta charset="utf-8">'
             '<meta name="viewport" content="width=device-width,initial-scale=1">'
-            '<meta name="description" content="A living glossary for clear research and engineering communication.">'
-            '<title>' + esc(title) + ' | ' + esc(book['short_title']) + '</title>'
+            '<meta name="description" content="' + esc(book['introduction'][0]) + '">'
+            '<title>' + esc(page_title) + '</title>'
             '<link rel="stylesheet" href="' + prefix + 'assets/style.css">'
             '<script src="' + prefix + 'assets/search.js" defer></script></head><body data-index-url="' + prefix + 'index.html">'
             '<a class="skip" href="#main">Skip to content</a>'
-            '<header class="site-header"><a class="brand" href="' + prefix + 'index.html">OPEN AI <span>GLOSSARY</span></a>'
+            '<header class="site-header"><a class="brand" href="' + prefix + 'index.html">' + esc(book['short_title']) + '</a>'
             '<nav aria-label="Main navigation"><a href="' + prefix + 'index.html">Index &amp; search</a>'
             '<a href="' + prefix + 'lab-guide.html">Repository guide</a><a href="' + prefix + 'glossary.pdf">PDF</a><a href="' + REPO + '">Contribute on GitHub</a>'
             '<button id="theme-toggle" type="button" hidden>Dark</button></nav></header>'

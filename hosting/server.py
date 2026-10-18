@@ -9,7 +9,7 @@ from urllib.parse import unquote, urlsplit
 from urllib.request import HTTPRedirectHandler, Request, build_opener
 
 HOST = 'glossary.williamq.dev'
-ORIGIN = 'https://williamq96.github.io/open-AI-glossary'
+ORIGIN = 'https://williamq96.github.io/ai-lexicon-commons'
 
 
 def upstream_url(path):

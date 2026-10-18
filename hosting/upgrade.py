@@ -101,7 +101,7 @@ print(json.dumps(dict(image=current['Config']['Image'],image_id=current['Image']
         service_path=BASE, loopback_port=18195, source_sha256=manifest,
         previous_image=base_image, previous_image_id=before['Image'], compose_backup=backup,
         persistent_state='none; content fetched from published GitHub Pages',
-        origin='https://williamq96.github.io/open-AI-glossary', **result)
+        origin='https://williamq96.github.io/ai-lexicon-commons', **result)
     target = ROOT / ('deployment-' + release + '.json')
     with target.open('x', encoding='utf-8') as out:
         json.dump(receipt, out, indent=2); out.write('\n')

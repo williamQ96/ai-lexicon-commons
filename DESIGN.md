@@ -1,5 +1,5 @@
 ---
-name: Open AI Glossary
+name: AI Lexicon Commons
 description: A searchable research reference on warm paper with green ink and editorial
   reading typography.
 colors:
@@ -150,7 +150,7 @@ components:
     typography: '{typography.adoption-label}'
 ---
 
-# Design System: Open AI Glossary
+# Design System: AI Lexicon Commons
 
 ## Overview
 
@@ -214,7 +214,7 @@ Both variable fonts are self-hosted as TrueType files with OFL licenses, `font-d
 
 ## Layout
 
-The header sits above a centered workspace capped at (1536px), containing the textual Open AI / Glossary identity, Index & search, PDF, Contribute on GitHub and the appearance action. Desktop uses an index (264px) and flexible main region. The index is sticky (20px from the viewport top), independently scrollable and capped at viewport height minus (40px). Reading is capped at (1150px), with padding (48px 48px 0).
+The header sits above a centered workspace capped at (1536px), containing the textual AI Lexicon Commons identity, Index & search, PDF, Contribute on GitHub and the appearance action. Desktop uses an index (264px) and flexible main region. The index is sticky (20px from the viewport top), independently scrollable and capped at viewport height minus (40px). Reading is capped at (1150px), with padding (48px 48px 0).
 
 The homepage introduction has a flexible text column and editorial note (192px), separated by (48px). The curated index presents Workflow, Harness, Model, LLM, Agent, Schema in that order, as open summary rows capped at (75ch) with structural top rules and padding (26px 0 6px). The first introduction paragraph remains above the index; later paragraphs and source/adoption policies follow it.
 

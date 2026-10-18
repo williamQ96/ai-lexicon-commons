@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Lexicon Commons Editor"
+  short_description: "Research and edit cited AI Lexicon Commons entries"
+  default_prompt: "Use $ai-lexicon-commons-edit to research and revise a glossary entry with cited boundaries and explicit adoption status."

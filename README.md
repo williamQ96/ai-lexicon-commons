@@ -1,4 +1,6 @@
-# Open AI Glossary
+# AI Lexicon Commons
+
+An open, community-maintained reference for AI terminology and concepts.
 
 This is a living glossary developed for clearer communication and productivity across the research and engineering community. It is a public collaborative project, updated over time.
 
@@ -6,18 +8,18 @@ AI research and especially rapidly evolving AI engineering terminology can have 
 
 **Working proposal; pending repository consensus.** This draft chooses explicit working meanings without claiming repository certification. A merged pull request or passing build alone does not establish adoption.
 
-[![Build handbook](https://github.com/williamQ96/open-AI-glossary/actions/workflows/build-pdf.yml/badge.svg)](https://github.com/williamQ96/open-AI-glossary/actions/workflows/build-pdf.yml)
+[![Build handbook](https://github.com/williamQ96/ai-lexicon-commons/actions/workflows/build-pdf.yml/badge.svg)](https://github.com/williamQ96/ai-lexicon-commons/actions/workflows/build-pdf.yml)
 
 ## Read
 
-- [Searchable handbook and reading index](https://williamq96.github.io/open-AI-glossary/)
-- [Open AI Glossary live mirror](https://glossary.williamq.dev/): the same published pages at a dedicated domain.
-- [Current compiled PDF](https://williamq96.github.io/open-AI-glossary/glossary.pdf) and [current build record](https://williamq96.github.io/open-AI-glossary/build-record.html)
+- [Searchable handbook and reading index](https://williamq96.github.io/ai-lexicon-commons/)
+- [AI Lexicon Commons live mirror](https://glossary.williamq.dev/): the same published pages at a dedicated domain.
+- [Current compiled PDF](https://williamq96.github.io/ai-lexicon-commons/glossary.pdf) and [current build record](https://williamq96.github.io/ai-lexicon-commons/build-record.html)
 - [Archived starter PDF preview](docs/glossary.pdf) and [its snapshot provenance](docs/PDF-SNAPSHOT.md)
 - [Shared content source](data/handbook.json)
 - [Contribution guide](CONTRIBUTING.md) and [definition-entry template](templates/definition-entry.json)
 
-Edition 0.8 has ten active terms in reading order: Workflow, Human in the loop, Model in the loop, Harness, Model, LLM, Reasoning, Bias, Agent, Schema. Each independent page compares definitions, explains boundaries and operational criteria, shows typed relationships and a cited Repository proposal, and records source gaps and revisions. Search includes aliases, definition comparisons and relationship conditions. Search runs in the browser and sends no queries to a server.
+Edition 0.9 has ten active terms in reading order: Workflow, Human in the loop, Model in the loop, Harness, Model, LLM, Reasoning, Bias, Agent, Schema. Each independent page compares definitions, explains boundaries and operational criteria, shows typed relationships and a cited Repository proposal, and records source gaps and revisions. Search includes aliases, definition comparisons and relationship conditions. Search runs in the browser and sends no queries to a server.
 
 ## Source policy
 
@@ -82,12 +84,14 @@ Original handbook prose uses **CC BY 4.0**; build scripts and site code use **MI
 
 ## Editorial skill and validation
 
-Use [.agents/skills/open-ai-glossary-edit/SKILL.md](.agents/skills/open-ai-glossary-edit/SKILL.md). Its template, structural JSON schema and content/page contracts define cited statements, source tiers, semantic kinds and relationship conditions. The semantic validator also rejects missing citation IDs, dangling links, incompatible or cyclic is-a relations and false adoption records. Yellow/green tags describe repository certification only; all ten current working definitions are yellow.
+Use [.agents/skills/ai-lexicon-commons-edit/SKILL.md](.agents/skills/ai-lexicon-commons-edit/SKILL.md). Its template, structural JSON schema and content/page contracts define cited statements, source tiers, semantic kinds and relationship conditions. The semantic validator also rejects missing citation IDs, dangling links, incompatible or cyclic is-a relations and false adoption records. Yellow/green tags describe repository certification only; all ten current working definitions are yellow.
+
+The former `open-ai-glossary-edit` skill name remains a compatibility entry that forwards to the current skill. Existing term slugs and the `glossary.williamq.dev` domain remain stable. Historical PDFs, revision descriptions and deployment receipts retain their original names and provenance.
 
 The internal proposal is stored in JSON and generated as `lab-guide.html`; it contains no chat transcript. Strict is-a nesting currently connects LLM to Model. Agent uses LLM in the LLM-based scope; Harness supports/orchestrates Workflow and Agent. Old terms have left the active source and generated routes; their earlier editions remain in Git history and historical PDF provenance.
 
 Publishing to `main` runs the validation, fresh PDF compilation and Pages deployment together. Verify the deployed edition and source commit in the live build record; a failed run leaves the previous successful edition available.
 
-Harness contains the canonical [Harness vs Workflow comparison](https://williamq96.github.io/open-AI-glossary/terms/harness.html#harness-vs-workflow), including an illustrative schema-extraction experiment and limits of reproducibility. Workflow links to that section; no duplicate comparison entry is maintained.
+Harness contains the canonical [Harness vs Workflow comparison](https://williamq96.github.io/ai-lexicon-commons/terms/harness.html#harness-vs-workflow), including an illustrative schema-extraction experiment and limits of reproducibility. Workflow links to that section; no duplicate comparison entry is maintained.
 
 The mirror reads GitHub Pages on each request, preserving its paths, local search and PDF. It stores no second glossary copy and adds no scheduled synchronization interval. Updates become available through both addresses after a successful Pages publication. Mirror responses use `no-store`; GitHub Pages remains the publishing source and its own availability and cache behavior still apply. See [hosting operations](hosting/README.md).

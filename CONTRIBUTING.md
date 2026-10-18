@@ -1,6 +1,6 @@
 # Contributing to the living glossary
 
-Edit `data/handbook.json`, the single content source for HTML, TeX, the bibliography and the internal guide. For detailed editing rules, use [.agents/skills/open-ai-glossary-edit/SKILL.md](.agents/skills/open-ai-glossary-edit/SKILL.md), its template and schema/content/page references.
+Edit `data/handbook.json`, the single content source for HTML, TeX, the bibliography and the internal guide. For detailed editing rules, use [.agents/skills/ai-lexicon-commons-edit/SKILL.md](.agents/skills/ai-lexicon-commons-edit/SKILL.md), its template and schema/content/page references.
 
 1. Keep existing slugs stable. For a new entry, copy `templates/definition-entry.json`, replace its scaffold prose and unresolved source ID, and intentionally add its slug to `display_order`.
 2. Research applicable institutional definitions, peer-reviewed papers, industry standards / first-party documents / preprints / academic materials, then Repository proposals, in that order. Verify original versions, status and scope. Record gaps instead of inventing consensus or promoting university-hosted preprints.

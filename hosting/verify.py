@@ -13,7 +13,7 @@ import ssl
 from urllib.request import Request, urlopen
 
 HOST = 'glossary.williamq.dev'
-SOURCE = 'https://williamq96.github.io/open-AI-glossary/'
+SOURCE = 'https://williamq96.github.io/ai-lexicon-commons/'
 
 
 def fetch_mirror(path, edge_ip=None):

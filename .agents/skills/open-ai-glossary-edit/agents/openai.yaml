@@ -1,4 +1,0 @@
-interface:
-  display_name: "Open AI Glossary Editor"
-  short_description: "Research and edit cited Open AI Glossary entries"
-  default_prompt: "Use $open-ai-glossary-edit to research and revise a glossary entry with cited boundaries and explicit adoption status."

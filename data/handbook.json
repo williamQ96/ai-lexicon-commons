@@ -1,11 +1,11 @@
 {
-  "title": "Open AI Glossary",
-  "short_title": "Open AI Glossary",
-  "version": "0.8",
+  "title": "AI Lexicon Commons",
+  "short_title": "AI Lexicon Commons",
+  "version": "0.9",
   "updated": "2026-10-18",
   "status": "Ten working definitions; all repository proposals remain uncertified",
   "introduction": [
-    "A shared reference for research and engineering: compare meanings, inspect their boundaries, and follow the evidence.",
+    "An open, community-maintained reference for AI terminology and concepts.",
     "Read in the order Workflow, Human in the loop, Model in the loop, Harness, Model, LLM, Reasoning, Bias, Agent, Schema. This is a reading path across processes, components and properties, not one subtype hierarchy.",
     "External evidence and repository certification are separate. Each working definition remains a proposal until a documented repository consensus decision is recorded."
   ],
@@ -193,12 +193,12 @@
       "year": "2026",
       "tier": 4,
       "kind": "Repository internal proposal; not certified",
-      "version": "Repository proposal 1.4 / not certified",
+      "version": "Repository proposal 1.5 / not certified",
       "locator": "Term-specific proposal sections and editorial policy",
       "url": "lab-guide.html",
       "context": "Internal proposals and editorial interpretations, not external consensus.",
       "accessed": "2026-10-18",
-      "verification": "Versions 1.1 and 1.2 add the Schema proposal and the flow/governance experimental example while preserving prior proposal sections. All remain unratified; no adoption decision claimed. Version 1.3 changes branding and certification scope only; it does not certify any proposal. Version 1.4 adds Bias, Reasoning and participation-loop proposals while preserving earlier sections; no ratification is claimed.",
+      "verification": "Versions 1.1 and 1.2 add the Schema proposal and the flow/governance experimental example while preserving prior proposal sections. All remain unratified; no adoption decision claimed. Version 1.3 changes branding and certification scope only; it does not certify any proposal. Version 1.4 adds Bias, Reasoning and participation-loop proposals while preserving earlier sections; no ratification is claimed. Version 1.5 renames the project AI Lexicon Commons; definitions and certification status are unchanged.",
       "guide_id": "lab-guide-v1"
     },
     "swe-agent": {
@@ -2558,7 +2558,7 @@
   "lab_guide": {
     "id": "lab-guide-v1",
     "title": "Repository terminology guide",
-    "version": "1.4",
+    "version": "1.5",
     "updated": "2026-10-18",
     "status": "proposed",
     "adoption": null,
@@ -2666,6 +2666,11 @@
         "version": "1.4",
         "date": "2026-10-18",
         "text": "Add unratified Bias, Reasoning and Human/Model participation-loop proposals. Preserve every earlier proposal section; no consensus decision recorded."
+      },
+      {
+        "version": "1.5",
+        "date": "2026-10-18",
+        "text": "Rename the project AI Lexicon Commons and add its community-reference tagline. Existing definitions, proposals and certification status are unchanged."
       }
     ]
   }

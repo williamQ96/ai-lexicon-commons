@@ -65,7 +65,7 @@ def main():
         before.parent.mkdir(parents=True, exist_ok=True)
         if not before.exists(): before.write_text(json.dumps(proxies, indent=2) + '\n', encoding='utf-8')
         assert not any(p['frontend']['fqdn'] == HOST for p in proxies), 'Inspect existing glossary proxy before changing it'
-        entry = dict(description='Open AI Glossary mirror HTTP and ACME', frontend=dict(fqdn=HOST, port=80, protocol=0, acl=None), backend=dict(fqdn='127.0.0.1', port=18195, protocol=0), customize_headers=[dict(name='X-Forwarded-Proto', value='http')], proxy_connect_timeout=30, proxy_read_timeout=60, proxy_send_timeout=60, proxy_http_version=1, proxy_intercept_errors=False)
+        entry = dict(description='AI Lexicon Commons mirror HTTP and ACME', frontend=dict(fqdn=HOST, port=80, protocol=0, acl=None), backend=dict(fqdn='127.0.0.1', port=18195, protocol=0), customize_headers=[dict(name='X-Forwarded-Proto', value='http')], proxy_connect_timeout=30, proxy_read_timeout=60, proxy_send_timeout=60, proxy_http_version=1, proxy_intercept_errors=False)
         api('SYNO.Core.AppPortal.ReverseProxy', 'create', entry=entry)
         after = api('SYNO.Core.AppPortal.ReverseProxy', 'list')['entries']
         assert {p['UUID']: p for p in proxies} == {p['UUID']: p for p in after if p['frontend']['fqdn'] != HOST}, 'Unrelated proxy changed'

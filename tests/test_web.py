@@ -275,7 +275,7 @@ class WebsiteTests(unittest.TestCase):
 
     def test_skill_template_and_schema_stay_in_sync(self):
         from content import KINDS
-        skill=ROOT / ".agents/skills/open-ai-glossary-edit"
+        skill=ROOT / ".agents/skills/ai-lexicon-commons-edit"
         self.assertEqual((ROOT / "templates/definition-entry.json").read_bytes(),(skill / "assets/definition-entry.json").read_bytes())
         schema=json.loads((skill / "references/content-schema.json").read_text(encoding="utf-8"))
         self.assertEqual(schema["properties"]["schema_version"]["const"],self.book["schema_version"])

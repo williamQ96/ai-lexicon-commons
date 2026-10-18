@@ -1,6 +1,8 @@
-# Open AI Glossary live mirror
+# AI Lexicon Commons live mirror
 
-`https://glossary.williamq.dev/` reads `https://williamq96.github.io/open-AI-glossary/` through a fixed-origin reverse proxy. Paths such as `/terms/harness.html`, `/assets/style.css`, `/glossary.pdf` and `/BUILD-INFO.json` map to the same published paths beneath the GitHub project prefix. Relative links keep the mirror hostname; external citations retain their original destinations.
+**AI Lexicon Commons — An open, community-maintained reference for AI terminology and concepts.**
+
+`https://glossary.williamq.dev/` reads `https://williamq96.github.io/ai-lexicon-commons/` through a fixed-origin reverse proxy. Paths such as `/terms/harness.html`, `/assets/style.css`, `/glossary.pdf` and `/BUILD-INFO.json` map to the same published paths beneath the GitHub project prefix. Relative links keep the mirror hostname; external citations retain their original destinations.
 
 GitHub Pages is the single publishing source. No second content repository, scheduled copy or deployment webhook is necessary. After a successful Pages build, mirror requests read the published source. Responses are `Cache-Control: no-store`, upstream requests ask for revalidation, and neither the app nor its Cloudflare edge adds a stored content copy. GitHub's upstream cache behavior and availability remain relevant; this does not publish uncommitted edits or make a failed Pages build live.
 
@@ -24,7 +26,7 @@ Run `python -m unittest discover -s hosting -v` locally; the same checks run in 
 
 To remove the alias, use the skill's supported DNS/DSM APIs to remove only its recorded DNS record and two glossary proxy UUIDs, then stop only `williamq-glossary-mirror`. Preserve its release directory and certificate for recovery; do not delete volumes or modify other hosts, certificates, account stores or router forwarding. GitHub Pages continues to publish independently. For future code upgrades, retain the prior image/compose and switch only this service, retaining the ACME mount and loopback binding.
 
-## Repository rename and current release (2026-10-18)
+## Repository rename and release history (2026-10-18, v0.8)
 
 The GitHub repository is now `williamQ96/open-AI-glossary`; its Pages path is `https://williamq96.github.io/open-AI-glossary/`. The old project Pages path returned 404. Both the main-branch publication guard and the mirror's fixed origin now use the current identity. The existing Git remote alias and local project directory are retained.
 
