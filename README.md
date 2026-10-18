@@ -17,7 +17,7 @@ AI research and especially rapidly evolving AI engineering terminology can have 
 - [Shared content source](data/handbook.json)
 - [Contribution guide](CONTRIBUTING.md) and [definition-entry template](templates/definition-entry.json)
 
-Edition 0.7 has six active terms in reading order: Workflow, Harness, Model, LLM, Agent, Schema. Each independent page compares definitions, explains boundaries and operational criteria, shows typed relationships and a cited Repository proposal, and records source gaps and revisions. Search includes aliases, definition comparisons and relationship conditions. Search runs in the browser and sends no queries to a server.
+Edition 0.8 has ten active terms in reading order: Workflow, Human in the loop, Model in the loop, Harness, Model, LLM, Reasoning, Bias, Agent, Schema. Each independent page compares definitions, explains boundaries and operational criteria, shows typed relationships and a cited Repository proposal, and records source gaps and revisions. Search includes aliases, definition comparisons and relationship conditions. Search runs in the browser and sends no queries to a server.
 
 ## Source policy
 
@@ -82,7 +82,7 @@ Original handbook prose uses **CC BY 4.0**; build scripts and site code use **MI
 
 ## Editorial skill and validation
 
-Use [.agents/skills/open-ai-glossary-edit/SKILL.md](.agents/skills/open-ai-glossary-edit/SKILL.md). Its template, structural JSON schema and content/page contracts define cited statements, source tiers, semantic kinds and relationship conditions. The semantic validator also rejects missing citation IDs, dangling links, incompatible or cyclic is-a relations and false adoption records. Yellow/green tags describe repository certification only; all six current working definitions are yellow.
+Use [.agents/skills/open-ai-glossary-edit/SKILL.md](.agents/skills/open-ai-glossary-edit/SKILL.md). Its template, structural JSON schema and content/page contracts define cited statements, source tiers, semantic kinds and relationship conditions. The semantic validator also rejects missing citation IDs, dangling links, incompatible or cyclic is-a relations and false adoption records. Yellow/green tags describe repository certification only; all ten current working definitions are yellow.
 
 The internal proposal is stored in JSON and generated as `lab-guide.html`; it contains no chat transcript. Strict is-a nesting currently connects LLM to Model. Agent uses LLM in the LLM-based scope; Harness supports/orchestrates Workflow and Agent. Old terms have left the active source and generated routes; their earlier editions remain in Git history and historical PDF provenance.
 

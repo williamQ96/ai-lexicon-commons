@@ -7,7 +7,7 @@ from urllib.parse import urlsplit
 TIERS = {1: "Institutional definition", 2: "Peer-reviewed paper",
          3: "Industry / first-party / preprint / academic", 4: "Repository internal proposal"}
 RELATIONS = {"is-a", "uses", "supports/orchestrates"}
-KINDS = {"process", "runtime", "model", "system"}
+KINDS = {"process", "runtime", "model", "system", "property"}
 
 
 def require(ok, message):

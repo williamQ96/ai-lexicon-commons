@@ -1,12 +1,12 @@
 {
   "title": "Open AI Glossary",
   "short_title": "Open AI Glossary",
-  "version": "0.7",
-  "updated": "2026-10-12",
-  "status": "Six working definitions; all repository proposals remain uncertified",
+  "version": "0.8",
+  "updated": "2026-10-18",
+  "status": "Ten working definitions; all repository proposals remain uncertified",
   "introduction": [
     "A shared reference for research and engineering: compare meanings, inspect their boundaries, and follow the evidence.",
-    "Read in the order Workflow, Harness, Model, LLM, Agent, Schema. The sequence is a reading path, not a claim that all six form a single subtype hierarchy.",
+    "Read in the order Workflow, Human in the loop, Model in the loop, Harness, Model, LLM, Reasoning, Bias, Agent, Schema. This is a reading path across processes, components and properties, not one subtype hierarchy.",
     "External evidence and repository certification are separate. Each working definition remains a proposal until a documented repository consensus decision is recorded."
   ],
   "source_policy": [
@@ -193,12 +193,12 @@
       "year": "2026",
       "tier": 4,
       "kind": "Repository internal proposal; not certified",
-      "version": "Repository proposal 1.3 / not certified",
+      "version": "Repository proposal 1.4 / not certified",
       "locator": "Term-specific proposal sections and editorial policy",
       "url": "lab-guide.html",
       "context": "Internal proposals and editorial interpretations, not external consensus.",
-      "accessed": "2026-10-12",
-      "verification": "Versions 1.1 and 1.2 add the Schema proposal and the flow/governance experimental example while preserving prior proposal sections. All remain unratified; no adoption decision claimed. Version 1.3 changes branding and certification scope only; it does not certify any proposal.",
+      "accessed": "2026-10-18",
+      "verification": "Versions 1.1 and 1.2 add the Schema proposal and the flow/governance experimental example while preserving prior proposal sections. All remain unratified; no adoption decision claimed. Version 1.3 changes branding and certification scope only; it does not certify any proposal. Version 1.4 adds Bias, Reasoning and participation-loop proposals while preserving earlier sections; no ratification is claimed.",
       "guide_id": "lab-guide-v1"
     },
     "swe-agent": {
@@ -291,6 +291,149 @@
       "context": "Historical Chat Completions example for 2023 model versions; not a current feature-support promise for all APIs or a statement about every LLM.",
       "accessed": "2026-10-11",
       "verification": "Read the original recipe, its archived warning, date and explicit statement that matching seed, parameters and fingerprint does not guarantee identical outputs."
+    },
+    "nist-bias-1270": {
+      "title": "Towards a Standard for Identifying and Managing Bias in Artificial Intelligence",
+      "author": "Reva Schwartz, Apostol Vassilev, Kristen K. Greene, Lori Perine, Andrew Burt and Patrick Hall",
+      "year": "2022",
+      "tier": 1,
+      "kind": "Institutional special publication; not a universal LLM definition",
+      "version": "NIST SP 1270, March 2022; DOI 10.6028/NIST.SP.1270",
+      "locator": "Sections 2.1.1-2.1.2, printed pages 3-8; Human-in-the-loop, printed pages 33-34",
+      "url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1270.pdf",
+      "context": "AI bias across statistical, human and systemic contexts; human oversight limitations.",
+      "accessed": "2026-10-18",
+      "verification": "Final publication record and original PDF passages checked. Its statistical framing is distinguished from social harm; the title does not make this a binding standard."
+    },
+    "blodgett-bias-2020": {
+      "title": "Language (Technology) is Power: A Critical Survey of Bias in NLP",
+      "author": "Su Lin Blodgett, Solon Barocas, Hal Daume III and Hanna Wallach",
+      "year": "2020",
+      "tier": 2,
+      "kind": "Peer-reviewed conference paper",
+      "version": "ACL 2020, pages 5454-5476; DOI 10.18653/v1/2020.acl-main.485",
+      "locator": "Abstract; Section 1, Introduction; recommendations on conceptualizing bias",
+      "url": "https://aclanthology.org/2020.acl-main.485/",
+      "context": "A critical survey of social bias in NLP; not a universal numerical fairness criterion.",
+      "accessed": "2026-10-18",
+      "verification": "ACL proceedings metadata checked. The browser PDF reader failed; the original 23-page PDF was retrieved directly and its opening and relevant passages read locally."
+    },
+    "rm-iat-2026": {
+      "title": "Implicit Bias-Like Patterns in Reasoning Models",
+      "author": "Messi H. J. Lee and Calvin K. Lai",
+      "year": "2026",
+      "tier": 3,
+      "kind": "Preprint; peer-reviewed publication not established in this review",
+      "version": "arXiv:2503.11572v4, 6 April 2026; first submitted 14 March 2025",
+      "locator": "Sections 2.1, 2.4, 2.6 and 3-4; Sections 6-7 on availability",
+      "url": "https://arxiv.org/abs/2503.11572v4",
+      "context": "RM-IAT compares reasoning-token usage under compatible and incompatible associations in five tested model versions.",
+      "accessed": "2026-10-18",
+      "verification": "Version history, abstract and v4 HTML methods/results/limitations checked. No published venue established. Public code/data links are redacted in v4; no independent replication claimed."
+    },
+    "oecd-ai-memorandum-2024": {
+      "title": "Explanatory memorandum on the updated OECD definition of an AI system",
+      "author": "Organisation for Economic Co-operation and Development",
+      "year": "2024",
+      "tier": 1,
+      "kind": "Institutional explanatory memorandum",
+      "version": "OECD Artificial Intelligence Papers No. 8, March 2024; DOI 10.1787/623da898-en",
+      "locator": "Printed page 9, Inferring how to generate outputs and Box 1; printed page 11, endnote 5",
+      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2024/03/explanatory-memorandum-on-the-updated-oecd-definition-of-an-ai-system_3c815e51/623da898-en.pdf",
+      "context": "AI-system and inference terminology, including reasoning with knowledge structures; not an LLM-specific capability test.",
+      "accessed": "2026-10-18",
+      "verification": "Original memorandum passages and document identity checked. Endnote 5 attributes an inference meaning to ISO/IEC 22989; this review cites OECD rather than claiming direct inspection of the ISO text."
+    },
+    "wei-cot-2022": {
+      "title": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
+      "author": "Jason Wei, Xuezhi Wang, Dale Schuurmans, Maarten Bosma, Brian Ichter, Fei Xia, Ed H. Chi, Quoc V. Le and Denny Zhou",
+      "year": "2022",
+      "tier": 2,
+      "kind": "Peer-reviewed conference paper",
+      "version": "NeurIPS 2022, Advances in Neural Information Processing Systems 35",
+      "locator": "Abstract; Sections 1-2 and arithmetic, commonsense and symbolic reasoning experiments",
+      "url": "https://proceedings.neurips.cc/paper/2022/hash/9d5609613524ecf4f15af0f7b31abca4-Abstract.html",
+      "context": "Few-shot chain-of-thought prompting and task-specific results; not a universal account of cognition.",
+      "accessed": "2026-10-18",
+      "verification": "Official proceedings record and original 14-page conference PDF retrieved; definition of chain of thought, task scope and prompting setup checked."
+    },
+    "turpin-faithfulness-2023": {
+      "title": "Language Models Don't Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting",
+      "author": "Miles Turpin, Julian Michael, Ethan Perez and Samuel R. Bowman",
+      "year": "2023",
+      "tier": 2,
+      "kind": "Peer-reviewed conference paper",
+      "version": "NeurIPS 2023, Advances in Neural Information Processing Systems 36",
+      "locator": "Abstract and Section 1; experiments using biasing prompt features",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2023/hash/ed3fea9033a80fea1376299fa7863f4a-Abstract.html",
+      "context": "Faithfulness failures for the tested models and tasks; not proof that every chain of thought is unfaithful.",
+      "accessed": "2026-10-18",
+      "verification": "Official proceedings and original 14-page PDF checked. The study distinguishes plausible explanations from faithful accounts of factors affecting predictions."
+    },
+    "openai-reasoning-20261018": {
+      "title": "Reasoning models",
+      "author": "OpenAI",
+      "year": "2026",
+      "tier": 3,
+      "kind": "First-party API documentation; living page",
+      "version": "Documentation accessed 18 October 2026; no immutable edition specified",
+      "locator": "How reasoning works; Reasoning summaries; reasoning-token usage fields",
+      "url": "https://developers.openai.com/api/docs/guides/reasoning",
+      "context": "OpenAI API terminology and observability; model support and settings are product-specific.",
+      "accessed": "2026-10-18",
+      "verification": "Original documentation checked, including the distinction between unexposed raw reasoning tokens and opt-in summaries. This dated record is not a promise of unchanged API behavior."
+    },
+    "oecd-classification-2022": {
+      "title": "OECD Framework for the Classification of AI systems",
+      "author": "Organisation for Economic Co-operation and Development",
+      "year": "2022",
+      "tier": 1,
+      "kind": "Institutional classification framework",
+      "version": "OECD Digital Economy Papers No. 323, February 2022; DOI 10.1787/cb6d9eca-en",
+      "locator": "Printed page 53, Action autonomy level",
+      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2022/02/oecd-framework-for-the-classification-of-ai-systems_336a8b57/cb6d9eca-en.pdf",
+      "context": "Human involvement in action authorization; narrower than all uses of HITL in machine learning.",
+      "accessed": "2026-10-18",
+      "verification": "Original PDF checked: human agreement precedes action in the low-action-autonomy category, while medium autonomy allows action unless vetoed."
+    },
+    "hitl-review-2023": {
+      "title": "Human-in-the-loop machine learning: a state of the art",
+      "author": "Eduardo Mosqueira-Rey, Elena Hernandez-Pereira, David Alonso-Rios, Jose Bobes-Bascaran and Angel Fernandez-Leal",
+      "year": "2023",
+      "tier": 2,
+      "kind": "Peer-reviewed journal review",
+      "version": "Artificial Intelligence Review 56, pages 3005-3054 (2023); online 17 August 2022; DOI 10.1007/s10462-022-10246-w",
+      "locator": "Abstract and introductory distinctions among active learning, interactive ML and machine teaching",
+      "url": "https://link.springer.com/article/10.1007/s10462-022-10246-w",
+      "context": "Human participation and control in machine learning, especially learning-stage interaction.",
+      "accessed": "2026-10-18",
+      "verification": "Publisher full-text page, authors, online date and volume year checked. Its learning-oriented scope is kept separate from the OECD action-approval category."
+    },
+    "self-refine-2023": {
+      "title": "Self-Refine: Iterative Refinement with Self-Feedback",
+      "author": "Aman Madaan, Niket Tandon, Prakhar Gupta, Skyler Hallinan, Luyu Gao, Sarah Wiegreffe, Uri Alon, Nouha Dziri, Shrimai Prabhumoye, Yiming Yang, Shashank Gupta, Bodhisattwa Prasad Majumder, Katherine Hermann, Sean Welleck, Amir Yazdanbakhsh and Peter Clark",
+      "year": "2023",
+      "tier": 2,
+      "kind": "Peer-reviewed conference paper",
+      "version": "NeurIPS 2023, Advances in Neural Information Processing Systems 36",
+      "locator": "Abstract; Section 2 and iterative feedback/refinement algorithm",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2023/hash/91edff07232fb1b55a505a9e9f6c0ff3-Abstract-Conference.html",
+      "context": "One concrete LLM feedback loop; it does not define all model-in-the-loop systems.",
+      "accessed": "2026-10-18",
+      "verification": "Official proceedings and original conference PDF retrieved. Generator, feedback and refinement roles, stopping condition and absence of additional training in this method checked."
+    },
+    "mathworks-mil-2026": {
+      "title": "How Do We Know Our System Will Actually Work?",
+      "author": "George Amarantidis / MathWorks",
+      "year": "2026",
+      "tier": 3,
+      "kind": "First-party engineering blog",
+      "version": "20 August 2026",
+      "locator": "Desktop Simulation; Software in the Loop; What checks what",
+      "url": "https://blogs.mathworks.com/engineering/2026/08/20/how-do-we-know-our-system-will-actually-work/",
+      "context": "Model-based control engineering; MiL simulates controller and plant before generated-code and hardware stages.",
+      "accessed": "2026-10-18",
+      "verification": "Original first-party article and publication date checked. This engineering usage is preserved as a distinct meaning, not treated as an LLM standard."
     }
   },
   "terms": [
@@ -462,8 +605,8 @@
       ],
       "status": "proposed",
       "adoption": null,
-      "entry_version": "1.2",
-      "updated": "2026-10-12",
+      "entry_version": "1.3",
+      "updated": "2026-10-18",
       "revisions": [
         {
           "version": "1.0",
@@ -479,6 +622,11 @@
           "version": "1.2",
           "date": "2026-10-12",
           "text": "Scope the working definition and certification labels to this repository under Open AI Glossary. Citations and proposed status remain unchanged."
+        },
+        {
+          "version": "1.3",
+          "date": "2026-10-18",
+          "text": "Add related reading links to the new entries; preserve the existing definition and proposed status."
         }
       ],
       "sources": [
@@ -492,7 +640,9 @@
       "related": [
         "harness",
         "llm",
-        "agent"
+        "agent",
+        "human-in-the-loop",
+        "model-in-the-loop"
       ],
       "concept_kind": "process",
       "reading_links": [
@@ -1179,8 +1329,8 @@
       "sections": [],
       "status": "proposed",
       "adoption": null,
-      "entry_version": "1.1",
-      "updated": "2026-10-12",
+      "entry_version": "1.2",
+      "updated": "2026-10-18",
       "revisions": [
         {
           "version": "1.0",
@@ -1191,6 +1341,11 @@
           "version": "1.1",
           "date": "2026-10-12",
           "text": "Scope the working definition and certification labels to this repository under Open AI Glossary. Citations and proposed status remain unchanged."
+        },
+        {
+          "version": "1.2",
+          "date": "2026-10-18",
+          "text": "Add related reading links to the new entries; preserve the existing definition and proposed status."
         }
       ],
       "sources": [
@@ -1202,7 +1357,9 @@
       "related": [
         "harness",
         "model",
-        "agent"
+        "agent",
+        "reasoning",
+        "bias"
       ],
       "concept_kind": "model"
     },
@@ -1602,22 +1759,807 @@
         "model",
         "workflow"
       ]
+    },
+    {
+      "slug": "bias",
+      "title": "Bias",
+      "full_name": "Bias in large language models",
+      "aliases": [
+        "LLM bias",
+        "social bias",
+        "implicit bias",
+        "implicit bias-like patterns",
+        "RM-IAT",
+        "Reasoning Model Implicit Association Test"
+      ],
+      "concept_kind": "property",
+      "definition": {
+        "text": "In LLM work, bias is a systematic tendency in associations, behavior or performance relative to a stated comparison. Social-bias claims additionally identify whose representation or treatment is affected and why it is harmful or unfair.",
+        "source_ids": [
+          "nist-bias-1270",
+          "blodgett-bias-2020"
+        ],
+        "inference": true
+      },
+      "scope": {
+        "text": "This entry focuses on LLM evaluation, especially social stereotypes and processing asymmetries. It does not treat every preference, factual error or use of the word bias as the same phenomenon.",
+        "source_ids": [
+          "lab-guide-v1"
+        ],
+        "inference": true
+      },
+      "definition_views": [
+        {
+          "label": "NIST: several contexts",
+          "context": "Institutional; AI broadly",
+          "statement": {
+            "text": "NIST separates statistical, systemic and human sources of bias; a statistical account alone does not cover all societal risks.",
+            "source_ids": [
+              "nist-bias-1270"
+            ]
+          }
+        },
+        {
+          "label": "Blodgett and colleagues: social harm must be specified",
+          "context": "Peer-reviewed; NLP",
+          "statement": {
+            "text": "The survey asks researchers to state the behavior, affected communities, harm and normative assumptions behind a social-bias claim.",
+            "source_ids": [
+              "blodgett-bias-2020"
+            ]
+          }
+        },
+        {
+          "label": "Lee and Lai: a processing measure",
+          "context": "Preprint; reasoning models",
+          "statement": {
+            "text": "RM-IAT operationalizes bias-like association patterns through differences in reasoning-token usage across task conditions.",
+            "source_ids": [
+              "rm-iat-2026"
+            ]
+          }
+        }
+      ],
+      "includes": [
+        {
+          "text": "Stereotypical associations and uneven treatment or performance across relevant groups can motivate distinct social-bias investigations; they need not share one metric.",
+          "source_ids": [
+            "blodgett-bias-2020"
+          ],
+          "inference": true
+        },
+        {
+          "text": "Processing asymmetry may be studied alongside output behavior, with each measure reported separately.",
+          "source_ids": [
+            "rm-iat-2026"
+          ],
+          "inference": true
+        }
+      ],
+      "excludes": [
+        {
+          "text": "One erroneous answer does not establish a systematic tendency; investigate it using a defined comparison and repeated observations.",
+          "source_ids": [
+            "lab-guide-v1"
+          ],
+          "inference": true
+        },
+        {
+          "text": "Statistical distortion, inductive assumptions and harmful social stereotyping are different questions. A useful preference is not automatically unfair.",
+          "source_ids": [
+            "nist-bias-1270",
+            "lab-guide-v1"
+          ],
+          "inference": true
+        }
+      ],
+      "ambiguities": [
+        {
+          "text": "A measured disparity needs context and a justified reference; the word bias does not supply a universal fairness threshold.",
+          "source_ids": [
+            "blodgett-bias-2020"
+          ],
+          "inference": true
+        },
+        {
+          "text": "Bias-like token differences do not establish human unconscious attitudes or guarantee biased downstream outputs.",
+          "source_ids": [
+            "rm-iat-2026",
+            "lab-guide-v1"
+          ],
+          "inference": true
+        }
+      ],
+      "sections": [
+        {
+          "id": "rm-iat",
+          "title": "Reading the RM-IAT study",
+          "paragraphs": [
+            {
+              "text": "In arXiv:2503.11572v4, o3-mini, DeepSeek-R1, gpt-oss-20b and Qwen-3 8B generally used more reasoning tokens for association-incompatible pairings. Claude 3.7 Sonnet showed reversed patterns on several social tasks. These findings concern the tested models and prompts.",
+              "source_ids": [
+                "rm-iat-2026"
+              ]
+            },
+            {
+              "text": "The primary analysis excludes refusals. The authors identify downstream predictive validity as unresolved: the metric does not directly measure later decisions or their harms. Report the experimental conditions and limitations with the finding.",
+              "source_ids": [
+                "rm-iat-2026"
+              ]
+            }
+          ]
+        }
+      ],
+      "operational": {
+        "text": "Repository test: record model/version, task, population, baseline, prompts, samples, metric, effect size and uncertainty. State the relevant harm when claiming social bias. Distinguish observations from causal explanations; for token comparisons, document refusal handling and token accounting.",
+        "source_ids": [
+          "lab-guide-v1"
+        ],
+        "inference": true
+      },
+      "adaptation": {
+        "text": "Use bias with a named sense and a reproducible comparison. Treat RM-IAT as one proposed processing diagnostic, alongside separate output and application-level evaluation. Do not infer a model belief or universal unfairness score from it.",
+        "source_ids": [
+          "lab-guide-v1"
+        ]
+      },
+      "relations": [],
+      "source_gaps": [
+        "Institutional coverage: NIST provides general AI framing, not a single LLM-specific social-bias definition or metric.",
+        "Peer-reviewed coverage: the ACL survey supports conceptual care; it does not validate the later RM-IAT study.",
+        "The supplied paper is recorded as v4, revised 6 April 2026. A peer-reviewed publication and independent replication were not established in this review; v4 redacts public code/data links."
+      ],
+      "sources": [
+        "nist-bias-1270",
+        "blodgett-bias-2020",
+        "rm-iat-2026",
+        "lab-guide-v1"
+      ],
+      "related": [
+        "llm",
+        "reasoning",
+        "human-in-the-loop"
+      ],
+      "reading_links": [
+        {
+          "target": "reasoning",
+          "section": "trace-and-compute",
+          "label": "Reasoning traces and computation"
+        }
+      ],
+      "status": "proposed",
+      "adoption": null,
+      "entry_version": "1.0",
+      "updated": "2026-10-18",
+      "revisions": [
+        {
+          "version": "1.0",
+          "date": "2026-10-18",
+          "text": "Initial cited entry with attributed scopes, operational criteria and an unratified repository working definition."
+        }
+      ]
+    },
+    {
+      "slug": "reasoning",
+      "title": "Reasoning",
+      "full_name": "Reasoning in large language models",
+      "aliases": [
+        "LLM reasoning",
+        "chain of thought",
+        "chain-of-thought",
+        "CoT",
+        "reasoning tokens",
+        "reasoning model",
+        "inference",
+        "推理"
+      ],
+      "concept_kind": "process",
+      "definition": {
+        "text": "In LLM work, reasoning is the task-directed derivation or checking of conclusions from information, premises or constraints. Evaluate this ability on specified tasks; an explanation of intermediate steps is a representation of reasoning, not automatic access to its mechanism.",
+        "source_ids": [
+          "oecd-ai-memorandum-2024",
+          "wei-cot-2022",
+          "turpin-faithfulness-2023"
+        ],
+        "inference": true
+      },
+      "scope": {
+        "text": "This entry concerns LLM problem solving and its evaluation. It distinguishes a capability, an execution process and the text or usage metadata exposed by a particular interface.",
+        "source_ids": [
+          "lab-guide-v1"
+        ],
+        "inference": true
+      },
+      "definition_views": [
+        {
+          "label": "OECD: inference and reasoning tasks",
+          "context": "Institutional; AI broadly",
+          "statement": {
+            "text": "The memorandum discusses inference as producing outputs from inputs, and reasoning with knowledge structures as one task type. This broad terminology does not isolate LLM reasoning ability.",
+            "source_ids": [
+              "oecd-ai-memorandum-2024"
+            ]
+          }
+        },
+        {
+          "label": "Wei and colleagues: chain-of-thought prompting",
+          "context": "Peer-reviewed; a prompting method",
+          "statement": {
+            "text": "Chain of thought expresses intermediate steps. Few-shot demonstrations improved arithmetic, commonsense and symbolic task performance in the studied models; the method is not a definition of every reasoning process.",
+            "source_ids": [
+              "wei-cot-2022"
+            ]
+          }
+        },
+        {
+          "label": "OpenAI: product-specific reasoning computation",
+          "context": "First-party documentation; API observability",
+          "statement": {
+            "text": "OpenAI distinguishes internal reasoning-token usage from final answers and optional reasoning summaries. A summary is not the unexposed raw token sequence.",
+            "source_ids": [
+              "openai-reasoning-20261018"
+            ]
+          }
+        }
+      ],
+      "includes": [
+        {
+          "text": "Multi-step arithmetic, commonsense and symbolic problem solving are concrete task families used to evaluate reasoning in the cited prompting study.",
+          "source_ids": [
+            "wei-cot-2022"
+          ]
+        },
+        {
+          "text": "Checking a conclusion against premises or constraints is part of this working scope; correctness and robustness must be evaluated rather than inferred from a model label.",
+          "source_ids": [
+            "lab-guide-v1"
+          ],
+          "inference": true
+        }
+      ],
+      "excludes": [
+        {
+          "text": "A plausible step-by-step explanation is not sufficient evidence of a faithful explanation: prompt features can affect answers without being acknowledged in the text.",
+          "source_ids": [
+            "turpin-faithfulness-2023"
+          ]
+        },
+        {
+          "text": "Inference as running a deployed model is broader than a claim that the model successfully reasons on a particular task.",
+          "source_ids": [
+            "oecd-ai-memorandum-2024"
+          ],
+          "inference": true
+        }
+      ],
+      "ambiguities": [
+        {
+          "text": "Reasoning model is a model category or product label; reasoning here names a process or capability. An LLM need not be an autonomous agent to be tested on reasoning tasks.",
+          "source_ids": [
+            "lab-guide-v1"
+          ],
+          "inference": true
+        },
+        {
+          "text": "Answer correctness and explanation faithfulness are distinct: an explanation may omit influential prompt cues even when it sounds coherent.",
+          "source_ids": [
+            "turpin-faithfulness-2023"
+          ],
+          "inference": true
+        }
+      ],
+      "sections": [
+        {
+          "id": "trace-and-compute",
+          "title": "Reasoning traces and computation",
+          "paragraphs": [
+            {
+              "text": "Keep three observations separate: whether the answer solves the task, what explanatory text is emitted, and how much reasoning computation the interface reports. Token count is not a correctness or faithfulness score.",
+              "source_ids": [
+                "lab-guide-v1"
+              ],
+              "inference": true
+            },
+            {
+              "text": "OpenAI summaries and token-usage fields expose different information. Record the model, interface, effort setting and available measurements; do not assume another provider uses the same accounting.",
+              "source_ids": [
+                "openai-reasoning-20261018",
+                "lab-guide-v1"
+              ],
+              "inference": true
+            }
+          ]
+        }
+      ],
+      "operational": {
+        "text": "Repository test: define held-out tasks and verifiable success criteria; record model/version, prompts, tools, sampling and compute budget. Compare against a stated baseline and test relevant perturbations. Assess explanation faithfulness separately from answer accuracy. Keep unavailable internal mechanisms marked unknown.",
+        "source_ids": [
+          "lab-guide-v1"
+        ],
+        "inference": true
+      },
+      "adaptation": {
+        "text": "Use reasoning for a specified problem-solving process or tested capability. Say chain of thought for an emitted step sequence and reasoning tokens for interface-specific computation accounting. None of these terms alone certifies correctness, faithfulness or general intelligence.",
+        "source_ids": [
+          "lab-guide-v1"
+        ]
+      },
+      "relations": [
+        {
+          "target": "llm",
+          "type": "uses",
+          "condition": "In the LLM-based implementation studied by Wei and colleagues, intermediate steps and the answer are generated by an LLM. This does not make Reasoning a subtype of LLM.",
+          "source_ids": [
+            "wei-cot-2022"
+          ],
+          "inference": true
+        }
+      ],
+      "source_gaps": [
+        "Institutional coverage: the OECD text supplies adjacent inference/task terminology, not a universal LLM-specific reasoning test or a direct mechanistic account.",
+        "Peer-reviewed examples establish task- and model-specific findings. This review does not establish one agreed boundary between reasoning, memorization and heuristic behavior.",
+        "OpenAI documentation is a living first-party source accessed on 18 October 2026; its observability and settings should not be generalized to every model or provider."
+      ],
+      "sources": [
+        "oecd-ai-memorandum-2024",
+        "wei-cot-2022",
+        "turpin-faithfulness-2023",
+        "openai-reasoning-20261018",
+        "lab-guide-v1"
+      ],
+      "related": [
+        "llm",
+        "model",
+        "bias",
+        "agent"
+      ],
+      "reading_links": [
+        {
+          "target": "bias",
+          "section": "rm-iat",
+          "label": "RM-IAT: a reasoning-token comparison"
+        }
+      ],
+      "status": "proposed",
+      "adoption": null,
+      "entry_version": "1.0",
+      "updated": "2026-10-18",
+      "revisions": [
+        {
+          "version": "1.0",
+          "date": "2026-10-18",
+          "text": "Initial cited entry with attributed scopes, operational criteria and an unratified repository working definition."
+        }
+      ]
+    },
+    {
+      "slug": "human-in-the-loop",
+      "title": "Human in the loop",
+      "full_name": "Human-in-the-loop participation in AI workflows",
+      "aliases": [
+        "human-in-the-loop",
+        "human in the loop",
+        "HITL",
+        "human feedback",
+        "human approval",
+        "人在回路",
+        "人在环路"
+      ],
+      "concept_kind": "process",
+      "definition": {
+        "text": "Human in the loop describes an arrangement in which a person supplies feedback or a decision that can affect the next step of an AI workflow. State whether this means learning-stage interaction, correction, or approval before an action.",
+        "source_ids": [
+          "oecd-classification-2022",
+          "hitl-review-2023"
+        ],
+        "inference": true
+      },
+      "scope": {
+        "text": "This entry describes participation and control in AI workflows, including LLM systems. Specify the stage and actual authority of the person rather than using HITL as a general assurance label.",
+        "source_ids": [
+          "lab-guide-v1"
+        ],
+        "inference": true
+      },
+      "definition_views": [
+        {
+          "label": "OECD: agreement before action",
+          "context": "Institutional; action autonomy",
+          "statement": {
+            "text": "In the OECD low-action-autonomy category, a system acts on its output only if a human agrees. Human-on-the-loop instead permits action unless vetoed.",
+            "source_ids": [
+              "oecd-classification-2022"
+            ]
+          }
+        },
+        {
+          "label": "Mosqueira-Rey and colleagues: interaction in learning",
+          "context": "Peer-reviewed; machine learning",
+          "statement": {
+            "text": "The review distinguishes active learning, interactive machine learning and machine teaching by how humans and learning systems interact and who controls learning.",
+            "source_ids": [
+              "hitl-review-2023"
+            ]
+          }
+        }
+      ],
+      "includes": [
+        {
+          "text": "A person correcting queried labels or giving feedback that changes model development fits a learning-stage use of HITL.",
+          "source_ids": [
+            "hitl-review-2023"
+          ],
+          "inference": true
+        },
+        {
+          "text": "A required reviewer approval before publishing an LLM-produced artifact is a workflow example, provided the action waits for that decision.",
+          "source_ids": [
+            "lab-guide-v1"
+          ],
+          "inference": true
+        }
+      ],
+      "excludes": [
+        {
+          "text": "A dashboard observer with only a possible veto is not the OECD agreement-before-action arrangement.",
+          "source_ids": [
+            "oecd-classification-2022"
+          ],
+          "inference": true
+        },
+        {
+          "text": "An unused approve button or review after an irreversible step does not meet this proposal for approval before that step.",
+          "source_ids": [
+            "lab-guide-v1"
+          ],
+          "inference": true
+        }
+      ],
+      "ambiguities": [
+        {
+          "text": "Learning-stage feedback and action-stage authorization are different placements of human involvement; the term alone does not identify which is intended.",
+          "source_ids": [
+            "hitl-review-2023",
+            "lab-guide-v1"
+          ],
+          "inference": true
+        },
+        {
+          "text": "Human involvement does not automatically prevent adverse outcomes. NIST cautions that assumptions about human oversight often go untested.",
+          "source_ids": [
+            "nist-bias-1270"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "human-vs-model",
+          "title": "Human and Model in the loop",
+          "paragraphs": [
+            {
+              "text": "These roles can coexist. In the proposed workflow sense, name who supplies feedback and who authorizes each action; a model recommendation is not a human decision.",
+              "source_ids": [
+                "lab-guide-v1"
+              ],
+              "inference": true
+            }
+          ],
+          "comparison": {
+            "left_title": "Human in the loop",
+            "right_title": "Model in the loop",
+            "rows": [
+              {
+                "label": "Participant",
+                "left": {
+                  "text": "A person supplies consequential feedback or a decision.",
+                  "source_ids": [
+                    "hitl-review-2023",
+                    "lab-guide-v1"
+                  ],
+                  "inference": true
+                },
+                "right": {
+                  "text": "A model supplies predictions, feedback or revisions consumed by subsequent steps.",
+                  "source_ids": [
+                    "self-refine-2023",
+                    "lab-guide-v1"
+                  ],
+                  "inference": true
+                }
+              },
+              {
+                "label": "Authority",
+                "left": {
+                  "text": "For an approval gate, the governed action waits for human agreement.",
+                  "source_ids": [
+                    "oecd-classification-2022"
+                  ],
+                  "inference": true
+                },
+                "right": {
+                  "text": "A model result has only the authority explicitly assigned by workflow policy.",
+                  "source_ids": [
+                    "lab-guide-v1"
+                  ],
+                  "inference": true
+                }
+              },
+              {
+                "label": "Example",
+                "left": {
+                  "text": "An expert accepts, corrects or rejects a proposed schema before publication.",
+                  "source_ids": [
+                    "lab-guide-v1"
+                  ],
+                  "inference": true
+                },
+                "right": {
+                  "text": "An LLM critiques a draft; its feedback informs the next revision.",
+                  "source_ids": [
+                    "self-refine-2023"
+                  ],
+                  "inference": true
+                }
+              },
+              {
+                "label": "Limit",
+                "left": {
+                  "text": "Human review must itself be evaluated; presence alone does not establish effectiveness.",
+                  "source_ids": [
+                    "nist-bias-1270"
+                  ],
+                  "inference": true
+                },
+                "right": {
+                  "text": "Model feedback needs evaluation; it is not human approval or independent ground truth.",
+                  "source_ids": [
+                    "lab-guide-v1"
+                  ],
+                  "inference": true
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "operational": {
+        "text": "Repository test: identify the person/role, intervention point, evidence available, permitted choices, and effect on the next state. For approval gates, demonstrate that no response leaves the action pending and rejection prevents it. Record escalation, review capacity and decision provenance; evaluate whether review helps.",
+        "source_ids": [
+          "lab-guide-v1"
+        ],
+        "inference": true
+      },
+      "adaptation": {
+        "text": "Use HITL when a named human contribution can affect the workflow. Qualify it as annotation, feedback, correction or approval. For approval, require the human decision before the governed action. Keep learning and authorization claims separate.",
+        "source_ids": [
+          "lab-guide-v1"
+        ]
+      },
+      "relations": [],
+      "source_gaps": [
+        "Institutional coverage is an action-autonomy classification; the peer-reviewed review covers broader learning interactions. Neither makes every HITL arrangement an effective safety mechanism.",
+        "The workflow tests and schema example are repository proposals, not a claim of an implemented or evaluated system."
+      ],
+      "sources": [
+        "oecd-classification-2022",
+        "nist-bias-1270",
+        "hitl-review-2023",
+        "self-refine-2023",
+        "lab-guide-v1"
+      ],
+      "related": [
+        "workflow",
+        "model-in-the-loop",
+        "harness",
+        "bias"
+      ],
+      "status": "proposed",
+      "adoption": null,
+      "entry_version": "1.0",
+      "updated": "2026-10-18",
+      "revisions": [
+        {
+          "version": "1.0",
+          "date": "2026-10-18",
+          "text": "Initial cited entry with attributed scopes, operational criteria and an unratified repository working definition."
+        }
+      ]
+    },
+    {
+      "slug": "model-in-the-loop",
+      "title": "Model in the loop",
+      "full_name": "Model-in-the-loop participation in AI workflows",
+      "aliases": [
+        "model-in-the-loop",
+        "model in the loop",
+        "MITL",
+        "MiL",
+        "MIL",
+        "LLM in the loop",
+        "LLM-in-the-loop",
+        "model feedback",
+        "模型在环"
+      ],
+      "concept_kind": "process",
+      "definition": {
+        "text": "In this glossary's proposed AI-workflow usage, Model in the loop means a model participates in an execution or feedback cycle: its output is consumed to select, revise or control a subsequent step. State what closes the loop.",
+        "source_ids": [
+          "self-refine-2023",
+          "lab-guide-v1"
+        ],
+        "inference": true
+      },
+      "scope": {
+        "text": "The primary scope here is LLM workflows and feedback. This is an explicit working proposal, distinct from Model-in-the-Loop simulation in control engineering; it does not claim a universal definition.",
+        "source_ids": [
+          "lab-guide-v1"
+        ],
+        "inference": true
+      },
+      "definition_views": [
+        {
+          "label": "Self-Refine: a concrete model feedback cycle",
+          "context": "Peer-reviewed; example rather than general definition",
+          "statement": {
+            "text": "Self-Refine uses an LLM to produce an initial output, give feedback, and revise iteratively. The same model can fill all three roles, without additional training in this method.",
+            "source_ids": [
+              "self-refine-2023"
+            ]
+          }
+        },
+        {
+          "label": "MathWorks: simulation before generated code",
+          "context": "First-party engineering; a distinct meaning",
+          "statement": {
+            "text": "In Model-Based Design, MiL can mean desktop simulation of controller and plant models, before later software, processor and hardware tests. This does not require an LLM.",
+            "source_ids": [
+              "mathworks-mil-2026"
+            ]
+          }
+        }
+      ],
+      "includes": [
+        {
+          "text": "A generator-feedback-refinement cycle is one concrete LLM implementation. It need not use separate models for each role.",
+          "source_ids": [
+            "self-refine-2023"
+          ]
+        },
+        {
+          "text": "A model ranking or critique fits this proposal when it changes selection, revision or control in the enclosing cycle.",
+          "source_ids": [
+            "lab-guide-v1"
+          ],
+          "inference": true
+        }
+      ],
+      "excludes": [
+        {
+          "text": "A score that is merely logged and never consumed is not active feedback under this proposal. Repeating independent calls alone does not establish an iterative improvement loop.",
+          "source_ids": [
+            "lab-guide-v1"
+          ],
+          "inference": true
+        },
+        {
+          "text": "A deterministic validator is not automatically a learned model. A model critique is not proof that an artifact is correct or supported by evidence.",
+          "source_ids": [
+            "lab-guide-v1"
+          ],
+          "inference": true
+        }
+      ],
+      "ambiguities": [
+        {
+          "text": "A model can take part in a human-controlled cycle or an automated cycle. Model participation does not specify who may authorize publication or execution.",
+          "source_ids": [
+            "lab-guide-v1"
+          ],
+          "inference": true
+        },
+        {
+          "text": "MiL in simulation engineering names a test configuration; an LLM feedback loop names a workflow role. Expand the acronym and state the domain.",
+          "source_ids": [
+            "mathworks-mil-2026",
+            "lab-guide-v1"
+          ],
+          "inference": true
+        }
+      ],
+      "sections": [
+        {
+          "id": "feedback-cycle",
+          "title": "A bounded feedback example",
+          "paragraphs": [
+            {
+              "text": "Proposed example: extract a schema, ask a model to critique unsupported fields, revise against source evidence, then stop at a quality criterion or attempt limit. A human may separately approve publication. This illustrates a workflow, not a deployed repository experiment.",
+              "source_ids": [
+                "lab-guide-v1"
+              ],
+              "inference": true
+            }
+          ]
+        }
+      ],
+      "operational": {
+        "text": "Repository test: identify model/version, input evidence, prompt, output, consumer and resulting state change. Specify how feedback returns, what is revised, iteration/compute limits and stopping criteria. Log failures and escalation. Evaluate model feedback against independent evidence or checks; record human approval separately where required.",
+        "source_ids": [
+          "lab-guide-v1"
+        ],
+        "inference": true
+      },
+      "adaptation": {
+        "text": "Use Model in the loop with an explicit cycle and consumed model contribution. State the model role, limits, feedback path and decision authority. Human and model involvement may coexist; neither phrase implies the absence of the other.",
+        "source_ids": [
+          "lab-guide-v1"
+        ]
+      },
+      "relations": [
+        {
+          "target": "model",
+          "type": "uses",
+          "condition": "In the proposed AI-workflow scope, a model supplies a contribution that is consumed inside the cycle; model participation is not itself a subtype of Model.",
+          "source_ids": [
+            "self-refine-2023",
+            "lab-guide-v1"
+          ],
+          "inference": true
+        }
+      ],
+      "source_gaps": [
+        "No directly applicable institutional definition of general LLM-workflow Model in the loop was established in this review. The simulation meaning is retained with its own attribution.",
+        "Self-Refine supplies a peer-reviewed implementation example, not external endorsement of the broader repository definition. No universal effectiveness or correctness guarantee is established."
+      ],
+      "sources": [
+        "self-refine-2023",
+        "mathworks-mil-2026",
+        "lab-guide-v1"
+      ],
+      "related": [
+        "workflow",
+        "human-in-the-loop",
+        "harness",
+        "model",
+        "llm"
+      ],
+      "reading_links": [
+        {
+          "target": "human-in-the-loop",
+          "section": "human-vs-model",
+          "label": "Human and Model in the loop compared"
+        }
+      ],
+      "status": "proposed",
+      "adoption": null,
+      "entry_version": "1.0",
+      "updated": "2026-10-18",
+      "revisions": [
+        {
+          "version": "1.0",
+          "date": "2026-10-18",
+          "text": "Initial cited entry with attributed scopes, operational criteria and an unratified repository working definition."
+        }
+      ]
     }
   ],
   "schema_version": 2,
   "display_order": [
     "workflow",
+    "human-in-the-loop",
+    "model-in-the-loop",
     "harness",
     "model",
     "llm",
+    "reasoning",
+    "bias",
     "agent",
     "schema"
   ],
   "lab_guide": {
     "id": "lab-guide-v1",
     "title": "Repository terminology guide",
-    "version": "1.3",
-    "updated": "2026-10-12",
+    "version": "1.4",
+    "updated": "2026-10-18",
     "status": "proposed",
     "adoption": null,
     "sections": [
@@ -1670,6 +2612,33 @@
           "Proposed experimental harness policies: standardize input snapshots and model adapters, bound attempts and resource consumption, permit an explicit unknown value only where the declared schema allows it, distinguish evidence support from structural validation, checkpoint progress and record inputs, model/configuration versions, prompts, outputs and failure reasons.",
           "For this example, orchestration assigns models, replicates, devices and dependencies. An experimental harness supplies the configured execution and recording environment. These roles may live in the same implementation. Recording experimental conditions helps audit and repeat a setup; it does not establish that every output will be identical or correct."
         ]
+      },
+      {
+        "id": "bias",
+        "title": "Bias in LLMs: an unratified editorial extension",
+        "paragraphs": [
+          "Proposed usage: bias is a systematic tendency in model associations, behavior or performance under stated conditions. Specify whether the claim concerns a statistical deviation, a social stereotype or disparity, or a processing asymmetry. Calling a pattern harmful requires an explicit affected population, application context and normative basis.",
+          "Proposed reporting criterion: identify the model/version, task, population, comparison baseline, prompts, sample size, metric, effect size and uncertainty. Separate observed behavior from a proposed cause. For RM-IAT, record refusal handling and reasoning-token accounting; do not infer human unconscious beliefs or downstream discriminatory behavior from a token-count difference alone.",
+          "A single bad answer is a useful incident to investigate, not sufficient evidence of a systematic pattern. A nonuniform preference is not automatically unfair. Keep statistical and inductive uses of bias distinct from the social-bias question being evaluated."
+        ]
+      },
+      {
+        "id": "reasoning",
+        "title": "Reasoning in LLMs: an unratified editorial extension",
+        "paragraphs": [
+          "Proposed usage: reasoning is a task-directed process of deriving or checking conclusions from information, premises or constraints. Use the term behaviorally unless a particular mechanism has been demonstrated. Distinguish task success, an emitted reasoning trace, and a provider-specific allocation of reasoning computation.",
+          "Proposed evaluation: specify model/version, task family, prompts, tools, sampling, compute budget and held-out cases. Compare answer correctness and constraint satisfaction against a stated baseline; test robustness to relevant perturbations. Assess explanation faithfulness separately, using interventions where possible. Neither fluent steps, a correct answer nor a larger token count alone proves a general reasoning mechanism."
+        ]
+      },
+      {
+        "id": "participation-loops",
+        "title": "Human and Model in the loop: an unratified workflow proposal",
+        "paragraphs": [
+          "Proposed AI-workflow usage: Human in the loop means a person supplies feedback or a decision that can change the next step. Name the role precisely: annotation, correction, approval, escalation or intervention. When approval is required, wait for it before the governed action; monitoring with an optional veto is a different control arrangement.",
+          "Proposed AI-workflow usage: Model in the loop means a model is a causally active participant in an execution or feedback cycle. Its prediction, critique, ranking or revision is consumed by the workflow to select, revise or control a subsequent step. Specify what closes the loop, the permitted actions and the stopping rule. A repeated model call without feedback is not by itself an iterative improvement loop.",
+          "The two arrangements can coexist: a model may propose revisions while a person approves the final action. Record the separate authority of each. A model score is not human authorization; human review is not an automatic guarantee of correctness or fairness. Keep control-engineering Model-in-the-Loop simulation as a distinct attributed meaning.",
+          "Proposed example: an extractor proposes a schema, a model critiques unsupported fields, and the workflow revises against source evidence until a bounded stopping rule. A human then approves or rejects publication. This is a teaching example, not a claim of a deployed or evaluated repository system. Deterministic validation and evidence review remain separate checks."
+        ]
       }
     ],
     "revisions": [
@@ -1692,6 +2661,11 @@
         "version": "1.3",
         "date": "2026-10-12",
         "text": "Rename the project Open AI Glossary and scope certification to this repository. All working meanings remain proposed; no new consensus decision recorded."
+      },
+      {
+        "version": "1.4",
+        "date": "2026-10-18",
+        "text": "Add unratified Bias, Reasoning and Human/Model participation-loop proposals. Preserve every earlier proposal section; no consensus decision recorded."
       }
     ]
   }

@@ -46,7 +46,8 @@ class WebsiteTests(unittest.TestCase):
         cls.outputs = generate(cls.book, cls.digest)
 
     def test_active_routes_and_reading_order(self):
-        order = ["workflow", "harness", "model", "llm", "agent", "schema"]
+        order = ["workflow", "human-in-the-loop", "model-in-the-loop", "harness",
+                 "model", "llm", "reasoning", "bias", "agent", "schema"]
         self.assertEqual(self.book["display_order"], order)
         routes = {path for path in self.outputs if path.startswith("docs/terms/")}
         self.assertEqual(routes, {"docs/terms/" + slug + ".html" for slug in order})
@@ -273,14 +274,47 @@ class WebsiteTests(unittest.TestCase):
                 self.assertGreaterEqual((high+0.05)/(low+0.05),4.5,(fg,bg))
 
     def test_skill_template_and_schema_stay_in_sync(self):
+        from content import KINDS
         skill=ROOT / ".agents/skills/open-ai-glossary-edit"
         self.assertEqual((ROOT / "templates/definition-entry.json").read_bytes(),(skill / "assets/definition-entry.json").read_bytes())
         schema=json.loads((skill / "references/content-schema.json").read_text(encoding="utf-8"))
         self.assertEqual(schema["properties"]["schema_version"]["const"],self.book["schema_version"])
         self.assertIn("consensus",schema["$defs"]["adoption"]["required"])
+        self.assertEqual(set(schema["$defs"]["term"]["properties"]["concept_kind"]["enum"]), KINDS)
         entry=json.loads((skill / "assets/definition-entry.json").read_text(encoding="utf-8"))
         self.assertEqual(entry["status"],"proposed")
         self.assertIsNone(entry["adoption"])
+
+    def test_bias_property_cannot_be_nested_under_a_model(self):
+        b = copy.deepcopy(self.book)
+        bias = next(t for t in b["terms"] if t["slug"] == "bias")
+        self.assertEqual(bias["concept_kind"], "property")
+        bias["relations"].append({"target": "model", "type": "is-a",
+            "condition": "Synthetic invalid property/model nesting.",
+            "source_ids": ["nist-bias-1270"], "inference": True})
+        with self.assertRaisesRegex(ValueError, "is-a cannot cross semantic kinds"):
+            validate(b)
+
+    def test_participation_comparison_has_one_canonical_location(self):
+        human = Document(self.outputs["docs/terms/human-in-the-loop.html"])
+        model = Document(self.outputs["docs/terms/model-in-the-loop.html"])
+        self.assertIn("human-vs-model", human.ids)
+        self.assertNotIn("human-vs-model", model.ids)
+        self.assertIn("human-in-the-loop.html#human-vs-model", model.links)
+        self.assertIn("agreement", "".join(human.text))
+        self.assertIn("simulation", "".join(model.text))
+
+    def test_bias_and_reasoning_separate_processing_metrics_from_outcomes(self):
+        terms = {t["slug"]: t for t in self.book["terms"]}
+        self.assertEqual(terms["bias"]["status"], "proposed")
+        self.assertEqual(self.book["sources"]["rm-iat-2026"]["tier"], 3)
+        self.assertIn("2503.11572v4", self.book["sources"]["rm-iat-2026"]["url"])
+        bias = Document(self.outputs["docs/terms/bias.html"])
+        reasoning = Document(self.outputs["docs/terms/reasoning.html"])
+        self.assertIn("downstream predictive validity", "".join(bias.text))
+        self.assertIn("faithfulness", "".join(reasoning.text))
+        self.assertIn("reasoning.html#trace-and-compute", bias.links)
+        self.assertIn("bias.html#rm-iat", reasoning.links)
 
 
 if __name__ == "__main__":
